@@ -1,0 +1,52 @@
+<template lang="pug">
+  .hello
+    h1 {{ msg }}
+    h2 Essential Links
+    ul
+      li
+        a(href="https://vuejs.org", target="_blank") Core Docs
+      li
+        a(href="https://forum.vuejs.org", target="_blank") Forum
+      li
+        a(href="https://chat.vuejs.org", target="_blank") Community Chat
+      li
+        a(href="https://twitter.com/vuejs", target="_blank") Twitter
+      li
+        a(href="http://vuejs-templates.github.io/webpack/", target="_blank") Docs for This Template
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: {
+      type: String,
+      default: 'Hola'
+    }
+  },
+  data () {
+    return {}
+  }
+}
+</script>
+
+<style lang="scss">
+h1,
+h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+
+    a {
+      color: #42b983;
+    }
+  }
+}
+</style>
