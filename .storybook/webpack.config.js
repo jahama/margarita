@@ -8,11 +8,5 @@ module.exports = (baseConfig, env, defaultConfig) => {
     include: path.resolve(__dirname, '../src')
   })
 
-  storybookBaseConfig.module.rules.push({
-    test: /\.pug$/,
-    loaders: [ 'pug-loader' ],
-    include: path.resolve(__dirname, '../')
-  })
-
   return defaultConfig
 }

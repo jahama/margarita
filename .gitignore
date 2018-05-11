@@ -1,9 +1,8 @@
 .DS_Store
-.nuxt/
-build/
 node_modules/
+storybook-static/
+test/unit/coverage/
 npm-debug.log*
-/test/unit/coverage/
 
 # Editor directories and files
 .idea
