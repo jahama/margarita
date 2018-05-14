@@ -8,5 +8,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
     include: path.resolve(__dirname, '../src')
   })
 
+  defaultConfig.resolve.alias['^'] = path.resolve(__dirname, '../.storybook')
+
   return defaultConfig
 }
