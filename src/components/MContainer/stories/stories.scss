@@ -1,0 +1,16 @@
+.m-container {
+  height: 90vh;
+  background-color: rgba(255, 0, 0, .2);
+}
+
+.col-6 {
+  flex: 0 0 50%;
+}
+
+.m-column--yellow {
+  background-color: rgba(255, 255, 0, .2);
+}
+
+.m-column--cyan {
+  background-color: rgba(0, 255, 255, .2);
+}
