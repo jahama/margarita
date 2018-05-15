@@ -9,8 +9,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.m-column {
-  display: flex;
-}
-</style>
+<style lang="scss" src="./MColumn.scss"></style>

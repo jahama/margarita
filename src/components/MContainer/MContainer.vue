@@ -4,6 +4,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'm-container',
 
@@ -21,13 +23,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.m-container {
-  display: flex;
-  min-width: 992px;
-  max-width: 992px;
-}
-.m-container--fluid {
-  max-width: 100vw;
-}
-</style>
+<style lang="scss" src="./MContainer.scss"></style>

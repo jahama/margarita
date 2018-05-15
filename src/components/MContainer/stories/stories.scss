@@ -1,16 +1,35 @@
-.m-container {
-  height: 90vh;
-  background-color: rgba(255, 0, 0, .2);
-}
+@import "../../../scss/variables/colors";
 
-.col-6 {
-  flex: 0 0 50%;
-}
+.grid-example {
+  .m-row {
+    .m-column {
+      div {
+        border: 2px;
+        border-radius: 2px;
+        padding: 20px;
+      }
+    }
 
-.m-column--yellow {
-  background-color: rgba(255, 255, 0, .2);
-}
+    &:nth-child(even) {
+      .m-column {
+        div {
+          background-color: map-get($colors, 'dark-hot-pink');
+          border-color: map-get($colors, 'dark-hot-pink');
+        }
+      }
+    }
 
-.m-column--cyan {
-  background-color: rgba(0, 255, 255, .2);
+    &:nth-child(odd) {
+      .m-column {
+        div {
+          background-color: map-get($colors, 'school-bus-yellow');
+          border-color: map-get($colors, 'school-bus-yellow');
+        }
+      }
+    }
+
+    &+.m-row {
+      margin-top: .5rem;
+    }
+  }
 }

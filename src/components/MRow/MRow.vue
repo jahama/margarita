@@ -1,17 +1,24 @@
 <template lang="pug">
-  .m-row
+  .m-row(:class="getComputedClasses")
     slot
 </template>
 
 <script>
 export default {
-  name: 'm-row'
+  name: 'm-row',
+
+  props: {
+    noGutters: Boolean
+  },
+
+  computed: {
+    getComputedClasses () {
+      return {
+        'm-row--no-gutters': this.noGutters
+      }
+    }
+  }
 }
 </script>
 
-<style lang="scss">
-.m-row {
-  display: flex;
-  flex: 0 0 100%;
-}
-</style>
+<style lang="scss" src="./MRow.scss"></style>
