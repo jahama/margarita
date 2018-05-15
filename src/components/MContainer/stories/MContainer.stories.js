@@ -1,7 +1,7 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean } from '@storybook/addon-knobs/vue'
-import withMarkdownNotes from '^/withMarkdownNotes'
+import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import GridSystemNotes from '../notes/GridSystem.md'
 
