@@ -30,3 +30,28 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+body {
+  line-height: 1.5;
+}
+
+code,
+kbd {
+  color: #bd4147;
+  display: inline-block;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  font-size: 85%;
+  font-weight: 900;
+}
+code::before,
+code::after,
+kbd::before,
+kbd::after {
+  content: "\A0";
+  letter-spacing: -1px;
+}
+kbd {
+  background: #424242;
+    color: #fff;
+}

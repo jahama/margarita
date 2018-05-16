@@ -1,16 +1,16 @@
-<style lang="scss" src="./MColumn.scss"></style>
+<style lang="scss" src="./MCol.scss"></style>
 
 <script>
 import { mergeDataWithProps } from '@/utils/mergeData'
 
 const componentData = function () {
   return {
-    staticClass: 'm-column'
+    staticClass: 'm-col'
   }
 }
 
 export default {
-  name: 'm-column',
+  name: 'm-col',
 
   functional: true,
 

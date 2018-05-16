@@ -70,62 +70,62 @@
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
-      .m-column#{$infix}-#{$i} {
+      .m-col#{$infix}-#{$i} {
         @extend %grid-column;
       }
     }
 
     @if ($infix == "-") {
-      .m-column {
+      .m-col {
         @extend %grid-column;
       }
     } @else {
-      .m-column#{$infix} {
+      .m-col#{$infix} {
         @extend %grid-column;
       }
     }
 
-    .m-column#{$infix}-auto {
+    .m-col#{$infix}-auto {
       @extend %grid-column;
     }
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
-      // Provide basic `.m-column--{bp}` classes for equal-width flexbox columns
+      // Provide basic `.m-col--{bp}` classes for equal-width flexbox columns
       @if ($infix == "-") {
-        .m-column {
+        .m-col {
           display: flex;
           flex-basis: 0;
           flex-grow: 1;
           max-width: 100%;
         }
       } @else {
-        .m-column#{$infix} {
+        .m-col#{$infix} {
           flex-basis: 0;
           flex-grow: 1;
           max-width: 100%;
         }
       }
 
-      .m-column#{$infix}-auto {
+      .m-col#{$infix}-auto {
         flex: 0 0 auto;
         width: auto;
         max-width: none; // Reset earlier grid tiers
       }
 
       @for $i from 1 through $columns {
-        .m-column#{$infix}-#{$i} {
+        .m-col#{$infix}-#{$i} {
           @include make-col($i, $columns);
         }
       }
 
       @for $i from 0 through $columns {
-        .m-column#{$infix}-order-#{$i} { order: $i; }
+        .m-col#{$infix}-order-#{$i} { order: $i; }
       }
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
-          .m-column#{$infix}-offset-#{$i} {
+          .m-col#{$infix}-offset-#{$i} {
             @include make-col-offset($i, $columns);
           }
         }

@@ -10,7 +10,7 @@ import GridSystemNotes from '../notes/GridSystem.md'
 
 import MContainer from '../MContainer.vue'
 import MRow from '../../MRow/MRow.vue'
-import MColumn from '../../MColumn/MColumn.vue'
+import MCol from '../../MCol/MCol.vue'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
@@ -20,38 +20,38 @@ storiesOf('Grid System', module)
     const noGutters = boolean('No gutters', false)
 
     return ({
-      components: { MContainer, MRow, MColumn },
+      components: { MContainer, MRow, MCol },
       template: `
         <MContainer :fluid="fluid" :tag="tag" class="grid-example">
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 1" :key="col" class="m-column--12">
+            <MCol v-for="col in 1" :key="col" class="m-col--12">
               <div class="content">12</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 2" :key="col" class="m-column--6">
+            <MCol v-for="col in 2" :key="col" class="m-col--6">
               <div class="content">6</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 3" :key="col" class="m-column--4">
+            <MCol v-for="col in 3" :key="col" class="m-col--4">
               <div class="content">4</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 4" :key="col" class="m-column--3">
+            <MCol v-for="col in 4" :key="col" class="m-col--3">
               <div class="content">3</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 6" :key="col" class="m-column--2">
+            <MCol v-for="col in 6" :key="col" class="m-col--2">
               <div class="content">2</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn v-for="col in 12" :key="col" class="m-column--1">
+            <MCol v-for="col in 12" :key="col" class="m-col--1">
               <div class="content">1</div>
-            </MColumn>
+            </MCol>
           </MRow>
         </MContainer>
       `,
@@ -70,22 +70,22 @@ storiesOf('Grid System', module)
     const noGutters = boolean('noGutters', false)
 
     return ({
-      components: { MContainer, MRow, MColumn },
+      components: { MContainer, MRow, MCol },
       template: `
         <MContainer :fluid="fluid" class="grid-example">
           <MRow :noGutters="noGutters">
-            <MColumn class="m-column--10 m-column--offset-1">
-              <div class="content">m-column--10 m-column--offset-1</div>
-            </MColumn>
-            <MColumn class="m-column--7 m-column--offset-5 m-column--md-offset-2 m-column--lg-offset-5">
-              <div class="content">m-column--7 m-column--(5 | md-offset-2 | lg-offset-5)</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-5 m-column--md-3">
-              <div class="content">m-column--12 m-column--(sm-5 | md-3)</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-5 m-column--md-5">
-              <div class="content">m-column--12 m-column--(sm-5 | md-5) m-column--lg-offset-2</div>
-            </MColumn>
+            <MCol class="m-col--10 m-col--offset-1">
+              <div class="content">m-col--10 m-col--offset-1</div>
+            </MCol>
+            <MCol class="m-col--7 m-col--offset-5 m-col--md-offset-2 m-col--lg-offset-5">
+              <div class="content">m-col--7 m-col--(5 | md-offset-2 | lg-offset-5)</div>
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-5 m-col--md-3">
+              <div class="content">m-col--12 m-col--(sm-5 | md-3)</div>
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-5 m-col--md-5">
+              <div class="content">m-col--12 m-col--(sm-5 | md-5) m-col--lg-offset-2</div>
+            </MCol>
           </MRow>
         </MContainer>
       `,
@@ -103,41 +103,41 @@ storiesOf('Grid System', module)
     const noGutters = boolean('noGutters', false)
 
     return ({
-      components: { MContainer, MRow, MColumn },
+      components: { MContainer, MRow, MCol },
       template: `
         <MContainer :fluid="fluid" class="grid-example">
           <MRow :noGutters="noGutters">
-            <MColumn class="m-column--6 m-column--lg-order-2">
+            <MCol class="m-col--6 m-col--lg-order-2">
               <div class="content">#1</div>
-            </MColumn>
-            <MColumn class="m-column--6">
+            </MCol>
+            <MCol class="m-col--6">
               <div class="content">#2</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn class="m-column--4 m-column--md-order-2 m-column--order-1">
+            <MCol class="m-col--4 m-col--md-order-2 m-col--order-1">
               <div class="content">#1</div>
-            </MColumn>
-            <MColumn class="m-column--4 m-column--md-order-3 m-column--order-2">
+            </MCol>
+            <MCol class="m-col--4 m-col--md-order-3 m-col--order-2">
               <div class="content">#2</div>
-            </MColumn>
-            <MColumn class="m-column--4 m-column--md-order-1 m-column--order-3">
+            </MCol>
+            <MCol class="m-col--4 m-col--md-order-1 m-col--order-3">
               <div class="content">#3</div>
-            </MColumn>
+            </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-4 m-column--sm-order-2">
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-4 m-col--sm-order-2">
               <div class="content">#1</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-3 m-column--sm-order-1">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-3 m-col--sm-order-1">
               <div class="content">#2</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-2 m-column--sm-order-4">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-2 m-col--sm-order-4">
               <div class="content">#3</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-1 m-column--sm-order-3">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-1 m-col--sm-order-3">
               <div class="content">#4</div>
-            </MColumn>
+            </MCol>
           </MRow>
         </MContainer>
       `,
@@ -155,29 +155,29 @@ storiesOf('Grid System', module)
     const noGutters = boolean('noGutters', false)
 
     return ({
-      components: { MContainer, MRow, MColumn },
+      components: { MContainer, MRow, MCol },
       template: `
         <MContainer :fluid="fluid" class="grid-example">
           <MRow :noGutters="noGutters">
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-4">
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-4">
               <div class="content">{{ lorem }}</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
               <MRow :noGutters="noGutters">
-                <MColumn>
+                <MCol>
                   <div class="content">{{ lorem.slice(0, 70) }}</div>
-                </MColumn>
-                <MColumn v-for="i in 2" :key="i" class="m-column--12">
+                </MCol>
+                <MCol v-for="i in 2" :key="i" class="m-col--12">
                   <div class="content">{{ lorem.slice(0, 40) }}</div>
-                </MColumn>
+                </MCol>
               </MRow>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-2">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-2">
               <div class="content">{{ lorem.slice(0, 90) }}</div>
-            </MColumn>
-            <MColumn class="m-column--12 m-column--sm-6 m-column--md-3">
+            </MCol>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
               <div class="content">{{ lorem.slice(0, 100) }}</div>
-            </MColumn>
+            </MCol>
           </MRow>
         </MContainer>
       `,

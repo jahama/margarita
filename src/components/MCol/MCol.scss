@@ -3,6 +3,6 @@
 
 @include make-grid-columns();
 
-.m-column > * {
+.m-col > * {
   flex: auto;
 }

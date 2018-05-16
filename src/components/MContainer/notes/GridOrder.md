@@ -3,37 +3,37 @@
 ```handlebars
 <MContainer :fluid="fluid" class="offset-example">
   <MRow>
-    <MColumn class="m-column--6 m-column--lg-order-2">
+    <MCol class="m-col--6 m-col--lg-order-2">
       <div>#1</div>
-    </MColumn>
-    <MColumn class="m-column--6">
+    </MCol>
+    <MCol class="m-col--6">
       <div>#2</div>
-    </MColumn>
+    </MCol>
   </MRow>
   <MRow>
-    <MColumn class="m-column--4 m-column--md-order-2 m-column--order-1">
+    <MCol class="m-col--4 m-col--md-order-2 m-col--order-1">
       <div>#1</div>
-    </MColumn>
-    <MColumn class="m-column--4 m-column--md-order-3 m-column--order-2">
+    </MCol>
+    <MCol class="m-col--4 m-col--md-order-3 m-col--order-2">
       <div>#2</div>
-    </MColumn>
-    <MColumn class="m-column--4 m-column--md-order-1 m-column--order-3">
+    </MCol>
+    <MCol class="m-col--4 m-col--md-order-1 m-col--order-3">
       <div>#3</div>
-    </MColumn>
+    </MCol>
   </MRow>
   <MRow>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-4 m-column--sm-order-2">
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-4 m-col--sm-order-2">
       <div>#1</div>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-3 m-column--sm-order-1">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-3 m-col--sm-order-1">
       <div>#2</div>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-2 m-column--sm-order-4">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-2 m-col--sm-order-4">
       <div>#3</div>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3 m-column--md-order-1 m-column--sm-order-3">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-1 m-col--sm-order-3">
       <div>#4</div>
-    </MColumn>
+    </MCol>
   </MRow>
 </MContainer>
 ```

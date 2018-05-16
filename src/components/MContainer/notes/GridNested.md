@@ -3,25 +3,25 @@
 ```handlebars
 <MContainer :fluid="fluid" class="grid-example">
   <MRow :noGutters="noGutters">
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-4">
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-4">
       <div class="content">{{ lorem }}</div>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
       <MRow :noGutters="noGutters">
-        <MColumn>
+        <MCol>
           <div class="content">{{ lorem.slice(0, 70) }}</div>
-        </MColumn>
-        <MColumn v-for="i in 2" class="m-column--12">
+        </MCol>
+        <MCol v-for="i in 2" class="m-col--12">
           <div class="content">{{ lorem.slice(0, 40) }}</div>
-        </MColumn>
+        </MCol>
       </MRow>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-2">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-2">
       <div class="content">{{ lorem.slice(0, 90) }}</div>
-    </MColumn>
-    <MColumn class="m-column--12 m-column--sm-6 m-column--md-3">
+    </MCol>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
       <div class="content">{{ lorem.slice(0, 100) }}</div>
-    </MColumn>
+    </MCol>
   </MRow>
 </MContainer>
 ```
