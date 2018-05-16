@@ -20,7 +20,8 @@ mergeStrategies.functional = function (toVal, fromVal) {
         if (!fromVal[prop]) break
         if (!toVal[prop]) toVal[prop] = ''
 
-        toVal[prop] = `${fromVal[prop].trim()} ${toVal[prop].trim()}`
+        const values = [ fromVal[prop].trim(), toVal[prop].trim() ]
+        toVal[prop] = values.join(' ').trim()
         break
 
       case 'on':

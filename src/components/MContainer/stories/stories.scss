@@ -1,26 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
 @import "../../../scss/variables/colors";
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box; // 1
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .grid-example {
   .m-row {
     .m-col {
       .content {
+        color: white;
+        display: flex;
         border: 2px;
-        border-radius: 2px;
-        padding: 20px;
-      }
-    }
+        padding: 16px;
+        align-items: center;
+        justify-content: center;
 
-    &:nth-child(even) {
-      .m-col {
-        .content {
-          background-color: map-get($colors, 'dark-hot-pink');
-          border-color: map-get($colors, 'dark-hot-pink');
+        &.px0 {
+          padding-left: 0;
+          padding-right: 0;
         }
       }
     }
@@ -28,8 +30,17 @@
     &:nth-child(odd) {
       .m-col {
         .content {
-          background-color: map-get($colors, 'school-bus-yellow');
-          border-color: map-get($colors, 'school-bus-yellow');
+          background-color: #1867c0;
+          border-color: #1867c0;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .m-col {
+        .content {
+          background-color: #5cbbf6;
+          border-color: #5cbbf6;
         }
       }
     }

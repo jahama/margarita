@@ -11,11 +11,11 @@ Offsets are useful for compensating for elements that may not be visible yet, or
     <MCol class="m-col--4 m-col--offset-5 m-col--md-offset-3">
       <div class="content">m-col--4 m-col--(offset-5 | md-offset-3)</div>
     </MCol>
-    <MCol class="m-col--12 m-col--md-4 m-col--offset-1">
-      <div class="content">m-col--12 m-col--md-4 m-col--offset-1</div>
+    <MCol class="m-col--12 m-col--md-4 m-col--md-offset-1">
+      <div class="content">m-col--12 m-col--md-4 m-col--md-offset-1</div>
     </MCol>
-    <MCol class="m-col--12 m-col--sm-6 m-col--md-7 m-col--md-offset-1">
-      <div class="content">m-col--12 m-col--(sm-6 | md-7) m-col--md-offset-1</div>
+    <MCol class="m-col--12 m-col--sm-6 m-col--md-7 m-col--sm-offset-1">
+      <div class="content">m-col--12 m-col--(sm-6 | md-7) m-col--sm-offset-1</div>
     </MCol>
   </MRow>
 </MContainer>

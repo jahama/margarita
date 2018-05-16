@@ -31,7 +31,9 @@ table {
 	border-spacing: 0;
 }
 
-body {
+body,
+#root {
+  font-family: 'Roboto';
   line-height: 1.5;
 }
 

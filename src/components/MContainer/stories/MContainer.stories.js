@@ -25,32 +25,32 @@ storiesOf('Grid System', module)
         <MContainer :fluid="fluid" :tag="tag" class="grid-example">
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 1" :key="col" class="m-col--12">
-              <div class="content">12</div>
+              <div class="content px0">12</div>
             </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 2" :key="col" class="m-col--6">
-              <div class="content">6</div>
+              <div class="content px0">6</div>
             </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 3" :key="col" class="m-col--4">
-              <div class="content">4</div>
+              <div class="content px0">4</div>
             </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 4" :key="col" class="m-col--3">
-              <div class="content">3</div>
+              <div class="content px0">3</div>
             </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 6" :key="col" class="m-col--2">
-              <div class="content">2</div>
+              <div class="content px0">2</div>
             </MCol>
           </MRow>
           <MRow :noGutters="noGutters">
             <MCol v-for="col in 12" :key="col" class="m-col--1">
-              <div class="content">1</div>
+              <div class="content px0">1</div>
             </MCol>
           </MRow>
         </MContainer>
@@ -80,11 +80,11 @@ storiesOf('Grid System', module)
             <MCol class="m-col--4 m-col--offset-5 m-col--md-offset-3">
               <div class="content">m-col--4 m-col--(offset-5 | md-offset-3)</div>
             </MCol>
-            <MCol class="m-col--12 m-col--md-4 m-col--offset-1">
-              <div class="content">m-col--12 m-col--md-4 m-col--offset-1</div>
+            <MCol class="m-col--12 m-col--md-4 m-col--md-offset-1">
+              <div class="content">m-col--12 m-col--md-4 m-col--md-offset-1</div>
             </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-7 m-col--md-offset-1">
-              <div class="content">m-col--12 m-col--(sm-6 | md-7) m-col--md-offset-1</div>
+            <MCol class="m-col--12 m-col--sm-6 m-col--md-7 m-col--sm-offset-1">
+              <div class="content">m-col--12 m-col--(sm-6 | md-7) m-col--sm-offset-1</div>
             </MCol>
           </MRow>
         </MContainer>
