@@ -1,6 +1,6 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import GridNestedNotes from '../notes/GridNested.md'
@@ -15,13 +15,14 @@ import MColumn from '../../MColumn/MColumn.vue'
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
   .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
+    const fluid = boolean('Fluid layout', false)
+    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
+    const noGutters = boolean('No gutters', false)
 
     return ({
       components: { MContainer, MRow, MColumn },
       template: `
-        <MContainer :fluid="fluid" class="grid-example">
+        <MContainer :fluid="fluid" :tag="tag" class="grid-example">
           <MRow :noGutters="noGutters">
             <MColumn v-for="col in 1" :key="col" class="m-column--12">
               <div class="content">12</div>
@@ -58,6 +59,7 @@ storiesOf('Grid System', module)
       data () {
         return {
           fluid: fluid,
+          tag: tag,
           noGutters: noGutters
         }
       }
@@ -165,7 +167,7 @@ storiesOf('Grid System', module)
                 <MColumn>
                   <div class="content">{{ lorem.slice(0, 70) }}</div>
                 </MColumn>
-                <MColumn v-for="i in 2" class="m-column--12">
+                <MColumn v-for="i in 2" :key="i" class="m-column--12">
                   <div class="content">{{ lorem.slice(0, 40) }}</div>
                 </MColumn>
               </MRow>

@@ -1,24 +1,36 @@
-<template lang="pug">
-  .m-row(:class="getComputedClasses")
-    slot
-</template>
+<style lang="scss" src="./MRow.scss"></style>
 
 <script>
-export default {
-  name: 'm-row',
+import { mergeDataWithProps } from '@/utils/mergeData'
 
-  props: {
-    noGutters: Boolean
-  },
-
-  computed: {
-    getComputedClasses () {
-      return {
-        'm-row--no-gutters': this.noGutters
-      }
+const componentData = function () {
+  return {
+    staticClass: 'm-row',
+    class: {
+      'm-row--no-gutters': this.noGutters
     }
   }
 }
-</script>
 
-<style lang="scss" src="./MRow.scss"></style>
+export default {
+  name: 'm-row',
+
+  functional: true,
+
+  props: {
+    noGutters: {
+      type: Boolean,
+      default: false
+    },
+    tag: {
+      type: String,
+      default: 'div'
+    }
+  },
+
+  render (h, { props, data, children }) {
+    data = mergeDataWithProps(data, componentData, props)
+    return h(props.tag, data, children)
+  }
+}
+</script>
