@@ -34,3 +34,11 @@
   </MRow>
 </MContainer>
 ```
+
+Col Types
+- Auto (size from content)
+- Nothing (fill width)
+
+
+- Order
+- Breakpoints

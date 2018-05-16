@@ -2,3 +2,7 @@
 @import "../../scss/variables/grid";
 
 @include make-grid-columns();
+
+.m-column > * {
+  flex: auto;
+}
