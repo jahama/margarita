@@ -1,0 +1,11 @@
+@import "../../scss/mixins/grid";
+@import "../../scss/variables/grid";
+
+.m-container {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+.m-container--fluid {
+  max-width: none;
+}

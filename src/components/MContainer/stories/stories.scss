@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400");
+@import "../../../scss/variables/colors";
+
+*,
+*::before,
+*::after {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.grid-example {
+  .m-row {
+    .m-col {
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px;
+        padding: 16px;
+        color: white;
+
+        &.px0 {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .m-col {
+        .content {
+          border-color: #1867c0;
+          background-color: #1867c0;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .m-col {
+        .content {
+          border-color: #5cbbf6;
+          background-color: #5cbbf6;
+        }
+      }
+    }
+
+    &+.m-row {
+      margin-top: .5rem;
+    }
+  }
+}
