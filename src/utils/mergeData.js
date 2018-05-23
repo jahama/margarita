@@ -10,9 +10,14 @@ mergeStrategies.functional = function (toVal, fromVal) {
     switch (prop) {
       case 'class':
       case 'style':
+        if (!toVal[prop]) toVal[prop] = {}
+        for (const item of Object.keys(fromVal[prop])) {
+          toVal[prop][item] = fromVal[prop][item]
+        }
+        break
+
       case 'directives':
         if (!Array.isArray(toVal[prop])) toVal[prop] = []
-
         toVal[prop] = toVal[prop].concat(fromVal[prop])
         break
 
