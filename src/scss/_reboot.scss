@@ -25,8 +25,8 @@
 }
 
 html {
-  font-family: sans-serif; // 2
   line-height: 1.15; // 3
+  font-family: sans-serif; // 2
   -webkit-text-size-adjust: 100%; // 4
   -ms-text-size-adjust: 100%; // 4
   -ms-overflow-style: scrollbar; // 5
@@ -77,11 +77,10 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 // 2. Show the overflow in Edge and IE.
 
 hr {
-  box-sizing: content-box; // 1
   height: 0; // 1
   overflow: visible; // 2
+  box-sizing: content-box; // 1
 }
-
 
 //
 // Typography
@@ -114,16 +113,16 @@ p {
 
 abbr[title],
 abbr[data-original-title] { // 4
+  border-bottom: 0; // 1
+  cursor: help; // 3
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
-  cursor: help; // 3
-  border-bottom: 0; // 1
 }
 
 address {
   margin-bottom: 1rem;
-  font-style: normal;
   line-height: inherit;
+  font-style: normal;
 }
 
 ol,
@@ -174,28 +173,32 @@ small {
 sub,
 sup {
   position: relative;
-  font-size: 75%;
-  line-height: 0;
   vertical-align: baseline;
+  line-height: 0;
+  font-size: 75%;
 }
 
-sub { bottom: -.25em; }
-sup { top: -.5em; }
+sub {
+  bottom: -.25em;
+}
 
+sup {
+  top: -.5em;
+}
 
 //
 // Links
 //
 
 a {
-  color: $link-color;
-  text-decoration: $link-decoration;
   background-color: transparent; // Remove the gray background on active links in IE 10.
+  text-decoration: $link-decoration;
+  color: $link-color;
   -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 
   @include hover {
-    color: $link-hover-color;
     text-decoration: $link-hover-decoration;
+    color: $link-hover-color;
   }
 }
 
@@ -206,12 +209,12 @@ a {
 // See https://github.com/twbs/bootstrap/issues/19402
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 
   @include hover-focus {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
   }
 
   &:focus {
@@ -260,8 +263,8 @@ figure {
 //
 
 img {
-  vertical-align: middle;
   border-style: none; // Remove the border on images inside links in IE 10-.
+  vertical-align: middle;
 }
 
 svg:not(:root) {
@@ -303,9 +306,9 @@ table {
 caption {
   padding-top: $table-cell-padding;
   padding-bottom: $table-cell-padding;
-  color: $text-muted;
-  text-align: left;
   caption-side: bottom;
+  text-align: left;
+  color: $text-muted;
 }
 
 th {
@@ -347,9 +350,9 @@ select,
 optgroup,
 textarea {
   margin: 0; // Remove the margin in Firefox and Safari
+  line-height: inherit;
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
 }
 
 button,
@@ -377,14 +380,14 @@ button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  padding: 0;
   border-style: none;
+  padding: 0;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-  box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
   padding: 0; // 2. Remove the padding in IE 10-
+  box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
 }
 
 
@@ -407,30 +410,31 @@ textarea {
 }
 
 fieldset {
+  // Reset the default outline behavior of fieldsets so they don't affect page layout.
+  margin: 0;
+  border: 0;
+  padding: 0;
   // Browsers set a default `min-width: min-content;` on fieldsets,
   // unlike e.g. `<div>`s, which have `min-width: 0;` by default.
   // So we reset that to ensure fieldsets behave more like a standard block element.
   // See https://github.com/twbs/bootstrap/issues/12359
   // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
   min-width: 0;
-  // Reset the default outline behavior of fieldsets so they don't affect page layout.
-  padding: 0;
-  margin: 0;
-  border: 0;
 }
 
 // 1. Correct the text wrapping in Edge and IE.
 // 2. Correct the color inheritance from `fieldset` elements in IE.
 legend {
   display: block;
+  margin-bottom: .5rem;
+  padding: 0;
   width: 100%;
   max-width: 100%; // 1
-  padding: 0;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
+
   line-height: inherit;
-  color: inherit; // 2
   white-space: normal; // 1
+  color: inherit; // 2
+  font-size: 1.5rem;
 }
 
 progress {

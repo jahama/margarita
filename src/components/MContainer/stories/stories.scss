@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400");
 @import "../../../scss/variables/colors";
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .grid-example {
   .m-row {
     .m-col {
       .content {
-        color: white;
         display: flex;
-        border: 2px;
-        padding: 16px;
         align-items: center;
         justify-content: center;
+        border: 2px;
+        padding: 16px;
+        color: white;
 
         &.px0 {
-          padding-left: 0;
           padding-right: 0;
+          padding-left: 0;
         }
       }
     }
@@ -30,8 +30,8 @@
     &:nth-child(odd) {
       .m-col {
         .content {
-          background-color: #1867c0;
           border-color: #1867c0;
+          background-color: #1867c0;
         }
       }
     }
@@ -39,8 +39,8 @@
     &:nth-child(even) {
       .m-col {
         .content {
-          background-color: #5cbbf6;
           border-color: #5cbbf6;
+          background-color: #5cbbf6;
         }
       }
     }

@@ -2,11 +2,11 @@
 
 // Generate semantic grid columns with these mixins.
 @mixin make-container() {
-  width: 100%;
-  padding-right: ($grid-gutter-width / 2);
-  padding-left: ($grid-gutter-width / 2);
   margin-right: auto;
   margin-left: auto;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+  width: 100%;
 }
 
 // For each breakpoint, define the maximum width of the container in a media query.
@@ -32,9 +32,9 @@
   // Prevent columns from becoming too narrow when at smaller grid tiers by
   // always setting `width: 100%;`. This works because we use `flex` values
   // later on to override this initial width.
+  padding: ($grid-gutter-width / 2);
   width: 100%;
   min-height: 1px; // Prevent collapsing
-  padding: ($grid-gutter-width / 2);
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
@@ -60,9 +60,9 @@
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
+    padding: ($gutter / 2);
     width: 100%;
     min-height: 1px; // Prevent columns from collapsing when empty
-    padding: ($gutter / 2);
   }
 
   @each $breakpoint in map-keys($breakpoints) {
@@ -119,7 +119,9 @@
       }
 
       @for $i from 0 through $columns {
-        .m-col#{$infix}-order-#{$i} { order: $i; }
+        .m-col#{$infix}-order-#{$i} {
+          order: $i;
+        }
       }
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
