@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+.logo-example {
+
+  .m-col {
+    align-items: center;
+    height: 100vh;
+
+    &.grey {
+      background-color: grey;
+    }
+  }
+}

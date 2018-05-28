@@ -1,0 +1,15 @@
+@import "../../scss/variables/grid";
+
+$m-logo-base-width: 178px;
+$m-logo-base-height: 46px;
+
+$m-logo-base-proportion: $m-logo-base-height / $m-logo-base-width;
+
+@mixin proportion($width, $proportion) {
+  width: #{$width / $baseline}rem;
+  height: #{$proportion * $width / $baseline}rem;
+}
+
+.m-logo {
+  @include proportion($m-logo-base-width, $m-logo-base-proportion);
+}
