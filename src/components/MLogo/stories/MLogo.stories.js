@@ -19,7 +19,7 @@ storiesOf('Logo', module)
       template: `
         <MContainer fluid class="logo-example">
           <MRow>
-            <MCol :class="{grey: !color}">
+            <MCol :class="{ grey: !color }">
               <MLogo :color="color" />
             </MCol>
           </MRow>
