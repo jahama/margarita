@@ -9,3 +9,11 @@ services:
       - /usr/margarita/node_modules
     ports:
       - "6006:6006"
+  tests:
+    build: .
+    command: npm test
+    environment:
+      - NODE_ENV=test
+    volumes:
+      - .:/usr/margarita
+      - /usr/margarita/node_modules
