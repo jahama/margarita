@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  storybook:
+    build: .
+    command: npm start
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/usr/margarita
+      - /usr/margarita/node_modules
+    ports:
+      - "6006:6006"
+  tests:
+    build: .
+    command: npm run test:watch
+    environment:
+      - NODE_ENV=test
+    volumes:
+      - .:/usr/margarita
+      - /usr/margarita/node_modules
