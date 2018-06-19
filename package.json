@@ -10,7 +10,9 @@
     "lint:js": "eslint --ext .js,.vue src test/unit",
     "lint:scss": "sass-lint 'src/**/*.scss' -v -q",
     "test": "npm run unit",
-    "unit": "jest --config test/unit/jest.conf.js"
+    "test:watch": "npm run unit:watch",
+    "unit": "jest --config test/unit/jest.conf.js",
+    "unit:watch": "jest --watchAll --config test/unit/jest.conf.js"
   },
   "dependencies": {
     "vue": "^2.5.2",
