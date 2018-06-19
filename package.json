@@ -5,6 +5,9 @@
   "scripts": {
     "build": "build-storybook",
     "dev": "start-storybook -p 6006",
+    "docker:down": "docker-compose down --volumes",
+    "docker:start": "docker-compose run -p 6006:6006 storybook && npm run docker:down",
+    "docker:test": "docker-compose run tests && npm run docker:down",
     "start": "npm run dev",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js,.vue src test/unit",
