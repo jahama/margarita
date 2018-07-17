@@ -16,5 +16,5 @@ $ npm run docker:test
 Or, you can simply start all together with:
 
 ```bash
-$ docker compose up
+$ docker-compose up
 ```

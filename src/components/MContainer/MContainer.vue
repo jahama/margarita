@@ -13,7 +13,7 @@ const componentData = function () {
 }
 
 export default {
-  name: 'm-container',
+  name: 'MContainer',
 
   functional: true,
 

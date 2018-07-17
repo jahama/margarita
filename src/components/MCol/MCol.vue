@@ -10,7 +10,7 @@ const componentData = function () {
 }
 
 export default {
-  name: 'm-col',
+  name: 'MCol',
 
   functional: true,
 
