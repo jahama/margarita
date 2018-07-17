@@ -20,4 +20,4 @@ $colors: (
   "white": rgba(255, 255, 255, 1)
 );
 
-$color-primary: map-get($colors, "dark-hot-pink");
+$color-primary: get-color("dark-hot-pink");

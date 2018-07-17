@@ -1,5 +1,5 @@
 @import "../variables/fonts";
 
 @function rem($px: 0) {
-  @return $px / $baseline * 1rem;
+  @return $px / $rem-baseline * 1rem;
 }

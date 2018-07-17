@@ -1,6 +1,3 @@
-@import "../functions/rem";
-@import "breakpoints";
-
 // Generate semantic grid columns with these mixins.
 @mixin make-container() {
   margin-right: auto;
@@ -27,9 +24,6 @@
   flex-wrap: wrap;
   margin: ($grid-gutter-width / -2);
 }
-
-
-
 
 @mixin make-col-ready() {
   position: relative;
