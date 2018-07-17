@@ -1,5 +1,4 @@
-@import "../../scss/mixins/grid";
-@import "../../scss/variables/grid";
+@import "../../scss/margarita";
 
 .m-row {
   @include make-row();
