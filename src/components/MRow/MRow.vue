@@ -13,7 +13,7 @@ const componentData = function () {
 }
 
 export default {
-  name: 'm-row',
+  name: 'MRow',
 
   functional: true,
 

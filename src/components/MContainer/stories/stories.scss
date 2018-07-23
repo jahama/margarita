@@ -1,52 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400");
-@import "../../../scss/variables/colors";
+@import "../../../scss/margarita";
 
 *,
 *::before,
 *::after {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: $default-font-size;
   box-sizing: border-box;
 }
 
-.grid-example {
-  .m-row {
-    .m-col {
-      .content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px;
-        padding: 16px;
-        color: white;
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rem(2px);
+  padding: 1rem;
+  color: get-color("white");
 
-        &.px0 {
-          padding-right: 0;
-          padding-left: 0;
-        }
-      }
-    }
+  &.px0 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
-    &:nth-child(odd) {
-      .m-col {
-        .content {
-          border-color: #1867c0;
-          background-color: #1867c0;
-        }
-      }
+.m-row {
+  &:nth-child(odd) {
+    .content {
+      border-color: get-darken-color("picton-blue", 20%);
+      background-color: get-darken-color("picton-blue", 20%);
     }
+  }
 
-    &:nth-child(even) {
-      .m-col {
-        .content {
-          border-color: #5cbbf6;
-          background-color: #5cbbf6;
-        }
-      }
+  &:nth-child(even) {
+    .content {
+      border-color: get-color("picton-blue");
+      background-color: get-color("picton-blue");
     }
+  }
 
-    &+.m-row {
-      margin-top: .5rem;
-    }
+  &+.m-row {
+    margin-top: .5rem;
   }
 }
