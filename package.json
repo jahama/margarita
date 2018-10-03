@@ -1,6 +1,7 @@
 {
   "name": "margarita",
   "version": "0.1.0",
+  "main": "src/compontents/index.js",
   "private": true,
   "scripts": {
     "build": "build-storybook",
