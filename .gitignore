@@ -1,5 +1,6 @@
 .DS_Store
 dist/
+.nuxt/
 node_modules/
 storybook-static/
 test/unit/coverage/
