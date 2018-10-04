@@ -1,0 +1,55 @@
+@import "../../scss/margarita";
+
+.select-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem(24px);
+  width: 100%;
+  color: get-color("tundora");
+  font-size: rem(16px);
+
+  &__label {
+    margin-bottom: rem(4px);
+  }
+
+  &__field {
+    transition: border .2s ease;
+    border: rem(1px) solid get-color("alto");
+    border-radius: 0;
+    background-image: url("../../assets/images/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+    background-size: rem(12px) rem(12px);
+    padding: 0 rem(8px);
+    width: 100%;
+    height: rem(36px);
+    background-origin: content-box;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border: rem(1px) solid get-color("dark-hot-pink");
+    }
+
+    &:disabled {
+      background-color: get-color("alto");
+      pointer-events: none;
+    }
+
+    &--error {
+      border-color: get-color("crimson");
+
+      &:focus,
+      &:active {
+        border: rem(1px) solid get-color("crimson");
+      }
+    }
+  }
+
+  &__error-message {
+    margin-top: rem(4px);
+    color: get-color("crimson");
+    font-size: rem(14px);
+  }
+
+}

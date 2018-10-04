@@ -102,6 +102,7 @@ rules:
     - 2
     - global:
       - 'rem'
+      - 's'
   pseudo-element: 2
   quotes:
     - 2
