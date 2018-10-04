@@ -15,7 +15,7 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js,.vue src test/unit",
     "lint:scss": "sass-lint 'src/**/*.scss' -v -q",
-    "test": "npm run lint && npm run unit",
+    "test": "npm run unit",
     "test:watch": "npm run unit:watch",
     "unit": "jest --config test/unit/jest.conf.js",
     "unit:watch": "jest --watchAll --config test/unit/jest.conf.js"
