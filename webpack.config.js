@@ -33,7 +33,10 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src')
         ],
-      },
+      }, {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
     ]
   },
 
