@@ -13,7 +13,7 @@
   }
 
   &__field {
-    transition: border .2s ease;
+    // transition: border .2s ease;
     border: rem(1px) solid get-color("alto");
     border-radius: 0;
     background-image: url("../../assets/images/arrow.svg");
