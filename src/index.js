@@ -1,6 +1,6 @@
-import GridColumn from './components/MCol/MCol.vue'
-import GridContainer from './components/MContainer/MContainer.vue'
-import GridRow from './components/MRow/MRow.vue'
+import GridColumn from './components/Grid/GridColumn/GridColumn.vue'
+import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
+import GridRow from './components/Grid/GridRow/GridRow.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 
