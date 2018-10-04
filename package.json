@@ -1,10 +1,12 @@
 {
   "name": "margarita",
-  "version": "0.1.0",
-  "main": "src/compontents/index.js",
+  "version": "0.2.0",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "build-storybook",
+    "prepare": "npm run build",
+    "build": "node_modules/.bin/webpack",
+    "build:storybook": "build-storybook",
     "dev": "start-storybook -p 6006",
     "docker:down": "docker-compose down --volumes",
     "docker:start": "docker-compose run -p 6006:6006 storybook && npm run docker:down",
