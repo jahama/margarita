@@ -1,0 +1,7 @@
+@import "../../../scss/margarita";
+
+@include make-grid-columns();
+
+.grid-col > * {
+  flex: auto;
+}

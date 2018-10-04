@@ -1,6 +1,6 @@
-@import "../../scss/margarita";
+@import "../../../scss/margarita";
 
-.m-container {
+.grid-container {
   @include make-container();
   @include make-container-max-widths();
 

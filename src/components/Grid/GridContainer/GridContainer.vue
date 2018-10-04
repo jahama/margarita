@@ -1,19 +1,19 @@
-<style lang="scss" src="./MContainer.scss"></style>
+<style lang="scss" src="./GridContainer.scss"></style>
 
 <script>
 import { mergeDataWithProps } from '@/utils/mergeData'
 
 const componentData = function () {
   return {
-    staticClass: 'm-container',
+    staticClass: 'grid-container',
     class: {
-      'm-container--fluid': this.fluid
+      'grid-container--fluid': this.fluid
     }
   }
 }
 
 export default {
-  name: 'MContainer',
+  name: 'GridContainer',
 
   functional: true,
 

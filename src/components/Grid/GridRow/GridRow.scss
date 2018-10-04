@@ -1,9 +1,9 @@
-@import "../../scss/margarita";
+@import "../../../scss/margarita";
 
-.m-row {
+.grid-row {
   @include make-row();
 
-  .m-row {
+  .grid-row {
     margin-right: $grid-gutter-width / -2;
     margin-left: $grid-gutter-width / -2;
   }
@@ -12,8 +12,8 @@
     margin-right: 0;
     margin-left: 0;
 
-    > .m-col,
-    > [class*="m-col--"] {
+    > .grid-col,
+    > [class*="grid-col--"] {
       padding-right: 0;
       padding-left: 0;
     }
