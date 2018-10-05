@@ -1,8 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import centered from 'gss'
+import centered from '@storybook/addon-centered'
 
 import TextInput from '../TextInput/TextInput'
 import SelectInput from '../SelectInput/SelectInput'
+import RadioButton from '../RadioButton/RadioButton'
 
 storiesOf('Basic Components', module)
   .addDecorator(centered)
@@ -29,4 +30,27 @@ storiesOf('Basic Components', module)
                  :errorMessage="errorMessage"
                  :hasError="true"
                  :options="options" />`
+  }))
+  .add('Radio Button', () => ({
+    components: { RadioButton },
+    data () {
+      return {
+        items: [
+          {
+            id: 'id-de-prueba',
+            text: 'Hola esto es una prueba'
+          },
+          {
+            id: 'id-de-prueba',
+            text: 'Hola esto es una prueba2'
+          }
+        ]
+      }
+    },
+    template: `<div>
+                <RadioButton
+                  v-for="(item, index) in items"
+                  :id="item.id"
+                  :text="item.text" />
+              </div>`
   }))
