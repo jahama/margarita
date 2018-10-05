@@ -19,8 +19,8 @@
     &:disabled ~ .checkmark-box {
       background-image: url("../../../assets/icons/tick.svg");
       background-repeat: no-repeat;
-      background-position: rem(2px) rem(2px);
-      background-size: rem(12px) rem(12px);
+      background-position: rem(3px) rem(3px);
+      background-size: rem(10px) rem(10px);
     }
 
     &:checked ~ .checkmark-box {
