@@ -1,0 +1,47 @@
+@import "../../../scss/margarita";
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem(24px);
+  width: 100%;
+  color: get-color("tundora");
+  font-size: rem(16px);
+
+  &__label {
+    margin-bottom: rem(4px);
+  }
+
+  &__field {
+    transition: border .2s ease;
+    border: rem(1px) solid get-color("alto");
+    padding: 0 rem(8px);
+    height: rem(36px);
+
+    &:focus,
+    &:active {
+      outline: none;
+      border: rem(1px) solid get-color("dark-hot-pink");
+    }
+
+    &:disabled {
+      background-color: get-color("alto");
+      pointer-events: none;
+    }
+
+    &--error {
+      border-color: get-color("crimson");
+
+      &:focus,
+      &:active {
+        border: rem(1px) solid get-color("crimson");
+      }
+    }
+  }
+
+  &__error-message {
+    margin-top: rem(4px);
+    color: get-color("crimson");
+    font-size: rem(14px);
+  }
+}
