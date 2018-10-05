@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import centered from 'gss'
+import centered from '@storybook/addon-centered'
 
 import TextInput from '../TextInput/TextInput'
 import SelectInput from '../SelectInput/SelectInput'
 
-storiesOf('Basic Components', module)
+storiesOf('Form Components', module)
   .addDecorator(centered)
   .add('Text Input', () => ({
     components: { TextInput },
