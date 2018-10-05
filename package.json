@@ -21,12 +21,12 @@
     "unit:watch": "jest --watchAll --config test/unit/jest.conf.js"
   },
   "dependencies": {
-    "@storybook/addon-centered": "^3.4.11",
     "vue": "^2.5.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-centered": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.3",
     "@storybook/addon-links": "^3.4.3",
     "@storybook/addon-notes": "^3.4.3",
