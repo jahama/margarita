@@ -1,14 +1,14 @@
 import { shallowMount } from '@vue/test-utils'
-import MRow from '@/components/MRow/MRow.vue'
+import GridContainer from '@/components/Grid/GridContainer/GridContainer.vue'
 
-describe('MRow', () => {
+describe('GridContainer', () => {
   it('should render correct contents', () => {
-    const wrapper = shallowMount(MRow)
-    expect(wrapper.is(MRow)).toBe(true)
+    const wrapper = shallowMount(GridContainer)
+    expect(wrapper.is(GridContainer)).toBe(true)
   })
 
   it('should use the specified tag', () => {
-    const wrapper = shallowMount(MRow, {
+    const wrapper = shallowMount(GridContainer, {
       context: Object.assign({
         props: {
           tag: 'section'
@@ -20,29 +20,29 @@ describe('MRow', () => {
   })
 
   it('should add a class based in a prop', () => {
-    const wrapper = shallowMount(MRow, {
+    const wrapper = shallowMount(GridContainer, {
       context: Object.assign({
         props: {
-          noGutters: true
+          fluid: true
         }
       })
     })
 
-    expect(wrapper.classes()).toContain('m-row--no-gutters')
+    expect(wrapper.classes()).toContain('grid-container--fluid')
 
-    const wrapper1 = shallowMount(MRow, {
+    const wrapper1 = shallowMount(GridContainer, {
       context: Object.assign({
         props: {
-          noGutters: false
+          fluid: false
         }
       })
     })
 
-    expect(wrapper1.classes()).not.toContain('m-row--no-gutters')
+    expect(wrapper1.classes()).not.toContain('grid-container--fluid')
   })
 
-  it('should add the wanted class namess', () => {
-    const wrapper = shallowMount(MRow, {
+  it('should add the wanted class names', () => {
+    const wrapper = shallowMount(GridContainer, {
       context: Object.assign({
         class: {
           'test-class': true
@@ -50,12 +50,12 @@ describe('MRow', () => {
       })
     })
 
-    expect(wrapper.classes()).toContain('m-row')
+    expect(wrapper.classes()).toContain('grid-container')
     expect(wrapper.classes()).toContain('test-class')
   })
 
   it('should render the default slot', () => {
-    const wrapper = shallowMount(MRow, {
+    const wrapper = shallowMount(GridContainer, {
       slots: {
         default: '<span>Example</span>'
       }

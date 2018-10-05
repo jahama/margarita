@@ -1,22 +1,22 @@
-import MCol from './components/MCol/MCol.vue'
-import MContainer from './components/MContainer/MContainer.vue'
-import MRow from './components/MRow/MRow.vue'
+import GridColumn from './components/Grid/GridColumn/GridColumn.vue'
+import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
+import GridRow from './components/Grid/GridRow/GridRow.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 
 export {
-  MCol,
-  MContainer,
-  MRow,
+  GridColumn,
+  GridContainer,
+  GridRow,
   SelectInput,
   TextInput
 }
 
 export default {
   install (Vue) {
-    Vue.component('MCol', MCol)
-    Vue.component('MContainer', MContainer)
-    Vue.component('MRow', MRow)
+    Vue.component('GridColumn', GridColumn)
+    Vue.component('GridContainer', GridContainer)
+    Vue.component('GridRow', GridRow)
     Vue.component('SelectInput', SelectInput)
     Vue.component('TextInput', TextInput)
   }

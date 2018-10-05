@@ -1,19 +1,19 @@
-<style lang="scss" src="./MRow.scss"></style>
+<style lang="scss" src="./GridRow.scss"></style>
 
 <script>
 import { mergeDataWithProps } from '@/utils/mergeData'
 
 const componentData = function () {
   return {
-    staticClass: 'm-row',
+    staticClass: 'grid-row',
     class: {
-      'm-row--no-gutters': this.noGutters
+      'grid-row--no-gutters': this.noGutters
     }
   }
 }
 
 export default {
-  name: 'MRow',
+  name: 'GridRow',
 
   functional: true,
 

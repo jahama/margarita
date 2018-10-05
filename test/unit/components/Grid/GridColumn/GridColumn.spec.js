@@ -1,14 +1,14 @@
 import { shallowMount } from '@vue/test-utils'
-import MCol from '@/components/MCol/MCol.vue'
+import GridColumn from '@/components/Grid/GridColumn/GridColumn.vue'
 
-describe('MCol', () => {
+describe('GridColumn', () => {
   it('should render correct contents', () => {
-    const wrapper = shallowMount(MCol)
-    expect(wrapper.is(MCol)).toBe(true)
+    const wrapper = shallowMount(GridColumn)
+    expect(wrapper.is(GridColumn)).toBe(true)
   })
 
   it('should use the specified tag', () => {
-    const wrapper = shallowMount(MCol, {
+    const wrapper = shallowMount(GridColumn, {
       context: Object.assign({
         props: {
           tag: 'section'
@@ -20,20 +20,20 @@ describe('MCol', () => {
   })
 
   it('should add the wanted class names', () => {
-    const wrapper = shallowMount(MCol, {
+    const wrapper = shallowMount(GridColumn, {
       context: Object.assign({
         class: {
-          'm-col--12': true
+          'grid-col--12': true
         }
       })
     })
 
-    expect(wrapper.classes()).toContain('m-col')
-    expect(wrapper.classes()).toContain('m-col--12')
+    expect(wrapper.classes()).toContain('grid-col')
+    expect(wrapper.classes()).toContain('grid-col--12')
   })
 
   it('should render the default slot', () => {
-    const wrapper = shallowMount(MCol, {
+    const wrapper = shallowMount(GridColumn, {
       slots: {
         default: '<span>Example</span>'
       }
