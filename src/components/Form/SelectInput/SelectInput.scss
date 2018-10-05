@@ -15,15 +15,17 @@
   &__field {
     transition: border .2s ease;
     border: rem(1px) solid get-color("alto");
-    border-radius: 0;
     background-image: url("../../../assets/icons/arrow.svg");
     background-repeat: no-repeat;
-    background-position: 98% 50%;
-    background-size: rem(12px) rem(12px);
-    padding: 0 rem(8px);
+    background-position: calc(100% - 12px) 50%;
+    background-size: auto;
+    padding: 0 rem(32px) 0 rem(8px);
     width: 100%;
     height: rem(36px);
-    background-origin: content-box;
+    color: get-color("tundora");
+    font-size: rem(16px);
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
 
     &:focus,
     &:active {
