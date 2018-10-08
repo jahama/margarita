@@ -4,9 +4,11 @@ import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
 
-import TextInput from '../TextInput/TextInput'
+import GridColumn from '../../Grid/GridColumn/GridColumn'
+
+import CheckboxInput from '../CheckboxInput/CheckboxInput'
 import SelectInput from '../SelectInput/SelectInput'
-import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
+import TextInput from '../TextInput/TextInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 
@@ -67,4 +69,13 @@ storiesOf('Basic Components', module)
               :hasError="true"
               :options="options" />
     </GridColumn>`
+  }))
+  .add('CheckBox Input', () => ({
+    components: { CheckboxInput },
+    data () {
+      return {
+        checked: true
+      }
+    },
+    template: '<CheckboxInput id="paco" label="Hererererere" :checked="checked"/>'
   }))

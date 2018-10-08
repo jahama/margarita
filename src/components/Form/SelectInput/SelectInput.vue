@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'TextInput',
+  name: 'SelectInput',
   props: {
     id: {
       type: String,
