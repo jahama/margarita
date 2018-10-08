@@ -8,6 +8,7 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 
 import CheckboxInput from '../CheckboxInput/CheckboxInput'
 import SelectInput from '../SelectInput/SelectInput'
+import RadioButton from '../RadioButton/RadioButton'
 import TextInput from '../TextInput/TextInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
@@ -69,6 +70,34 @@ storiesOf('Basic Components', module)
               :hasError="true"
               :options="options" />
     </GridColumn>`
+  }))
+  .add('Radio Button', () => ({
+    components: { RadioButton },
+    data () {
+      return {
+        items: [
+          {
+            id: 'id-de-prueba',
+            text: 'Texto de prueba para radio button 1',
+            name: 'name'
+          },
+          {
+            id: 'id-de-prueba-2',
+            text: 'Texto de prueba para radio button 2',
+            name: 'name'
+          }
+        ],
+        disabled: false
+      }
+    },
+    template: `<div>
+                <RadioButton
+                  v-for="(item, index) in items"
+                  :name="item.name"
+                  :id="item.id"
+                  :text="item.text"
+                  :disabled="disabled" />
+              </div>`
   }))
   .add('CheckBox Input', () => ({
     components: { CheckboxInput },
