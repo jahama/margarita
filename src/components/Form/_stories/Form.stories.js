@@ -98,6 +98,7 @@ storiesOf('Basic Components', module)
                   v-for="(item, index) in items"
                   :name="item.name"
                   :id="item.id"
+                  :key="item.id"
                   :text="item.text"
                   :disabled="disabled" />
               </div>`
