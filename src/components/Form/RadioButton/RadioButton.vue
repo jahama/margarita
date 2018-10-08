@@ -1,8 +1,18 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <label :for="id" class="radio-button">
-    <input :id="id" :value="id" type="radio" :disabled="disabled" :name="name" class="radio-button__input radio-button__control">
+  <label
+    class="radio-button"
+    :for="id"
+  >
+    <input
+      type="radio"
+      class="radio-button__input radio-button__control"
+      :id="id"
+      :disabled="disabled"
+      :name="name"
+      :value="id"
+    >
     <span class="radio-button__indicator"></span>
     <span class="radio-button__description">
       {{ text }}
