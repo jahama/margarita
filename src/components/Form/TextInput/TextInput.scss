@@ -6,7 +6,6 @@
   margin-bottom: rem(24px);
   width: 100%;
   color: get-color("tundora");
-  font-size: rem(16px);
 
   &__label {
     margin-bottom: rem(4px);
@@ -17,6 +16,7 @@
     border: rem(1px) solid get-color("alto");
     padding: 0 rem(8px);
     height: rem(36px);
+    font-size: rem(16px);
 
     &:focus,
     &:active {

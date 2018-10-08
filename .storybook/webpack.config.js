@@ -1,5 +1,7 @@
 const path = require('path')
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = (baseConfig, env, defaultConfig) => {
 
   defaultConfig.module.rules.push({
@@ -7,6 +9,13 @@ module.exports = (baseConfig, env, defaultConfig) => {
     loaders: [ 'style-loader', 'css-loader', 'sass-loader' ],
     include: path.resolve(__dirname, '../src')
   })
+
+  defaultConfig.plugins.push(
+    new CopyWebpackPlugin([{
+      from: 'src/assets/fonts',
+      to: 'fonts'
+    }])
+  )
 
   // Replacing the markdown one
   defaultConfig.module.rules[2] = {

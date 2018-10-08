@@ -1,5 +1,7 @@
 const path = require('path')
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
 
   entry: {
@@ -34,11 +36,21 @@ module.exports = {
           path.resolve(__dirname, 'src')
         ],
       }, {
+        test: /\.(jpg|png|gif|eot|ttf|woff|woff2)$/,
+        loader: 'file-loader'
+      }, {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
+        loader: 'svg-url-loader'
       }
     ]
   },
+
+  plugins: [
+    new CopyWebpackPlugin([{
+      from: 'src/assets/fonts',
+      to: 'fonts'
+    }])
+  ],
 
   resolve: {
     alias: {
