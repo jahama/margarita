@@ -1,13 +1,12 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <label for="Prepago" class="radio-button">
-    <input :id="id" :name="id" type="radio" class="radio-button__input radio-button__control">
+  <label :for="id" class="radio-button">
+    <input :id="id" :value="id" type="radio" :disabled="disabled" :name="name" class="radio-button__input radio-button__control">
     <span class="radio-button__indicator"></span>
     <span class="radio-button__description">
       {{ text }}
     </span>
-    <span class="radio-button__description radio-button__description--subtitle">
     </span>
   </label>
 </template>
@@ -27,10 +26,11 @@ export default {
     text: {
       type: String,
       default: ''
+    },
+    name: {
+      type: String,
+      default: ''
     }
-  },
-  computed: {
-
   }
 }
 </script>

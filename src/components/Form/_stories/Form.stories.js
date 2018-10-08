@@ -38,19 +38,24 @@ storiesOf('Basic Components', module)
         items: [
           {
             id: 'id-de-prueba',
-            text: 'Hola esto es una prueba'
+            text: 'Texto de prueba para radio button 1',
+            name: 'name'
           },
           {
-            id: 'id-de-prueba',
-            text: 'Hola esto es una prueba2'
+            id: 'id-de-prueba-2',
+            text: 'Texto de prueba para radio button 2',
+            name: 'name'
           }
-        ]
+        ],
+        disabled: false
       }
     },
     template: `<div>
                 <RadioButton
                   v-for="(item, index) in items"
+                  :name="item.name"
                   :id="item.id"
-                  :text="item.text" />
+                  :text="item.text"
+                  :disabled="disabled" />
               </div>`
   }))

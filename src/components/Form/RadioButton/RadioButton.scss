@@ -36,13 +36,15 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
       & ~ .radio-button__description {
         cursor: not-allowed;
       }
+      & ~ .radio-button__indicator {
+        background-color: get-color("concrete");
+      }
     }
   }
 
   &__indicator {
     display: block;
     position: absolute;
-    top: .25rem;
     left: 0;
     border: rem(1px) solid get-color("gray");
     border-radius: 50%;
