@@ -45,6 +45,7 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
   &__indicator {
     display: block;
     position: absolute;
+    top: rem(2.5px);
     left: 0;
     border: rem(1px) solid get-color("gray");
     border-radius: 50%;
