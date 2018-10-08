@@ -12,6 +12,7 @@
       :id="id"
       :class="errorClass"
       :disabled="disabled"
+      @change="onChange"
     >
     <div
       class="text-input__error-message "
@@ -52,6 +53,11 @@
         if (this.hasError) return 'text-input__field--error'
 
         return ''
+      }
+    },
+    methods: {
+      onChange (e) {
+        this.$emit('blabla', e)
       }
     }
   }
