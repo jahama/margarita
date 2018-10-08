@@ -12,6 +12,7 @@
       :disabled="disabled"
       :name="name"
       :value="id"
+      v-model="isSelected"
     >
     <span class="radio-button__indicator"></span>
     <span class="radio-button__description">
@@ -40,6 +41,20 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    value: {
+      type: [String, Boolean],
+      default: ''
+    }
+  },
+  computed: {
+    isSelected: {
+      get () {
+        return this.value
+      },
+      set (newSelectedValue) {
+        this.$emit('input', newSelectedValue)
+      }
     }
   }
 }

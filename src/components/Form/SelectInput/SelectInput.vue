@@ -12,6 +12,7 @@
       :id="id"
       :class="errorClass"
       :disabled="disabled"
+      v-model="selectedValue"
     >
       <option
         v-for="option in options"
@@ -57,6 +58,10 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    value: {
+      type: [String, Number],
+      default: ''
     }
   },
   computed: {
@@ -64,6 +69,14 @@ export default {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
+    },
+    selectedValue: {
+      get () {
+        return this.value
+      },
+      set (newSelectedValue) {
+        this.$emit('input', newSelectedValue)
+      }
     }
   }
 }

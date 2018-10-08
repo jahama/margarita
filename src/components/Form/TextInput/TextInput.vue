@@ -12,7 +12,7 @@
       :id="id"
       :class="errorClass"
       :disabled="disabled"
-      @change="onChange"
+      v-model="inputValue"
     >
     <div
       class="text-input__error-message "
@@ -46,6 +46,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      value: {
+        type: [String, Number],
+        default: ''
       }
     },
     computed: {
@@ -53,11 +57,14 @@
         if (this.hasError) return 'text-input__field--error'
 
         return ''
-      }
-    },
-    methods: {
-      onChange (e) {
-        this.$emit('blabla', e)
+      },
+      inputValue: {
+        get () {
+          return this.value
+        },
+        set (newValue) {
+          this.$emit('input', newValue)
+        }
       }
     }
   }
