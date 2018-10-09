@@ -13,6 +13,7 @@
       :class="errorClass"
       :disabled="disabled"
       v-model="inputValue"
+      @blur="emitBlur"
     >
     <div
       class="text-input__error-message "
@@ -65,6 +66,11 @@
         set (newValue) {
           this.$emit('input', newValue)
         }
+      }
+    },
+    methods: {
+      emitBlur () {
+        this.$emit('blur', this.value)
       }
     }
   }
