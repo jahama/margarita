@@ -10,6 +10,7 @@ import CheckboxInput from '../CheckboxInput/CheckboxInput'
 import SelectInput from '../SelectInput/SelectInput'
 import RadioButton from '../RadioButton/RadioButton'
 import TextInput from '../TextInput/TextInput'
+import ButtonInput from '../ButtonInput/ButtonInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 
@@ -107,4 +108,13 @@ storiesOf('Basic Components', module)
       }
     },
     template: '<CheckboxInput id="paco" label="Hererererere" :checked="checked"/>'
+  }))
+  .add('Button Input', () => ({
+    components: { ButtonInput },
+    data () {
+      return {
+        text: 'Texto del botón'
+      }
+    },
+    template: '<ButtonInput :text="text" :type="type"/>'
   }))
