@@ -60,7 +60,10 @@ storiesOf('Basic Components', module)
     components: { GridColumn, SelectInput },
     data () {
       return {
-        options: ['Anna', 'Marina', 'Mavi', 'Xabi'],
+        options: [{text: 'Anna', value: '1'},
+          {text: 'Marina', value: '2'},
+          {text: 'Mavi', value: '3'},
+          {text: 'Xabi', value: '4'}],
         errorMessage: 'You have an error'
       }
     },

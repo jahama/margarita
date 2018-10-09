@@ -15,11 +15,11 @@
       v-model="selectedValue"
     >
       <option
-        v-for="option in options"
-        :key="option"
-        :value="option"
+        v-for="(option, key) in options"
+        :key="key"
+        :value="option.value"
       >
-        {{ option }}
+        {{ option.text }}
       </option>
     </select>
     <div
@@ -60,7 +60,7 @@ export default {
       default: () => []
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, Object],
       default: ''
     }
   },
