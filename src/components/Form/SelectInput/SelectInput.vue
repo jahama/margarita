@@ -60,7 +60,7 @@ export default {
       default: () => []
     },
     value: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Boolean],
       default: ''
     }
   },
