@@ -25,8 +25,8 @@ export default {
   name: 'CheckboxInput',
   props: {
     id: {
-      type: String,
-      required: true
+      type: String
+      // required: true
     },
     checked: {
       type: Boolean,

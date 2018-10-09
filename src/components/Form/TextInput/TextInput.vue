@@ -28,8 +28,8 @@
     name: 'TextInput',
     props: {
       id: {
-        type: String,
-        required: true
+        type: String
+        // required: true
       },
       errorMessage: {
         type: String,

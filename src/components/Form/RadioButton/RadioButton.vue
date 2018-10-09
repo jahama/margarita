@@ -27,8 +27,7 @@ export default {
   name: 'RadioButton',
   props: {
     id: {
-      type: String,
-      required: true
+      type: String
     },
     disabled: {
       type: Boolean,

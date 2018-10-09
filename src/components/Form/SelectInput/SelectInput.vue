@@ -36,8 +36,8 @@ export default {
   name: 'SelectInput',
   props: {
     id: {
-      type: String,
-      required: true
+      type: String
+      // required: true
     },
     disabled: {
       type: Boolean,
