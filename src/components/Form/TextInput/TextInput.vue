@@ -30,7 +30,6 @@
     props: {
       id: {
         type: String
-        // required: true
       },
       errorMessage: {
         type: String,

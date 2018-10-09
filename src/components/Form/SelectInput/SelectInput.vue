@@ -37,7 +37,6 @@ export default {
   props: {
     id: {
       type: String
-      // required: true
     },
     disabled: {
       type: Boolean,
@@ -52,8 +51,7 @@ export default {
       default: false
     },
     label: {
-      type: String,
-      required: true
+      type: String
     },
     options: {
       type: Array,
