@@ -35,7 +35,8 @@
     }
 
     &:disabled {
-      background-color: get-color("alto");
+      background-color: get-color("concrete");
+      background-image: none;
       pointer-events: none;
     }
 
