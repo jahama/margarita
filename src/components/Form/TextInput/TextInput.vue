@@ -14,6 +14,7 @@
       :disabled="disabled"
       v-model="inputValue"
       @blur="emitBlur"
+      @keyup.enter="emitBlur"
     >
     <div
       class="text-input__error-message "
@@ -69,6 +70,7 @@
     },
     methods: {
       emitBlur () {
+        console.log('blurring');
         this.$emit('blur', this.value)
       }
     }
