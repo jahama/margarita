@@ -70,7 +70,6 @@
     },
     methods: {
       emitBlur () {
-        console.log('blurring');
         this.$emit('blur', this.value)
       }
     }
