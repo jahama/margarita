@@ -11,7 +11,7 @@
       :id="id"
       :disabled="disabled"
       :name="name"
-      :value="id"
+      :value="value"
       v-model="isSelected"
     >
     <span class="radio-button__indicator"></span>
