@@ -52,7 +52,7 @@ export default {
         return this.value
       },
       set (newSelectedValue) {
-        this.$emit('input', newSelectedValue)
+        this.$emit('change', newSelectedValue)
       }
     }
   }

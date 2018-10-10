@@ -81,29 +81,34 @@ storiesOf('Basic Components', module)
     components: { RadioButton },
     data () {
       return {
+        radioName: 'groupName',
         items: [
           {
             id: 'id-de-prueba',
-            text: 'Texto de prueba para radio button 1',
-            name: 'name'
+            text: 'Texto de prueba para radio button 1'
           },
           {
             id: 'id-de-prueba-2',
-            text: 'Texto de prueba para radio button 2',
-            name: 'name'
+            text: 'Texto de prueba para radio button 2'
           }
         ],
         disabled: false
       }
     },
+    methods: {
+      onChange (value) {
+        console.log(this.name, value)
+      }
+    },
     template: `<div>
                 <RadioButton
                   v-for="(item, index) in items"
-                  :name="item.name"
+                  :name="radioName"
                   :id="item.id"
                   :key="item.id"
                   :text="item.text"
-                  :disabled="disabled" />
+                  :disabled="disabled"
+                  @change="onChange" />
               </div>`
   }))
   .add('CheckBox Input', () => ({
