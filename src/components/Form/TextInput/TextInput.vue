@@ -11,10 +11,13 @@
       class="text-input__field"
       :class="getComputedClass"
       :disabled="disabled"
+      :id="id"
+      @blur="emit"
+      @change="emit"
+      @input="emit"
+      @keyup.enter="removeFocus"
       v-model="inputValue"
-      @blur="emitBlur"
-      @keyup.enter="emitBlur"
-    >
+    />
     <div
       class="text-input__error-message "
       v-if="hasError"
