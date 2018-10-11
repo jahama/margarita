@@ -74,9 +74,15 @@
       }
     },
     methods: {
-      emitBlur () {
-        this.$emit('blur', this.value)
+
+      emit (e) {
+        this.$emit(e.type, this.inputValue)
+      },
+
+      removeFocus () {
+        this.$el.querySelector('input').blur()
       }
+
     }
   }
 </script>
