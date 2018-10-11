@@ -53,6 +53,11 @@
         default: ''
       }
     },
+    data () {
+      return {
+        inputValue: this.value
+      }
+    },
     computed: {
       errorClass () {
         if (this.hasError) return 'text-input__field--error'
