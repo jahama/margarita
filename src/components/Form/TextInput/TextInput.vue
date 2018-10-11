@@ -4,8 +4,8 @@
   <div class="text-input">
     <label
       class="text-input__label"
-      v-text="label"
       :for="id"
+      v-text="label"
     />
     <input
       class="text-input__field"
@@ -19,11 +19,10 @@
       v-model="inputValue"
     />
     <div
-      class="text-input__error-message "
+      class="text-input__error-message"
       v-if="hasError"
-    >
-      {{ errorMessage }}
-    </div>
+      v-text="errorMessage"
+    />
   </div>
 </template>
 
@@ -56,7 +55,7 @@
         default: false
       },
       value: {
-        type: [String, Number],
+        type: [ String, Number ],
         default: ''
       }
     },
