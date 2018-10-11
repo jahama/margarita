@@ -9,8 +9,7 @@
     />
     <input
       class="text-input__field"
-      :id="id"
-      :class="errorClass"
+      :class="getComputedClass"
       :disabled="disabled"
       v-model="inputValue"
       @blur="emitBlur"
@@ -26,6 +25,11 @@
 </template>
 
 <script>
+
+  const INPUT_CLASSES = {
+    hasError: 'text-input__field--error'
+  }
+
   export default {
     name: 'TextInput',
     props: {
@@ -59,18 +63,10 @@
       }
     },
     computed: {
-      errorClass () {
-        if (this.hasError) return 'text-input__field--error'
-
-        return ''
-      },
-      inputValue: {
-        get () {
-          return this.value
-        },
-        set (newValue) {
-          this.$emit('input', newValue)
-        }
+      getComputedClass () {
+        return Object.keys(INPUT_CLASSES)
+          .filter((className) => !!this[className])
+          .map((className) => INPUT_CLASSES[className])
       }
     },
     methods: {
