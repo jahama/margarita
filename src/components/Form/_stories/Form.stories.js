@@ -19,11 +19,13 @@ const BUTTON_TYPES = ['primary', 'secondary', 'gradient']
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)
   .add('Text Input', withMarkdownNotes(GridSystemNotes)(() => {
+    const label = text('Label', 'Label')
+    const value = text('Value', 'Value')
     const size = select('Size', GRID_ARRAY, 4)
     const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
-    const label = text('Label', 'Label')
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
+    const disabled = boolean('Disable', false)
 
     return ({
       components: { TextInput, GridColumn },
@@ -31,9 +33,13 @@ storiesOf('Basic Components', module)
       <GridColumn :class="getClass">
         <TextInput
           id="paco"
-          :label="label"
-          :hasError="hasError"
           :errorMessage="errorMessage"
+          :disabled="disabled"
+          :hasError="hasError"
+          :label="label"
+          @blur="onBlur"
+          @input="onInput"
+          v-model="value"
         />
       </GridColumn>`,
       computed: {
@@ -47,11 +53,13 @@ storiesOf('Basic Components', module)
       },
       data () {
         return {
-          size: size,
-          offset: offset,
-          hasError: hasError,
+          disabled: disabled,
           errorMessage: errorMessage,
-          label: label
+          hasError: hasError,
+          label: label,
+          offset: offset,
+          size: size,
+          value: value
         }
       }
     })
