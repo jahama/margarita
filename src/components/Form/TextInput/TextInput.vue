@@ -66,9 +66,11 @@
     },
     computed: {
       getComputedClass () {
-        return Object.keys(INPUT_CLASSES)
-          .filter((className) => !!this[className])
-          .map((className) => INPUT_CLASSES[className])
+        const propKeys = Object.keys(INPUT_CLASSES)
+
+        return propKeys
+          .filter(this._filterByExistProp)
+          .map(this._getClassNameByProp)
       }
     },
     methods: {
@@ -79,6 +81,14 @@
 
       removeFocus () {
         this.$el.querySelector('input').blur()
+      },
+
+      _filterByExistProp (className) {
+        return !!this[className]
+      },
+
+      _getClassNameByProp (className) {
+        return INPUT_CLASSES[className]
       }
 
     }
