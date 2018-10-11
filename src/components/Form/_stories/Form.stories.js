@@ -14,7 +14,10 @@ import TextInput from '../TextInput/TextInput'
 import ButtonInput from '../ButtonInput/ButtonInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
-const BUTTON_TYPES = ['primary', 'secondary', 'gradient']
+const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient' ]
+
+const TRIGGERED_MSG = 'Triggered event:'
+const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)
@@ -61,6 +64,13 @@ storiesOf('Basic Components', module)
           size: size,
           value: value
         }
+      },
+      methods: {
+        onInput: action(`${TRIGGERED_MSG} 'input'`),
+        onBlur: action(`${TRIGGERED_MSG} blur`)
+      },
+      watch: {
+        value: action(`${CHANGED_MSG} value`)
       }
     })
   }))
