@@ -1,54 +1,65 @@
 @import "../../../scss/margarita";
 
 .button-input {
-	padding: rem(6px) rem(48px);
-	min-width: rem(211px);
-	height: rem(36px);
-	line-height: 1.13;
-	font-size: 1rem;
-	transition: background-color .3s, background-position .3s;
+  transition: background-color .3s, background-position .3s;
+  padding: rem(6px) rem(48px);
+  width: 100%;
+  min-width: rem(211px);
+  height: rem(36px);
+  line-height: 1.13;
+  font-size: 1rem;
 
   &--primary {
     background-color: get-color("dark-hot-pink");
-		color: get-color("white");
-		
-		&:hover,
-		&:active {
-			background-color: darken(get-color("dark-hot-pink"), 10%);
-			color: get-color("white");
+    color: get-color("white");
+
+    &:hover,
+    &:active {
+      background-color: darken(get-color("dark-hot-pink"), 10%);
+      color: get-color("white");
 		}
 	}
 
-	&--secondary {
-    border: 1px solid get-color("dark-hot-pink");
+  &--secondary {
+    border: rem(1px) solid get-color("dark-hot-pink");
     background-color: transparent;
-		color: get-color("dark-hot-pink");
-		
-		&:hover,
-		&:active {
+    color: get-color("dark-hot-pink");
+
+    &:hover,
+    &:active {
       background-color: get-color("dark-hot-pink");
       color: get-color("white");
     }
-	}
-	
-	&--gradient {
-		background-color: get-color("dark-hot-pink");
-		background-image: linear-gradient(to right, get-color("dark-hot-pink") 0%, get-color("school-bus-yellow") 51%, get-color("dark-hot-pink") 100%);
-		background-size: 200% auto;
-		color: get-color("white");
-		
-		&:hover,
-		&:active {
+  }
+
+  &--gradient {
+    background-image: linear-gradient(to right, get-color("dark-hot-pink") 0%, get-color("school-bus-yellow") 51%, get-color("dark-hot-pink") 100%);
+    background-size: 200% auto;
+    color: get-color("white");
+
+    &:hover,
+    &:active {
       background-position: right center;
     }
 	}
 }
 
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	outline: inherit;
+button {
+  outline: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+}
+
+input {
+  &[type="submit"] {
+    outline: inherit;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+  }
 }
