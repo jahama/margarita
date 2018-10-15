@@ -82,7 +82,7 @@
           // TODO: Create validator behavior if invalid
         }
 
-        this.emit(e)
+        this.$emit('blur', e)
       },
 
       onInput (e) {
