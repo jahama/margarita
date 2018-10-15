@@ -140,7 +140,6 @@ storiesOf('Basic Components', module)
           set (newValue) {
             this.someOptionProperty = newValue
           }
-<<<<<<< HEAD
         }
       },
       methods: {
@@ -162,28 +161,6 @@ storiesOf('Basic Components', module)
                   <p>{{ computedProperty }}</p>
                 </GridColumn>`
     })
-=======
-        ],
-        disabled: false
-      }
-    },
-    methods: {
-      onChange (value) {
-        console.log(this.radioName, value)
-      }
-    },
-    template: `<div>
-                <RadioButton
-                  v-for="(item, index) in items"
-                  :name="radioName"
-                  :id="item.id"
-                  :key="item.id"
-                  :value="item.text"
-                  :text="item.text"
-                  :disabled="disabled"
-                  @change="onChange" />
-              </div>`
->>>>>>> Fix story for radio button
   }))
   .add('CheckBox Input', () => ({
     components: { CheckboxInput },

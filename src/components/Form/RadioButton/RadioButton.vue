@@ -1,29 +1,29 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-<div class="radio-button__group">
-    <label
-      v-for="item in items"
-      class="radio-button"
-      :for="item.value"
-      :key="item.value"
-    >
-      <input
-        class="radio-button__input radio-button__control"
-        type="radio"
-        :disabled="disabled"
-        :id="item.value"
-        :value="item.value"
-        @change="emit"
-        v-model="selectedValue"
-      />
-      <span class="radio-button__indicator"></span>
-      <span
-        class="radio-button__description"
-        v-text="item.text"
-      />
-    </label>
-</div>
+  <div class="radio-button__group">
+      <label
+        v-for="item in items"
+        class="radio-button"
+        :for="item.value"
+        :key="item.value"
+      >
+        <input
+          class="radio-button__input radio-button__control"
+          type="radio"
+          :disabled="disabled"
+          :id="item.value"
+          :value="item.value"
+          @change="emit"
+          v-model="selectedValue"
+        />
+        <span class="radio-button__indicator"></span>
+        <span
+          class="radio-button__description"
+          v-text="item.text"
+        />
+      </label>
+  </div>
 </template>
 
 <script>
