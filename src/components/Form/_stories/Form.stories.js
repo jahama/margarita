@@ -4,6 +4,7 @@ import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
 import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
+import TextInputNotes from './notes/TextInput.md'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 
@@ -21,7 +22,7 @@ const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)
-  .add('Text Input', withMarkdownNotes(GridSystemNotes)(() => {
+  .add('Text Input', withMarkdownNotes(TextInputNotes)(() => {
     const label = text('Label', 'Label')
     const value = text('Value', 'Value')
     const size = select('Size', GRID_ARRAY, 4)
@@ -29,6 +30,17 @@ storiesOf('Basic Components', module)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
+    const mask = (value) => {
+      if (!value) return
+
+      return value
+        .trim()
+        .replace(/ /g, '')
+        .substr(0, 24)
+        .toUpperCase()
+        .match(/.{1,4}/g)
+        .join(' ')
+    }
 
     return ({
       components: { TextInput, GridColumn },
@@ -60,6 +72,7 @@ storiesOf('Basic Components', module)
           errorMessage: errorMessage,
           hasError: hasError,
           label: label,
+          mask: mask,
           offset: offset,
           size: size,
           value: value
