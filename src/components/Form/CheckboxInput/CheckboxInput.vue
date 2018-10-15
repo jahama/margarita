@@ -13,6 +13,7 @@
         :id="id"
         :checked="checked"
         :disabled="disabled"
+        v-model="isChecked"
       >
       <span class="checkmark-box"></span>
     </label>
@@ -24,8 +25,7 @@ export default {
   name: 'CheckboxInput',
   props: {
     id: {
-      type: String,
-      required: true
+      type: String
     },
     checked: {
       type: Boolean,
@@ -38,6 +38,16 @@ export default {
     label: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    isChecked: {
+      get () {
+        return this.checked
+      },
+      set (checkedValue) {
+        this.$emit('input', checkedValue)
+      }
     }
   }
 }

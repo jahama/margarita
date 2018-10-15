@@ -12,13 +12,14 @@
       :id="id"
       :class="errorClass"
       :disabled="disabled"
+      v-model="selectedValue"
     >
       <option
-        v-for="option in options"
-        :key="option"
-        :value="option"
+        v-for="(option, key) in options"
+        :key="key"
+        :value="option.value"
       >
-        {{ option }}
+        {{ option.text }}
       </option>
     </select>
     <div
@@ -35,8 +36,7 @@ export default {
   name: 'SelectInput',
   props: {
     id: {
-      type: String,
-      required: true
+      type: String
     },
     disabled: {
       type: Boolean,
@@ -51,8 +51,7 @@ export default {
       default: false
     },
     label: {
-      type: String,
-      required: true
+      type: String
     },
     options: {
       type: Array,
@@ -64,6 +63,14 @@ export default {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
+    },
+    selectedValue: {
+      get () {
+        return this.value
+      },
+      set (newSelectedValue) {
+        this.$emit('input', newSelectedValue)
+      }
     }
   }
 }

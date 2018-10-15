@@ -22,7 +22,7 @@
 @mixin make-row() {
   display: flex;
   flex-wrap: wrap;
-  margin: ($grid-gutter-width / -2);
+  margin: 0 ($grid-gutter-width / -2);
 }
 
 @mixin make-col-ready() {
@@ -59,7 +59,7 @@
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
-    padding: ($gutter / 2);
+    padding: 0 ($gutter / 2);
     width: 100%;
     min-height: rem(1px); // Prevent columns from collapsing when empty
   }
