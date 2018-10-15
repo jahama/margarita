@@ -52,6 +52,7 @@ storiesOf('Basic Components', module)
           :disabled="disabled"
           :hasError="hasError"
           :label="label"
+          :mask="mask"
           @blur="onBlur"
           @input="onInput"
           v-model="value"
@@ -108,39 +109,58 @@ storiesOf('Basic Components', module)
               :options="options" />
     </GridColumn>`
   }))
-  .add('Radio Button', () => ({
-    components: { RadioButton },
-    data () {
-      return {
-        radioName: 'groupName',
-        items: [
-          {
-            id: 'id-de-prueba',
-            text: 'Texto de prueba para radio button 1'
+  .add('Radio Button', withMarkdownNotes(GridSystemNotes)(() => {
+    const option = select('Selected option', [ '', 'id-de-prueba', 'id-de-prueba-2' ], '')
+    const disabled = boolean('Disabled', false)
+
+    return ({
+      components: { RadioButton, GridColumn },
+      data () {
+        return {
+          someOptionProperty: option,
+          disabled: disabled,
+          items: [
+            {
+              value: 'id-de-prueba',
+              text: 'Texto de prueba para radio button 1'
+            },
+            {
+              value: 'id-de-prueba-2',
+              text: 'Texto de prueba para radio button 2'
+            }
+          ]
+        }
+      },
+      computed: {
+        computedProperty: {
+          get () {
+            if (!this.someOptionProperty) return
+            return `{ P1: ${this.someOptionProperty} }`
           },
-          {
-            id: 'id-de-prueba-2',
-            text: 'Texto de prueba para radio button 2'
+          set (newValue) {
+            this.someOptionProperty = newValue
           }
-        ],
-        disabled: false
-      }
-    },
-    methods: {
-      onChange (value) {
-        console.log(this.name, value)
-      }
-    },
-    template: `<div>
-                <RadioButton
-                  v-for="(item, index) in items"
-                  :name="radioName"
-                  :id="item.id"
-                  :key="item.id"
-                  :text="item.text"
-                  :disabled="disabled"
-                  @change="onChange" />
-              </div>`
+        }
+      },
+      methods: {
+        onChange: action(`${TRIGGERED_MSG} change`)
+      },
+      watch: {
+        someOptionProperty (newValue) {
+          this.computedProperty = newValue
+        },
+        computedProperty: action(`${TRIGGERED_MSG} change`)
+      },
+      template: `<GridColumn class="grid-col--12">
+                  <RadioButton
+                    :disabled="disabled"
+                    :items="items"
+                    @change="onChange"
+                    v-model.lazy="someOptionProperty"
+                  />
+                  <p>{{ computedProperty }}</p>
+                </GridColumn>`
+    })
   }))
   .add('CheckBox Input', () => ({
     components: { CheckboxInput },
