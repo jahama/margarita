@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, array, boolean, object, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -47,7 +47,7 @@ storiesOf('Basic Components', module)
       template: `
       <GridColumn :class="getClass">
         <TextInput
-          id="paco"
+          id="my-text-input"
           :errorMessage="errorMessage"
           :disabled="disabled"
           :hasError="hasError"
@@ -88,33 +88,89 @@ storiesOf('Basic Components', module)
       }
     })
   }))
-  .add('Select Input', () => ({
-    components: { GridColumn, SelectInput },
-    data () {
-      return {
-        options: [{text: 'Anna', value: '1'},
-          {text: 'Marina', value: '2'},
-          {text: 'Mavi', value: '3'},
-          {text: 'Xabi', value: '4'}],
-        errorMessage: 'You have an error'
+  .add('Select Input', () => {
+    const label = text('Label', 'Label')
+    const defaultOptions = [{text: 'Option1', value: 'option1'},
+      {text: 'Option2', value: 'option2'},
+      {text: 'Option3', value: 'option3'},
+      {text: 'Option4', value: 'option4'}]
+    const options = object('Options', defaultOptions)
+    const size = select('Size', GRID_ARRAY, 3)
+    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const errorMessage = text('Error msg', 'You have an error')
+    const hasError = boolean('Has error', false)
+    const disabled = boolean('Disable', false)
+
+    return {
+      components: { GridColumn, SelectInput },
+      template: `
+      <GridColumn :class="getClass">
+        <SelectInput
+          id="my-select-input"
+          :errorMessage="errorMessage"
+          :disabled="disabled"
+          :hasError="hasError"
+          :label="label"
+          :options="options"
+        />
+      </GridColumn>`,
+      computed: {
+        getClass () {
+          const classes = [ `grid-col--${this.size}` ]
+          const offset = Number(this.offset)
+
+          if (offset) classes.push(`grid-col--offset-${offset}`)
+          return classes
+        }
+      },
+      data () {
+        return {
+          disabled: disabled,
+          errorMessage: errorMessage,
+          hasError: hasError,
+          label: label,
+          options: options,
+          offset: offset,
+          size: size
+        }
       }
-    },
-    template: `
-    <GridColumn class="grid-col--4 grid-col--offset-4">
-      <SelectInput
-              id="blabla"
-              label="select field"
-              :errorMessage="errorMessage"
-              :hasError="true"
-              :options="options" />
-    </GridColumn>`
-  }))
+    }
+  })
   .add('Radio Button', withMarkdownNotes(GridSystemNotes)(() => {
     const option = select('Selected option', [ '', 'id-de-prueba', 'id-de-prueba-2' ], '')
+    const size = select('Size', GRID_ARRAY, 3)
+    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
     const disabled = boolean('Disabled', false)
 
     return ({
       components: { RadioButton, GridColumn },
+      template: `<GridColumn :class="getClass">
+      <RadioButton
+      :disabled="disabled"
+      :items="items"
+      @change="onChange"
+      v-model.lazy="someOptionProperty"
+      />
+      <p>{{ computedProperty }}</p>
+      </GridColumn>`,
+      computed: {
+        computedProperty: {
+          get () {
+            if (!this.someOptionProperty) return
+            return `{ P1: ${this.someOptionProperty} }`
+          },
+          set (newValue) {
+            this.someOptionProperty = newValue
+          }
+        },
+        getClass () {
+          const classes = [ `grid-col--${this.size}` ]
+          const offset = Number(this.offset)
+
+          if (offset) classes.push(`grid-col--offset-${offset}`)
+          return classes
+        }
+      },
       data () {
         return {
           someOptionProperty: option,
@@ -128,18 +184,9 @@ storiesOf('Basic Components', module)
               value: 'id-de-prueba-2',
               text: 'Texto de prueba para radio button 2'
             }
-          ]
-        }
-      },
-      computed: {
-        computedProperty: {
-          get () {
-            if (!this.someOptionProperty) return
-            return `{ P1: ${this.someOptionProperty} }`
-          },
-          set (newValue) {
-            this.someOptionProperty = newValue
-          }
+          ],
+          offset: offset,
+          size: size
         }
       },
       methods: {
@@ -150,16 +197,7 @@ storiesOf('Basic Components', module)
           this.computedProperty = newValue
         },
         computedProperty: action(`${TRIGGERED_MSG} change`)
-      },
-      template: `<GridColumn class="grid-col--12">
-                  <RadioButton
-                    :disabled="disabled"
-                    :items="items"
-                    @change="onChange"
-                    v-model.lazy="someOptionProperty"
-                  />
-                  <p>{{ computedProperty }}</p>
-                </GridColumn>`
+      }
     })
   }))
   .add('CheckBox Input', () => ({
@@ -173,7 +211,7 @@ storiesOf('Basic Components', module)
   }))
   .add('Button Input', withMarkdownNotes(GridSystemNotes)(() => {
     const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 0)
+    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
     const type = select('Types', BUTTON_TYPES, 'primary')
     const textButton = text('Label', 'Click me')
 
