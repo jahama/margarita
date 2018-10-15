@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, array, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -45,19 +45,19 @@ storiesOf('Basic Components', module)
     return ({
       components: { TextInput, GridColumn },
       template: `
-      <GridColumn :class="getClass">
-        <TextInput
-          id="my-text-input"
-          :errorMessage="errorMessage"
-          :disabled="disabled"
-          :hasError="hasError"
-          :label="label"
-          :mask="mask"
-          @blur="onBlur"
-          @input="onInput"
-          v-model="value"
-        />
-      </GridColumn>`,
+        <grid-column :class="getClass">
+          <text-input
+            id="my-text-input"
+            :errorMessage="errorMessage"
+            :disabled="disabled"
+            :hasError="hasError"
+            :label="label"
+            :mask="mask"
+            @blur="onBlur"
+            @input="onInput"
+            v-model="value"
+          />
+        </grid-column>`,
       computed: {
         getClass () {
           const classes = [ `grid-col--${this.size}` ]
@@ -104,16 +104,16 @@ storiesOf('Basic Components', module)
     return {
       components: { GridColumn, SelectInput },
       template: `
-      <GridColumn :class="getClass">
-        <SelectInput
-          id="my-select-input"
-          :errorMessage="errorMessage"
-          :disabled="disabled"
-          :hasError="hasError"
-          :label="label"
-          :options="options"
-        />
-      </GridColumn>`,
+        <grid-column :class="getClass">
+          <select-input
+            id="my-select-input"
+            :errorMessage="errorMessage"
+            :disabled="disabled"
+            :hasError="hasError"
+            :label="label"
+            :options="options"
+          />
+        </grid-column>`,
       computed: {
         getClass () {
           const classes = [ `grid-col--${this.size}` ]
@@ -144,15 +144,16 @@ storiesOf('Basic Components', module)
 
     return ({
       components: { RadioButton, GridColumn },
-      template: `<GridColumn :class="getClass">
-      <RadioButton
-      :disabled="disabled"
-      :items="items"
-      @change="onChange"
-      v-model.lazy="someOptionProperty"
-      />
-      <p>{{ computedProperty }}</p>
-      </GridColumn>`,
+      template: `
+        <grid-column :class="getClass">
+          <radio-button
+            :disabled="disabled"
+            :items="items"
+            @change="onChange"
+            v-model.lazy="someOptionProperty"
+          />
+          <p>{{ computedProperty }}</p>
+        </grid-column>`,
       computed: {
         computedProperty: {
           get () {
@@ -200,15 +201,42 @@ storiesOf('Basic Components', module)
       }
     })
   }))
-  .add('CheckBox Input', () => ({
-    components: { CheckboxInput },
-    data () {
-      return {
-        checked: true
+  .add('CheckBox Input', () => {
+    const label = text('Label', 'Click to check the checkbox')
+    const size = select('Size', GRID_ARRAY, 3)
+    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const disabled = boolean('Disabled', false)
+
+    return {
+      components: { CheckboxInput },
+      template: `
+        <grid-column :class="getClass">
+          <checkbox-input
+            :label="label"
+            :checked="checked"
+            :disabled="disabled"
+          />
+        </grid-column>`,
+      computed: {
+        getClass () {
+          const classes = [ `grid-col--${this.size}` ]
+          const offset = Number(this.offset)
+
+          if (offset) classes.push(`grid-col--offset-${offset}`)
+          return classes
+        }
+      },
+      data () {
+        return {
+          checked: true,
+          disabled: disabled,
+          label: label,
+          offset: offset,
+          size: size
+        }
       }
-    },
-    template: '<CheckboxInput id="paco" label="Hererererere" :checked="checked"/>'
-  }))
+    }
+  })
   .add('Button Input', withMarkdownNotes(GridSystemNotes)(() => {
     const size = select('Size', GRID_ARRAY, 3)
     const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
@@ -217,21 +245,14 @@ storiesOf('Basic Components', module)
 
     return ({
       components: { ButtonInput, GridColumn },
-      data () {
-        return {
-          text: textButton,
-          type: type,
-          size: size,
-          offset: offset
-        }
-      },
-      template: `<GridColumn :class="getClass">
-                  <ButtonInput
-                    :text="text"
-                    :type="type"
-                    @click="action"
-                  />
-                </GridColumn>`,
+      template: `
+        <grid-column :class="getClass">
+          <button-input
+            :text="text"
+            :type="type"
+            @click="action"
+          />
+        </grid-column>`,
       computed: {
         getClass () {
           const classes = [ `grid-col--${this.size}` ]
@@ -239,6 +260,14 @@ storiesOf('Basic Components', module)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
           return classes
+        }
+      },
+      data () {
+        return {
+          text: textButton,
+          type: type,
+          size: size,
+          offset: offset
         }
       },
       methods: {
