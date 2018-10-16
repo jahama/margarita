@@ -14,6 +14,10 @@ module.exports = (baseConfig, env, defaultConfig) => {
     new CopyWebpackPlugin([{
       from: 'src/assets/fonts',
       to: 'fonts'
+    }]),
+    new CopyWebpackPlugin([{
+      from: 'src/scss',
+      to: 'scss'
     }])
   )
 
