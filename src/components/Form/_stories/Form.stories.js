@@ -14,8 +14,8 @@ import RadioButton from '../RadioButton/RadioButton'
 import TextInput from '../TextInput/TextInput'
 import ButtonInput from '../ButtonInput/ButtonInput'
 
-const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
-const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient' ]
+const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const BUTTON_TYPES = ['primary', 'secondary', 'gradient']
 
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
@@ -26,7 +26,7 @@ storiesOf('Basic Components', module)
     const label = text('Label', 'Label')
     const value = text('Value', 'Value')
     const size = select('Size', GRID_ARRAY, 4)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
@@ -60,7 +60,7 @@ storiesOf('Basic Components', module)
         </grid-column>`,
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
+          const classes = [`grid-col--${this.size}`]
           const offset = Number(this.offset)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
@@ -90,13 +90,13 @@ storiesOf('Basic Components', module)
   }))
   .add('Select Input', () => {
     const label = text('Label', 'Label')
-    const defaultOptions = [{text: 'Option1', value: 'option1'},
-      {text: 'Option2', value: 'option2'},
-      {text: 'Option3', value: 'option3'},
-      {text: 'Option4', value: 'option4'}]
+    const defaultOptions = [{ text: 'Option1', value: 'option1' },
+      { text: 'Option2', value: 'option2' },
+      { text: 'Option3', value: 'option3' },
+      { text: 'Option4', value: 'option4' }]
     const options = object('Options', defaultOptions)
     const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
@@ -116,7 +116,7 @@ storiesOf('Basic Components', module)
         </grid-column>`,
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
+          const classes = [`grid-col--${this.size}`]
           const offset = Number(this.offset)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
@@ -137,10 +137,11 @@ storiesOf('Basic Components', module)
     }
   })
   .add('Radio Button', withMarkdownNotes(GridSystemNotes)(() => {
-    const option = select('Selected option', [ '', 'id-de-prueba', 'id-de-prueba-2' ], '')
+    const option = select('Selected option', ['', 'id-de-prueba', 'id-de-prueba-2'], '')
     const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const disabled = boolean('Disabled', false)
+    const defaultOption = text('Default option')
 
     return ({
       components: { RadioButton, GridColumn },
@@ -149,8 +150,8 @@ storiesOf('Basic Components', module)
           <radio-button
             :disabled="disabled"
             :items="items"
+            :value="defaultOption"
             @change="onChange"
-            v-model.lazy="someOptionProperty"
           />
           <p>{{ computedProperty }}</p>
         </grid-column>`,
@@ -165,7 +166,7 @@ storiesOf('Basic Components', module)
           }
         },
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
+          const classes = [`grid-col--${this.size}`]
           const offset = Number(this.offset)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
@@ -175,6 +176,7 @@ storiesOf('Basic Components', module)
       data () {
         return {
           someOptionProperty: option,
+          defaultOption: defaultOption,
           disabled: disabled,
           items: [
             {
@@ -204,7 +206,7 @@ storiesOf('Basic Components', module)
   .add('CheckBox Input', () => {
     const label = text('Label', 'Click to check the checkbox')
     const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const disabled = boolean('Disabled', false)
 
     return {
@@ -219,7 +221,7 @@ storiesOf('Basic Components', module)
         </grid-column>`,
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
+          const classes = [`grid-col--${this.size}`]
           const offset = Number(this.offset)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
@@ -239,7 +241,7 @@ storiesOf('Basic Components', module)
   })
   .add('Button Input', withMarkdownNotes(GridSystemNotes)(() => {
     const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const type = select('Types', BUTTON_TYPES, 'primary')
     const textButton = text('Label', 'Click me')
 
@@ -255,7 +257,7 @@ storiesOf('Basic Components', module)
         </grid-column>`,
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
+          const classes = [`grid-col--${this.size}`]
           const offset = Number(this.offset)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
