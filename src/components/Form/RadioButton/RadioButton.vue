@@ -54,12 +54,10 @@ export default {
       }
     }
   },
-
   methods: {
     emit (e) {
       // TODO: Try if in bonasera works with change event
-      this.$emit('input', this.selectedValue)
-      this.$emit(e.type, this.selectedValue)
+      this.$emit(e.type, e.target.value)
     }
   }
 
