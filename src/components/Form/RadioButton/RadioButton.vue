@@ -3,14 +3,14 @@
 <template>
   <div class="radio-button__group">
     <label
-      v-for="item in items"
-      :for="item.value"
-      :key="item.value"
+      v-for="(item, key) in items"
+      :for="key"
+      :key="key"
       class="radio-button"
     >
       <input
         :disabled="disabled"
-        :id="item.value"
+        :id="key"
         :value="item.value"
         v-model="selectedValue"
         class="radio-button__input radio-button__control"
