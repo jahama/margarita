@@ -35,7 +35,7 @@ export default {
       default: false
     },
     value: {
-      type: [ String, Boolean ],
+      type: [String, Object, Number, Boolean],
       default: ''
     },
     items: {
