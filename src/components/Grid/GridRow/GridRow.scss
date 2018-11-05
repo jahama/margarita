@@ -18,4 +18,8 @@
       padding-left: 0;
     }
   }
+
+  &--direction-column {
+    flex-direction: column;
+  }
 }
