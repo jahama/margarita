@@ -7,7 +7,7 @@ const componentData = function () {
   return {
     staticClass: 'grid-col',
     class: {
-      'grid-column--direction-column': this.directionColumn
+      'grid-col--direction-column': this.directionColumn
     }
   }
 }
