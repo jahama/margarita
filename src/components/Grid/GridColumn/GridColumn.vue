@@ -5,7 +5,10 @@ import { mergeDataWithProps } from '@/utils/mergeData'
 
 const componentData = function () {
   return {
-    staticClass: 'grid-col'
+    staticClass: 'grid-col',
+    class: {
+      'grid-row--direction-column': this.directionColumn
+    }
   }
 }
 
@@ -18,6 +21,10 @@ export default {
     tag: {
       type: String,
       default: 'div'
+    },
+    directionColumn: {
+      type: Boolean,
+      default: false
     }
   },
 

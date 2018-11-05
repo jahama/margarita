@@ -2,6 +2,12 @@
 
 @include make-grid-columns();
 
-.grid-col > * {
-  flex: auto;
+.grid-col {
+  &--direction-column {
+    flex-direction: column;
+  }
+  
+  & > * {
+    flex: auto;
+  }
 }

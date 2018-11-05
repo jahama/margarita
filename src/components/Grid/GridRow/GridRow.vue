@@ -7,7 +7,8 @@ const componentData = function () {
   return {
     staticClass: 'grid-row',
     class: {
-      'grid-row--no-gutters': this.noGutters
+      'grid-row--no-gutters': this.noGutters,
+      'grid-row--direction-column': this.directionColumn
     }
   }
 }
@@ -25,6 +26,10 @@ export default {
     tag: {
       type: String,
       default: 'div'
+    },
+    directionColumn: {
+      type: Boolean,
+      default: false
     }
   },
 
