@@ -2,6 +2,7 @@
 
 .grid-row {
   @include make-row();
+  margin-bottom: rem(24px);
 
   .grid-row {
     margin-right: $grid-gutter-width / -2;
@@ -9,7 +10,9 @@
   }
 
   &--no-gutters {
+    margin-top: 0;
     margin-right: 0;
+    margin-bottom: 0;
     margin-left: 0;
 
     > .grid-col,
