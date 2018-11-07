@@ -31,11 +31,19 @@
       @include mq($from: md) {
         margin-bottom: 0;
       }
+    }
 
+    > .grid-col--12 {
       &:last-child {
         @include mq($until: md) {
           margin-bottom: 0;
         }
+      }
+    }
+
+    > .grid-col--6 {
+      @include mq($until: md) {
+        margin-bottom: 0;
       }
     }
   }
