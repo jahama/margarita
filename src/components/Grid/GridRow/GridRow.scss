@@ -2,7 +2,11 @@
 
 .grid-row {
   @include make-row();
-  margin-bottom: rem(24px);
+
+  > .grid-col,
+  > [class*="grid-col--"] {
+    margin-bottom: rem(24px);
+  }
 
   .grid-row {
     margin-right: $grid-gutter-width / -2;
@@ -21,7 +25,10 @@
   }
 
   &--no-margin-bottom {
-    margin-bottom: 0;
+    > .grid-col,
+    > [class*="grid-col--"] {
+      margin-bottom: 0;
+    }
   }
 
   &--direction-column {
