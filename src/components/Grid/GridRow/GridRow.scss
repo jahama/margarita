@@ -6,7 +6,7 @@
   > .grid-col,
   > [class*="grid-col--"] {
     margin-bottom: rem(24px);
-    
+
   }
 
   .grid-row {
@@ -42,8 +42,10 @@
     }
 
     > .grid-col--6 {
-      @include mq($until: md) {
-        margin-bottom: 0;
+      &:nth-last-of-type(-n+2) {
+        @include mq($until: md) {
+          margin-bottom: 0;
+        }
       }
     }
   }
