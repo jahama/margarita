@@ -1,3 +1,5 @@
+@import "sass-mq";
+
 @import "variables/colors";
 @import "variables/fonts";
 @import "variables/grid";
@@ -9,5 +11,6 @@
 @import "mixins/grid";
 @import "mixins/font-mixin";
 @import "mixins/font-weight";
+@import "mixins/sass-mq";
 
 @import "ciutadella-loader";
