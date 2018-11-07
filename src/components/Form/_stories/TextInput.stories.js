@@ -1,10 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
-import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
 
 import TextInput from '../TextInput/TextInput'
 import TextInputNotes from './notes/TextInput.md'

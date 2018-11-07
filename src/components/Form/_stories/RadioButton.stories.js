@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -11,7 +11,6 @@ import RadioButton from '../RadioButton/RadioButton'
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 const TRIGGERED_MSG = 'Triggered event:'
-const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)

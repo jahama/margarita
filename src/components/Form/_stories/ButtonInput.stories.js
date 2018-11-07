@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -10,9 +10,6 @@ import ButtonInput from '../ButtonInput/ButtonInput'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const BUTTON_TYPES = ['primary', 'secondary', 'gradient']
-
-const TRIGGERED_MSG = 'Triggered event:'
-const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)
