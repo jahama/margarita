@@ -6,6 +6,7 @@
   > .grid-col,
   > [class*="grid-col--"] {
     margin-bottom: rem(24px);
+    
   }
 
   .grid-row {
@@ -27,7 +28,15 @@
   &--no-margin-bottom {
     > .grid-col,
     > [class*="grid-col--"] {
-      margin-bottom: 0;
+      @include mq($from: md) {
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        @include mq($until: md) {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
