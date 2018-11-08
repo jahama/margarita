@@ -3,7 +3,7 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <the-burger/>
+      <the-burger @click="onClickBurger" />
       <a href="https://www.holaluz.com" class="header-logo__image"></a>
     </div>
   </header>
@@ -13,8 +13,24 @@
 import TheBurger from './components/TheBurger/TheBurger'
 
 export default {
+
+  name: 'TheHeader',
+
+  data () {
+    return {
+      opened: false
+    }
+  },
+
   components: {
     TheBurger
+  },
+
+  methods: {
+    onClickBurger () {
+      this.opened = true
+    }
   }
+
 }
 </script>
