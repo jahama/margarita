@@ -1,0 +1,58 @@
+@import "../../../../../scss/margarita";
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: get-color("white");
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    height: 2rem;
+    list-style: none;
+    line-height: 1.3;
+
+    &:hover {
+      .navbar__dropdown {
+        display: block;
+      }
+    }
+  }
+
+  &__anchor {
+    padding-bottom: .75rem;
+    height: 100%;
+    text-decoration: none;
+    color: get-color("gray");
+
+    &:hover {
+      color: get-color("dark-hot-pink");
+    }
+
+    &.active {
+      @include font-weight(medium);
+
+      position: relative;
+      color: get-color("tundora");
+
+      &::after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        z-index: 11;
+        background-image: linear-gradient(
+          to right,
+          get-color("crimson") 0%,
+          get-color("school-bus-yellow") 100%
+        );
+        background-repeat: no-repeat;
+        width: 100%;
+        height: .125rem;
+        content: "";
+      }
+    }
+  }
+}
