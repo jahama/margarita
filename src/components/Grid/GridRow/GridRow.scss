@@ -6,7 +6,6 @@
   > .grid-col,
   > [class*="grid-col--"] {
     margin-bottom: rem(24px);
-
   }
 
   .grid-row {
@@ -23,6 +22,10 @@
       padding-right: 0;
       padding-left: 0;
     }
+  }
+
+  &--has-margin-top {
+    margin-bottom: rem(24px);
   }
 
   &--no-margin-bottom {
