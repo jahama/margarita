@@ -8,11 +8,6 @@
     margin-bottom: rem(24px);
   }
 
-  .grid-row {
-    margin-right: $grid-gutter-width / -2;
-    margin-left: $grid-gutter-width / -2;
-  }
-
   &--no-gutters {
     margin-right: 0;
     margin-left: 0;
@@ -43,7 +38,7 @@
         }
       }
     }
-
+    
     > .grid-col--6 {
       &:nth-last-of-type(-n+2) {
         @include mq($until: md) {
