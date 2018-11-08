@@ -3,6 +3,7 @@
 .grid-container {
   @include make-container();
   @include make-container-max-widths();
+  margin: rem(72px) 0;
 
   &--fluid {
     max-width: none;
