@@ -13,19 +13,14 @@
 export default {
 
   props: {
-    gray: {
-      type: Boolean,
-      default: false
-    },
-
     hasMarginTop: {
       type: Boolean,
       default: false
     },
 
-    white: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      default: 'gray'
     }
   },
 
@@ -34,8 +29,8 @@ export default {
       const classes = []
 
       if (this.hasMarginTop) classes.push('layout-card--has-margin-top')
-      if (this.gray) classes.push('layout-card--gray')
-      if (this.white) classes.push('layout-card--white')
+      if (this.color === 'gray') classes.push('layout-card--gray')
+      if (this.color === 'white') classes.push('layout-card--white')
 
       return classes
     }
