@@ -1,0 +1,18 @@
+@import "../../../scss/margarita";
+
+.layout-card{
+	padding: rem(24px);
+	
+	&--gray {
+		background-color: get-color('concrete');
+	}
+
+	&--white {
+		background-color: get-color('white');
+		box-shadow: 0 0 rem(6px) rem(2px) get-color('shadow');
+	}
+
+	&--has-margin-top {
+		margin-top: rem(24px);
+	}
+}
