@@ -56,7 +56,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           tag: tag,
@@ -90,7 +90,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -142,7 +142,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -168,7 +168,7 @@ storiesOf('Grid System', module)
             <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-3" :directionColumn="directionColumn">
               <GridRow :noGutters="noGutters" :hasMarginTop="hasMarginTop">
                 <GridColumn>
-                  <div class="content purple">{{ lorem.slice(0, 70) }}</div>
+                  <div class="content pink">{{ lorem.slice(0, 70) }}</div>
                 </GridColumn>
               </GridRow>
               <GridRow :noGutters="noGutters" :noMarginBottom="noMarginBottom">
@@ -187,7 +187,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters,
