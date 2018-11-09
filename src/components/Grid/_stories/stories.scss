@@ -27,6 +27,10 @@
     .content {
       border-color: get-darken-color("picton-blue", 20%);
       background-color: get-darken-color("picton-blue", 20%);
+
+      &.pink {
+        background-color: get-color("dark-hot-pink");
+      }
     }
   }
 
@@ -35,9 +39,5 @@
       border-color: get-color("picton-blue");
       background-color: get-color("picton-blue");
     }
-  }
-
-  &+.grid-row {
-    margin-top: .5rem;
   }
 }

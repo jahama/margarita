@@ -16,7 +16,7 @@ storiesOf('Grid System', module)
   .addDecorator(withKnobs)
   .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
     const fluid = boolean('Fluid layout', false)
-    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
+    const tag = select('Tag', ['div', 'header', 'aside', 'article', 'section'], 'div')
     const noGutters = boolean('No gutters', false)
 
     return ({
@@ -56,7 +56,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           tag: tag,
@@ -90,7 +90,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -142,7 +142,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -153,6 +153,9 @@ storiesOf('Grid System', module)
   .add('Nested', withMarkdownNotes(GridNestedNotes)(() => {
     const fluid = boolean('fluid', false)
     const noGutters = boolean('noGutters', false)
+    const noMarginBottom = boolean('Light blue has NO margin bottom', true)
+    const hasMarginTop = boolean('Pink row has margin top', false)
+    const directionColumn = boolean('Light blue row has flex direction column', true)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
@@ -162,12 +165,14 @@ storiesOf('Grid System', module)
             <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-4">
               <div class="content">{{ lorem }}</div>
             </GridColumn>
-            <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-3">
-              <GridRow :noGutters="noGutters">
+            <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-3" :directionColumn="directionColumn">
+              <GridRow :noGutters="noGutters" :hasMarginTop="hasMarginTop">
                 <GridColumn>
-                  <div class="content">{{ lorem.slice(0, 70) }}</div>
+                  <div class="content pink">{{ lorem.slice(0, 70) }}</div>
                 </GridColumn>
-                <GridColumn v-for="i in 2" :key="i" class="grid-col--12">
+              </GridRow>
+              <GridRow :noGutters="noGutters" :noMarginBottom="noMarginBottom">
+                <GridColumn v-for="i in 2" :key="i" class="grid-col--6">
                   <div class="content">{{ lorem.slice(0, 40) }}</div>
                 </GridColumn>
               </GridRow>
@@ -182,10 +187,13 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
+      data() {
         return {
           fluid: fluid,
           noGutters: noGutters,
+          noMarginBottom: noMarginBottom,
+          hasMarginTop: hasMarginTop,
+          directionColumn: directionColumn,
           lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
         }
       }

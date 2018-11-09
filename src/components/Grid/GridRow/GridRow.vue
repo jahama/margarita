@@ -8,7 +8,9 @@ const componentData = function () {
     staticClass: 'grid-row',
     class: {
       'grid-row--no-gutters': this.noGutters,
-      'grid-row--direction-column': this.directionColumn
+      'grid-row--no-margin-bottom': this.noMarginBottom,
+      'grid-row--direction-column': this.directionColumn,
+      'grid-row--has-margin-top': this.hasMarginTop
     }
   }
 }
@@ -20,6 +22,14 @@ export default {
 
   props: {
     noGutters: {
+      type: Boolean,
+      default: false
+    },
+    noMarginBottom: {
+      type: Boolean,
+      default: false
+    },
+    hasMarginTop: {
       type: Boolean,
       default: false
     },
