@@ -11,7 +11,6 @@
   .burger-bar--1,
   .burger-bar--2,
   .burger-bar--3 {
-    transition: .4s;
     margin-bottom: .25rem;
     background-color: get-color("dark-hot-pink");
     width: 100%;
@@ -20,5 +19,30 @@
 
   .burger-bar--2 {
     width: 1.125rem;
+  }
+
+  &--close {
+    background-color: get-color("dark-hot-pink");
+    width: 2.25rem;
+    height: 2.25rem;
+
+    .burger-bar--1,
+    .burger-bar--2 {
+      margin-top: .25rem;
+      background-color: get-color("white");
+      width: 1.375rem;
+    }
+
+    .burger-bar--1 {
+      transform: rotate(-45deg) translate(-5px, 14px);
+    }
+
+    .burger-bar--2 {
+      transform: rotate(45deg) translate(9px, 0);
+    }
+
+    .burger-bar--3 {
+      display: none;
+    }
   }
 }

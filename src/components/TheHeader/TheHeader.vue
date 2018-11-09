@@ -6,7 +6,7 @@
       <grid-row>
         <grid-column class="grid-col--6">
           <div class="header__logo">
-            <the-burger @click="onClickBurger" />
+            <the-burger @click="opened = true" />
             <a
               href="https://www.holaluz.com"
               class="header-logo__image"
@@ -23,6 +23,19 @@
         </grid-column>
       </grid-row>
     </grid-container>
+    <transition
+      name="slide-animation"
+    >
+      <div class="links__mobile" v-show="opened">
+        <ul>
+          <the-burger isClose @click="opened = false" />
+          <li>Holi</li>
+          <li>Ke ase</li>
+          <li>Po nah</li>
+          <li>I tu</li>
+        </ul>
+      </div>
+    </transition>
   </header>
 </template>
 
@@ -50,12 +63,6 @@ export default {
     GridColumn,
     TheBurger,
     ButtonInput
-  },
-
-  methods: {
-    onClickBurger () {
-      this.opened = true
-    }
   }
 
 }

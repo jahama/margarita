@@ -28,4 +28,35 @@
     height: rem(24px);
     font-size: rem(12px);
   }
+
+  .links__mobile {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: get-color("scotch-mist");
+
+    &.slide-animation-enter-active {
+      animation: slide-animation .4s;
+    }
+
+    &.slide-animation-leave-active {
+      animation: slide-animation .4s reverse;
+    }
+
+    @keyframes slide-animation {
+
+      0% {
+        transform: translate(-100%);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+
+    }
+  }
 }
