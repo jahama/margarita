@@ -11,6 +11,9 @@ import GridSystemNotes from './notes/GridSystem.md'
 import GridContainer from '../GridContainer/GridContainer.vue'
 import GridRow from '../GridRow/GridRow.vue'
 import GridColumn from '../GridColumn/GridColumn.vue'
+import TextInput from '../../Form/TextInput/TextInput.vue'
+import SelectInput from '../../Form/SelectInput/SelectInput.vue'
+import LayoutCard from '../../Layout/Card/LayoutCard.vue'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
@@ -153,8 +156,6 @@ storiesOf('Grid System', module)
   .add('Nested', withMarkdownNotes(GridNestedNotes)(() => {
     const fluid = boolean('fluid', false)
     const noGutters = boolean('noGutters', false)
-    const noMarginBottom = boolean('Light blue has NO margin bottom', true)
-    const hasMarginTop = boolean('Pink row has margin top', false)
     const directionColumn = boolean('Light blue row has flex direction column', true)
 
     return ({
@@ -166,12 +167,12 @@ storiesOf('Grid System', module)
               <div class="content">{{ lorem }}</div>
             </GridColumn>
             <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-3" :directionColumn="directionColumn">
-              <GridRow :noGutters="noGutters" :hasMarginTop="hasMarginTop">
+              <GridRow :noGutters="noGutters">
                 <GridColumn>
                   <div class="content pink">{{ lorem.slice(0, 70) }}</div>
                 </GridColumn>
               </GridRow>
-              <GridRow :noGutters="noGutters" :noMarginBottom="noMarginBottom">
+              <GridRow :noGutters="noGutters">
                 <GridColumn v-for="i in 2" :key="i" class="grid-col--6">
                   <div class="content">{{ lorem.slice(0, 40) }}</div>
                 </GridColumn>
@@ -191,11 +192,64 @@ storiesOf('Grid System', module)
         return {
           fluid: fluid,
           noGutters: noGutters,
-          noMarginBottom: noMarginBottom,
-          hasMarginTop: hasMarginTop,
           directionColumn: directionColumn,
           lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
         }
       }
     })
+  }))
+  .add('Form', withMarkdownNotes(GridNestedNotes)(() => {
+    const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
+    const hasMarginTop = boolean('All cols from last row have margin top', false)
+
+    return ({
+      components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
+      template: `
+        <GridContainer form class="grid-example">
+          <layout-card>
+            <grid-row>
+              <grid-column class="grid-col--12 grid-col--md-4">
+                <text-input
+                  :label="'Mobile col-12, Desktop col-4'"
+                />
+              </grid-column>
+              <grid-column class="grid-col--12 grid-col--md-4">
+                <select-input
+                  :label="'Mobile col-12, Desktop col-4'"
+                />
+              </grid-column>
+              <grid-column class="grid-col--12 grid-col--md-4">
+                <text-input
+                  :label="'Mobile col-12, Desktop col-4'"
+                />
+              </grid-column>
+            </grid-row>
+            <grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
+              <grid-column class="grid-col--12 grid-col--md-3">
+                <text-input
+                  :label="'Mobile col-12, Desktop col-3'"
+                />
+              </grid-column>
+              <grid-column class="grid-col--6 grid-col--md-5">
+                <select-input
+                  :label="'Mobile col-6, Desktop col-5'"
+                />
+              </grid-column>
+              <grid-column class="grid-col--6 grid-col--md-4">
+                <text-input
+                  :label="'Mobile col-6, Desktop col-4'"
+                />
+              </grid-column>
+            </grid-row>
+          </layout-card>
+        </GridContainer>
+      `,
+
+      data() {
+      return {
+        noMarginBottom: noMarginBottom,
+        hasMarginTop: hasMarginTop
+      }
+    }
+  })
   }))
