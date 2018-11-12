@@ -3,9 +3,49 @@
 .grid-container {
   @include make-container();
   @include make-container-max-widths();
-  margin: rem(72px) 0;
 
   &--fluid {
     max-width: none;
+  }
+
+  &--form {
+    margin: rem(72px) 0;
+
+    .grid-row {
+
+      > .grid-col,
+      > [class*="grid-col--"] {
+        margin-bottom: rem(24px);
+      }
+
+      &--has-margin-top {
+        margin-top: rem(24px);
+      }
+
+      &--no-margin-bottom {
+        > .grid-col,
+        > [class*="grid-col--"] {
+          @include mq($from: md) {
+            margin-bottom: 0;
+          }
+        }
+
+        > .grid-col--12 {
+          &:last-child {
+            @include mq($until: md) {
+              margin-bottom: 0;
+            }
+          }
+        }
+        
+        > .grid-col--6 {
+          &:nth-last-of-type(-n+2) {
+            @include mq($until: md) {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
