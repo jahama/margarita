@@ -4,13 +4,32 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: get-color("white");
   width: 100%;
   height: 3rem;
 
   &__logo {
     display: flex;
+    flex: 0 1 100%;
     max-width: 100%;
     height: 1.5rem;
+  }
+
+  &__buttons {
+    display: flex;
+    flex: 0 1 100%;
+    justify-content: flex-end;
+
+    .button-input {
+      flex: 0 0 rem(105px);
+      margin-left: 1.5rem;
+      height: rem(24px);
+      font-size: rem(12px);
+
+      &--client-zone {
+        display: none;
+      }
+    }
   }
 
   &-logo {
@@ -24,39 +43,26 @@
     }
   }
 
-  .button-input {
-    height: rem(24px);
-    font-size: rem(12px);
-  }
+}
 
-  .links__mobile {
+.mobile-navigation {
+  @include slide-animation(.4s);
+
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-wrap: wrap;
+  z-index: 100;
+  background-color: get-color("scotch-mist");
+
+  &__header {
     display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    background-color: get-color("scotch-mist");
-
-    &.slide-animation-enter-active {
-      animation: slide-animation .4s;
-    }
-
-    &.slide-animation-leave-active {
-      animation: slide-animation .4s reverse;
-    }
-
-    @keyframes slide-animation {
-
-      0% {
-        transform: translate(-100%);
-      }
-
-      100% {
-        transform: translate(0);
-      }
-
-    }
+    flex: 0 0 100%;
+    justify-content: space-between;
+    background-color: get-color("emperor");
+    height: rem(36px);
   }
 }
