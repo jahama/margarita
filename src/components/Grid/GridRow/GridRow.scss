@@ -3,11 +3,6 @@
 .grid-row {
   @include make-row();
 
-  > .grid-col,
-  > [class*="grid-col--"] {
-    margin-bottom: rem(24px);
-  }
-
   &--no-gutters {
     margin-right: 0;
     margin-left: 0;
@@ -16,35 +11,6 @@
     > [class*="grid-col--"] {
       padding-right: 0;
       padding-left: 0;
-    }
-  }
-
-  &--has-margin-top {
-    margin-top: rem(24px);
-  }
-
-  &--no-margin-bottom {
-    > .grid-col,
-    > [class*="grid-col--"] {
-      @include mq($from: md) {
-        margin-bottom: 0;
-      }
-    }
-
-    > .grid-col--12 {
-      &:last-child {
-        @include mq($until: md) {
-          margin-bottom: 0;
-        }
-      }
-    }
-    
-    > .grid-col--6 {
-      &:nth-last-of-type(-n+2) {
-        @include mq($until: md) {
-          margin-bottom: 0;
-        }
-      }
     }
   }
 

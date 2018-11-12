@@ -7,7 +7,8 @@ const componentData = function () {
   return {
     staticClass: 'grid-container',
     class: {
-      'grid-container--fluid': this.fluid
+      'grid-container--fluid': this.fluid,
+      'grid-container--form': this.form
     }
   }
 }
@@ -25,6 +26,10 @@ export default {
     tag: {
       type: String,
       default: 'div'
+    },
+    form: {
+      type: Boolean,
+      default: false
     }
   },
 
