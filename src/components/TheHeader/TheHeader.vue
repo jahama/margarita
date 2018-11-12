@@ -37,6 +37,7 @@
         <mobile-lang
           :langs="langs"
           :currentLang="currentLang"
+          @change:lang="onClickLangChanged"
         />
         <the-burger
           isClose
@@ -75,6 +76,10 @@ export default {
     currentLang: {
       type: String,
       default: 'es'
+    },
+    onLangChanged: {
+      type: Function,
+      default: () => {}
     }
   },
 
@@ -90,6 +95,12 @@ export default {
   data () {
     return {
       opened: false
+    }
+  },
+
+  methods: {
+    onClickLangChanged () {
+      this.onLangChanged(...arguments)
     }
   }
 
