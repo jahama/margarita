@@ -7,6 +7,7 @@ import GridNestedNotes from './notes/GridNested.md'
 import GridOffsetNotes from './notes/GridOffset.md'
 import GridOrderNotes from './notes/GridOrder.md'
 import GridSystemNotes from './notes/GridSystem.md'
+import GridFormNotes from './notes/GridForm.md'
 
 import GridContainer from '../GridContainer/GridContainer.vue'
 import GridRow from '../GridRow/GridRow.vue'
@@ -198,14 +199,14 @@ storiesOf('Grid System', module)
       }
     })
   }))
-  .add('Form', withMarkdownNotes(GridNestedNotes)(() => {
+  .add('Form', withMarkdownNotes(GridFormNotes)(() => {
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
     const hasMarginTop = boolean('All cols from last row have margin top', false)
 
     return ({
       components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
       template: `
-        <GridContainer form class="grid-example">
+        <GridContainer form>
           <layout-card>
             <grid-row>
               <grid-column class="grid-col--12 grid-col--md-4">
