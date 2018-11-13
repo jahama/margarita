@@ -1,0 +1,29 @@
+@import "../../../scss/margarita";
+
+.alert-banner {
+  display: flex;
+  padding: rem(16px);
+
+  &__icon {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: rem(20px);
+    height: rem(20px);
+    margin-right: rem(16px);
+
+    .alert-banner--error & {
+      background-image: url("../../../assets/icons/alert-error.svg");
+    }
+  }
+
+  &__text {
+    @include font-weight(medium);
+    color: get-color("crimson");
+    margin: 0;
+  }
+
+  &--error {
+    background-color: get-color("pippin");
+  }
+}

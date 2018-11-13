@@ -7,7 +7,8 @@ import LayoutCardNotes from './notes/LayoutCard.md'
 import GridContainer from '../../Grid/GridContainer/GridContainer.vue'
 import GridRow from '../../Grid/GridRow/GridRow.vue'
 import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
-import LayoutCard from '../LayoutCard/LayoutCard.vue'
+import LayoutCard from '../Card/LayoutCard.vue'
+import AlertBanner from '../AlertBanner/AlertBanner.vue'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
@@ -31,7 +32,7 @@ storiesOf('Layout', module)
           </GridRow>
           <GridRow>
             <GridColumn v-for="col in 2" :key="col" class="grid-col--6">
-              <LayoutCard 
+              <LayoutCard
                 color="gray"
                 :hasPaddingTop="hasPaddingTop"
               />
@@ -44,6 +45,30 @@ storiesOf('Layout', module)
         return {
           color: color,
           hasPaddingTop: hasPaddingTop
+        }
+      }
+    })
+  }))
+  .add('Alerts', withMarkdownNotes(LayoutCardNotes)(() => {
+    const color = select('Color', ['white', 'gray'], 'white')
+    const hasMarginTop = boolean('Bottom cards have margin top', false)
+
+    return ({
+      components: { AlertBanner, GridContainer, GridRow, GridColumn },
+      template: `
+        <GridContainer class="grid-example">
+          <GridRow>
+            <GridColumn class="grid-col--12">
+              <AlertBanner text="Holi"/>
+            </GridColumn>
+          </GridRow>
+        </GridContainer>
+      `,
+
+      data () {
+        return {
+          color: color,
+          hasMarginTop: hasMarginTop
         }
       }
     })
