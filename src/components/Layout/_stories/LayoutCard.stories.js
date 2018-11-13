@@ -7,7 +7,7 @@ import LayoutCardNotes from './notes/LayoutCard.md'
 import GridContainer from '../../Grid/GridContainer/GridContainer.vue'
 import GridRow from '../../Grid/GridRow/GridRow.vue'
 import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
-import LayoutCard from '../Card/LayoutCard.vue'
+import LayoutCard from '../LayoutCard/LayoutCard.vue'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)

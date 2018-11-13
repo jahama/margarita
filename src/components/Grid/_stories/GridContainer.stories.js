@@ -14,7 +14,7 @@ import GridRow from '../GridRow/GridRow.vue'
 import GridColumn from '../GridColumn/GridColumn.vue'
 import TextInput from '../../Form/TextInput/TextInput.vue'
 import SelectInput from '../../Form/SelectInput/SelectInput.vue'
-import LayoutCard from '../../Layout/Card/LayoutCard.vue'
+import LayoutCard from '../../Layout/LayoutCard/LayoutCard.vue'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
@@ -60,7 +60,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data() {
+      data () {
         return {
           fluid: fluid,
           tag: tag,
@@ -94,7 +94,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data() {
+      data () {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -146,7 +146,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data() {
+      data () {
         return {
           fluid: fluid,
           noGutters: noGutters
@@ -189,7 +189,7 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data() {
+      data () {
         return {
           fluid: fluid,
           noGutters: noGutters,
@@ -246,11 +246,11 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data() {
-      return {
-        noMarginBottom: noMarginBottom,
-        hasMarginTop: hasMarginTop
+      data () {
+        return {
+          noMarginBottom: noMarginBottom,
+          hasMarginTop: hasMarginTop
+        }
       }
-    }
-  })
+    })
   }))
