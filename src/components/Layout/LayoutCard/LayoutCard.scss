@@ -2,6 +2,7 @@
 
 .layout-card{
 	padding: rem(24px);
+	overflow: hidden;
 	
 	&--gray {
 		background-color: get-color('concrete');
