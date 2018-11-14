@@ -6,7 +6,7 @@
     :class="getSpacingClasses"
   >
     <div
-      :class="getColorClasses"
+      :class="getColorClass"
       class="layout-card"
     >
       <slot/>
@@ -14,7 +14,7 @@
   </div>
   <div
     v-else
-    :class="getColorClasses"
+    :class="getColorClass"
     class="layout-card"
   >
     <slot/>
@@ -38,13 +38,8 @@ export default {
   },
 
   computed: {
-    getColorClasses () {
-      const colorClasses = []
-
-      if (this.color === 'gray') colorClasses.push('layout-card--gray')
-      if (this.color === 'white') colorClasses.push('layout-card--white')
-
-      return colorClasses
+    getColorClass () {
+      return `layout-card--${this.color}`
     },
 
     getSpacingClasses () {
