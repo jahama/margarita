@@ -1,8 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import LayoutCardNotes from './notes/LayoutCard.md'
+import AlertBannerNotes from './notes/AlertBanner.md'
 
 import GridContainer from '../../Grid/GridContainer/GridContainer.vue'
 import GridRow from '../../Grid/GridRow/GridRow.vue'
@@ -49,9 +50,10 @@ storiesOf('Layout', module)
       }
     })
   }))
-  .add('Alerts', withMarkdownNotes(LayoutCardNotes)(() => {
-    const color = select('Color', ['white', 'gray'], 'white')
-    const hasMarginTop = boolean('Bottom cards have margin top', false)
+  .add('Alerts', withMarkdownNotes(AlertBannerNotes)(() => {
+    const size = select('Size', ['small', 'medium', 'large'], 'medium')
+    const type = select('Alert type', ['info', 'error', 'success', 'warning'], 'error')
+    const alertText = text('Alert text', 'Alert text')
 
     return ({
       components: { AlertBanner, GridContainer, GridRow, GridColumn },
@@ -59,7 +61,22 @@ storiesOf('Layout', module)
         <GridContainer class="grid-example">
           <GridRow>
             <GridColumn class="grid-col--12">
-              <AlertBanner text="Holi"/>
+              <AlertBanner
+                :text="text"
+                :type="type"
+                :size="size"
+              />
+            </GridColumn>
+          </GridRow>
+          <br />
+          <GridRow>
+            <GridColumn class="grid-col--12">
+              <AlertBanner
+                text="This is the text for a large alert banner"
+                type="success"
+                size="large"
+                title="This is the title for a large alert banner"
+              />
             </GridColumn>
           </GridRow>
         </GridContainer>
@@ -67,8 +84,9 @@ storiesOf('Layout', module)
 
       data () {
         return {
-          color: color,
-          hasMarginTop: hasMarginTop
+          size,
+          text: alertText,
+          type
         }
       }
     })
