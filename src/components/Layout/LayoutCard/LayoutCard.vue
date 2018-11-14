@@ -2,7 +2,19 @@
 
 <template>
   <div
-    :class="getClasses"
+    v-if="getMarginClasses.length"
+    :class="getMarginClasses"
+  >
+    <div
+      :class="getColorClasses"
+      class="layout-card"
+    >
+      <slot/>
+    </div>
+  </div>
+  <div
+    v-else
+    :class="getColorClasses"
     class="layout-card"
   >
     <slot/>
@@ -25,14 +37,21 @@ export default {
   },
 
   computed: {
-    getClasses () {
-      const classes = []
+    getColorClasses () {
+      const colorClasses = []
 
-      if (this.hasMarginTop) classes.push('layout-card--has-margin-top')
-      if (this.color === 'gray') classes.push('layout-card--gray')
-      if (this.color === 'white') classes.push('layout-card--white')
+      if (this.color === 'gray') colorClasses.push('layout-card--gray')
+      if (this.color === 'white') colorClasses.push('layout-card--white')
 
-      return classes
+      return colorClasses
+    },
+
+    getMarginClasses () {
+      const marginClasses = []
+
+      if (this.hasMarginTop) marginClasses.push('layout-card--has-margin-top')
+
+      return marginClasses
     }
   }
 }
