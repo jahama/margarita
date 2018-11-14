@@ -6,6 +6,7 @@ import CheckboxInput from './components/Form/CheckboxInput/CheckboxInput.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
+import LayoutCard from './components/Layout/LayoutCard/LayoutCard.vue'
 
 export {
   GridColumn,
@@ -15,7 +16,8 @@ export {
   SelectInput,
   TextInput,
   CheckboxInput,
-  RadioButton
+  RadioButton,
+  LayoutCard
 }
 
 export default {
@@ -28,5 +30,6 @@ export default {
     Vue.component('RadioButton', RadioButton)
     Vue.component('SelectInput', SelectInput)
     Vue.component('TextInput', TextInput)
+    Vue.component('LayoutCard', LayoutCard)
   }
 }

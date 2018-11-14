@@ -2,6 +2,7 @@
 
 .layout-card{
 	padding: rem(24px);
+	overflow: hidden;
 	
 	&--gray {
 		background-color: get-color('concrete');
@@ -12,7 +13,7 @@
 		box-shadow: 0 0 rem(6px) rem(2px) get-color('shadow');
 	}
 
-	&--has-margin-top {
-		margin-top: rem(24px);
+	&--has-padding-top {
+		padding-top: rem(24px);
 	}
 }
