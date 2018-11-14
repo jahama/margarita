@@ -2,8 +2,8 @@
 
 <template>
   <div
-    v-if="getMarginClasses.length"
-    :class="getMarginClasses"
+    v-if="getSpacingClasses.length"
+    :class="getSpacingClasses"
   >
     <div
       :class="getColorClasses"
@@ -23,9 +23,10 @@
 
 <script>
 export default {
+  name: 'LayoutCard',
 
   props: {
-    hasMarginTop: {
+    hasPaddingTop: {
       type: Boolean,
       default: false
     },
@@ -46,12 +47,12 @@ export default {
       return colorClasses
     },
 
-    getMarginClasses () {
-      const marginClasses = []
+    getSpacingClasses () {
+      const spacingClasses = []
 
-      if (this.hasMarginTop) marginClasses.push('layout-card--has-margin-top')
+      if (this.hasPaddingTop) spacingClasses.push('layout-card--has-padding-top')
 
-      return marginClasses
+      return spacingClasses
     }
   }
 }

@@ -13,7 +13,7 @@ storiesOf('Layout', module)
   .addDecorator(withKnobs)
   .add('Cards', withMarkdownNotes(LayoutCardNotes)(() => {
     const color = select('Color', ['white', 'gray'], 'white')
-    const hasMarginTop = boolean('Bottom cards have margin top', false)
+    const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
     return ({
       components: { LayoutCard, GridContainer, GridRow, GridColumn },
@@ -32,8 +32,8 @@ storiesOf('Layout', module)
           <GridRow>
             <GridColumn v-for="col in 2" :key="col" class="grid-col--6">
               <LayoutCard 
-                :color="'gray'"
-                :hasMarginTop="hasMarginTop"
+                color="gray"
+                :hasPaddingTop="hasPaddingTop"
               />
             </GridColumn>
           </GridRow>
@@ -43,7 +43,7 @@ storiesOf('Layout', module)
       data () {
         return {
           color: color,
-          hasMarginTop: hasMarginTop
+          hasPaddingTop: hasPaddingTop
         }
       }
     })
