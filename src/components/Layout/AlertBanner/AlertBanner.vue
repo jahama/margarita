@@ -61,7 +61,7 @@ export default {
     getClasses () {
       const classes = []
 
-      if (this.size === 'large' && this.title) {
+      if (this.alertWithTitle()) {
         classes.push('alert-banner--with-title')
       }
       classes.push(`alert-banner--${this.size}`)
