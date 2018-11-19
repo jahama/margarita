@@ -16,11 +16,19 @@ module.exports = {
   rules: {
     'babel/semi': 0,
     'generator-star-spacing': 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'padded-blocks': [
-      'error', {
-        'classes': 'always'
+    'indent': [2, 2, {'SwitchCase': 1}],
+    'lines-between-class-members': ['error', 'always'],
+    'space-before-blocks': 'error',
+    'lines-around-directive': ['error', 'always'],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    'vue/order-in-components': 0,
+    'vue/max-attributes-per-line': [2, {
+      'singleline': 2,
+      'multiline': {
+        'max': 2,
+        'allowFirstLine': false
       }
-    ]
+    }]
   }
 }
