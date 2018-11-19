@@ -34,30 +34,40 @@
 
   export default {
     name: 'TextInput',
+
     props: {
       id: String,
+
       label: {
         type: String,
         required: true
       },
+
       value: [ String, Number ],
+
       hasError: Boolean,
+
       disabled: Boolean,
+
       type: {
         type: String,
         default: 'text'
       },
+
       mask: Function,
+
       validate: Function,
+
       errorMessage: String,
     },
+
     data () {
       return {
         lazyValue: this.value
       }
     },
-    computed: {
 
+    computed: {
       getComputedClass () {
         const propKeys = Object.keys(INPUT_CLASSES)
 
@@ -65,10 +75,9 @@
           .filter(this._filterByExistProp)
           .map(this._getClassNameByProp)
       }
-
     },
-    methods: {
 
+    methods: {
       emit (e) {
         this.$emit(e.type, this.lazyValue)
       },
@@ -120,7 +129,6 @@
 
         inputEl.setSelectionRange(position, position)
       }
-
     },
 
     watch: {

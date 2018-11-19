@@ -23,10 +23,12 @@ export default {
       type: Boolean,
       default: false
     },
+
     tag: {
       type: String,
       default: 'div'
     },
+
     form: {
       type: Boolean,
       default: false

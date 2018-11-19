@@ -25,18 +25,22 @@ export default {
       type: Boolean,
       default: false
     },
+
     noMarginBottom: {
       type: Boolean,
       default: false
     },
+
     hasMarginTop: {
       type: Boolean,
       default: false
     },
+
     tag: {
       type: String,
       default: 'div'
     },
+
     directionColumn: {
       type: Boolean,
       default: false

@@ -34,43 +34,53 @@
 <script>
 export default {
   name: 'SelectInput',
+
   props: {
     id: {
       type: String
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
     errorMessage: {
       type: String,
       default: ''
     },
+
     hasError: {
       type: Boolean,
       default: false
     },
+
     label: {
       type: String
     },
+
     options: {
       type: Array,
       default: () => []
     },
+
     value: {
       type: [String, Object, Number, Boolean]
     }
   },
+
   computed: {
     errorClass () {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
     },
+
     selectedValue: {
       get () {
         return this.value
       },
+
       set (newSelectedValue) {
         this.$emit('input', newSelectedValue)
       }

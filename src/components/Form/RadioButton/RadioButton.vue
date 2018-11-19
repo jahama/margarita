@@ -29,31 +29,36 @@
 <script>
 export default {
   name: 'RadioButton',
+
   props: {
     disabled: {
       type: Boolean,
       default: false
     },
+
     value: {
       type: [String, Object, Number, Boolean],
       default: ''
     },
+
     items: {
       type: Array,
       default: () => []
     }
-
   },
+
   computed: {
     selectedValue: {
       get () {
         return this.value
       },
+
       set (newSelectedValue) {
         this.$emit('input', newSelectedValue)
       }
     }
   },
+
   methods: {
     emit (e) {
       // TODO: Try if in bonasera works with change event

@@ -11,13 +11,16 @@
 
 <script>
   const AVAILABLE_TYPES = ['primary', 'secondary', 'gradient']
+
   export default {
     name: 'ButtonInput',
+
     props: {
       text: {
         type: String,
         required: true
       },
+
       type: {
         type: String,
         default: 'primary',
@@ -26,6 +29,7 @@
         }
       }
     },
+
     methods: {
       onClick () {
         this.$emit('click');

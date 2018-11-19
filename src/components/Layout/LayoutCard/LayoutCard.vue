@@ -26,14 +26,14 @@ export default {
   name: 'LayoutCard',
 
   props: {
-    hasPaddingTop: {
-      type: Boolean,
-      default: false
-    },
-
     color: {
       type: String,
       default: 'gray'
+    },
+
+    hasPaddingTop: {
+      type: Boolean,
+      default: false
     }
   },
 
