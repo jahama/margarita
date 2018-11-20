@@ -8,6 +8,7 @@ import TheHeaderNotes from './notes/TheHeader.md'
 import links from '../../../assets/json/links.json'
 
 import WebHeader from '../WebHeader/WebHeader'
+import ToolsHeader from '../ToolsHeader/ToolsHeader'
 
 storiesOf('Header', module)
   .addDecorator(withKnobs)
@@ -32,6 +33,20 @@ storiesOf('Header', module)
             :onLangChanged="onLangChanged"
             :links="links"
           />
+          <div class="page-content"></div>
+        </div>
+      `
+    })
+  }))
+
+  .add('Tools Header', withMarkdownNotes(TheHeaderNotes)(() => {
+
+    return ({
+      components: { ToolsHeader },
+
+      template: `
+        <div>
+          <ToolsHeader />
           <div class="page-content"></div>
         </div>
       `
