@@ -70,13 +70,15 @@ export default {
       return classes
     },
 
-    alertWithTitle () {
-      return this.size === 'large' && this.title !== ''
-    },
-
     showAlertIcon () {
       return this.type === 'error' && this.size === 'medium'
     }
+  },
+
+  methods: {
+    alertWithTitle () {
+      return this.size === 'large' && this.title !== ''
+    },
   }
 }
 </script>
