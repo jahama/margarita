@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
 
+import GridColumn from '../../Grid/GridColumn/GridColumn'
 import CheckboxInput from '../CheckboxInput/CheckboxInput'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -15,7 +16,7 @@ storiesOf('Basic Components', module)
     const disabled = boolean('Disabled', false)
 
     return {
-      components: { CheckboxInput },
+      components: { CheckboxInput, GridColumn },
       template: `
         <GridColumn :class="getClass">
           <CheckboxInput
