@@ -26,8 +26,8 @@ storiesOf('Basic Components', module)
     return {
       components: { GridColumn, SelectInput },
       template: `
-        <grid-column :class="getClass">
-          <select-input
+        <GridColumn :class="getClass">
+          <SelectInput
             id="my-select-input"
             :errorMessage="errorMessage"
             :disabled="disabled"
@@ -35,7 +35,7 @@ storiesOf('Basic Components', module)
             :label="label"
             :options="options"
           />
-        </grid-column>`,
+        </GridColumn>`,
       computed: {
         getClass () {
           const classes = [`grid-col--${this.size}`]

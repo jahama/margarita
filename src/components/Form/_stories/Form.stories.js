@@ -46,7 +46,7 @@ storiesOf('Basic Components', module)
       components: { TextInput, GridColumn },
       template: `
         <GridColumn :class="getClass">
-          <text-input
+          <TextInput
             id="my-text-input"
             :errorMessage="errorMessage"
             :disabled="disabled"
@@ -105,7 +105,7 @@ storiesOf('Basic Components', module)
       components: { GridColumn, SelectInput },
       template: `
         <GridColumn :class="getClass">
-          <select-input
+          <SelectInput
             id="my-select-input"
             :errorMessage="errorMessage"
             :disabled="disabled"
@@ -147,7 +147,7 @@ storiesOf('Basic Components', module)
       components: { RadioButton, GridColumn },
       template: `
         <GridColumn :class="getClass">
-          <radio-button
+          <RadioButton
             :disabled="disabled"
             :items="items"
             :value="defaultOption"
@@ -213,7 +213,7 @@ storiesOf('Basic Components', module)
       components: { CheckboxInput },
       template: `
         <GridColumn :class="getClass">
-          <checkbox-input
+          <CheckboxInput
             :label="label"
             :checked="checked"
             :disabled="disabled"
@@ -249,7 +249,7 @@ storiesOf('Basic Components', module)
       components: { ButtonInput, GridColumn },
       template: `
         <GridColumn :class="getClass">
-          <button-input
+          <ButtonInput
             :text="text"
             :type="type"
             @click="action"

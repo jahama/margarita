@@ -25,10 +25,6 @@ export default {
   name: 'CheckboxInput',
 
   props: {
-    id: {
-      type: String
-    },
-
     checked: {
       type: Boolean,
       default: false
@@ -37,6 +33,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+
+    id: {
+      type: String
     },
 
     label: {

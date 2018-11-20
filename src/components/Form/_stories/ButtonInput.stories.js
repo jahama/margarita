@@ -23,13 +23,13 @@ storiesOf('Basic Components', module)
     return ({
       components: { ButtonInput, GridColumn },
       template: `
-        <grid-column :class="getClass">
-          <button-input
+        <GridColumn :class="getClass">
+          <ButtonInput
             :text="text"
             :type="type"
             @click="action"
           />
-        </grid-column>`,
+        </GridColumn>`,
       computed: {
         getClass () {
           const classes = [`grid-col--${this.size}`]

@@ -36,10 +36,6 @@ export default {
   name: 'SelectInput',
 
   props: {
-    id: {
-      type: String
-    },
-
     disabled: {
       type: Boolean,
       default: false
@@ -48,6 +44,10 @@ export default {
     errorMessage: {
       type: String,
       default: ''
+    },
+
+    id: {
+      type: String
     },
 
     hasError: {

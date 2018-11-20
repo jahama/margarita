@@ -21,6 +21,16 @@ export default {
   functional: true,
 
   props: {
+    directionColumn: {
+      type: Boolean,
+      default: false
+    },
+
+    hasMarginTop: {
+      type: Boolean,
+      default: false
+    },
+
     noGutters: {
       type: Boolean,
       default: false
@@ -31,19 +41,9 @@ export default {
       default: false
     },
 
-    hasMarginTop: {
-      type: Boolean,
-      default: false
-    },
-
     tag: {
       type: String,
       default: 'div'
-    },
-
-    directionColumn: {
-      type: Boolean,
-      default: false
     }
   },
 

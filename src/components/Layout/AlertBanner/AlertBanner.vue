@@ -37,15 +37,15 @@ export default {
       }
     },
 
+    text: {
+      type: String,
+      required: true
+    },
+
     title: {
       default: '',
       type: String,
       required: false
-    },
-
-    text: {
-      type: String,
-      required: true
     },
 
     type: {

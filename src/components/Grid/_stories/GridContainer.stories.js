@@ -207,42 +207,42 @@ storiesOf('Grid System', module)
       components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
       template: `
         <GridContainer form>
-          <layout-card>
-            <grid-row>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+          <LayoutCard>
+            <GridRow>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <select-input
+              </GridColumn>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <SelectInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+              </GridColumn>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-            </grid-row>
-            <grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
-              <grid-column class="grid-col--12 grid-col--md-3">
-                <text-input
+              </GridColumn>
+            </GridRow>
+            <GridRow :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
+              <GridColumn class="grid-col--12 grid-col--md-3">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-3'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--6 grid-col--md-5">
-                <select-input
+              </GridColumn>
+              <GridColumn class="grid-col--6 grid-col--md-5">
+                <SelectInput
                   :label="'Mobile col-6, Desktop col-5'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--6 grid-col--md-4">
-                <text-input
+              </GridColumn>
+              <GridColumn class="grid-col--6 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-6, Desktop col-4'"
                 />
-              </grid-column>
-            </grid-row>
-          </layout-card>
+              </GridColumn>
+            </GridRow>
+          </LayoutCard>
         </GridContainer>
       `,
 

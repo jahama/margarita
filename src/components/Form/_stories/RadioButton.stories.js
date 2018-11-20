@@ -25,15 +25,15 @@ storiesOf('Basic Components', module)
     return ({
       components: { RadioButton, GridColumn },
       template: `
-        <grid-column :class="getClass">
-          <radio-button
+        <GridColumn :class="getClass">
+          <RadioButton
             :disabled="disabled"
             :items="items"
             :value="defaultOption"
             @change="onChange"
           />
           <p>{{ computedProperty }}</p>
-        </grid-column>`,
+        </GridColumn>`,
       computed: {
         computedProperty: {
           get () {

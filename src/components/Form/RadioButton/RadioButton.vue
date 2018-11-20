@@ -36,14 +36,14 @@ export default {
       default: false
     },
 
-    value: {
-      type: [String, Object, Number, Boolean],
-      default: ''
-    },
-
     items: {
       type: Array,
       default: () => []
+    },
+
+    value: {
+      type: [String, Object, Number, Boolean],
+      default: ''
     }
   },
 

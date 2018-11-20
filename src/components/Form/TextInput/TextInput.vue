@@ -36,29 +36,29 @@
     name: 'TextInput',
 
     props: {
+      disabled: Boolean,
+
+      errorMessage: String,
+
       id: String,
+
+      hasError: Boolean,
 
       label: {
         type: String,
         required: true
       },
 
-      value: [ String, Number ],
-
-      hasError: Boolean,
-
-      disabled: Boolean,
+      mask: Function,
 
       type: {
         type: String,
         default: 'text'
       },
 
-      mask: Function,
-
       validate: Function,
 
-      errorMessage: String,
+      value: [ String, Number ]
     },
 
     data () {

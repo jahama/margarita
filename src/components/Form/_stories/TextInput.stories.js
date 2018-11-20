@@ -38,8 +38,8 @@ storiesOf('Basic Components', module)
     return ({
       components: { TextInput, GridColumn },
       template: `
-        <grid-column :class="getClass">
-          <text-input
+        <GridColumn :class="getClass">
+          <TextInput
             id="my-text-input"
             :errorMessage="errorMessage"
             :disabled="disabled"
@@ -50,7 +50,7 @@ storiesOf('Basic Components', module)
             @input="onInput"
             v-model="value"
           />
-        </grid-column>`,
+        </GridColumn>`,
       computed: {
         getClass () {
           const classes = [`grid-col--${this.size}`]

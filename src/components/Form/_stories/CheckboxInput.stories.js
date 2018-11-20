@@ -17,13 +17,13 @@ storiesOf('Basic Components', module)
     return {
       components: { CheckboxInput },
       template: `
-        <grid-column :class="getClass">
-          <checkbox-input
+        <GridColumn :class="getClass">
+          <CheckboxInput
             :label="label"
             :checked="checked"
             :disabled="disabled"
           />
-        </grid-column>`,
+        </GridColumn>`,
       computed: {
         getClass () {
           const classes = [`grid-col--${this.size}`]
