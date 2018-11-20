@@ -8,6 +8,10 @@
   text-indent: 100%;
   content: "";
 
+  @include mq($from: lg) {
+    display: none;
+  }
+
   .burger-bar--1,
   .burger-bar--2,
   .burger-bar--3 {

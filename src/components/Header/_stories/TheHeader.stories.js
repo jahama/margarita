@@ -5,21 +5,33 @@ import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
 import TheHeaderNotes from './notes/TheHeader.md'
+import links from '../../../assets/json/links.json'
 
-import TheHeader from '../TheHeader'
+import WebHeader from '../WebHeader/WebHeader'
 
-storiesOf('TheHeader', module)
+storiesOf('Header', module)
   .addDecorator(withKnobs)
-  .add('The Header', withMarkdownNotes(TheHeaderNotes)(() => {
+  .add('Web Header', withMarkdownNotes(TheHeaderNotes)(() => {
 
     return ({
-      components: { TheHeader },
+      components: { WebHeader },
+
+      data () {
+        return {
+          links: links
+        }
+      },
+
       methods: {
         onLangChanged: action('Changed Language:')
       },
+
       template: `
         <div>
-          <TheHeader :onLangChanged="onLangChanged" />
+          <WebHeader
+            :onLangChanged="onLangChanged"
+            :links="links"
+          />
           <div class="page-content"></div>
         </div>
       `

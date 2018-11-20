@@ -1,4 +1,4 @@
-<style lang="scss" src="./MobileLang.scss"></style>
+<style lang="scss" src="./WebMobileLang.scss"></style>
 
 <template>
   <ul class="mobile-lang">
@@ -21,7 +21,7 @@
 <script>
 export default {
 
-  name: 'MobileLang',
+  name: 'WebMobileLang',
 
   props: {
 
