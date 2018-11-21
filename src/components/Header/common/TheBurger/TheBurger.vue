@@ -2,13 +2,13 @@
 
 <template>
   <div
-    class="btn-burger"
     :class="getComputedClass"
+    class="btn-burger"
     @click="onClick"
   >
-    <div class="burger-bar--1"></div>
-    <div class="burger-bar--2"></div>
-    <div class="burger-bar--3"></div>
+    <div class="burger-bar--1"/>
+    <div class="burger-bar--2"/>
+    <div class="burger-bar--3"/>
   </div>
 </template>
 
@@ -21,6 +21,14 @@ export default {
     isClose: {
       type: Boolean,
       default: false
+    },
+    toolsHeader: {
+      type: Boolean,
+      default: false
+    },
+    webHeader: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -29,6 +37,8 @@ export default {
       const classes = []
 
       if (this.isClose) classes.push('btn-burger--close')
+      if (this.toolsHeader) classes.push('btn-burger--tools-header')
+      if (this.webHeader) classes.push('btn-burger--web-header')
 
       return classes
     }
@@ -42,4 +52,3 @@ export default {
 
 }
 </script>
-

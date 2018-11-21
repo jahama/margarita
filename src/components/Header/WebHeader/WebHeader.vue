@@ -7,11 +7,14 @@
         <GridRow>
           <GridColumn class="grid-col--12">
             <div class="header__logo">
-              <TheBurger @click="opened = true" />
+              <TheBurger
+                web-header
+                @click="opened = true"
+              />
               <a
                 href="https://www.holaluz.com"
                 class="header-logo__image"
-              ></a>
+              />
             </div>
             <div class="header__buttons">
               <ButtonInput
@@ -43,15 +46,18 @@
       </GridContainer>
     </div>
     <transition name="slide-animation">
-      <div class="mobile-navigation" v-show="opened">
+      <div
+        v-show="opened"
+        class="mobile-navigation"
+      >
         <div class="mobile-navigation__header">
           <WebMobileLang
             :langs="langs"
-            :currentLang="currentLang"
+            :current-lang="currentLang"
             @change:lang="onClickLangChanged"
           />
           <TheBurger
-            isClose
+            is-close
             @click="opened = false"
           />
         </div>
@@ -80,6 +86,16 @@ export default {
 
   name: 'WebHeader',
 
+  components: {
+    GridContainer,
+    GridRow,
+    GridColumn,
+    TheBurger,
+    WebNavbar,
+    ButtonInput,
+    WebMobileLang
+  },
+
   props: {
     langs: {
       type: Array,
@@ -99,16 +115,6 @@ export default {
     links: {
       type: Array
     }
-  },
-
-  components: {
-    GridContainer,
-    GridRow,
-    GridColumn,
-    TheBurger,
-    WebNavbar,
-    ButtonInput,
-    WebMobileLang
   },
 
   data () {

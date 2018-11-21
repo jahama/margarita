@@ -1,41 +1,49 @@
 @import "../../../../scss/margarita";
 
 .btn-burger {
-  margin-top: .25rem;
-  margin-right: 1.5rem;
+  margin-top: rem(4px);
+  margin-right: rem(24px);
   cursor: pointer;
-  min-width: 1.5rem;
+  min-width: rem(24px);
   text-indent: 100%;
   content: "";
-
-  @include mq($from: lg) {
-    display: none;
-  }
 
   .burger-bar--1,
   .burger-bar--2,
   .burger-bar--3 {
-    margin-bottom: .25rem;
-    background-color: get-color("dark-hot-pink");
+    margin-bottom: rem(4px);
     width: 100%;
-    height: .1875rem;
+    height: rem(3px);
   }
 
-  .burger-bar--2 {
-    width: 1.125rem;
+  &--tools-header {
+    .burger-bar--1,
+    .burger-bar--2,
+    .burger-bar--3 {
+      transition: transform .3s;
+      background-color: get-color("white");
+    }
+  }
+
+  &--web-header {
+    .burger-bar--1,
+    .burger-bar--2,
+    .burger-bar--3 {
+      background-color: get-color("dark-hot-pink");
+    }
   }
 
   &--close {
     margin: 0;
     background-color: get-color("dark-hot-pink");
-    width: 2.25rem;
-    height: 2.25rem;
+    width: rem(36px);
+    height: rem(36px);
 
     .burger-bar--1,
     .burger-bar--2 {
-      margin: .25rem 0 0;
+      margin: rem(4px) 0 0;
       background-color: get-color("white");
-      width: 1.375rem;
+      width: rem(22px);
     }
 
     .burger-bar--1 {
