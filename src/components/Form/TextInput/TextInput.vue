@@ -8,133 +8,148 @@
       v-text="label"
     />
     <input
+      :id="id"
+      v-model="lazyValue"
       class="text-input__field"
       :class="getComputedClass"
       :disabled="disabled"
-      :id="id"
       :type="type"
       @blur="onBlur"
       @change="emit"
       @input="onInput"
       @keyup.enter="removeFocus"
-      v-model="lazyValue"
-    />
+    >
     <div
-      class="text-input__error-message"
       v-if="hasError"
+      class="text-input__error-message"
       v-text="errorMessage"
     />
   </div>
 </template>
 
 <script>
-  const INPUT_CLASSES = {
-    hasError: 'text-input__field--error'
-  }
+const INPUT_CLASSES = {
+  hasError: 'text-input__field--error'
+}
 
-  export default {
-    name: 'TextInput',
+export default {
+  name: 'TextInput',
 
-    props: {
-      disabled: Boolean,
+  props: {
+    disabled: Boolean,
 
-      errorMessage: String,
-
-      id: String,
-
-      hasError: Boolean,
-
-      label: {
-        type: String,
-        required: true
-      },
-
-      mask: Function,
-
-      type: {
-        type: String,
-        default: 'text'
-      },
-
-      validate: Function,
-
-      value: [ String, Number ]
+    errorMessage: {
+      type: String,
+      default: 'Error message'
     },
 
-    data () {
-      return {
-        lazyValue: this.value
-      }
+    id: {
+      type: String,
+      default: 'id'
     },
 
-    computed: {
-      getComputedClass () {
-        const propKeys = Object.keys(INPUT_CLASSES)
+    hasError: Boolean,
 
-        return propKeys
-          .filter(this._filterByExistProp)
-          .map(this._getClassNameByProp)
-      }
+    label: {
+      type: String,
+      required: true
     },
 
-    methods: {
-      emit (e) {
-        this.$emit(e.type, this.lazyValue)
-      },
-
-      removeFocus () {
-        this.$el.querySelector('input').blur()
-      },
-
-      onBlur (e) {
-        if (this.validator) {
-          // TODO: Create validator behavior if invalid
-        }
-
-        this.$emit('blur', e)
-      },
-
-      onInput (e) {
-        if (this.mask) this._applyMask(e)
-
-        this.emit(e)
-      },
-
-      _applyMask (e) {
-        const inputEl = this.$el.querySelector('input')
-        const position = inputEl.selectionStart
-        this.lazyValue = this.mask(this.lazyValue) || ''
-
-        this.$nextTick(() => {
-          inputEl.value = this.lazyValue
-          this._setCaretPosition(inputEl, position, e)
-        })
-      },
-
-      _filterByExistProp (className) {
-        return !!this[className]
-      },
-
-      _getClassNameByProp (className) {
-        return INPUT_CLASSES[className]
-      },
-
-      _setCaretPosition (inputEl, position, e) {
-        const isDelete = e.inputType === 'deleteContentBackward'
-        const caretPos = (isDelete) ? position : position - 1
-
-        if (this.lazyValue.charAt(caretPos) === ' ') {
-          if (!isDelete) position++
-        }
-
-        inputEl.setSelectionRange(position, position)
-      }
+    mask: {
+      type: Function,
+      default: () => {}
     },
 
-    watch: {
-      value (value) {
-        this.lazyValue = value
+    type: {
+      type: String,
+      default: 'text'
+    },
+
+    validate: {
+      type: Function,
+      default: () => {}
+    },
+
+    value: {
+      type: [ String, Number ],
+      default: 'Value'
+    }
+  },
+
+  data () {
+    return {
+      lazyValue: this.value
+    }
+  },
+
+  computed: {
+    getComputedClass () {
+      const propKeys = Object.keys(INPUT_CLASSES)
+
+      return propKeys
+        .filter(this._filterByExistProp)
+        .map(this._getClassNameByProp)
+    }
+  },
+
+  methods: {
+    emit (e) {
+      this.$emit(e.type, this.lazyValue)
+    },
+
+    removeFocus () {
+      this.$el.querySelector('input').blur()
+    },
+
+    onBlur (e) {
+      if (this.validator) {
+        // TODO: Create validator behavior if invalid
       }
+
+      this.$emit('blur', e)
+    },
+
+    onInput (e) {
+      if (this.mask) this._applyMask(e)
+
+      this.emit(e)
+    },
+
+    _applyMask (e) {
+      const inputEl = this.$el.querySelector('input')
+      const position = inputEl.selectionStart
+      this.lazyValue = this.mask(this.lazyValue) || ''
+
+      this.$nextTick(() => {
+        inputEl.value = this.lazyValue
+        this._setCaretPosition(inputEl, position, e)
+      })
+    },
+
+    _filterByExistProp (className) {
+      return !!this[className]
+    },
+
+    _getClassNameByProp (className) {
+      return INPUT_CLASSES[className]
+    },
+
+    _setCaretPosition (inputEl, position, e) {
+      const isDelete = e.inputType === 'deleteContentBackward'
+      const caretPos = (isDelete) ? position : position - 1
+
+      if (this.lazyValue.charAt(caretPos) === ' ') {
+        if (!isDelete) position++
+      }
+
+      inputEl.setSelectionRange(position, position)
+    }
+  },
+
+  watch: {
+    value (value) {
+      this.lazyValue = value
     }
   }
+}
 </script>

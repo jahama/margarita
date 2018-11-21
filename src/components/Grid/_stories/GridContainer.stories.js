@@ -20,11 +20,12 @@ storiesOf('Grid System', module)
   .addDecorator(withKnobs)
   .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
     const fluid = boolean('Fluid layout', false)
-    const tag = select('Tag', ['div', 'header', 'aside', 'article', 'section'], 'div')
+    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
     const noGutters = boolean('No gutters', false)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" :tag="tag" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -75,6 +76,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -108,6 +110,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -161,6 +164,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -199,12 +203,14 @@ storiesOf('Grid System', module)
       }
     })
   }))
+
   .add('Form', withMarkdownNotes(GridFormNotes)(() => {
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
     const hasMarginTop = boolean('All cols from last row have margin top', false)
 
     return ({
       components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
+
       template: `
         <GridContainer form>
           <LayoutCard>

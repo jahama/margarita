@@ -3,16 +3,16 @@
 <template>
   <div class="select-input">
     <label
+      :for="id"
       class="select-input__label"
       v-text="label"
-      :for="id"
     />
     <select
-      class="select-input__field"
       :id="id"
+      v-model="selectedValue"
       :class="errorClass"
       :disabled="disabled"
-      v-model="selectedValue"
+      class="select-input__field"
     >
       <option
         v-for="(option, key) in options"
@@ -23,8 +23,8 @@
       </option>
     </select>
     <div
-      class="select-input__error-message"
       v-if="hasError"
+      class="select-input__error-message"
     >
       {{ errorMessage }}
     </div>
@@ -47,7 +47,8 @@ export default {
     },
 
     id: {
-      type: String
+      type: String,
+      default: 'id'
     },
 
     hasError: {
@@ -56,7 +57,8 @@ export default {
     },
 
     label: {
-      type: String
+      type: String,
+      default: 'label'
     },
 
     options: {
@@ -65,7 +67,8 @@ export default {
     },
 
     value: {
-      type: [String, Object, Number, Boolean]
+      type: [ String, Object, Number, Boolean ],
+      default: 'value'
     }
   },
 

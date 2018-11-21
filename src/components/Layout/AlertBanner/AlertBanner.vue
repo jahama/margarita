@@ -22,8 +22,8 @@
 </template>
 
 <script>
-const AVAILABLE_SIZES = ['small', 'medium', 'large']
-const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
+const AVAILABLE_SIZES = [ 'small', 'medium', 'large' ]
+const AVAILABLE_TYPES = [ 'error', 'info', 'success', 'warning' ]
 
 export default {
   name: 'AlertBanner',
@@ -78,7 +78,7 @@ export default {
   methods: {
     alertWithTitle () {
       return this.size === 'large' && this.title !== ''
-    },
+    }
   }
 }
 </script>

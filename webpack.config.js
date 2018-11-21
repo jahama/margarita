@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
 
   entry: {
-    index: path.resolve(__dirname, 'src/index.js'),
+    index: path.resolve(__dirname, 'src/index.js')
   },
 
   output: {
@@ -16,7 +16,7 @@ module.exports = {
       amd: 'margarita',
       commonjs: 'margarita'
     },
-    libraryTarget: 'umd',
+    libraryTarget: 'umd'
   },
 
   externals: {
@@ -34,7 +34,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           path.resolve(__dirname, 'src')
-        ],
+        ]
       }, {
         test: /\.(jpg|png|gif|eot|ttf|woff|woff2)$/,
         loader: 'file-loader'
@@ -46,19 +46,35 @@ module.exports = {
   },
 
   plugins: [
-    new CopyWebpackPlugin([{
+    new CopyWebpackPlugin([ {
       from: 'src/assets/fonts',
       to: 'fonts'
-    }]),
-    new CopyWebpackPlugin([{
+    } ]),
+    new CopyWebpackPlugin([ {
       from: 'src/scss',
       to: 'scss'
-    }])
+    } ])
   ],
 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
+    }
+  },
+
+  build: {
+    /*
+    ** Run ESLint on push
+    */
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
     }
   }
 

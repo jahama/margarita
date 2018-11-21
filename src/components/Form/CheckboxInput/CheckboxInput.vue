@@ -8,14 +8,14 @@
     >
       {{ label }}
       <input
+        :id="id"
+        v-model="isChecked"
         type="checkbox"
         class="checkbox-input__field"
-        :id="id"
         :checked="checked"
         :disabled="disabled"
-        v-model="isChecked"
       >
-      <span class="checkmark-box"></span>
+      <span class="checkmark-box" />
     </label>
   </div>
 </template>
@@ -36,7 +36,8 @@ export default {
     },
 
     id: {
-      type: String
+      type: String,
+      default: 'id'
     },
 
     label: {

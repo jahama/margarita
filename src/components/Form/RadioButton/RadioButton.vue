@@ -4,20 +4,20 @@
   <div class="radio-button__group">
     <label
       v-for="(item, key) in items"
-      :for="key"
       :key="key"
+      :for="key"
       class="radio-button"
     >
       <input
-        :disabled="disabled"
         :id="key"
-        :value="item.value"
         v-model="selectedValue"
+        :disabled="disabled"
+        :value="item.value"
         class="radio-button__input radio-button__control"
         type="radio"
         @change="emit"
       >
-      <span class="radio-button__indicator"/>
+      <span class="radio-button__indicator" />
       <span
         class="radio-button__description"
         v-text="item.text"
@@ -42,7 +42,7 @@ export default {
     },
 
     value: {
-      type: [String, Object, Number, Boolean],
+      type: [ String, Object, Number, Boolean ],
       default: ''
     }
   },
