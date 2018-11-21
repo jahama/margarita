@@ -1,6 +1,6 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs } from '@storybook/addon-knobs/vue'
+import { withKnobs, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -40,13 +40,33 @@ storiesOf('Header', module)
   }))
 
   .add('Tools Header', withMarkdownNotes(TheHeaderNotes)(() => {
+    const loggedUser = text('Logged User', 'Anna Collins')
+    const pageTitle = text('Page Title', 'New Contract')
+    const userRole = text('User Role', 'Administrator')
 
     return ({
       components: { ToolsHeader },
 
+      data () {
+        return {
+          loggedUser,
+          pageTitle,
+          userRole
+        }
+      },
+
+      methods: {
+        onLogout: action('Logout user')
+      },
+
       template: `
         <div>
-          <ToolsHeader />
+          <ToolsHeader
+            :loggedUser="loggedUser"
+            :pageTitle="pageTitle"
+            :userRole="userRole"
+            @logout="onLogout"
+          />
           <div class="page-content"></div>
         </div>
       `
