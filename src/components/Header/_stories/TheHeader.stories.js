@@ -28,7 +28,7 @@ storiesOf('Header', module)
       },
 
       template: `
-        <div>
+        <div class="story--no-margin">
           <WebHeader
             :onLangChanged="onLangChanged"
             :links="links"

@@ -1,7 +1,7 @@
 @import "../../../scss/margarita";
 
-body {
-  margin: 0;
+.story--no-margin {
+  margin: rem(-8px);
 }
 
 .page-content {
