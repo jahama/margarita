@@ -19,16 +19,16 @@
             </div>
             <div class="header__buttons">
               <ButtonInput
-                tag="a"
                 v-if="!burgerState"
+                tag="a"
                 href="https://alta.holaluz.com/es/"
                 text="Contratar"
                 class="button-input--signup"
                 type="gradient"
               />
               <ButtonInput
-                tag="a"
                 v-if="!burgerState"
+                tag="a"
                 href="https://clientes.holaluz.com/es/login"
                 text="Zona Cliente"
                 class="button-input--client-zone"

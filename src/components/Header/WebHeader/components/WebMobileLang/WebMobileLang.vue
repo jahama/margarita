@@ -3,17 +3,17 @@
 <template>
   <ul class="mobile-lang">
     <li
-      class="mobile-lang__item"
       v-for="lang in langs"
       :key="lang"
+      class="mobile-lang__item"
     >
       <a
-        class="mobile-lang__link"
         :class="getLinkClass(lang)"
         :href="lang"
+        class="mobile-lang__link"
         @click.prevent="onClickLink"
         v-text="lang"
-      ></a>
+      />
     </li>
   </ul>
 </template>

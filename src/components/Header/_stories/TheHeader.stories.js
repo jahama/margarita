@@ -13,7 +13,6 @@ import ToolsHeader from '../ToolsHeader/ToolsHeader'
 storiesOf('Header', module)
   .addDecorator(withKnobs)
   .add('Web Header', withMarkdownNotes(TheHeaderNotes)(() => {
-
     return ({
       components: { WebHeader },
 

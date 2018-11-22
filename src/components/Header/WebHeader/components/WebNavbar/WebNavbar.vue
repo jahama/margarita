@@ -3,29 +3,29 @@
 <template>
   <ul class="navbar">
     <li
-      class="navbar__link"
       v-for="link in links"
       :key="link.label"
+      class="navbar__link"
     >
       <a
-        class="navbar__anchor"
         :class="getActiveLabelClass(link)"
         :href="link.link"
+        class="navbar__anchor"
         v-text="link.label
-      "/>
+        "/>
       <ul
-        class="navbar__dropdown"
         v-if="link.items"
+        class="navbar__dropdown"
       >
         <li
-          class="dropdown__item"
           v-for="item in link.items"
           :key="item.label"
+          class="dropdown__item"
         >
           <a
-            class="dropdown__anchor"
             :class="getActiveLinkClass(item.link)"
             :href="item.link"
+            class="dropdown__anchor"
             v-text="item.label"
           />
         </li>
