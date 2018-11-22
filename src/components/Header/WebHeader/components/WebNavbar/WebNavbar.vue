@@ -1,4 +1,4 @@
-<style lang="scss" src="./WebNavbar.scss"></style>
+<style lang="scss" src="./WebNavbar.scss" scoped></style>
 
 <template>
   <ul class="navbar">
@@ -9,6 +9,7 @@
     >
       <a
         class="navbar__anchor"
+        :class="getActiveLabelClass(link)"
         :href="link.link"
         v-text="link.label
       "/>
@@ -23,6 +24,7 @@
         >
           <a
             class="dropdown__anchor"
+            :class="getActiveLinkClass(item.link)"
             :href="item.link"
             v-text="item.label"
           />
@@ -37,8 +39,33 @@ export default {
   name: 'WebNavbar',
 
   props: {
-    links: Array,
-    required: true
+    links: {
+      type: Array,
+      required: true
+    },
+    active: {
+      type: String
+    }
+  },
+
+  methods: {
+    getActiveLinkClass (link) {
+      if (!this.active) return
+      if (link === this.active) return 'active'
+    },
+
+    getActiveLabelClass (link) {
+      if (!this.active) return
+
+      if (this._hasActiveLink(link)) return 'active'
+    },
+
+    _hasActiveLink (link) {
+      if (!link.items) return
+
+      if (link.link === this.active) return 'active'
+      return link.items.find((item) => item.link === this.active)
+    }
   }
 }
 </script>

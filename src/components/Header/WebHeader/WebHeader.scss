@@ -80,7 +80,7 @@
 .mobile-navigation {
   @include slide-animation(.4s);
 
-  display: flex;
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
@@ -88,7 +88,7 @@
   left: 0;
   flex-wrap: wrap;
   z-index: 100;
-  background-color: get-color("scotch-mist");
+  background-color: get-color("white");
 
   &__header {
     display: flex;

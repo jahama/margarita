@@ -40,7 +40,10 @@
       <GridContainer>
         <GridRow v-if="links">
           <GridColumn class="grid-col--12">
-            <WebNavbar :links="links" />
+            <WebNavbar
+              :links="links"
+              active="https://www.holaluz.com/empresas/encuentra-tu-tarifa-electrica/"
+            />
           </GridColumn>
         </GridRow>
       </GridContainer>
@@ -61,12 +64,11 @@
             @click="opened = false"
           />
         </div>
-        <ul>
-          <li>Holi</li>
-          <li>Ke ase</li>
-          <li>Po nah</li>
-          <li>I tu</li>
-        </ul>
+        <WebMobileNavbar
+          v-if="links"
+          :links="links"
+          active="https://www.holaluz.com/empresas/encuentra-tu-tarifa-electrica/"
+        />
       </div>
     </transition>
   </header>
@@ -80,6 +82,7 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import TheBurger from '../common/TheBurger/TheBurger'
 import WebMobileLang from './components/WebMobileLang/WebMobileLang'
 import WebNavbar from './components/WebNavbar/WebNavbar'
+import WebMobileNavbar from './components/WebMobileNavbar/WebMobileNavbar'
 import ButtonInput from '../../Form/ButtonInput/ButtonInput'
 
 export default {
@@ -92,6 +95,7 @@ export default {
     GridColumn,
     TheBurger,
     WebNavbar,
+    WebMobileNavbar,
     ButtonInput,
     WebMobileLang
   },
