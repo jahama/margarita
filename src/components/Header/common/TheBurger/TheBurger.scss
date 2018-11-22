@@ -11,6 +11,7 @@
   .burger-bar--1,
   .burger-bar--2,
   .burger-bar--3 {
+    transition: transform .3s, opacity .3s;
     margin-bottom: rem(4px);
     width: 100%;
     height: rem(3px);
@@ -20,7 +21,6 @@
     .burger-bar--1,
     .burger-bar--2,
     .burger-bar--3 {
-      transition: transform .3s, opacity .3s;
       background-color: get-color("white");
     }
   }
@@ -34,24 +34,18 @@
   }
 
   &--close {
-    margin: 0;
-    background-color: get-color("dark-hot-pink");
-    width: rem(36px);
-    height: rem(36px);
-
     .burger-bar--1,
     .burger-bar--2 {
       margin: rem(4px) 0 0;
-      background-color: get-color("white");
       width: rem(22px);
     }
 
     .burger-bar--1 {
-      transform: rotate(-45deg) translate(-5px, 14px);
+      transform: rotate(-45deg) translate(0, 4px);
     }
 
     .burger-bar--2 {
-      transform: rotate(45deg) translate(9px, 0);
+      transform: rotate(45deg) translate(-1px, -5px);
     }
 
     .burger-bar--3 {

@@ -8,8 +8,9 @@
           <GridColumn class="grid-col--12">
             <div class="header__logo">
               <TheBurger
+                :is-close="burgerState"
                 web-header
-                @click="opened = true"
+                @click="toggleBurgerState"
               />
               <a
                 href="https://www.holaluz.com"
@@ -19,6 +20,7 @@
             <div class="header__buttons">
               <ButtonInput
                 tag="a"
+                v-if="!burgerState"
                 href="https://alta.holaluz.com/es/"
                 text="Contratar"
                 class="button-input--signup"
@@ -26,6 +28,7 @@
               />
               <ButtonInput
                 tag="a"
+                v-if="!burgerState"
                 href="https://clientes.holaluz.com/es/login"
                 text="Zona Cliente"
                 class="button-input--client-zone"
@@ -50,7 +53,7 @@
     </div>
     <transition name="slide-animation">
       <div
-        v-show="opened"
+        v-show="burgerState"
         class="mobile-navigation"
       >
         <div class="mobile-navigation__header">
@@ -58,10 +61,6 @@
             :langs="langs"
             :current-lang="currentLang"
             @change:lang="onClickLangChanged"
-          />
-          <TheBurger
-            is-close
-            @click="opened = false"
           />
         </div>
         <WebMobileNavbar
@@ -123,13 +122,17 @@ export default {
 
   data () {
     return {
-      opened: false
+      burgerState: false
     }
   },
 
   methods: {
     onClickLangChanged () {
       this.onLangChanged(...arguments)
+    },
+
+    toggleBurgerState () {
+      this.burgerState = !this.burgerState
     }
   }
 

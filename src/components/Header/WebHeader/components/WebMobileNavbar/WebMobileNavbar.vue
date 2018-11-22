@@ -14,13 +14,18 @@
         :id="getTabReference(index)"
       >
       <label
+        v-if="link.items"
         class="navbar__label"
         :class="getActiveLabelClass(link)"
         v-text="link.label"
         :for="getTabReference(index)"
-        v-if="link.items"
       />
-      <a class="navbar__label" v-else :href="link.link" v-text="link.label"></a>
+      <a
+        v-else
+        class="navbar__label"
+        :href="link.link"
+        v-text="link.label"
+      />
       <ul
         class="navbar__dropdown"
         v-if="link.items"

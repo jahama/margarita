@@ -10,11 +10,11 @@
 
   @keyframes slide-animation {
     0% {
-      transform: translateX($origin);
+      height: 0;
     }
 
     100% {
-      transform: translateX($dest);
+      height: 100%;
     }
   }
 
