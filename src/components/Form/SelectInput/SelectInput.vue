@@ -48,7 +48,7 @@ export default {
 
     id: {
       type: String,
-      default: 'id'
+      default: `id_${new Date().getTime()}`
     },
 
     hasError: {
