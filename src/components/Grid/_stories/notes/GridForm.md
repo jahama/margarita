@@ -12,41 +12,41 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
 
 ```handlebars
 <GridContainer form>
-  <layout-card>
-    <grid-row>
-      <grid-column class="grid-col--12 grid-col--md-4">
-        <text-input
+  <LayoutCard>
+    <GridRow>
+      <GridColumn class="grid-col--12 grid-col--md-4">
+        <TextInput
           :label="'Mobile col-12, Desktop col-4'"
         />
-      </grid-column>
-      <grid-column class="grid-col--12 grid-col--md-4">
-        <select-input
+      </GridColumn>
+      <GridColumn class="grid-col--12 grid-col--md-4">
+        <SelectInput
           :label="'Mobile col-12, Desktop col-4'"
         />
-      </grid-column>
-      <grid-column class="grid-col--12 grid-col--md-4">
-        <text-input
+      </GridColumn>
+      <GridColumn class="grid-col--12 grid-col--md-4">
+        <TextInput
           :label="'Mobile col-12, Desktop col-4'"
         />
-      </grid-column>
-    </grid-row>
-    <grid-row no-margin-bottom>
-      <grid-column class="grid-col--12 grid-col--md-3">
-        <text-input
+      </GridColumn>
+    </GridRow>
+    <GridRow no-margin-bottom>
+      <GridColumn class="grid-col--12 grid-col--md-3">
+        <TextInput
           :label="'Mobile col-12, Desktop col-3'"
         />
-      </grid-column>
-      <grid-column class="grid-col--6 grid-col--md-5">
-        <select-input
+      </GridColumn>
+      <GridColumn class="grid-col--6 grid-col--md-5">
+        <SelectInput
           :label="'Mobile col-6, Desktop col-5'"
         />
-      </grid-column>
-      <grid-column class="grid-col--6 grid-col--md-4">
-        <text-input
+      </GridColumn>
+      <GridColumn class="grid-col--6 grid-col--md-4">
+        <TextInput
           :label="'Mobile col-6, Desktop col-4'"
         />
-      </grid-column>
-    </grid-row>
-  </layout-card>
+      </GridColumn>
+    </GridRow>
+  </LayoutCard>
 </GridContainer>
 ```

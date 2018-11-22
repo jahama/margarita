@@ -14,7 +14,7 @@ import AlertBanner from '../AlertBanner/AlertBanner.vue'
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
   .add('Cards', withMarkdownNotes(LayoutCardNotes)(() => {
-    const color = select('Color', ['white', 'gray'], 'white')
+    const color = select('Color', [ 'white', 'gray' ], 'white')
     const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
     return ({
@@ -51,8 +51,8 @@ storiesOf('Layout', module)
     })
   }))
   .add('Alerts', withMarkdownNotes(AlertBannerNotes)(() => {
-    const size = select('Size', ['small', 'medium', 'large'], 'medium')
-    const type = select('Alert type', ['info', 'error', 'success', 'warning'], 'error')
+    const size = select('Size', [ 'small', 'medium', 'large' ], 'medium')
+    const type = select('Alert type', [ 'info', 'error', 'success', 'warning' ], 'error')
     const alertText = text('Alert text', 'Alert text')
 
     return ({

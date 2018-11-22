@@ -18,13 +18,14 @@ export default {
   functional: true,
 
   props: {
-    tag: {
-      type: String,
-      default: 'div'
-    },
     directionColumn: {
       type: Boolean,
       default: false
+    },
+
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
 

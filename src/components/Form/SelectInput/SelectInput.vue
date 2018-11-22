@@ -3,16 +3,16 @@
 <template>
   <div class="select-input">
     <label
+      :for="id"
       class="select-input__label"
       v-text="label"
-      :for="id"
     />
     <select
-      class="select-input__field"
       :id="id"
+      v-model="selectedValue"
       :class="errorClass"
       :disabled="disabled"
-      v-model="selectedValue"
+      class="select-input__field"
     >
       <option
         v-for="(option, key) in options"
@@ -23,8 +23,8 @@
       </option>
     </select>
     <div
-      class="select-input__error-message"
       v-if="hasError"
+      class="select-input__error-message"
     >
       {{ errorMessage }}
     </div>
@@ -34,43 +34,56 @@
 <script>
 export default {
   name: 'SelectInput',
+
   props: {
-    id: {
-      type: String
-    },
     disabled: {
       type: Boolean,
       default: false
     },
+
     errorMessage: {
       type: String,
       default: ''
     },
+
+    id: {
+      type: String,
+      default: `id_${new Date().getTime()}`
+    },
+
     hasError: {
       type: Boolean,
       default: false
     },
+
     label: {
-      type: String
+      type: String,
+      default: 'label'
     },
+
     options: {
       type: Array,
       default: () => []
     },
+
     value: {
-      type: [String, Object, Number, Boolean]
+      type: [ String, Object, Number, Boolean ],
+      default: 'value'
     }
   },
+
   computed: {
     errorClass () {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
     },
+
     selectedValue: {
       get () {
         return this.value
       },
+
       set (newSelectedValue) {
         this.$emit('input', newSelectedValue)
       }

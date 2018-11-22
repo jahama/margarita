@@ -1,23 +1,25 @@
 <style lang="scss" src="./LayoutCard.scss"></style>
 
 <template>
-  <div
-    v-if="getSpacingClasses.length"
-    :class="getSpacingClasses"
-  >
+  <div>
     <div
+      v-if="getSpacingClasses.length"
+      :class="getSpacingClasses"
+    >
+      <div
+        :class="getColorClass"
+        class="layout-card"
+      >
+        <slot />
+      </div>
+    </div>
+    <div
+      v-else
       :class="getColorClass"
       class="layout-card"
     >
-      <slot/>
+      <slot />
     </div>
-  </div>
-  <div
-    v-else
-    :class="getColorClass"
-    class="layout-card"
-  >
-    <slot/>
   </div>
 </template>
 
@@ -26,14 +28,14 @@ export default {
   name: 'LayoutCard',
 
   props: {
-    hasPaddingTop: {
-      type: Boolean,
-      default: false
-    },
-
     color: {
       type: String,
       default: 'gray'
+    },
+
+    hasPaddingTop: {
+      type: Boolean,
+      default: false
     }
   },
 

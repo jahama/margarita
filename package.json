@@ -1,6 +1,6 @@
 {
   "name": "margarita",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "private": true,
   "scripts": {
@@ -15,6 +15,7 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js,.vue src test/unit",
     "lint:scss": "sass-lint 'src/**/*.scss' -v -q",
+    "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "npm run unit",
     "test:watch": "npm run unit:watch",
     "unit": "jest --config test/unit/jest.conf.js",
@@ -26,28 +27,29 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-actions": "^3.4.11",
     "@storybook/addon-centered": "^3.4.11",
-    "@storybook/addon-knobs": "^3.4.3",
-    "@storybook/addon-links": "^3.4.3",
-    "@storybook/addon-notes": "^3.4.3",
-    "@storybook/addon-viewport": "^3.4.3",
-    "@storybook/addons": "^3.4.3",
-    "@storybook/vue": "^3.4.3",
+    "@storybook/addon-knobs": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
+    "@storybook/addon-notes": "^3.4.11",
+    "@storybook/addon-viewport": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "@storybook/vue": "^3.4.11",
     "@vue/test-utils": "^1.0.0-beta.16",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^21.0.2",
     "copy-webpack-plugin": "^4.5.2",
-    "eslint": "^4.15.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-friendly-formatter": "^3.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
     "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^4.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.0",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0-beta.4",
     "file-loader": "^2.0.0",
     "highlight-loader": "^0.7.2",
     "husky": "^1.0.0-rc.9",
@@ -55,14 +57,15 @@
     "jest-serializer-vue": "^0.3.0",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.2",
+    "pre-push": "^0.1.1",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "sass-lint": "^1.12.1",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.0.3",
     "svg-inline-loader": "^0.8.0",
     "svg-url-loader": "^2.3.2",
     "vue-jest": "^1.0.2",
-    "vue-loader": "^14.2.2",
+    "vue-loader": "^14.2.1",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.16"
   },
@@ -72,7 +75,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm test"
+      "pre-push": "npm run lint && npm test"
     }
   }
 }

@@ -20,11 +20,12 @@ storiesOf('Grid System', module)
   .addDecorator(withKnobs)
   .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
     const fluid = boolean('Fluid layout', false)
-    const tag = select('Tag', ['div', 'header', 'aside', 'article', 'section'], 'div')
+    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
     const noGutters = boolean('No gutters', false)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" :tag="tag" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -75,6 +76,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -108,6 +110,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -161,6 +164,7 @@ storiesOf('Grid System', module)
 
     return ({
       components: { GridContainer, GridRow, GridColumn },
+
       template: `
         <GridContainer :fluid="fluid" class="grid-example">
           <GridRow :noGutters="noGutters">
@@ -199,50 +203,52 @@ storiesOf('Grid System', module)
       }
     })
   }))
+
   .add('Form', withMarkdownNotes(GridFormNotes)(() => {
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
     const hasMarginTop = boolean('All cols from last row have margin top', false)
 
     return ({
       components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
+
       template: `
         <GridContainer form>
-          <layout-card>
-            <grid-row>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+          <LayoutCard>
+            <GridRow>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <select-input
+              </GridColumn>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <SelectInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+              </GridColumn>
+              <GridColumn class="grid-col--12 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-4'"
                 />
-              </grid-column>
-            </grid-row>
-            <grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
-              <grid-column class="grid-col--12 grid-col--md-3">
-                <text-input
+              </GridColumn>
+            </GridRow>
+            <GridRow :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
+              <GridColumn class="grid-col--12 grid-col--md-3">
+                <TextInput
                   :label="'Mobile col-12, Desktop col-3'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--6 grid-col--md-5">
-                <select-input
+              </GridColumn>
+              <GridColumn class="grid-col--6 grid-col--md-5">
+                <SelectInput
                   :label="'Mobile col-6, Desktop col-5'"
                 />
-              </grid-column>
-              <grid-column class="grid-col--6 grid-col--md-4">
-                <text-input
+              </GridColumn>
+              <GridColumn class="grid-col--6 grid-col--md-4">
+                <TextInput
                   :label="'Mobile col-6, Desktop col-4'"
                 />
-              </grid-column>
-            </grid-row>
-          </layout-card>
+              </GridColumn>
+            </GridRow>
+          </LayoutCard>
         </GridContainer>
       `,
 

@@ -8,14 +8,14 @@
     >
       {{ label }}
       <input
+        :id="id"
+        v-model="isChecked"
         type="checkbox"
         class="checkbox-input__field"
-        :id="id"
         :checked="checked"
         :disabled="disabled"
-        v-model="isChecked"
       >
-      <span class="checkmark-box"></span>
+      <span class="checkmark-box" />
     </label>
   </div>
 </template>
@@ -23,28 +23,35 @@
 <script>
 export default {
   name: 'CheckboxInput',
+
   props: {
-    id: {
-      type: String
-    },
     checked: {
       type: Boolean,
       default: false
     },
+
     disabled: {
       type: Boolean,
       default: false
     },
+
+    id: {
+      type: String,
+      default: `id_${new Date().getTime()}`
+    },
+
     label: {
       type: String,
       required: true
     }
   },
+
   computed: {
     isChecked: {
       get () {
         return this.checked
       },
+
       set (checkedValue) {
         this.$emit('input', checkedValue)
       }
