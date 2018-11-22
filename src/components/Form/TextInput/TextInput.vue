@@ -67,7 +67,7 @@ export default {
 
     value: {
       type: [ String, Number ],
-      default: 'Value'
+      default: ''
     }
   },
 
