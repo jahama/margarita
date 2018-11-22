@@ -26,11 +26,13 @@ export default {
   props: {
 
     langs: {
-      type: Array
+      type: Array,
+      default: () => []
     },
 
     currentLang: {
-      type: String
+      type: String,
+      default: 'es'
     }
 
   },

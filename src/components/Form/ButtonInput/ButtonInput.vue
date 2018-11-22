@@ -2,9 +2,9 @@
 
 <template>
   <button
+    :is="tag"
     :class="`button-input--${ type }`"
     :href="href"
-    :is="tag"
     class="button-input"
     @click="onClick"
     v-text="text"

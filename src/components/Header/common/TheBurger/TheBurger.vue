@@ -6,9 +6,9 @@
     class="btn-burger"
     @click="onClick"
   >
-    <div class="burger-bar--1"/>
-    <div class="burger-bar--2"/>
-    <div class="burger-bar--3"/>
+    <div class="burger-bar--1" />
+    <div class="burger-bar--2" />
+    <div class="burger-bar--3" />
   </div>
 </template>
 

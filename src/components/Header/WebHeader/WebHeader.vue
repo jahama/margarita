@@ -41,7 +41,7 @@
     </div>
     <div class="navigation">
       <GridContainer>
-        <GridRow v-if="links">
+        <GridRow v-if="links.length">
           <GridColumn class="grid-col--12">
             <WebNavbar
               :links="links"
@@ -64,7 +64,7 @@
           />
         </div>
         <WebMobileNavbar
-          v-if="links"
+          v-if="links.length"
           :links="links"
           active="https://www.holaluz.com/empresas/encuentra-tu-tarifa-electrica/"
         />
@@ -116,7 +116,8 @@ export default {
     },
 
     links: {
-      type: Array
+      type: Array,
+      default: () => []
     }
   },
 

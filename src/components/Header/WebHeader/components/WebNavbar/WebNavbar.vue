@@ -11,8 +11,8 @@
         :class="getActiveLabelClass(link)"
         :href="link.link"
         class="navbar__anchor"
-        v-text="link.label
-        "/>
+        v-text="link.label"
+      />
       <ul
         v-if="link.items"
         class="navbar__dropdown"
@@ -43,8 +43,10 @@ export default {
       type: Array,
       required: true
     },
+
     active: {
-      type: String
+      type: String,
+      default: ''
     }
   },
 
