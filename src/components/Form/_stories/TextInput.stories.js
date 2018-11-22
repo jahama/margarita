@@ -24,18 +24,6 @@ storiesOf('Basic Components', module)
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
 
-    const mask = (value) => {
-      if (!value) return
-
-      return value
-        .trim()
-        .replace(/ /g, '')
-        .substr(0, 24)
-        .toUpperCase()
-        .match(/.{1,4}/g)
-        .join(' ')
-    }
-
     return ({
       components: { TextInput, GridColumn },
 
@@ -47,7 +35,6 @@ storiesOf('Basic Components', module)
             :disabled="disabled"
             :hasError="hasError"
             :label="label"
-            :mask="mask"
             @blur="onBlur"
             @input="onInput"
             v-model="value"
@@ -70,7 +57,6 @@ storiesOf('Basic Components', module)
           errorMessage: errorMessage,
           hasError: hasError,
           label: label,
-          mask: mask,
           offset: offset,
           size: size,
           value: value

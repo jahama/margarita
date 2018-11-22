@@ -27,9 +27,3 @@ You can use **TextInput** component as following minimal configuration:
 ### Events:
 
 You can listen `blur`, `input` and `change` input events directly listening these events from the parent.
-
-### Comming soon:
-
-- <kbd>Function</kbd> **mask**: Transforms the input value to the desired format.
-- <kbd>Function</kbd> **validate**: Function that evaluate if a property is valid or not.
-
