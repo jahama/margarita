@@ -20,7 +20,7 @@
     .burger-bar--1,
     .burger-bar--2,
     .burger-bar--3 {
-      transition: transform .3s;
+      transition: transform .3s, opacity .3s;
       background-color: get-color("white");
     }
   }
@@ -55,7 +55,8 @@
     }
 
     .burger-bar--3 {
-      display: none;
+      opacity: 0;
+      width: rem(24px);
     }
   }
 }
