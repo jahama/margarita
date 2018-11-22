@@ -3,9 +3,9 @@ import { withKnobs, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
+import GridColumn from '../../Grid/GridColumn/GridColumn'
 import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
-import ButtonInput from '../ButtonInput/ButtonInput.vue'
+import ButtonInput from '../ButtonInput/ButtonInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient' ]

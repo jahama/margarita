@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
+import GridColumn from '../../Grid/GridColumn/GridColumn'
 
-import SelectInput from '../SelectInput/SelectInput.vue'
+import SelectInput from '../SelectInput/SelectInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 

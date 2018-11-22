@@ -5,11 +5,11 @@ import { withMarkdownNotes } from '@storybook/addon-notes'
 import LayoutCardNotes from './notes/LayoutCard.md'
 import AlertBannerNotes from './notes/AlertBanner.md'
 
-import GridContainer from '../../Grid/GridContainer/GridContainer.vue'
-import GridRow from '../../Grid/GridRow/GridRow.vue'
-import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
-import LayoutCard from '../LayoutCard/LayoutCard.vue'
-import AlertBanner from '../AlertBanner/AlertBanner.vue'
+import GridContainer from '../../Grid/GridContainer/GridContainer'
+import GridRow from '../../Grid/GridRow/GridRow'
+import GridColumn from '../../Grid/GridColumn/GridColumn'
+import LayoutCard from '../LayoutCard/LayoutCard'
+import AlertBanner from '../AlertBanner/AlertBanner'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
