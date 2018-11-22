@@ -89,9 +89,11 @@
   flex-wrap: wrap;
   z-index: 100;
   background-color: get-color("white");
+  overflow: hidden;
 
   &__header {
     display: flex;
+    position: relative;
     flex: 0 0 100%;
     justify-content: space-between;
     background-color: get-color("emperor");
