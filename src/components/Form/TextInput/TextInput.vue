@@ -14,9 +14,9 @@
       :class="getComputedClass"
       :disabled="disabled"
       :type="type"
-      @blur="onBlur"
+      @blur="emit"
       @change="emit"
-      @input="onInput"
+      @input="emit"
       @keyup.enter="removeFocus"
     >
     <div
@@ -65,14 +65,9 @@ export default {
       default: 'text'
     },
 
-    validate: {
-      type: Function,
-      default: () => {}
-    },
-
     value: {
       type: [ String, Number ],
-      default: 'Value'
+      default: ''
     }
   },
 
@@ -101,54 +96,12 @@ export default {
       this.$el.querySelector('input').blur()
     },
 
-    onBlur (e) {
-      if (this.validator) {
-        // TODO: Create validator behavior if invalid
-      }
-
-      this.$emit('blur', e)
-    },
-
-    onInput (e) {
-      if (this.mask) this._applyMask(e)
-
-      this.emit(e)
-    },
-
-    _applyMask (e) {
-      const inputEl = this.$el.querySelector('input')
-      const position = inputEl.selectionStart
-      this.lazyValue = this.mask(this.lazyValue) || ''
-
-      this.$nextTick(() => {
-        inputEl.value = this.lazyValue
-        this._setCaretPosition(inputEl, position, e)
-      })
-    },
-
     _filterByExistProp (className) {
       return !!this[className]
     },
 
     _getClassNameByProp (className) {
       return INPUT_CLASSES[className]
-    },
-
-    _setCaretPosition (inputEl, position, e) {
-      const isDelete = e.inputType === 'deleteContentBackward'
-      const caretPos = (isDelete) ? position : position - 1
-
-      if (this.lazyValue.charAt(caretPos) === ' ') {
-        if (!isDelete) position++
-      }
-
-      inputEl.setSelectionRange(position, position)
-    }
-  },
-
-  watch: {
-    value (value) {
-      this.lazyValue = value
     }
   }
 }

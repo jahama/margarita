@@ -1,6 +1,6 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select, object } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import GridNestedNotes from './notes/GridNested.md'
@@ -205,6 +205,13 @@ storiesOf('Grid System', module)
   }))
 
   .add('Form', withMarkdownNotes(GridFormNotes)(() => {
+    const defaultOptions = [
+      { text: 'Option1', value: 'option1' },
+      { text: 'Option2', value: 'option2' },
+      { text: 'Option3', value: 'option3' },
+      { text: 'Option4', value: 'option4' }
+    ]
+    const options = object('Options', defaultOptions)
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
     const hasMarginTop = boolean('All cols from last row have margin top', false)
 
@@ -223,6 +230,7 @@ storiesOf('Grid System', module)
               <GridColumn class="grid-col--12 grid-col--md-4">
                 <SelectInput
                   :label="'Mobile col-12, Desktop col-4'"
+                  :options="options"
                 />
               </GridColumn>
               <GridColumn class="grid-col--12 grid-col--md-4">
@@ -240,6 +248,7 @@ storiesOf('Grid System', module)
               <GridColumn class="grid-col--6 grid-col--md-5">
                 <SelectInput
                   :label="'Mobile col-6, Desktop col-5'"
+                  :options="options"
                 />
               </GridColumn>
               <GridColumn class="grid-col--6 grid-col--md-4">
@@ -254,8 +263,9 @@ storiesOf('Grid System', module)
 
       data () {
         return {
+          hasMarginTop: hasMarginTop,
           noMarginBottom: noMarginBottom,
-          hasMarginTop: hasMarginTop
+          options: options
         }
       }
     })
