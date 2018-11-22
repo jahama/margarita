@@ -60,22 +60,5 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, './src')
     }
-  },
-
-  build: {
-    /*
-    ** Run ESLint on push
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
   }
-
 }
