@@ -9,12 +9,12 @@ import GridOrderNotes from './notes/GridOrder.md'
 import GridSystemNotes from './notes/GridSystem.md'
 import GridFormNotes from './notes/GridForm.md'
 
-import GridContainer from '../GridContainer/GridContainer.vue'
-import GridRow from '../GridRow/GridRow.vue'
-import GridColumn from '../GridColumn/GridColumn.vue'
-import TextInput from '../../Form/TextInput/TextInput.vue'
-import SelectInput from '../../Form/SelectInput/SelectInput.vue'
-import LayoutCard from '../../Layout/LayoutCard/LayoutCard.vue'
+import GridContainer from '../GridContainer/GridContainer'
+import GridRow from '../GridRow/GridRow'
+import GridColumn from '../GridColumn/GridColumn'
+import TextInput from '../../Form/TextInput/TextInput'
+import SelectInput from '../../Form/SelectInput/SelectInput'
+import LayoutCard from '../../Layout/LayoutCard/LayoutCard'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)

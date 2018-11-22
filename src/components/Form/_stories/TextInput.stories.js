@@ -3,9 +3,9 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn.vue'
+import GridColumn from '../../Grid/GridColumn/GridColumn'
 
-import TextInput from '../TextInput/TextInput.vue'
+import TextInput from '../TextInput/TextInput'
 import TextInputNotes from './notes/TextInput.md'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
