@@ -1,6 +1,6 @@
 {
   "name": "margarita",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
-    "vue": "^2.5.2",
+    "vue": "^2.5.17",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -67,7 +67,7 @@
     "vue-jest": "^1.0.2",
     "vue-loader": "^14.2.1",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.16"
+    "vue-template-compiler": "^2.5.17"
   },
   "engines": {
     "node": ">= 8.0.0",
