@@ -87,6 +87,12 @@ export default {
     }
   },
 
+  watch: {
+    value (newValue) {
+      this.lazyValue = newValue
+    }
+  },
+
   methods: {
     emit (e) {
       this.$emit(e.type, this.lazyValue)
