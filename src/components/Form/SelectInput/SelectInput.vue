@@ -83,13 +83,16 @@ export default {
     selectedValue: {
       get () {
         if (this.value && this.value !== '') return this.value
-        if (this.options[0]) return this.options[0].value
+        if (this.options[0]) {
+          this.$emit('input', this.options[0].value)
+          return this.options[0].value
+        }
         return ''
       },
 
       set (newSelectedValue) {
         this.value = newSelectedValue
-        this.$emit('input', this.value)
+        this.$emit('input', newSelectedValue)
       }
     }
   }
