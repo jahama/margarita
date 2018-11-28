@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 
@@ -30,7 +31,10 @@ storiesOf('Basic Components', module)
       components: { GridColumn, SelectInput },
 
       template: `
-        <GridColumn :class="getClass">
+        <GridColumn
+          :class="getClass"
+          @input="action"
+        >
           <SelectInput
             id="my-select-input"
             :errorMessage="errorMessage"
@@ -61,6 +65,10 @@ storiesOf('Basic Components', module)
           offset: offset,
           size: size
         }
+      },
+
+      methods: {
+        action: action('selected')
       }
     }
   })

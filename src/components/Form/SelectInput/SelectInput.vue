@@ -64,11 +64,6 @@ export default {
     options: {
       type: Array,
       default: () => []
-    },
-
-    value: {
-      type: [ String, Object, Number, Boolean ],
-      default: 'value'
     }
   },
 
@@ -81,7 +76,8 @@ export default {
 
     selectedValue: {
       get () {
-        return this.value
+        if (this.options[0]) return this.options[0].value
+        return ''
       },
 
       set (newSelectedValue) {
