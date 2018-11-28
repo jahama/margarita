@@ -67,6 +67,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      value: ''
+    }
+  },
+
   computed: {
     errorClass () {
       if (this.hasError) return 'select-input__field--error'
@@ -76,12 +82,14 @@ export default {
 
     selectedValue: {
       get () {
+        if (this.value && this.value !== '') return this.value
         if (this.options[0]) return this.options[0].value
         return ''
       },
 
       set (newSelectedValue) {
-        this.$emit('input', newSelectedValue)
+        this.value = newSelectedValue
+        this.$emit('input', this.value)
       }
     }
   }
