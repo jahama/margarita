@@ -14,7 +14,7 @@
         class="checkbox-input__field"
         :checked="checked"
         :disabled="disabled"
-      >
+      />
       <span class="checkmark-box" />
     </label>
   </div>
