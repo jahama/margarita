@@ -84,7 +84,7 @@ export default {
       get () {
         if (this.value && this.value !== '') return this.value
         if (this.options[0]) {
-          this.$emit('input', this.options[0].value)
+          this.setInitialValue(this.options[0].value)
           return this.options[0].value
         }
         return ''
@@ -93,6 +93,15 @@ export default {
       set (newSelectedValue) {
         this.value = newSelectedValue
         this.$emit('input', newSelectedValue)
+      }
+    }
+  },
+
+  methods: {
+    setInitialValue: function (initialValue) {
+      if (this.value !== initialValue) {
+        this.value = initialValue
+        this.$emit('input', initialValue)
       }
     }
   }
