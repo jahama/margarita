@@ -14,7 +14,7 @@
         class="checkbox-input__field"
         :checked="checked"
         :disabled="disabled"
-      />
+      >
       <span class="checkmark-box" />
     </label>
   </div>
@@ -37,7 +37,7 @@ export default {
 
     id: {
       type: String,
-      default: `id_${new Date().getTime()}`
+      default: () => `id_${new Date().getTime()}`
     },
 
     label: {

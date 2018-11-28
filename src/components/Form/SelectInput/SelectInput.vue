@@ -48,7 +48,7 @@ export default {
 
     id: {
       type: String,
-      default: `id_${new Date().getTime()}`
+      default: () => `id_${new Date().getTime()}`
     },
 
     hasError: {
@@ -99,7 +99,7 @@ export default {
 
   methods: {
     setInitialValue: function (initialValue) {
-      if (this.value !== initialValue) {
+      if (this.value === '') {
         this.value = initialValue
         this.$emit('input', initialValue)
       }
