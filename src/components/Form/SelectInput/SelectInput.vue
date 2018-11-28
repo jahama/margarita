@@ -82,7 +82,7 @@ export default {
 
     selectedValue: {
       get () {
-        if (this.value && this.value !== '') return this.value
+        if (this.value !== '') return this.value
         if (this.options[0]) {
           this.setInitialValue(this.options[0].value)
           return this.options[0].value
