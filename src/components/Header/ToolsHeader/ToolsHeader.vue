@@ -24,14 +24,15 @@
         />
       </div>
     </header>
-    <nav
+    <ToolsNavbar
       v-if="burgerState"
-      class="tools-header__navbar"
+      :links="links"
     />
   </div>
 </template>
 
 <script>
+import ToolsNavbar from './components/ToolsNavbar/ToolsNavbar'
 import TheBurger from '../common/TheBurger/TheBurger'
 import UserActions from './components/UserActions/UserActions'
 
@@ -39,17 +40,23 @@ export default {
   name: 'ToolsHeader',
 
   components: {
+    ToolsNavbar,
     TheBurger,
     UserActions
   },
 
   props: {
-    pageTitle: {
+    links: {
+      type: Array,
+      default: () => []
+    },
+
+    loggedUser: {
       default: '',
       type: String
     },
 
-    loggedUser: {
+    pageTitle: {
       default: '',
       type: String
     },

@@ -1,15 +1,15 @@
 <style lang="scss" src="./ToolsNavbar.scss" scoped></style>
 
 <template>
-  <ul class="navbar">
+  <ul class="tools-navbar">
     <li
       v-for="link in links"
       :key="link.label"
-      class="navbar__link"
+      class="tools-navbar__link"
     >
       <a
         :href="link.link"
-        class="navbar__anchor"
+        class="tools-navbar__anchor"
         v-text="link.label"
       />
     </li>

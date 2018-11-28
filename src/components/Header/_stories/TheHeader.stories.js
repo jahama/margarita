@@ -48,6 +48,7 @@ storiesOf('Header', module)
 
       data () {
         return {
+          links,
           loggedUser,
           pageTitle,
           userRole
@@ -59,8 +60,9 @@ storiesOf('Header', module)
       },
 
       template: `
-        <div>
+        <div class="story--no-margin">
           <ToolsHeader
+            :links="links"
             :loggedUser="loggedUser"
             :pageTitle="pageTitle"
             :userRole="userRole"
