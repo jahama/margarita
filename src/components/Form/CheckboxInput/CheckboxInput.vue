@@ -37,7 +37,7 @@ export default {
 
     id: {
       type: String,
-      default: `id_${new Date().getTime()}`
+      default: () => `id_${new Date().getTime()}`
     },
 
     label: {

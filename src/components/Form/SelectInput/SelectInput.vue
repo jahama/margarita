@@ -48,7 +48,7 @@ export default {
 
     id: {
       type: String,
-      default: `id_${new Date().getTime()}`
+      default: () => `id_${new Date().getTime()}`
     },
 
     hasError: {
@@ -64,11 +64,12 @@ export default {
     options: {
       type: Array,
       default: () => []
-    },
+    }
+  },
 
-    value: {
-      type: [ String, Object, Number, Boolean ],
-      default: 'value'
+  data () {
+    return {
+      value: ''
     }
   },
 
@@ -81,11 +82,26 @@ export default {
 
     selectedValue: {
       get () {
-        return this.value
+        if (this.value !== '') return this.value
+        if (this.options[0]) {
+          this.setInitialValue(this.options[0].value)
+          return this.options[0].value
+        }
+        return ''
       },
 
       set (newSelectedValue) {
+        this.value = newSelectedValue
         this.$emit('input', newSelectedValue)
+      }
+    }
+  },
+
+  methods: {
+    setInitialValue: function (initialValue) {
+      if (this.value === '') {
+        this.value = initialValue
+        this.$emit('input', initialValue)
       }
     }
   }
