@@ -7,6 +7,7 @@ import GridRow from './components/Grid/GridRow/GridRow.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
+import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
 
 export {
   ButtonInput,
@@ -17,7 +18,8 @@ export {
   LayoutCard,
   RadioButton,
   SelectInput,
-  TextInput
+  TextInput,
+  ToolsHeader
 }
 
 export default {
@@ -31,5 +33,6 @@ export default {
     Vue.component('RadioButton', RadioButton)
     Vue.component('SelectInput', SelectInput)
     Vue.component('TextInput', TextInput)
+    Vue.component('ToolsHeader', ToolsHeader)
   }
 }
