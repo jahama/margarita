@@ -16,8 +16,9 @@
   }
 
   &__user-role {
+    @include font-weight(semibold);
+
     color: get-color("tundora");
-    font-weight: 700;
   }
 
   &__icon {
