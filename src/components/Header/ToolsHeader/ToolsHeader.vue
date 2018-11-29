@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import ToolsNavbar from './components/ToolsNavbar/ToolsNavbar'
-import TheBurger from '../common/TheBurger/TheBurger'
-import UserActions from './components/UserActions/UserActions'
+import ToolsNavbar from './components/ToolsNavbar/ToolsNavbar.vue'
+import TheBurger from '../common/TheBurger/TheBurger.vue'
+import UserActions from './components/UserActions/UserActions.vue'
 
 export default {
   name: 'ToolsHeader',
