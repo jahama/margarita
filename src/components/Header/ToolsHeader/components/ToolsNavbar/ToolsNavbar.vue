@@ -3,6 +3,7 @@
 <template>
   <ul class="tools-navbar">
     <li
+      :class="getActiveLinkClass(link)"
       v-for="link in links"
       :key="link.label"
       class="tools-navbar__link"
@@ -18,13 +19,25 @@
 
 <script>
 export default {
-  name: 'WebNavbar',
+  name: 'ToolsNavbar',
 
   props: {
     links: {
       type: Array,
-      default: () => ([]),
+      default: () => [],
       required: true
+    },
+
+    active: {
+      type: String,
+      default: ''
+    }
+  },
+
+  methods: {
+    getActiveLinkClass (link) {
+      if (!this.active) return
+      if (link.link === this.active) return 'active'
     }
   }
 }

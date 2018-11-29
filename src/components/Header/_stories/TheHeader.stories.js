@@ -42,12 +42,14 @@ storiesOf('Header', module)
     const loggedUser = text('Logged User', 'Anna Collins')
     const pageTitle = text('Page Title', 'New Contract')
     const userRole = text('User Role', 'Administrator')
+    const active = links[0].link
 
     return ({
       components: { ToolsHeader },
 
       data () {
         return {
+          active,
           links,
           loggedUser,
           pageTitle,
@@ -62,6 +64,7 @@ storiesOf('Header', module)
       template: `
         <div class="story--no-margin">
           <ToolsHeader
+            :active="active"
             :links="links"
             :loggedUser="loggedUser"
             :pageTitle="pageTitle"

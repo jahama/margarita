@@ -2,21 +2,26 @@
 
 .tools-navbar {
   display: flex;
+  position: absolute;
   flex-direction: column;
   margin: 0;
   box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow");
   background-color: get-color("white");
   padding: rem(32px) 0 0;
-  width: rem(216px);
-  height: 100%;
+  min-width: rem(216px);
+  height: 100vh;
 
   &__link {
-    background-color: get-color("white");
     padding-left: rem(40px);
     list-style: none;
     line-height: rem(64px);
 
     &.active {
+      &> a {
+        color: get-color("tundora");
+        font-weight: 700;
+      }
+
       &::before {
         display: block;
         position: absolute;

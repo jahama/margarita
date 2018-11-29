@@ -1,6 +1,7 @@
 <style lang="scss" src="./ToolsHeader.scss" scoped></style>
 
 <template>
+<div>
   <div class="tools-header">
     <header class="tools-header__toolbar">
       <div class="tools-header__section">
@@ -24,11 +25,13 @@
         />
       </div>
     </header>
-    <ToolsNavbar
-      v-if="burgerState"
-      :links="links"
-    />
   </div>
+  <ToolsNavbar
+    v-if="burgerState"
+    :active="active"
+    :links="links"
+  />
+</div>
 </template>
 
 <script>
@@ -64,6 +67,11 @@ export default {
     userRole: {
       default: '',
       type: String
+    },
+
+    active: {
+      type: String,
+      default: ''
     }
   },
 
