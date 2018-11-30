@@ -12,7 +12,9 @@ mergeStrategies.functional = function (toVal, fromVal) {
       case 'style':
         if (!toVal[prop]) toVal[prop] = {}
         for (const item of Object.keys(fromVal[prop])) {
-          if (typeof toVal[prop] === 'string') toVal[prop] = toVal[prop].split(' ')
+          if (typeof toVal[prop] === 'string') {
+            toVal[prop] = { [toVal[prop]]: true }
+          }
 
           toVal[prop][item] = fromVal[prop][item]
         }
