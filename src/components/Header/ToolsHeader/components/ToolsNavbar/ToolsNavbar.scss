@@ -7,14 +7,14 @@
   margin: 0;
   box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow");
   background-color: get-color("white");
-  padding: rem(32px) 0 0;
+  padding: rem(24px) 0 0;
   min-width: rem(216px);
-  height: 100vh;
+  height: 100%;
 
   &__link {
-    padding-left: rem(40px);
+    padding: 0 rem(32px);
     list-style: none;
-    line-height: rem(64px);
+    line-height: rem(56px);
 
     &.active {
       &> a {
@@ -33,7 +33,7 @@
           get-color("school-bus-yellow")
         );
         width: .125rem;
-        height: rem(64px);
+        height: rem(56px);
         content: "";
       }
     }
