@@ -26,11 +26,13 @@
       </div>
     </header>
   </div>
-  <ToolsNavbar
-    v-if="burgerState"
-    :active="active"
-    :links="links"
-  />
+  <transition name="horizontal-slide-animation">
+    <ToolsNavbar
+      v-if="burgerState"
+      :active="active"
+      :links="links"
+    />
+  </transition>
 </div>
 </template>
 
