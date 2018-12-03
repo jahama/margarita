@@ -58,7 +58,7 @@ export default {
 
     label: {
       type: String,
-      default: 'label'
+      default: ''
     },
 
     options: {
