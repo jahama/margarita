@@ -1,0 +1,56 @@
+@import "../../../../scss/margarita";
+
+.btn-burger {
+  margin-top: rem(4px);
+  margin-right: rem(24px);
+  cursor: pointer;
+  min-width: rem(24px);
+  text-indent: 100%;
+  content: "";
+
+  .burger-bar--1,
+  .burger-bar--2,
+  .burger-bar--3 {
+    transition: transform .3s, opacity .3s;
+    margin-bottom: rem(4px);
+    width: 100%;
+    height: rem(3px);
+  }
+
+  &--tools-header {
+    .burger-bar--1,
+    .burger-bar--2,
+    .burger-bar--3 {
+      background-color: get-color("white");
+    }
+  }
+
+  &--web-header {
+    .burger-bar--1,
+    .burger-bar--2,
+    .burger-bar--3 {
+      background-color: get-color("dark-hot-pink");
+    }
+  }
+
+  &--close {
+    .burger-bar--1,
+    .burger-bar--2 {
+      margin: rem(4px) 0 0;
+      width: rem(22px);
+    }
+
+    .burger-bar--1 {
+      transform: rotate(-45deg) translate(0, 4px);
+    }
+
+    .burger-bar--2 {
+      transform: rotate(45deg) translate(-1px, -5px);
+    }
+
+    .burger-bar--3 {
+      opacity: 0;
+      width: rem(24px);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../../../../scss/margarita";
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  border-radius: rem(6px);
+  box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow");
+  background-color: get-color("white");
+  padding: 0 rem(12px);
+  height: rem(32px);
+  white-space: pre-wrap;
+  font-size: rem(14px);
+
+  &__logged-user {
+    color: get-color("gray");
+  }
+
+  &__user-role {
+    @include font-weight(semibold);
+
+    color: get-color("tundora");
+  }
+
+  &__icon {
+    margin-left: rem(8px);
+    background-image: url("../../../../../assets/icons/log-out.svg");
+    background-repeat: no-repeat;
+    background-size: rem(16px) rem(16px);
+    cursor: pointer;
+    width: rem(16px);
+    height: rem(16px);
+  }
+}

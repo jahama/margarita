@@ -1,0 +1,30 @@
+@import "../../../../../scss/margarita";
+
+.mobile-lang {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    @include font-weight(regular);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(9px);
+    width: rem(46px);
+    height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: get-color("white");
+
+    &--active {
+      background-color: get-color("white");
+      color: get-color("emperor");
+    }
+  }
+}

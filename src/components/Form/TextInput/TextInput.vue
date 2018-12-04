@@ -3,8 +3,8 @@
 <template>
   <div class="text-input">
     <label
-      class="text-input__label"
       :for="id"
+      class="text-input__label"
       v-text="label"
     />
     <input

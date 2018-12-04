@@ -1,0 +1,21 @@
+@mixin slide-animation($timeout: 0, $origin: 0, $dest: 100%) {
+
+  &.slide-animation-enter-active {
+    animation: slide-animation $timeout;
+  }
+
+  &.slide-animation-leave-active {
+    animation: slide-animation $timeout reverse;
+  }
+
+  @keyframes slide-animation {
+    0% {
+      height: $origin;
+    }
+
+    100% {
+      height: $dest;
+    }
+  }
+
+}
