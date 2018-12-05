@@ -9,7 +9,7 @@
       v-if="showAlertIcon"
       class="alert-banner__icon"
     />
-    <h3
+    <p
       v-if="alertWithTitle"
       class="alert-banner__title"
       v-text="title"
