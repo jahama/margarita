@@ -1,3 +1,4 @@
+import AlertBanner from './components/Layout/AlertBanner/AlertBanner.vue'
 import ButtonInput from './components/Form/ButtonInput/ButtonInput.vue'
 import CheckboxInput from './components/Form/CheckboxInput/CheckboxInput.vue'
 import LayoutCard from './components/Layout/LayoutCard/LayoutCard.vue'
@@ -10,6 +11,7 @@ import TextInput from './components/Form/TextInput/TextInput.vue'
 import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
 
 export {
+  AlertBanner,
   ButtonInput,
   CheckboxInput,
   GridColumn,
@@ -24,6 +26,7 @@ export {
 
 export default {
   install (Vue) {
+    Vue.component('AlertBanner', AlertBanner)
     Vue.component('ButtonInput', ButtonInput)
     Vue.component('CheckboxInput', CheckboxInput)
     Vue.component('LayoutCard', LayoutCard)

@@ -40,6 +40,8 @@
   }
 
   &__title {
+    @include font-weight(semibold);
+
     margin: 0;
     font-size: rem(20px);
   }
