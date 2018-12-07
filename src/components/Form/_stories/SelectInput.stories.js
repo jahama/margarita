@@ -26,7 +26,7 @@ storiesOf('Basic Components', module)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
-    const selectedValue = text('Holi', '')
+    const selectedValue = select('Value', [ '', 'option1', 'option2' ], '')
 
     return {
       components: { GridColumn, SelectInput },
