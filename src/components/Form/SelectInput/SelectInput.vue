@@ -13,6 +13,7 @@
       :class="errorClass"
       :disabled="disabled"
       class="select-input__field"
+      @change="$emit('input', selectedValue)"
     >
       <option
         v-for="(option, key) in options"
@@ -64,12 +65,24 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+
+    value: {
+      type: [ String, Number ],
+      default: ''
+    }
+  },
+
+  mounted () {
+    if (!this.value) {
+      this.setDefaultOption()
+      this.$emit('input', this.selectedValue)
     }
   },
 
   data () {
     return {
-      value: ''
+      selectedValue: this.value
     }
   },
 
@@ -78,31 +91,19 @@ export default {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
-    },
-
-    selectedValue: {
-      get () {
-        if (this.value !== '') return this.value
-        if (this.options[0]) {
-          this.setInitialValue(this.options[0].value)
-          return this.options[0].value
-        }
-        return ''
-      },
-
-      set (newSelectedValue) {
-        this.value = newSelectedValue
-        this.$emit('input', newSelectedValue)
-      }
     }
   },
 
   methods: {
-    setInitialValue: function (initialValue) {
-      if (this.value === '') {
-        this.value = initialValue
-        this.$emit('input', initialValue)
+    setDefaultOption () {
+      const defaultOption = this.options[0]
+
+      if (typeof defaultOption === 'object') {
+        this.selectedValue = defaultOption.value
+        return
       }
+
+      this.selectedValue = defaultOption
     }
   }
 }
