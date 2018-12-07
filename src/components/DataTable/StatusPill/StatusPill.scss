@@ -1,0 +1,31 @@
+@import "../../../scss/margarita";
+
+.status-pill {
+  @include font-weight(semibold);
+
+  display: inline-block;
+  border-radius: rem(8px);
+  padding: rem(8px) rem(12px);
+  width: auto;
+
+  &--active {
+    background-color: get-color("primrose");
+    color: get-color("lima");
+  }
+
+  &--error,
+  &--cancelled,
+  &--non-payment-disconnection,
+  &--not-started {
+    background-color: get-color("pippin");
+    color: get-color("crimson");
+  }
+
+  &--in-process,
+  &--cancellation-in-process,
+  &--disconnection-in-process,
+  &--awaiting-validation {
+    background-color: get-color("peach-cream");
+    color: get-color("buttercup");
+  }
+}
