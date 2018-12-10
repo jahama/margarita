@@ -9,11 +9,11 @@
     />
     <select
       :id="id"
-      v-model="selectedValue"
+      v-model="lazyValue"
       :class="errorClass"
       :disabled="disabled"
       class="select-input__field"
-      @change="$emit('input', selectedValue)"
+      @change="updateModel"
     >
       <option
         v-for="(option, key) in options"
@@ -33,8 +33,12 @@
 </template>
 
 <script>
+import FormMixin from '@/mixins/FormMixin'
+
 export default {
   name: 'SelectInput',
+
+  mixins: [ FormMixin ],
 
   props: {
     disabled: {
@@ -68,7 +72,7 @@ export default {
     },
 
     value: {
-      type: [ String, Number ],
+      type: [ String, Number, Object ],
       default: ''
     }
   },
@@ -76,13 +80,7 @@ export default {
   mounted () {
     if (!this.value) {
       this.setDefaultOption()
-      this.$emit('input', this.selectedValue)
-    }
-  },
-
-  data () {
-    return {
-      selectedValue: this.value
+      this.updateModel()
     }
   },
 
@@ -99,11 +97,11 @@ export default {
       const defaultOption = this.options[0]
 
       if (typeof defaultOption === 'object') {
-        this.selectedValue = defaultOption.value
+        this.lazyValue = defaultOption.value
         return
       }
 
-      this.selectedValue = defaultOption
+      this.lazyValue = defaultOption
     }
   }
 }
