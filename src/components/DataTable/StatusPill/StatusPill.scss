@@ -8,23 +8,17 @@
   padding: rem(8px) rem(12px);
   width: auto;
 
-  &--active {
+  &--green {
     background-color: get-color("primrose");
     color: get-color("lima");
   }
 
-  &--error,
-  &--cancelled,
-  &--non-payment-disconnection,
-  &--not-started {
+  &--red {
     background-color: get-color("pippin");
     color: get-color("crimson");
   }
 
-  &--in-process,
-  &--cancellation-in-process,
-  &--disconnection-in-process,
-  &--awaiting-validation {
+  &--orange {
     background-color: get-color("peach-cream");
     color: get-color("buttercup");
   }

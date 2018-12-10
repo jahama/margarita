@@ -5,34 +5,33 @@
     <div
       class="status-pill"
       :class="getClasses"
-      v-text="statusText"
+      v-text="pillText"
     />
   </div>
 </template>
 
 <script>
-const AVAILABLE_TYPES = {
-    'active': 'Alta',
-    'awaiting-validation': 'Espera de validación',
-    'cancellation-in-process': 'En proceso de baja',
-    'cancelled': 'Cancelado',
-    'disconnection-in-process': 'En proceso de corte',
-    'error': 'Error',
-    'in-process': 'En proceso',
-    'non-payment-disconnection': 'Corte por impago',
-    'not-started': 'No iniciado'
-}
+const AVAILABLE_COLORS = [
+    'green',
+    'orange',
+    'red'
+]
 
 export default {
   name: 'StatusPill',
 
   props: {
-    status: {
+    color: {
       type: String,
       default: 'active',
       validator: function (value) {
-        return Object.keys(AVAILABLE_TYPES).indexOf(value) !== -1
+        return Object.keys(AVAILABLE_COLORS).indexOf(value) !== -1
       }
+    },
+
+    pillText: {
+      type: String,
+      default: ''
     }
   },
 
@@ -40,13 +39,9 @@ export default {
     getClasses () {
       const classes = []
 
-      classes.push(`status-pill--${this.status}`)
+      classes.push(`status-pill--${this.color}`)
 
       return classes
-    },
-
-    statusText () {
-      return AVAILABLE_TYPES[this.status]
     }
   }
 }
