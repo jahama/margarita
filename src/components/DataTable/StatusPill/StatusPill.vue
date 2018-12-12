@@ -12,9 +12,9 @@
 
 <script>
 const AVAILABLE_COLORS = [
-    'green',
-    'orange',
-    'red'
+  'green',
+  'orange',
+  'red'
 ]
 
 export default {
@@ -23,7 +23,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'active',
+      default: 'green',
       validator: function (value) {
         return Object.keys(AVAILABLE_COLORS).indexOf(value) !== -1
       }
