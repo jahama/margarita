@@ -7,6 +7,7 @@ import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
 import GridRow from './components/Grid/GridRow/GridRow.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
+import StatusPill from './components/DataTable/StatusPill/StatusPill.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
 
@@ -20,6 +21,7 @@ export {
   LayoutCard,
   RadioButton,
   SelectInput,
+  StatusPill,
   TextInput,
   ToolsHeader
 }
@@ -35,6 +37,7 @@ export default {
     Vue.component('GridRow', GridRow)
     Vue.component('RadioButton', RadioButton)
     Vue.component('SelectInput', SelectInput)
+    Vue.component('StatusPill', StatusPill)
     Vue.component('TextInput', TextInput)
     Vue.component('ToolsHeader', ToolsHeader)
   }
