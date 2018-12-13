@@ -7,7 +7,7 @@ import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
 import GridRow from './components/Grid/GridRow/GridRow.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
-import StatusPill from './components/DataTable/StatusPill/StatusPill.vue'
+import StatusPill from './components/Components/StatusPill/StatusPill.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
 

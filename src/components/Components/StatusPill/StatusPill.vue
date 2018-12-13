@@ -5,7 +5,7 @@
     <div
       class="status-pill"
       :class="getClasses"
-      v-text="pillText"
+      v-text="text"
     />
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
       }
     },
 
-    pillText: {
+    text: {
       type: String,
       default: ''
     }
