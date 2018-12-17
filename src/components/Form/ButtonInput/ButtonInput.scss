@@ -1,6 +1,7 @@
 @import "../../../scss/margarita";
 
 .button-input {
+  @include font-weight(semibold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +11,7 @@
   height: rem(36px);
   text-decoration: none;
   line-height: 1.13;
-  font-size: 1rem;
+  font-size: 1.125rem;
 
   &--primary {
     background-color: get-color("dark-hot-pink");
@@ -36,7 +37,10 @@
   }
 
   &--gradient {
-    background-image: linear-gradient(to right, get-color("dark-hot-pink") 0%, get-color("school-bus-yellow") 51%, get-color("dark-hot-pink") 100%);
+    background-image: linear-gradient(to right,
+      get-color("dark-hot-pink") 0%,
+      get-color("tango") 40%, get-color("selective-yellow") 50%,
+      get-color("dark-hot-pink") 100%);
     background-size: 200% auto;
     color: get-color("white");
 
