@@ -11,6 +11,13 @@
   width: 100%;
   height: rem(64px);
 
+  &__logo {
+    background-image: url("../../../assets/images/logo-white.svg");
+    background-repeat: no-repeat;
+    width: rem(77px);
+    height: rem(20px);
+  }
+
   &__toolbar {
     display: flex;
     flex: 0 0 100%;
@@ -22,6 +29,7 @@
   &__section {
     display: flex;
     flex: 1;
+    align-items: center;
     justify-content: center;
 
     &:first-child {
