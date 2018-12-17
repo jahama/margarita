@@ -5,7 +5,7 @@
     <div
       class="status-pill"
       :class="getClasses"
-      v-text="pillText"
+      v-text="text"
     />
   </div>
 </template>
@@ -25,11 +25,11 @@ export default {
       type: String,
       default: 'green',
       validator: function (value) {
-        return Object.keys(AVAILABLE_COLORS).indexOf(value) !== -1
+        return AVAILABLE_COLORS.indexOf(value) !== -1
       }
     },
 
-    pillText: {
+    text: {
       type: String,
       default: ''
     }

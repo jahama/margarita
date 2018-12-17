@@ -26,7 +26,7 @@ storiesOf('Data Table', module)
         <GridColumn>
           <StatusPill
             :color="color"
-            :pillText="pillText"
+            :text="pillText"
           />
         </GridColumn>`,
 
