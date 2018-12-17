@@ -6,6 +6,7 @@
     :class="`button-input--${ type }`"
     :href="href"
     class="button-input"
+    role="button"
     @click="onClick"
     v-text="text"
   />
