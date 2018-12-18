@@ -84,6 +84,13 @@ export default {
     }
   },
 
+  updated () {
+    if (!this.value && this.options[0]) {
+      this.setDefaultOption()
+      this.$emit('input', this.lazyValue)
+    }
+  },
+
   computed: {
     errorClass () {
       if (this.hasError) return 'select-input__field--error'
@@ -102,6 +109,14 @@ export default {
       }
 
       this.lazyValue = defaultOption
+    }
+  },
+
+  watch: {
+    value (value) {
+      if (!this.lazyValue) {
+        this.lazyValue = value
+      }
     }
   }
 }
