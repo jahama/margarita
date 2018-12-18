@@ -16,13 +16,14 @@ const CHANGED_MSG = 'Changed property:'
 storiesOf('Basic Components', module)
   .addDecorator(withKnobs)
   .add('Text Input', withMarkdownNotes(TextInputNotes)(() => {
-    const label = text('Label', 'Label')
-    const value = text('Value', 'Value')
-    const size = select('Size', GRID_ARRAY, 4)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const disabled = boolean('Disable', false)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
-    const disabled = boolean('Disable', false)
+    const label = text('Label', 'Label')
+    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+    const placeholder = text('Placeholder', 'Placeholder')
+    const size = select('Size', GRID_ARRAY, 4)
+    const value = text('Value', '')
 
     return ({
       components: { TextInput, GridColumn },
@@ -35,6 +36,7 @@ storiesOf('Basic Components', module)
             :disabled="disabled"
             :hasError="hasError"
             :label="label"
+            :placeholder="placeholder"
             @blur="onBlur"
             @input="onInput"
             v-model="value"
@@ -53,13 +55,14 @@ storiesOf('Basic Components', module)
 
       data () {
         return {
-          disabled: disabled,
-          errorMessage: errorMessage,
-          hasError: hasError,
-          label: label,
-          offset: offset,
-          size: size,
-          value: value
+          disabled,
+          errorMessage,
+          hasError,
+          label,
+          placeholder,
+          offset,
+          size,
+          value
         }
       },
 
