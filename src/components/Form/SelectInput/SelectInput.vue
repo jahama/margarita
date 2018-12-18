@@ -77,6 +77,22 @@ export default {
     }
   },
 
+  computed: {
+    errorClass () {
+      if (this.hasError) return 'select-input__field--error'
+
+      return ''
+    }
+  },
+
+  watch: {
+    value (value) {
+      if (!this.lazyValue) {
+        this.lazyValue = value
+      }
+    }
+  },
+
   mounted () {
     if (!this.value) {
       this.setDefaultOption()
@@ -91,14 +107,6 @@ export default {
     }
   },
 
-  computed: {
-    errorClass () {
-      if (this.hasError) return 'select-input__field--error'
-
-      return ''
-    }
-  },
-
   methods: {
     setDefaultOption () {
       const defaultOption = this.options[0]
@@ -110,14 +118,7 @@ export default {
 
       this.lazyValue = defaultOption
     }
-  },
-
-  watch: {
-    value (value) {
-      if (!this.lazyValue) {
-        this.lazyValue = value
-      }
-    }
   }
+
 }
 </script>
