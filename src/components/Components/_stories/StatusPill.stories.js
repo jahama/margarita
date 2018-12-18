@@ -12,7 +12,7 @@ const AVAILABLE_COLORS = [
   'red'
 ]
 
-storiesOf('Data Table', module)
+storiesOf('Components', module)
   .addDecorator(withKnobs)
 
   .add('Status Pill', withMarkdownNotes(StatusPillNotes)(() => {

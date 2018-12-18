@@ -10,7 +10,7 @@ import ButtonInput from '../ButtonInput/ButtonInput'
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient' ]
 
-storiesOf('Basic Components', module)
+storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Button Input', withMarkdownNotes(GridSystemNotes)(() => {
