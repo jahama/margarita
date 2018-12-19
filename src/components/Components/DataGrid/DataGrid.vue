@@ -20,11 +20,11 @@
     </thead>
     <tbody>
       <tr
-        v-for="contract in data"
-        :key="contract.id"
+        v-for="item in data"
+        :key="item.id"
       >
         <td
-          v-for="rowCell in contract"
+          v-for="rowCell in item"
           :key="rowCell.keyValue"
         >
           <span
