@@ -14,6 +14,7 @@
       :class="getComputedClass"
       :disabled="disabled"
       :type="type"
+      :placeholder="placeholder"
       @blur="emit"
       @change="emit"
       @input="emit"
@@ -58,6 +59,12 @@ export default {
     mask: {
       type: Function,
       default: () => {}
+    },
+
+    placeholder: {
+      type: String,
+      required: false,
+      default: ''
     },
 
     type: {
