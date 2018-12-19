@@ -29,6 +29,7 @@ thead {
     th {
       padding: 0 rem(16px);
       text-align: left;
+      user-select: none;
 
       & > * {
         vertical-align: middle;
