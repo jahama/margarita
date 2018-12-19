@@ -85,39 +85,34 @@ export default {
     }
   },
 
-  watch: {
-    value (value) {
-      if (!this.lazyValue) {
-        this.lazyValue = value
-      }
-    }
-  },
+  // watch: FormMixin
 
   mounted () {
-    if (!this.value) {
-      this.setDefaultOption()
-      this.updateModel()
-    }
+    this.setDefaultOption()
   },
 
   updated () {
-    if (!this.value && this.options[0]) {
-      this.setDefaultOption()
-      this.$emit('input', this.lazyValue)
-    }
+    this.setDefaultOption()
   },
 
   methods: {
     setDefaultOption () {
+      if (this.value) return
+      if (!this.options[0]) return
+
       const defaultOption = this.options[0]
 
       if (typeof defaultOption === 'object') {
         this.lazyValue = defaultOption.value
+        this.updateModel()
         return
       }
 
       this.lazyValue = defaultOption
+      this.updateModel()
     }
+
+    // updateModel: FormMixin
   }
 
 }
