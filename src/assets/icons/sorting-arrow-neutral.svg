@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="12px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>baseline-arrow_drop_up-24px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nav-filter" transform="translate(-51.000000, -5.000000)" fill="#E6017D">
+            <g id="Group-11">
+                <g id="baseline-arrow_drop_up-24px" transform="translate(51.000000, 5.000000)">
+                    <polygon id="Path-2" points="0 3.51648352 3.51648352 0 7.03296703 3.51648352"></polygon>
+                    <polygon id="Path-2-Copy" transform="translate(3.516484, 9.670330) rotate(-180.000000) translate(-3.516484, -9.670330) " points="0 11.4285714 3.51648352 7.91208791 7.03296703 11.4285714"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
