@@ -26,6 +26,7 @@ storiesOf('Basic Components', module)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
     const disabled = boolean('Disable', false)
+    const selectedValue = select('Value', [ '', 'option1', 'option2' ], '')
 
     return {
       components: { GridColumn, SelectInput },
@@ -33,7 +34,6 @@ storiesOf('Basic Components', module)
       template: `
         <GridColumn
           :class="getClass"
-          @input="action"
         >
           <SelectInput
             id="my-select-input"
@@ -42,6 +42,7 @@ storiesOf('Basic Components', module)
             :hasError="hasError"
             :label="label"
             :options="options"
+            v-model="selectedValue"
           />
         </GridColumn>`,
 
@@ -55,6 +56,10 @@ storiesOf('Basic Components', module)
         }
       },
 
+      watch: {
+        selectedValue: action('value')
+      },
+
       data () {
         return {
           disabled: disabled,
@@ -63,12 +68,10 @@ storiesOf('Basic Components', module)
           label: label,
           options: options,
           offset: offset,
-          size: size
+          size: size,
+          selectedValue: selectedValue
         }
-      },
-
-      methods: {
-        action: action('selected')
       }
+
     }
   })

@@ -9,10 +9,11 @@
     />
     <select
       :id="id"
-      v-model="selectedValue"
+      v-model="lazyValue"
       :class="errorClass"
       :disabled="disabled"
       class="select-input__field"
+      @change="updateModel"
     >
       <option
         v-for="(option, key) in options"
@@ -32,8 +33,12 @@
 </template>
 
 <script>
+import FormMixin from '@/mixins/FormMixin'
+
 export default {
   name: 'SelectInput',
+
+  mixins: [ FormMixin ],
 
   props: {
     disabled: {
@@ -64,12 +69,11 @@ export default {
     options: {
       type: Array,
       default: () => []
-    }
-  },
+    },
 
-  data () {
-    return {
-      value: ''
+    value: {
+      type: [ String, Number, Object ],
+      default: ''
     }
   },
 
@@ -78,32 +82,38 @@ export default {
       if (this.hasError) return 'select-input__field--error'
 
       return ''
-    },
-
-    selectedValue: {
-      get () {
-        if (this.value !== '') return this.value
-        if (this.options[0]) {
-          this.setInitialValue(this.options[0].value)
-          return this.options[0].value
-        }
-        return ''
-      },
-
-      set (newSelectedValue) {
-        this.value = newSelectedValue
-        this.$emit('input', newSelectedValue)
-      }
     }
   },
 
+  // watch: FormMixin
+
+  mounted () {
+    this.setDefaultOption()
+  },
+
+  updated () {
+    this.setDefaultOption()
+  },
+
   methods: {
-    setInitialValue: function (initialValue) {
-      if (this.value === '') {
-        this.value = initialValue
-        this.$emit('input', initialValue)
+    setDefaultOption () {
+      if (this.value) return
+      if (!this.options[0]) return
+
+      const defaultOption = this.options[0]
+
+      if (typeof defaultOption === 'object') {
+        this.lazyValue = defaultOption.value
+        this.updateModel()
+        return
       }
+
+      this.lazyValue = defaultOption
+      this.updateModel()
     }
+
+    // updateModel: FormMixin
   }
+
 }
 </script>
