@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import FormMixin from '@/mixins/FormMixin'
+import FormMixin from '../../../mixins/FormMixin'
 
 export default {
   name: 'SelectInput',
