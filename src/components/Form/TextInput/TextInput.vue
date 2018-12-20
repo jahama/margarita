@@ -37,7 +37,10 @@ export default {
   name: 'TextInput',
 
   props: {
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
 
     errorMessage: {
       type: String,
@@ -49,7 +52,10 @@ export default {
       default: () => `id_${new Date().getTime()}`
     },
 
-    hasError: Boolean,
+    hasError: {
+      type: Boolean,
+      default: false
+    },
 
     label: {
       type: String,
