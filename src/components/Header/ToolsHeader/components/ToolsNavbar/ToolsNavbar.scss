@@ -17,32 +17,44 @@
     padding: 0 rem(32px);
     list-style: none;
     line-height: rem(56px);
+  }
 
-    &.active {
-      &> a {
-        @include font-weight(semibold);
+  &__anchor {
+    transition: color .3s;
+    text-decoration: none;
+    color: get-color("gray");
 
-        color: get-color("tundora");
-      }
+    &::before {
+      display: block;
+      position: absolute;
+      left: 0;
+      transition: background-color .3s;
+      width: rem(1px);
+      height: rem(56px);
+      content: "";
+    }
+
+    &:hover {
+      color: get-color("dark-hot-pink");
 
       &::before {
-        display: block;
-        position: absolute;
-        left: 0;
+        background-color: get-color("dark-hot-pink");
+      }
+    }
+
+    .active & {
+      @include font-weight(semibold);
+
+      color: get-color("tundora");
+
+      &::before {
         background-image: linear-gradient(
           180deg,
           get-color("dark-hot-pink") 0,
           get-color("school-bus-yellow")
         );
-        width: .125rem;
-        height: rem(56px);
-        content: "";
+        width: rem(3px);
       }
     }
-  }
-
-  &__anchor {
-    text-decoration: none;
-    color: get-color("gray");
   }
 }
