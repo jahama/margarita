@@ -10,7 +10,10 @@
             tools-header
             @click="toggleBurgerState"
           />
-          <span class="tools-header__logo" />
+          <span
+            :class="{ 'tools-header__logo--color': burgerState }"
+            class="tools-header__logo"
+          />
         </div>
         <div class="tools-header__section">
           <h3

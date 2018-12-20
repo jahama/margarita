@@ -11,7 +11,7 @@
   .burger-bar--1,
   .burger-bar--2,
   .burger-bar--3 {
-    transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s, background-color .3s;
     margin-bottom: rem(4px);
     width: 100%;
     height: rem(3px);
@@ -34,6 +34,12 @@
   }
 
   &--close {
+    .burger-bar--1,
+    .burger-bar--2,
+    .burger-bar--3 {
+      background-color: get-color("dark-hot-pink");
+    }
+
     .burger-bar--1,
     .burger-bar--2 {
       margin: rem(4px) 0 0;

@@ -3,11 +3,13 @@
 .tools-navbar {
   display: flex;
   position: absolute;
+  top: 0;
   flex-direction: column;
+  z-index: 10;
   margin: 0;
   box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow");
   background-color: get-color("white");
-  padding: rem(24px) 0 0;
+  padding: rem(64px) 0 0;
   min-width: rem(216px);
   height: 100%;
 
