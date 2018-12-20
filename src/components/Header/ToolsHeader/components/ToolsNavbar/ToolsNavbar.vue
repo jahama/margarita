@@ -3,8 +3,8 @@
 <template>
   <ul class="tools-navbar">
     <li
-      :class="getActiveLinkClass(link)"
       v-for="link in links"
+      :class="getActiveLinkClass(link)"
       :key="link.label"
       class="tools-navbar__link"
     >

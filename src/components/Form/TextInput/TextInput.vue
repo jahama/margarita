@@ -10,11 +10,11 @@
     <input
       :id="id"
       v-model="lazyValue"
-      class="text-input__field"
       :class="getComputedClass"
-      :disabled="disabled"
       :type="type"
       :placeholder="placeholder"
+      :disabled="disabled"
+      class="text-input__field"
       @blur="emit"
       @change="emit"
       @input="emit"

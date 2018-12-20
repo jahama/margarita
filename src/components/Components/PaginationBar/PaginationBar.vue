@@ -3,8 +3,8 @@
 <template>
   <div class="pagination-bar">
     <div
-      class="pagination-bar__left"
       :class="{ 'pagination-bar--invisible': isStart }"
+      class="pagination-bar__left"
     >
       <div
         class="pagination-bar__start"
@@ -19,8 +19,8 @@
       <slot />
     </div>
     <div
-      class="pagination-bar__right"
       :class="{ 'pagination-bar--invisible': isEnd }"
+      class="pagination-bar__right"
     >
       <div
         class="pagination-bar__forward"
