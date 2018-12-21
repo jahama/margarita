@@ -28,8 +28,8 @@
           :key="rowCell.keyValue"
         >
           <span
-            v-if="rowCell.component"
             :is="rowCell.component"
+            v-if="rowCell.component"
             v-bind="rowCell.componentData"
           />
           <span
