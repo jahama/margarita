@@ -3,9 +3,9 @@
 <template>
   <ul class="tools-navbar">
     <li
-      :class="getActiveLinkClass(link)"
       v-for="link in links"
       :key="link.label"
+      :class="getActiveLinkClass(link)"
       class="tools-navbar__link"
     >
       <a

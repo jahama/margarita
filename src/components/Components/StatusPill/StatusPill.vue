@@ -3,8 +3,8 @@
 <template>
   <div>
     <div
-      class="status-pill"
       :class="getClasses"
+      class="status-pill"
       v-text="text"
     />
   </div>

@@ -12,10 +12,16 @@
   height: rem(64px);
 
   &__logo {
+    transition: background-image .3s;
     background-image: url("../../../assets/images/logo-white.svg");
     background-repeat: no-repeat;
+    background-size: contain;
     width: rem(77px);
     height: rem(20px);
+
+    &--color {
+      background-image: url("../../../assets/images/logo.svg");
+    }
   }
 
   &__toolbar {
@@ -34,6 +40,7 @@
 
     &:first-child {
       justify-content: flex-start;
+      z-index: 20;
     }
 
     &:last-child {
