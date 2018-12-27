@@ -3,6 +3,7 @@
 <template>
   <div class="select-input">
     <label
+      v-if="label"
       :for="id"
       class="select-input__label"
       v-text="label"
