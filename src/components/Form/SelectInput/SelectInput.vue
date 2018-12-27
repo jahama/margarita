@@ -19,6 +19,7 @@
       <option
         v-for="(option, key) in options"
         :key="key"
+        :label="option.label"
         :value="option.value"
       >
         {{ option.text }}
