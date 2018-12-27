@@ -6,7 +6,7 @@
     :class="`button-input--${ type }`"
     :href="href"
     class="button-input"
-    role="button"
+    :role="getRole"
     @click="onClick"
     v-text="text"
   />
@@ -41,6 +41,14 @@ export default {
       validator: function (value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       }
+    }
+  },
+
+  computed: {
+    getRole () {
+      if (this.tag === 'a') return 'link'
+
+      return 'button'
     }
   },
 
