@@ -11,7 +11,7 @@
     <select
       :id="id"
       v-model="lazyValue"
-      :class="errorClass"
+      :class="computedClass"
       :disabled="disabled"
       class="select-input__field"
       @change="updateModel"
@@ -73,6 +73,11 @@ export default {
       default: () => []
     },
 
+    weight: {
+      type: String,
+      default: ''
+    },
+
     value: {
       type: [ String, Number, Object ],
       default: ''
@@ -80,10 +85,13 @@ export default {
   },
 
   computed: {
-    errorClass () {
-      if (this.hasError) return 'select-input__field--error'
+    computedClass () {
+      const classes = []
 
-      return ''
+      if (this.hasError) classes.push('select-input__field--error')
+      if (this.weight) classes.push(`select-input__field--${this.weight}`)
+
+      return classes
     }
   },
 

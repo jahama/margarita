@@ -46,6 +46,10 @@
         border: rem(1px) solid get-color("crimson");
       }
     }
+
+    &--semibold {
+      @include font-weight(semibold);
+    }
   }
 
   &__error-message {
