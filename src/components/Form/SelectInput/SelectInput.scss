@@ -46,6 +46,22 @@
         border: rem(1px) solid get-color("crimson");
       }
     }
+
+    &--regular {
+      @include font-weight(regular);
+    }
+
+    &--medium {
+      @include font-weight(medium);
+    }
+
+    &--semibold {
+      @include font-weight(semibold);
+    }
+
+    &--bold {
+      @include font-weight(bold);
+    }
   }
 
   &__error-message {

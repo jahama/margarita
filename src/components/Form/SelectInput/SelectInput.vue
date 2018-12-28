@@ -3,6 +3,7 @@
 <template>
   <div class="select-input">
     <label
+      v-if="label"
       :for="id"
       class="select-input__label"
       v-text="label"
@@ -10,7 +11,7 @@
     <select
       :id="id"
       v-model="lazyValue"
-      :class="errorClass"
+      :class="computedClass"
       :disabled="disabled"
       class="select-input__field"
       @change="updateModel"
@@ -18,6 +19,7 @@
       <option
         v-for="(option, key) in options"
         :key="key"
+        :label="option.label"
         :value="option.value"
       >
         {{ option.text }}
@@ -34,6 +36,8 @@
 
 <script>
 import FormMixin from '../../../mixins/FormMixin'
+
+const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
   name: 'SelectInput',
@@ -71,6 +75,12 @@ export default {
       default: () => []
     },
 
+    weight: {
+      type: String,
+      default: '',
+      validator: (value) => AVAILABLE_WEIGHTS.includes(value)
+    },
+
     value: {
       type: [ String, Number, Object ],
       default: ''
@@ -78,10 +88,13 @@ export default {
   },
 
   computed: {
-    errorClass () {
-      if (this.hasError) return 'select-input__field--error'
+    computedClass () {
+      const classes = []
 
-      return ''
+      if (this.hasError) classes.push('select-input__field--error')
+      if (this.weight) classes.push(`select-input__field--${this.weight}`)
+
+      return classes
     }
   },
 
