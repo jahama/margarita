@@ -1,0 +1,18 @@
+@mixin gradient-image($url) {
+  background-image: linear-gradient(to bottom,
+    get-alpha-color("white", 1) 0%,
+    get-alpha-color("white", .8) 60%,
+    get-alpha-color("white", 0) 90%),
+  url($url);
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(to bottom,
+      get-alpha-color("white", 1) 0%,
+      get-alpha-color("white", .5) 60%,
+      get-alpha-color("white", 0) 90%
+    ),
+    url($url);
+    text-decoration: underline;
+  }
+}
