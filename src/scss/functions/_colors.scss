@@ -9,3 +9,7 @@
 @function get-lighten-color($color: "", $amount: 0) {
   @return lighten(get-color($color), $amount);
 }
+
+@function get-alpha-color($color: "", $amount: 0) {
+  @return transparentize(get-color($color), $amount);
+}
