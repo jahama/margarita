@@ -5,15 +5,25 @@
     :is="tag"
     :class="`button-input--${ type }`"
     :href="href"
-    class="button-input"
     :role="getRole"
+    class="button-input"
     @click="onClick"
-    v-text="text"
-  />
+  >
+    <template v-if="icon">
+      <img
+        :src="`icons/${icon}.svg`"
+        :alt="iconAlt"
+      >
+    </template>
+    <template v-else>
+      {{ text }}
+    </template>
+  </button>
 </template>
 
 <script>
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient' ]
+const AVAILABLE_ICONS = [ 'icon-telephone-white' ]
 
 export default {
   name: 'ButtonInput',
@@ -32,7 +42,23 @@ export default {
 
     text: {
       type: String,
-      required: true
+      required: false,
+      default: ''
+    },
+
+    icon: {
+      type: String,
+      required: false,
+      default: '',
+      validator: function (value) {
+        return AVAILABLE_ICONS.includes(value) || value === null
+      }
+    },
+
+    iconAlt: {
+      type: String,
+      required: false,
+      default: ''
     },
 
     type: {
