@@ -22,4 +22,9 @@
     background-color: get-color("peach-cream");
     color: get-color("buttercup");
   }
+
+  &--gray {
+    background-color: get-color("concrete");
+    color: get-color("gray");
+  }
 }

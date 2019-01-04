@@ -9,7 +9,8 @@ import StatusPill from '../StatusPill/StatusPill'
 const AVAILABLE_COLORS = [
   'green',
   'orange',
-  'red'
+  'red',
+  'gray'
 ]
 
 storiesOf('Components', module)
