@@ -51,7 +51,8 @@ export default {
       required: false,
       default: '',
       validator: function (value) {
-        return AVAILABLE_ICONS.includes(value) || value === null
+        if (!value) return true
+        return AVAILABLE_ICONS.includes(value)
       }
     },
 
