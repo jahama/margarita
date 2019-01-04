@@ -31,7 +31,14 @@
 
     &--error {
       border-color: get-color("crimson");
-      background: url("../../../assets/icons/alert-error.svg") no-repeat scroll calc(100% - 8px) center;
+      background: (
+        url("../../../assets/icons/alert-error.svg")
+        no-repeat
+        scroll
+        calc(100% - 8px)
+        center
+      );
+      background-color: get-color("white");
       padding-right: rem(40px);
 
       &:focus,
