@@ -11,6 +11,7 @@
     <select
       :id="id"
       v-model="lazyValue"
+      :aria-label="ariaLabel"
       :class="computedClass"
       :disabled="disabled"
       class="select-input__field"
@@ -45,6 +46,11 @@ export default {
   mixins: [ FormMixin ],
 
   props: {
+    ariaLabel: {
+      type: String,
+      default: ''
+    },
+
     disabled: {
       type: Boolean,
       default: false
