@@ -12,6 +12,7 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Select Input', () => {
+    const ariaLabel = text('aria-label', 'language')
     const label = text('Label', 'Label')
     const defaultOptions = [
       { text: 'Option1', value: 'option1' },
@@ -37,6 +38,7 @@ storiesOf('Form Components', module)
         >
           <SelectInput
             id="my-select-input"
+            :ariaLabel="ariaLabel"
             :errorMessage="errorMessage"
             :disabled="disabled"
             :hasError="hasError"
@@ -62,6 +64,7 @@ storiesOf('Form Components', module)
 
       data () {
         return {
+          ariaLabel: ariaLabel,
           disabled: disabled,
           errorMessage: errorMessage,
           hasError: hasError,
