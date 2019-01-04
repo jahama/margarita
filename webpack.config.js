@@ -50,6 +50,10 @@ module.exports = {
       from: 'src/assets/fonts',
       to: 'fonts'
     } ]),
+    new CopyWebpackPlugin([{
+      from: 'src/assets/icons',
+      to: 'icons'
+    }]),
     new CopyWebpackPlugin([ {
       from: 'src/scss',
       to: 'scss'
