@@ -38,7 +38,7 @@
 <script>
 import FormMixin from '../../../mixins/FormMixin'
 
-const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular', '' ]
+const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
   name: 'SelectInput',
@@ -94,7 +94,7 @@ export default {
     weight: {
       type: String,
       default: '',
-      validator: (value) => AVAILABLE_WEIGHTS.includes(value)
+      validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
     },
 
     value: {
