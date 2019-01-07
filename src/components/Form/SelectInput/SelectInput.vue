@@ -38,7 +38,7 @@
 <script>
 import FormMixin from '../../../mixins/FormMixin'
 
-const AVAILABLE_WEIGHTS = [ '', 'bold', 'semibold', 'medium', 'regular' ]
+const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
   name: 'SelectInput',
@@ -128,6 +128,7 @@ export default {
   methods: {
     setDefaultOption () {
       if (this.value) return
+      if (typeof this.value === 'boolean') return
       if (!this.options[0]) return
       if (this.defaultBlank) return
 
