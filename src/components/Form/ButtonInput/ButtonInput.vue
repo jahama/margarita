@@ -9,21 +9,17 @@
     class="button-input"
     @click="onClick"
   >
-    <template v-if="icon">
-      <img
-        :src="`icons/${icon}.svg`"
-        :alt="iconAlt"
-      >
+    <template v-if="text">
+      {{ text }}
     </template>
     <template v-else>
-      {{ text }}
+      <slot />
     </template>
   </button>
 </template>
 
 <script>
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient' ]
-const AVAILABLE_ICONS = [ 'icon-telephone-white' ]
 
 export default {
   name: 'ButtonInput',
@@ -41,22 +37,6 @@ export default {
     },
 
     text: {
-      type: String,
-      required: false,
-      default: ''
-    },
-
-    icon: {
-      type: String,
-      required: false,
-      default: '',
-      validator: function (value) {
-        if (!value) return true
-        return AVAILABLE_ICONS.includes(value)
-      }
-    },
-
-    iconAlt: {
       type: String,
       required: false,
       default: ''
