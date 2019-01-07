@@ -61,6 +61,11 @@ export default {
       default: ''
     },
 
+    fieldClass: {
+      type: String,
+      default: ''
+    },
+
     id: {
       type: String,
       default: () => `id_${new Date().getTime()}`
@@ -99,6 +104,7 @@ export default {
 
       if (this.hasError) classes.push('select-input__field--error')
       if (this.weight) classes.push(`select-input__field--${this.weight}`)
+      if (this.fieldClass) classes.push(this.fieldClass)
 
       return classes
     }
