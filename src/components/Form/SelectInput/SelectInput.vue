@@ -51,6 +51,11 @@ export default {
       default: ''
     },
 
+    defaultBlank: {
+      type: Boolean,
+      default: false
+    },
+
     disabled: {
       type: Boolean,
       default: false
@@ -66,14 +71,14 @@ export default {
       default: ''
     },
 
-    id: {
-      type: String,
-      default: () => `id_${new Date().getTime()}`
-    },
-
     hasError: {
       type: Boolean,
       default: false
+    },
+
+    id: {
+      type: String,
+      default: () => `id_${new Date().getTime()}`
     },
 
     label: {
@@ -86,15 +91,15 @@ export default {
       default: () => []
     },
 
+    value: {
+      type: [ String, Number, Object ],
+      default: ''
+    },
+
     weight: {
       type: String,
       default: '',
       validator: (value) => AVAILABLE_WEIGHTS.includes(value)
-    },
-
-    value: {
-      type: [ String, Number, Object ],
-      default: ''
     }
   },
 
@@ -124,6 +129,7 @@ export default {
     setDefaultOption () {
       if (this.value) return
       if (!this.options[0]) return
+      if (this.defaultBlank) return
 
       const defaultOption = this.options[0]
 
