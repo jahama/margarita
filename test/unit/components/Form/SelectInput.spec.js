@@ -17,20 +17,6 @@ describe('SelectInput', () => {
     expect(wrapper.contains('.select-input')).toBe(true)
   })
 
-  it('should emit input event with if has not a default value', () => {
-    const value = ''
-
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: OPTIONS,
-        value: value
-      }
-    })
-
-    expect(wrapper.emitted().input[0]).toEqual([ OPTIONS[0].value ])
-    expect(wrapper.vm.lazyValue).toEqual(OPTIONS[0].value)
-  })
-
   it('shouldn\'t emit input event if has a default value', () => {
     const value = OPTIONS[1].value
 

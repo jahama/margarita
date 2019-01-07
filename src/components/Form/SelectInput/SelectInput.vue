@@ -91,15 +91,15 @@ export default {
       default: () => []
     },
 
-    value: {
-      type: [ String, Number, Object ],
-      default: ''
-    },
-
     weight: {
       type: String,
       default: '',
-      validator: (value) => AVAILABLE_WEIGHTS.includes(value)
+      validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
+    },
+
+    value: {
+      type: [ Boolean, String, Number, Object ],
+      default: ''
     }
   },
 
