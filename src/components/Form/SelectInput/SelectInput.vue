@@ -127,7 +127,9 @@ export default {
 
   methods: {
     hasDefaultOption () {
-      return this.value || typeof this.value === 'boolean' || !this.options[0] || !this.defaultBlank
+      if (this.value) return true
+      if (typeof this.value === 'boolean') return true
+      return !this.options[0] || this.defaultBlank
     },
 
     setDefaultOption () {
