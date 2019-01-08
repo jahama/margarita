@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, number } from '@storybook/addon-knobs/vue'
+import { withKnobs, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import SliderBarNotes from './notes/SliderBar.md'
@@ -10,17 +10,21 @@ storiesOf('Components', module)
   .addDecorator(withKnobs)
 
   .add('Slider Bar', withMarkdownNotes(SliderBarNotes)(() => {
-    const value = number('Pill Text', 1)
+    const value = text('Value', 'Medio')
 
     return ({
       components: { SliderBar, GridColumn },
 
       template: `
-        <GridColumn style="margin-top:80px">
-          <SliderBar
-            :value="value"
-          />
-        </GridColumn>`,
+        <div>
+          <div>
+            <GridColumn style="margin-top:80px">
+              <SliderBar
+                v-model="value"
+              />
+            </GridColumn>
+          </div>
+        </div>`,
 
       data () {
         return {

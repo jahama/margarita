@@ -1,13 +1,19 @@
 <style lang="scss" src="./SliderBar.scss" scoped></style>
 
+<style lang="scss">
+  .vue-slider-dot-handle {
+    border: solid #e6007d 2px;
+  }
+</style>
+
 <template>
   <VueSlider
     ref="slider"
     v-model="value"
-    :data="['Especial','Bajo','Medio','Alto']"
+    :data="dataRanges"
     :piecewise="true"
     :piecewise-label="true"
-    :dot-size="12"
+    :dot-size="14"
     :height="16"
     tooltip="never"
     :label-active-style="{
@@ -25,8 +31,10 @@
       'width': '4px',
     }"
   >
-    <template slot="label" slot-scope="{ label, value }">
-      <span :class="[{ 'active': label === value }]">{{ label }}</span>
+    <template slot="label" slot-scope="{ label }">
+      <div class="slide-bar__label " :class="[ { 'active': label === value }]">
+        {{ label }}
+      </div>
     </template>
   </VueSlider>
 </template>
@@ -43,7 +51,8 @@ export default {
 
   data () {
     return {
-      value: 10
+      value: 'Bajo',
+      dataRanges: [ 'Especial', 'Bajo', 'Medio', 'Alto' ]
     }
   }
 
