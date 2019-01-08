@@ -16,7 +16,7 @@ storiesOf('Components', module)
       components: { SliderBar, GridColumn },
 
       template: `
-        <GridColumn>
+        <GridColumn style="margin-top:80px">
           <SliderBar
             :value="value"
           />
