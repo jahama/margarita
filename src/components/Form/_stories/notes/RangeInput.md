@@ -16,6 +16,10 @@ You can use **RangeInput** component as following minimal configuration:
 - **value** <kbd>String</kbd>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
 - **steps** <kbd>Array</kbd>: The list of ranges. Every element must contain `value` and `text` keys.
 
+### Range Input allows you to use the following optionals fields:
+
+- <kbd>String</kbd> **label**: Label for the input.
+
 
 ### Events:
 

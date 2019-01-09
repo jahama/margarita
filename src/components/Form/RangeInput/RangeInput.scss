@@ -7,7 +7,9 @@ $range-input-bullet-size: 4px;
 
 .range-input {
   position: relative;
+  margin-top: .25rem;
   padding-bottom: 2rem;
+
 
   &::after {
     display: block;
@@ -19,13 +21,18 @@ $range-input-bullet-size: 4px;
   }
 
   &__label {
+    color: get-color("tundora");
+  }
+
+  &__step {
     position: absolute;
     margin-top: 1.3rem;
     cursor: pointer;
     color: get-color("boulder");
+    user-select: none;
   }
 
-  &__label--active {
+  &__step--active {
     @include font-weight(medium);
     color: get-color("tundora");
   }

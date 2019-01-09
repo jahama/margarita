@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, object } from '@storybook/addon-knobs/vue'
+import { withKnobs, select, object, text } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
@@ -20,6 +20,7 @@ storiesOf('Form Components', module)
   .add('Range Input', withMarkdownNotes(RangeInputNotes)(() => {
     const selectedValue = select('Value', defaultSteps.map(s => s.value), 'medium')
     const steps = object('Steps', defaultSteps)
+    const label = text('Label', 'Label')
 
     return ({
       components: { RangeInput, GridColumn },
@@ -31,6 +32,7 @@ storiesOf('Form Components', module)
               <RangeInput
                 v-model="selectedValue"
                 :steps="steps"
+                :label="label"
               />
             </GridColumn>
           </div>
@@ -39,6 +41,7 @@ storiesOf('Form Components', module)
       data () {
         return {
           steps,
+          label,
           selectedValue
         }
       },

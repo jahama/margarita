@@ -1,6 +1,13 @@
 <style lang="scss" src="./RangeInput.scss" scoped></style>
 
 <template>
+  <div>
+    <label
+      v-if="label"
+      :for="id"
+      class="range-input__label"
+      v-text="label"
+    />
   <div class="range-input">
     <span
       v-for="(_, index) in new Array(stepsAmount - 1)"
@@ -11,23 +18,25 @@
     <span :style="progressStyle" class="range-input__progress" />
     <span :style="circleStyle" class="range-input__circle" />
     <input
+        :id="id"
       v-model="selectedValue"
+        :max="stepsAmount - 1"
       class="range-input__native-element"
       type="range"
       min="0"
-      :max="stepsAmount - 1"
       step="1"
     >
     <div
       v-for="(step, index) in steps"
       :key="step.value"
       :style="getLabelStyle(index)"
-      :class="{ 'range-input__label--active': index === Number(selectedValue) }"
-      class="range-input__label"
+        :class="{ 'range-input__step--active': index === Number(selectedValue) }"
+        class="range-input__step"
       @click="updateSelectedValue(index)"
     >
       {{ step.text }}
     </div>
+  </div>
   </div>
 </template>
 
@@ -41,6 +50,16 @@ export default {
     value: {
       type: String,
       required: true
+    },
+
+    label: {
+      type: String,
+      default: ''
+    },
+
+    id: {
+      type: String,
+      default: () => `id_${new Date().getTime()}`
     },
 
     steps: {
