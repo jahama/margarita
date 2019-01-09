@@ -15,7 +15,6 @@
     :piecewise-label="true"
     :dot-size="14"
     :height="16"
-    tooltip="never"
     :label-active-style="{
       'color': '#3498db'
     }"
@@ -30,6 +29,7 @@
       'height': '4px',
       'width': '4px',
     }"
+    tooltip="never"
   >
     <template slot="label" slot-scope="{ label }">
       <div
