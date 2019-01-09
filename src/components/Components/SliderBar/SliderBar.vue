@@ -52,14 +52,14 @@
   >
     <template slot="label" slot-scope="{ label }">
       <div
-        :class="{ 'slide-bar__label--active': label === value }"
-        class="slide-bar__label"
+        :class="{ 'slider-bar__label--active': label === value }"
+        class="slider-bar__label"
       >
         {{ label }}
       </div>
     </template>
     <template slot="dot">
-      <div class="vue-slider-never vue-slider-dot">
+      <div class="vue-slider-dot">
         <div class="vue-slider-dot-handle" />
       </div>
     </template>

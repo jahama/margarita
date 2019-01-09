@@ -1,13 +1,11 @@
 @import "../../../scss/margarita";
 
-.slide-bar__label {
+.slider-bar__label {
   margin-top: 1rem;
   color: get-color("boulder");
-
-  &.slide-bar__label--active {
-    @include font-weight(medium);
-    color: get-color("tundora");
-  }
 }
 
-
+.slider-bar__label--active {
+  @include font-weight(medium);
+  color: get-color("tundora");
+}
