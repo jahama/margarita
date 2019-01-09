@@ -32,7 +32,10 @@
     }"
   >
     <template slot="label" slot-scope="{ label }">
-      <div class="slide-bar__label " :class="[ { 'active': label === value }]">
+      <div
+        :class="{ 'slide-bar__label--active': label === value }"
+        class="slide-bar__label"
+      >
         {{ label }}
       </div>
     </template>

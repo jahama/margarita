@@ -4,7 +4,7 @@
   margin-top: 1rem;
   color: get-color("boulder");
 
-  &.active {
+  &.slide-bar__label--active {
     @include font-weight(medium);
     color: get-color("tundora");
   }
