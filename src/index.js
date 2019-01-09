@@ -8,6 +8,7 @@ import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
 import GridRow from './components/Grid/GridRow/GridRow.vue'
 import PaginationBar from './components/Components/PaginationBar/PaginationBar.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
+import RangeInput from './components/Form/RangeInput/RangeInput.vue'
 import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import StatusPill from './components/Components/StatusPill/StatusPill.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
@@ -24,6 +25,7 @@ export {
   LayoutCard,
   PaginationBar,
   RadioButton,
+  RangeInput,
   SelectInput,
   StatusPill,
   TextInput,
@@ -42,6 +44,7 @@ export default {
     Vue.component('LayoutCard', LayoutCard)
     Vue.component('PaginationBar', PaginationBar)
     Vue.component('RadioButton', RadioButton)
+    Vue.component('RangeInput', RangeInput)
     Vue.component('SelectInput', SelectInput)
     Vue.component('StatusPill', StatusPill)
     Vue.component('TextInput', TextInput)
