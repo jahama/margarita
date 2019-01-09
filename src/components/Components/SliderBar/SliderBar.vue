@@ -22,6 +22,13 @@
         box-shadow: none;
       }
     }
+
+    .vue-slider-piecewise-item:first-child,
+    .vue-slider-piecewise-item:last-child {
+      .vue-slider-piecewise-dot {
+        visibility: inherit;
+      }
+    }
   }
 </style>
 
