@@ -8,35 +8,35 @@
       class="range-input__label"
       v-text="label"
     />
-  <div class="range-input">
-    <span
-      v-for="(_, index) in new Array(stepsAmount - 1)"
-      :key="index"
-      :style="getBulletStyle(index)"
-      class="range-input__bullet"
-    />
-    <span :style="progressStyle" class="range-input__progress" />
-    <span :style="circleStyle" class="range-input__circle" />
-    <input
+    <div class="range-input">
+      <span
+        v-for="(_, index) in new Array(stepsAmount - 1)"
+        :key="index"
+        :style="getBulletStyle(index)"
+        class="range-input__bullet"
+      />
+      <span :style="progressStyle" class="range-input__progress" />
+      <span :style="circleStyle" class="range-input__circle" />
+      <input
         :id="id"
-      v-model="selectedValue"
+        v-model="selectedValue"
         :max="stepsAmount - 1"
-      class="range-input__native-element"
-      type="range"
-      min="0"
-      step="1"
-    >
-    <div
-      v-for="(step, index) in steps"
-      :key="step.value"
-      :style="getLabelStyle(index)"
+        class="range-input__native-element"
+        type="range"
+        min="0"
+        step="1"
+      >
+      <div
+        v-for="(step, index) in steps"
+        :key="step.value"
+        :style="getLabelStyle(index)"
         :class="{ 'range-input__step--active': index === Number(selectedValue) }"
         class="range-input__step"
-      @click="updateSelectedValue(index)"
-    >
-      {{ step.text }}
+        @click="updateSelectedValue(index)"
+      >
+        {{ step.text }}
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -95,19 +95,23 @@ export default {
     },
 
     isFirstStep () {
-      return this.selectedValue === '0'
+      return Number(this.selectedValue) === 0
+    },
+
+    selectedStepOffset () {
+      return Math.floor(this.selectedValue * this.offsetMultiplier)
     },
 
     circleStyle () {
       return this.isFirstStep
         ? { left: '16px' }
-        : { left: `calc(${this.selectedValue * this.offsetMultiplier}% - 13px)` }
+        : { left: `calc(${this.selectedStepOffset}% - 8px)` }
     },
 
     progressStyle () {
       return this.isFirstStep
         ? { width: '32px' }
-        : { width: `calc(${this.selectedValue * this.offsetMultiplier}% - 2px)` }
+        : { width: `calc(${this.selectedStepOffset}% + 4px)` }
     }
   },
 
@@ -123,14 +127,14 @@ export default {
 
       // First and last labels are justified to the slider
       if (index === 0) {
-        translateOffset = '5px'
+        translateOffset = '0%'
       }
       if (index === this.steps.length - 1) {
-        translateOffset = 'calc(-100% + 5px)'
+        translateOffset = 'calc(-100%)'
       }
 
       return {
-        left: `calc(${index * this.offsetMultiplier}% - 5px)`,
+        left: `calc(${Math.floor(index * this.offsetMultiplier)}%)`,
         transform: `translateX(${translateOffset})`
       }
     },
