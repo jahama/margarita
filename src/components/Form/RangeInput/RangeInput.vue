@@ -129,7 +129,7 @@ export default {
       if (index === 0) {
         translateOffset = '0%'
       }
-      if (index === this.steps.length - 1) {
+      if (index === this.stepsAmount - 1) {
         translateOffset = 'calc(-100%)'
       }
 
