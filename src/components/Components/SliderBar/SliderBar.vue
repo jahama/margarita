@@ -1,8 +1,27 @@
 <style lang="scss" src="./SliderBar.scss" scoped></style>
 
 <style lang="scss">
-  .vue-slider-dot-handle {
-    border: solid #e6007d 2px;
+  .vue-slider-component {
+    cursor: pointer;
+
+    .vue-slider-tooltip {
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .vue-slider-dot {
+      width: 16px;
+      height: 16px;
+      background-color: #e6007d;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      top: -1px;
+
+      .vue-slider-dot-handle {
+        border: solid #e6007d 2px;
+        box-shadow: none;
+      }
+    }
   }
 </style>
 
@@ -39,6 +58,11 @@
         {{ label }}
       </div>
     </template>
+    <template slot="dot">
+      <div class="vue-slider-never vue-slider-dot">
+        <div class="vue-slider-dot-handle" />
+      </div>
+    </template>
   </VueSlider>
 </template>
 
@@ -58,6 +82,5 @@ export default {
       dataRanges: [ 'Especial', 'Bajo', 'Medio', 'Alto' ]
     }
   }
-
 }
 </script>
