@@ -1,0 +1,84 @@
+@import "../../../scss/margarita";
+
+$range-input-height: rem(16px);
+$range-input-radius: rem(10px);
+$range-input-transition: .2s;
+$range-input-bullet-size: 4px;
+
+.range-input {
+  position: relative;
+  padding-bottom: 2rem;
+
+  &::after {
+    display: block;
+    border-radius: $range-input-radius;
+    background-color: get-color("alto");
+    width: 100%;
+    height: $range-input-height;
+    content: "";
+  }
+
+  &__label {
+    position: absolute;
+    margin-top: 1.3rem;
+    cursor: pointer;
+    color: get-color("boulder");
+  }
+
+  &__label--active {
+    @include font-weight(medium);
+    color: get-color("tundora");
+  }
+
+  &__native-element {
+    position: absolute;
+    top: rem(-2px);
+    left: rem(-10px);
+    opacity: 0;
+    z-index: 1;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    appearance: none;
+  }
+
+  &__circle {
+    display: inline-block;
+    position: absolute;
+    transition: $range-input-transition;
+    border: rem(2px) solid get-color("dark-hot-pink");
+    border-radius: 50%;
+    background: get-color("white");
+    width: $range-input-height;
+    height: $range-input-height;
+  }
+
+  &__progress {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: $range-input-transition;
+    border-radius: $range-input-radius;
+    background: linear-gradient(
+      to right,
+      get-color("buttercup"),
+      get-color("dark-hot-pink")
+    );
+    height: $range-input-height;
+  }
+
+  &__bullet {
+    display: inline-block;
+    position: absolute;
+    top: rem(6px);
+    right: 0%;
+    z-index: 2;
+    border-radius: 50%;
+    background: get-color("white");
+    cursor: pointer;
+    width: rem($range-input-bullet-size);
+    height: rem($range-input-bullet-size);
+  }
+}
