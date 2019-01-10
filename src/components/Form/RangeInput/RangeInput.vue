@@ -154,7 +154,7 @@ export default {
         translateOffset = '0%'
       }
       if (index === this.stepsAmount - 1) {
-        translateOffset = 'calc(-100%)'
+        translateOffset = '-100%'
       }
 
       const leftOffset = Math.floor(index * this.offsetMultiplier)
