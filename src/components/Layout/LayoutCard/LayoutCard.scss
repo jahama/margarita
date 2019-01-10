@@ -8,7 +8,7 @@
   }
 
   &--white {
-    box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow");
+    box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow-light");
     background-color: get-color("white");
   }
 
