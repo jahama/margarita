@@ -102,20 +102,38 @@ export default {
       return Number(this.selectedValue) === 0
     },
 
+    isLastStep () {
+      return Number(this.selectedValue) === this.stepsAmount - 1
+    },
+
     selectedStepOffset () {
       return Math.floor(this.selectedValue * this.offsetMultiplier)
     },
 
     circleStyle () {
-      return this.isFirstStep
-        ? { left: '16px' }
-        : { left: `calc(${this.selectedStepOffset}% - 8px)` }
+      let circleOffset = `calc(${this.selectedStepOffset}% - 8px)`
+
+      if (this.isFirstStep) {
+        circleOffset = '16px'
+      }
+      if (this.isLastStep) {
+        circleOffset = `calc(${this.selectedStepOffset}% - 16px)`
+      }
+
+      return { left: circleOffset }
     },
 
     progressStyle () {
-      return this.isFirstStep
-        ? { width: '32px' }
-        : { width: `calc(${this.selectedStepOffset}% + 4px)` }
+      let progressBarWidth = `calc(${this.selectedStepOffset}% + 4px)`
+
+      if (this.isFirstStep) {
+        progressBarWidth = '32px'
+      }
+      if (this.isLastStep) {
+        progressBarWidth = '100%'
+      }
+
+      return { width: progressBarWidth }
     }
   },
 
@@ -139,8 +157,10 @@ export default {
         translateOffset = 'calc(-100%)'
       }
 
+      const leftOffset = Math.floor(index * this.offsetMultiplier)
+
       return {
-        left: `calc(${Math.floor(index * this.offsetMultiplier)}%)`,
+        left: `calc(${leftOffset}%)`,
         transform: `translateX(${translateOffset})`
       }
     },
