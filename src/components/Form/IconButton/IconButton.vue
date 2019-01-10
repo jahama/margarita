@@ -9,19 +9,34 @@
     class="icon-button"
     @click="onClick"
   >
-    <img
-      :src="`icons/${icon}.svg`"
-      :alt="iconAlt"
+    <IconBase
+      :width="getSize"
+      :height="getSize"
+      :icon-name="`${icon}-icon`"
     >
+      <component :is="icon" />
+    </IconBase>
   </button>
 </template>
 
 <script>
+import IconBase from '../../Components/Icons/IconBase'
+import DownloadContract from '../../Components/Icons/Icons/DownloadContract'
+import DetailsContract from '../../Components/Icons/Icons/DetailsContract'
+import AddContract from '../../Components/Icons/Icons/AddContract'
+
 const AVAILABLE_TYPES = [ 'primary', 'secondary' ]
-const AVAILABLE_ICONS = [ 'icon-telephone-white', 'download-pink-icon' ]
+const AVAILABLE_ICONS = [ 'download-contract', 'details-contract', 'add-contract' ]
 
 export default {
   name: 'IconButton',
+
+  components: {
+    IconBase,
+    DownloadContract,
+    DetailsContract,
+    AddContract
+  },
 
   props: {
     href: {
@@ -62,6 +77,11 @@ export default {
       validator: function (value) {
         return AVAILABLE_TYPES.includes(value)
       }
+    },
+
+    size: {
+      type: Number,
+      default: 50
     }
   },
 
@@ -79,6 +99,10 @@ export default {
       if (this.type) classes.push(`icon-button--${this.type}`)
 
       return classes
+    },
+
+    getSize () {
+      return this.size - 24
     }
   },
 

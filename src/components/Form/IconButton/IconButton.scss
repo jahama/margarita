@@ -6,8 +6,7 @@
   justify-content: center;
   transition: background-color .3s, border-color .3s;
   border: rem(1px) solid transparent;
-  width: rem(50px);
-  height: rem(50px);
+  padding: rem(11px);
   text-decoration: none;
 
   &--rounded {
@@ -43,6 +42,7 @@
     &.icon-button--rounded {
       border-color: transparent;
       background-color: transparent;
+      color: get-color("dark-hot-pink");
 
       &:hover,
       &:active {
