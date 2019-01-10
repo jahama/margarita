@@ -3,12 +3,12 @@
 $range-input-height: rem(16px);
 $range-input-radius: rem(10px);
 $range-input-transition: .2s;
-$range-input-bullet-size: 4px;
+$range-input-bullet-size: rem(4px);
 
 .range-input {
   position: relative;
-  margin-top: .25rem;
-  padding-bottom: 2rem;
+  margin-top: rem(4px);
+  padding-bottom: rem(32px);
 
 
   &::after {
@@ -26,7 +26,7 @@ $range-input-bullet-size: 4px;
 
   &__step {
     position: absolute;
-    margin-top: 1.3rem;
+    margin-top: rem(21px);
     cursor: pointer;
     color: get-color("boulder");
     user-select: none;
@@ -85,7 +85,7 @@ $range-input-bullet-size: 4px;
     border-radius: 50%;
     background: get-color("white");
     cursor: pointer;
-    width: rem($range-input-bullet-size);
-    height: rem($range-input-bullet-size);
+    width: $range-input-bullet-size;
+    height: $range-input-bullet-size;
   }
 }
