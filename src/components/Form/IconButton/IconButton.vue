@@ -3,10 +3,10 @@
 <template>
   <button
     :is="tag"
-    :class="`button-input--${ type }`"
+    :class="getClasses"
     :href="href"
     :role="getRole"
-    class="button-input"
+    class="icon-button"
     @click="onClick"
   >
     <img
@@ -17,13 +17,23 @@
 </template>
 
 <script>
-const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient' ]
-const AVAILABLE_ICONS = [ 'icon-telephone-white' ]
+const AVAILABLE_TYPES = [ 'primary', 'secondary' ]
+const AVAILABLE_ICONS = [ 'icon-telephone-white', 'download-pink-icon' ]
 
 export default {
-  name: 'ButtonInput',
+  name: 'IconButton',
 
   props: {
+    href: {
+      type: String,
+      default: '',
+      required: false
+    },
+
+    tag: {
+      type: String,
+      default: 'button'
+    },
 
     icon: {
       type: String,
@@ -33,6 +43,11 @@ export default {
         if (!value) return true
         return AVAILABLE_ICONS.includes(value)
       }
+    },
+
+    rounded: {
+      type: Boolean,
+      default: false
     },
 
     iconAlt: {
@@ -45,7 +60,7 @@ export default {
       type: String,
       default: 'primary',
       validator: function (value) {
-        return AVAILABLE_TYPES.indexOf(value) !== -1
+        return AVAILABLE_TYPES.includes(value)
       }
     }
   },
@@ -55,6 +70,15 @@ export default {
       if (this.tag === 'a') return 'link'
 
       return 'button'
+    },
+
+    getClasses () {
+      const classes = []
+
+      if (this.rounded) classes.push('icon-button--rounded')
+      if (this.type) classes.push(`icon-button--${this.type}`)
+
+      return classes
     }
   },
 

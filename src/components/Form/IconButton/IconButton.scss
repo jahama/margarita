@@ -1,17 +1,18 @@
 @import "../../../scss/margarita";
 
-.button-input {
-  @include font-weight(semibold);
+.icon-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color .3s, background-position .3s;
-  padding: rem(6px) rem(12px);
-  width: 100%;
-  height: rem(36px);
+  transition: background-color .3s, border-color .3s;
+  border: rem(1px) solid transparent;
+  width: rem(50px);
+  height: rem(50px);
   text-decoration: none;
-  line-height: 1.13;
-  font-size: 1.125rem;
+
+  &--rounded {
+    border-radius: 100%;
+  }
 
   &--primary {
     background-color: get-color("dark-hot-pink");
@@ -21,8 +22,12 @@
     &:active {
       background-color: darken(get-color("dark-hot-pink"), 10%);
       color: get-color("white");
-		}
-	}
+    }
+
+    &.icon-button--rounded {
+      box-shadow: 0 rem(2px) rem(3px) rem(2px) get-color("shadow-medium");
+    }
+  }
 
   &--secondary {
     border: rem(1px) solid get-color("dark-hot-pink");
@@ -34,21 +39,18 @@
       background-color: get-color("dark-hot-pink");
       color: get-color("white");
     }
-  }
 
-  &--gradient {
-    background-image: linear-gradient(to right,
-      get-color("dark-hot-pink") 0%,
-      get-color("tango") 40%, get-color("selective-yellow") 50%,
-      get-color("dark-hot-pink") 100%);
-    background-size: 200% auto;
-    color: get-color("white");
+    &.icon-button--rounded {
+      border-color: transparent;
+      background-color: transparent;
 
-    &:hover,
-    &:active {
-      background-position: right center;
+      &:hover,
+      &:active {
+        border-color: lighten(get-color("dark-hot-pink"), 50%);
+        background-color: lighten(get-color("dark-hot-pink"), 50%);
+      }
     }
-	}
+  }
 }
 
 button {
