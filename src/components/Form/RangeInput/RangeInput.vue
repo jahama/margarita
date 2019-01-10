@@ -10,7 +10,7 @@
     />
     <div class="range-input">
       <span
-        v-for="(_, index) in new Array(stepsAmount - 1)"
+        v-for="(_, index) in new Array(bulletsAmount)"
         :key="index"
         :style="getBulletStyle(index)"
         class="range-input__bullet"
@@ -90,6 +90,10 @@ export default {
       return this.steps.length
     },
 
+    bulletsAmount () {
+      return Math.max(this.stepsAmount - 2, 0)
+    },
+
     offsetMultiplier () {
       return 100 / (this.stepsAmount - 1)
     },
@@ -117,8 +121,10 @@ export default {
 
   methods: {
     getBulletStyle (index) {
+      const leftOffset = Math.floor((index + 1) * this.offsetMultiplier)
+
       return {
-        right: `calc(${(index + 1) * this.offsetMultiplier}% + 2px)`
+        left: `calc(${leftOffset}% - 1px)`
       }
     },
 
