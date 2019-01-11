@@ -5,7 +5,8 @@
     <label
       v-if="label"
       :for="id"
-      class="select-input__label" v-text="label"
+      class="select-input__label"
+      v-text="label"
     />
     <select
       :id="id"
@@ -103,7 +104,6 @@ export default {
     // By default, SelectInput will not emit a change event on the initial
     // default select of one of the options. If an event is needed on this
     // default select, subscribe to the mount event.
-
     this.$emit('mount', this.selected)
   },
 
