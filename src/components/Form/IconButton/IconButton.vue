@@ -99,13 +99,10 @@ export default {
       if (this.type !== 'no-background') return this.size - 24
 
       return this.size
-<<<<<<< HEAD
     },
 
     componentLoader () {
       return () => import(`../../Components/Icons/Icons/${this.icon}.vue`)
-=======
->>>>>>> f34cfd4... [ITS-1067] Added a new type called no-background for icon button component
     }
   },
 
