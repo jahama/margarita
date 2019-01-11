@@ -6,6 +6,7 @@ import LayoutCard from './components/Layout/LayoutCard/LayoutCard.vue'
 import GridColumn from './components/Grid/GridColumn/GridColumn.vue'
 import GridContainer from './components/Grid/GridContainer/GridContainer.vue'
 import GridRow from './components/Grid/GridRow/GridRow.vue'
+import IconButton from './components/Form/IconButton/IconButton.vue'
 import PaginationBar from './components/Components/PaginationBar/PaginationBar.vue'
 import RadioButton from './components/Form/RadioButton/RadioButton.vue'
 import RangeInput from './components/Form/RangeInput/RangeInput.vue'
@@ -22,6 +23,7 @@ export {
   GridColumn,
   GridContainer,
   GridRow,
+  IconButton,
   LayoutCard,
   PaginationBar,
   RadioButton,
@@ -41,6 +43,7 @@ export default {
     Vue.component('GridColumn', GridColumn)
     Vue.component('GridContainer', GridContainer)
     Vue.component('GridRow', GridRow)
+    Vue.component('IconButton', IconButton)
     Vue.component('LayoutCard', LayoutCard)
     Vue.component('PaginationBar', PaginationBar)
     Vue.component('RadioButton', RadioButton)
