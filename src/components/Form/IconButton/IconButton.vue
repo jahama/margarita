@@ -14,7 +14,7 @@
       :height="getSize"
       :icon-name="`${icon}-icon`"
     >
-      <component :is="icon" />
+      <Component :is="icon" />
     </IconBase>
   </button>
 </template>
