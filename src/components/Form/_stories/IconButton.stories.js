@@ -4,19 +4,21 @@ import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
-import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
+import IconButtonNotes from '../../Form/_stories/notes/IconButton.md'
 import IconButton from '../IconButton/IconButton'
 
 const BUTTON_TYPES = [ 'primary', 'secondary' ]
 const ICONS_BUTTON = [ 'download-contract', 'details-contract', 'add-contract' ]
+const HTML_TAGS = [ 'button', 'a' ]
 
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Icon Button', withMarkdownNotes(GridSystemNotes)(() => {
+  .add('Icon Button', withMarkdownNotes(IconButtonNotes)(() => {
     const backgroundType = select('Background Types', BUTTON_TYPES, 'primary')
     const rounded = boolean('Rounded', false)
     const icon = select('Icons', ICONS_BUTTON, 'download-contract')
+    const tag = select('HTML tag', HTML_TAGS, 'button')
     const size = number('Height size in px', 50)
 
     return ({
@@ -29,6 +31,7 @@ storiesOf('Form Components', module)
             :type="backgroundType"
             :rounded="rounded"
             :size="size"
+            :tag="tag"
           />`,
 
       data () {
@@ -36,7 +39,8 @@ storiesOf('Form Components', module)
           backgroundType: backgroundType,
           rounded: rounded,
           icon: icon,
-          size: size
+          size: size,
+          tag: tag
         }
       },
 

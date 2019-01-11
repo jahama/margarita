@@ -1,7 +1,7 @@
 @import "../../../scss/margarita";
 
 .icon-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: background-color .3s, border-color .3s;
@@ -60,15 +60,4 @@ button {
   cursor: pointer;
   padding: 0;
   color: inherit;
-}
-
-input {
-  &[type="submit"] {
-    outline: inherit;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    padding: 0;
-    color: inherit;
-  }
 }
