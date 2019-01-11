@@ -23,9 +23,11 @@
         v-text="option.text"
       />
     </select>
-    <div v-if="hasError" class="select-input__error-message">
-      {{ errorMessage }}
-    </div>
+    <div
+      v-if="hasError"
+      class="select-input__error-message"
+      v-text="errorMessage"
+    />
   </div>
 </template>
 
@@ -94,10 +96,6 @@ export default {
       validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
     }
 
-  },
-
-  data () {
-    return {}
   },
 
   mounted () {
