@@ -14,28 +14,22 @@
       :height="getSize"
       :icon-name="`${icon}-icon`"
     >
-      <Component :is="icon" />
+      <Component :is="componentLoader" />
     </IconBase>
   </button>
 </template>
 
 <script>
 import IconBase from '../../Components/Icons/IconBase'
-import DownloadContract from '../../Components/Icons/Icons/DownloadContract'
-import DetailsContract from '../../Components/Icons/Icons/DetailsContract'
-import AddContract from '../../Components/Icons/Icons/AddContract'
 
-const AVAILABLE_TYPES = [ 'primary', 'secondary' ]
-const AVAILABLE_ICONS = [ 'download-contract', 'details-contract', 'add-contract' ]
+const AVAILABLE_TYPES = [ 'primary', 'secondary', 'no-background' ]
+const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit' ]
 
 export default {
   name: 'IconButton',
 
   components: {
-    IconBase,
-    DownloadContract,
-    DetailsContract,
-    AddContract
+    IconBase
   },
 
   props: {
@@ -102,7 +96,13 @@ export default {
     },
 
     getSize () {
-      return this.size - 24
+      if (this.type !== 'no-background') return this.size - 24
+
+      return this.size
+    },
+
+    componentLoader () {
+      return () => import(`../../Components/Icons/Icons/${this.icon}.vue`)
     }
   },
 

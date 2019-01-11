@@ -7,8 +7,8 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import IconButtonNotes from '../../Form/_stories/notes/IconButton.md'
 import IconButton from '../IconButton/IconButton'
 
-const BUTTON_TYPES = [ 'primary', 'secondary' ]
-const ICONS_BUTTON = [ 'download-contract', 'details-contract', 'add-contract' ]
+const BUTTON_TYPES = [ 'primary', 'secondary', 'no-background' ]
+const ICONS_BUTTON = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit' ]
 const HTML_TAGS = [ 'button', 'a' ]
 
 storiesOf('Form Components', module)
@@ -17,7 +17,7 @@ storiesOf('Form Components', module)
   .add('Icon Button', withMarkdownNotes(IconButtonNotes)(() => {
     const backgroundType = select('Background Types', BUTTON_TYPES, 'primary')
     const rounded = boolean('Rounded', false)
-    const icon = select('Icons', ICONS_BUTTON, 'download-contract')
+    const icon = select('Icons', ICONS_BUTTON, 'DownloadContract')
     const tag = select('HTML tag', HTML_TAGS, 'button')
     const size = number('Height size in px', 50)
 
