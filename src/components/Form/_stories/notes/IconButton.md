@@ -4,7 +4,7 @@ You can use **Icon Button** component as following minimal configuration:
 
 ```handlebars
 <IconButton
-  icon="download-contract"
+  icon="DownloadContract"
   iconAlt="download contract icon"
   type="primary"
   rounded
