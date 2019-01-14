@@ -29,7 +29,7 @@
       <div
         v-for="(step, index) in steps"
         :key="step.value"
-        :style="getLabelStyle(index)"
+        :style="getStepStyle(index)"
         :class="{ 'range-input__step--active': index === Number(selectedValue) }"
         class="range-input__step"
         @click="updateSelectedValue(index)"
@@ -52,6 +52,15 @@ export default {
       required: true
     },
 
+    steps: {
+      type: Array,
+      required: true,
+      validator: propValue =>
+        propValue.every(
+          step => REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
+        )
+    },
+
     label: {
       type: String,
       default: ''
@@ -60,17 +69,8 @@ export default {
     id: {
       type: String,
       default: () => `id_${new Date().getTime()}`
-    },
-
-    steps: {
-      type: Array,
-      required: true,
-      validator: propValue => {
-        return propValue.every(step => {
-          return REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
-        })
-      }
     }
+
   },
 
   data () {
@@ -146,7 +146,7 @@ export default {
       }
     },
 
-    getLabelStyle (index) {
+    getStepStyle (index) {
       let translateOffset = '-50%'
 
       // First and last labels are justified to the slider
