@@ -11,9 +11,8 @@
     <select
       :id="id"
       v-model="selected"
-      :aria-label="ariaLabel"
+      v-bind="$attrs"
       :class="computedClass"
-      :disabled="disabled"
       class="select-input__field"
     >
       <option
@@ -55,22 +54,17 @@ export default {
       required: true
     },
 
-    ariaLabel: {
+    id: {
       type: String,
-      default: ''
+      default: () => `id_${new Date().getTime()}`
     },
 
-    disabled: {
-      type: Boolean,
-      default: false
+    label: {
+      type: String,
+      default: ''
     },
 
     errorMessage: {
-      type: String,
-      default: ''
-    },
-
-    fieldClass: {
       type: String,
       default: ''
     },
@@ -80,12 +74,7 @@ export default {
       default: false
     },
 
-    id: {
-      type: String,
-      default: () => `id_${new Date().getTime()}`
-    },
-
-    label: {
+    fieldClass: {
       type: String,
       default: ''
     },
