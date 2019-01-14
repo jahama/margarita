@@ -47,12 +47,12 @@ export default {
   props: {
     options: {
       type: Array,
-      default: () => []
+      required: true
     },
 
     value: {
       type: [ String, Number, Boolean ],
-      default: ''
+      required: true
     },
 
     ariaLabel: {
