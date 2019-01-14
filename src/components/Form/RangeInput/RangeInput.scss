@@ -26,8 +26,8 @@ $range-input-bullet-size: rem(4px);
 
   &__step {
     position: absolute;
-    margin-top: rem(21px);
     cursor: pointer;
+    padding-top: rem(21px);
     color: get-color("boulder");
     user-select: none;
   }
