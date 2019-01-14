@@ -46,8 +46,7 @@ export default {
 
     icon: {
       type: String,
-      required: false,
-      default: '',
+      required: true,
       validator: function (value) {
         if (!value) return true
         return AVAILABLE_ICONS.includes(value)
