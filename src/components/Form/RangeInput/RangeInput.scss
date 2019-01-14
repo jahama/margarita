@@ -87,5 +87,6 @@ $range-input-bullet-size: rem(4px);
     cursor: pointer;
     width: $range-input-bullet-size;
     height: $range-input-bullet-size;
+    pointer-events: none;
   }
 }
