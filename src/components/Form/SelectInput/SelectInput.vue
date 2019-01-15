@@ -5,6 +5,7 @@
     <label
       v-if="label"
       :for="id"
+      :class="getLabelClass"
       class="select-input__label"
       v-text="label"
     />
@@ -84,7 +85,6 @@ export default {
       default: '',
       validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
     }
-
   },
 
   mounted () {
@@ -111,6 +111,12 @@ export default {
         'select-input__field--error': this.hasError,
         [`select-input__field--${this.weight}`]: this.weight,
         [`${this.fieldClass}`]: this.fieldClass
+      }
+    },
+
+    getLabelClass () {
+      return {
+        'select-input__label--hidden': this.ariaLabel
       }
     }
   }
