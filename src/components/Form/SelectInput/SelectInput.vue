@@ -50,8 +50,8 @@ export default {
     },
 
     value: {
-      type: [ String, Number, Boolean ],
-      required: true
+      type: [ String, Number, Boolean, Object ],
+      default: ''
     },
 
     id: {
