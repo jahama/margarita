@@ -4,12 +4,13 @@
     :width="width"
     :height="height"
     viewBox="0 0 18 18"
+    class="icon-base"
     :aria-labelledby="iconName"
     role="presentation"
   >
     <title :id="iconName" lang="en">{{ iconName }} icon</title>
     <g :fill="iconColor">
-      <slot />
+      <Component :is="componentLoader" />
     </g>
   </svg>
 </template>
@@ -17,7 +18,7 @@
 <script>
 export default {
   props: {
-    iconName: {
+    icon: {
       type: String,
       default: 'box'
     },
@@ -32,6 +33,17 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    }
+  },
+
+  computed: {
+    componentLoader () {
+      if (this.icon) {
+        return () => import(/* webpackMode: "eager" */`../../Components/Icons/Icons/${this.icon}.vue`)
+      }
+    },
+    iconName () {
+      return `${this.icon}-icon`
     }
   }
 }
