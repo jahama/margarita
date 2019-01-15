@@ -101,7 +101,7 @@ export default {
     },
 
     componentLoader () {
-      return () => import(`../../Components/Icons/Icons/${this.icon}.vue`)
+      return () => import(/* webpackMode: "eager" */`../../Components/Icons/Icons/${this.icon}.vue`)
     }
   },
 
