@@ -7,35 +7,36 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import SelectInput from '../SelectInput/SelectInput'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
+const DEFAULT_OPTIONS = [
+  { text: 'Option1', value: 'option1' },
+  { text: 'Option2', value: 'option2' },
+  { text: 'Option3', value: 'option3' },
+  { text: 'Option4', value: 'option4' }
+]
 
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Select Input', () => {
-    const ariaLabel = text('aria-label', 'language')
+    const selectedValue = select('Value', [ '', ...DEFAULT_OPTIONS.map(o => o.value) ], '')
     const label = text('Label', 'Label')
-    const defaultOptions = [
-      { text: 'Option1', value: 'option1' },
-      { text: 'Option2', value: 'option2' },
-      { text: 'Option3', value: 'option3' },
-      { text: 'Option4', value: 'option4' }
-    ]
+    const ariaLabel = text('ARIA Label', 'language')
+    const disabled = boolean('Disable', false)
+    const weight = select('Peso', [ '', ...AVAILABLE_WEIGHTS ], '')
+    const hasError = boolean('Has error', false)
+    const errorMessage = text('Error msg', 'You have an error')
+    const fieldClass = text('Additional class', '')
+    const options = object('Options', DEFAULT_OPTIONS)
 
-    const options = object('Options', defaultOptions)
     const size = select('Size', GRID_ARRAY, 3)
     const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
-    const errorMessage = text('Error msg', 'You have an error')
-    const hasError = boolean('Has error', false)
-    const disabled = boolean('Disable', false)
-    const selectedValue = select('Value', [ '', 'option1', 'option2' ], '')
 
     return {
       components: { GridColumn, SelectInput },
 
       template: `
-        <GridColumn
-          :class="getClass"
-        >
+        <GridColumn :class="getClass">
           <SelectInput
             id="my-select-input"
             :ariaLabel="ariaLabel"
@@ -44,6 +45,8 @@ storiesOf('Form Components', module)
             :hasError="hasError"
             :label="label"
             :options="options"
+            :weight="weight"
+            :fieldClass="fieldClass"
             v-model="selectedValue"
           />
         </GridColumn>`,
@@ -64,15 +67,17 @@ storiesOf('Form Components', module)
 
       data () {
         return {
-          ariaLabel: ariaLabel,
-          disabled: disabled,
-          errorMessage: errorMessage,
-          hasError: hasError,
-          label: label,
-          options: options,
-          offset: offset,
-          size: size,
-          selectedValue: selectedValue
+          ariaLabel,
+          disabled,
+          errorMessage,
+          hasError,
+          label,
+          options,
+          offset,
+          size,
+          fieldClass,
+          weight,
+          selectedValue
         }
       }
 

@@ -10,70 +10,48 @@
     />
     <select
       :id="id"
-      v-model="lazyValue"
-      :aria-label="ariaLabel"
+      v-model="selected"
+      v-bind="$attrs"
       :class="computedClass"
-      :disabled="disabled"
       class="select-input__field"
-      @change="updateModel"
     >
       <option
-        v-for="(option, key) in options"
-        :key="key"
-        :label="option.label"
+        v-for="(option, index) in options"
+        :key="index"
         :value="option.value"
-      >
-        {{ option.text }}
-      </option>
+        v-text="option.text"
+      />
     </select>
     <div
       v-if="hasError"
       class="select-input__error-message"
-    >
-      {{ errorMessage }}
-    </div>
+      v-text="errorMessage"
+    />
   </div>
 </template>
 
 <script>
-import FormMixin from '../../../mixins/FormMixin'
-
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
   name: 'SelectInput',
 
-  mixins: [ FormMixin ],
+  model: {
+    // By default, `v-model` reacts to the `input` event for updating the
+    // value, we change this to `change` for similar behavior as the native
+    // `<select>` element.
+    event: 'change'
+  },
 
   props: {
-    ariaLabel: {
-      type: String,
+    options: {
+      type: Array,
+      required: true
+    },
+
+    value: {
+      type: [ String, Number, Boolean, Object ],
       default: ''
-    },
-
-    defaultBlank: {
-      type: Boolean,
-      default: false
-    },
-
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-
-    errorMessage: {
-      type: String,
-      default: ''
-    },
-
-    fieldClass: {
-      type: String,
-      default: ''
-    },
-
-    hasError: {
-      type: Boolean,
-      default: false
     },
 
     id: {
@@ -86,68 +64,55 @@ export default {
       default: ''
     },
 
-    options: {
-      type: Array,
-      default: () => []
+    errorMessage: {
+      type: String,
+      default: ''
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false
+    },
+
+    fieldClass: {
+      type: String,
+      default: ''
     },
 
     weight: {
       type: String,
       default: '',
       validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
-    },
-
-    value: {
-      type: [ Boolean, String, Number, Object ],
-      default: ''
     }
+
+  },
+
+  mounted () {
+    // By default, SelectInput will not emit a change event on the initial
+    // default select of one of the options. If an event is needed on this
+    // default select, subscribe to the mount event.
+    this.$emit('mount', this.selected)
   },
 
   computed: {
-    computedClass () {
-      const classes = []
-
-      if (this.hasError) classes.push('select-input__field--error')
-      if (this.weight) classes.push(`select-input__field--${this.weight}`)
-      if (this.fieldClass) classes.push(this.fieldClass)
-
-      return classes
-    }
-  },
-
-  // watch: FormMixin
-
-  mounted () {
-    this.setDefaultOption()
-  },
-
-  updated () {
-    this.setDefaultOption()
-  },
-
-  methods: {
-    hasDefaultOption () {
-      if (this.value) return true
-      if (typeof this.value === 'boolean') return true
-      return !this.options[0] || this.defaultBlank
+    // Warning: select will be blank (empty) if `this.value` doesn't find a
+    // match in the options list.
+    selected: {
+      get () {
+        return this.value
+      },
+      set (newVal) {
+        this.$emit('change', newVal)
+      }
     },
 
-    setDefaultOption () {
-      if (this.hasDefaultOption()) return
-
-      const defaultOption = this.options[0]
-
-      if (typeof defaultOption === 'object') {
-        this.lazyValue = defaultOption.value
-        this.updateModel()
-        return
+    computedClass () {
+      return {
+        'select-input__field--error': this.hasError,
+        [`select-input__field--${this.weight}`]: this.weight,
+        [`${this.fieldClass}`]: this.fieldClass
       }
-
-      this.lazyValue = defaultOption
-      this.updateModel()
     }
-
-    // updateModel: FormMixin
   }
 
 }
