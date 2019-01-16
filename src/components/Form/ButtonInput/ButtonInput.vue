@@ -3,7 +3,7 @@
 <template>
   <button
     :is="tag"
-    :class="`button-input--${ type }`"
+    :class="getClasses"
     :href="href"
     :role="getRole"
     class="button-input"
@@ -12,17 +12,27 @@
     <template v-if="text">
       {{ text }}
     </template>
-    <template v-else>
-      <slot />
-    </template>
+    <IconBase
+      v-if="icon"
+      :width="iconSize"
+      :height="iconSize"
+      :icon="icon"
+    />
   </button>
 </template>
 
 <script>
-const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient' ]
+import IconBase from '../../Components/Icons/IconBase'
+
+const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone' ]
 
 export default {
   name: 'ButtonInput',
+
+  components: {
+    IconBase
+  },
 
   props: {
     href: {
@@ -36,7 +46,27 @@ export default {
       default: 'button'
     },
 
+    icon: {
+      type: String,
+      default: '',
+      validator: function (value) {
+        if (!value) return true
+        return AVAILABLE_ICONS.includes(value)
+      }
+    },
+
     text: {
+      type: String,
+      required: false,
+      default: ''
+    },
+
+    rounded: {
+      type: Boolean,
+      default: false
+    },
+
+    iconAlt: {
       type: String,
       required: false,
       default: ''
@@ -48,6 +78,11 @@ export default {
       validator: function (value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       }
+    },
+
+    iconSize: {
+      type: Number,
+      default: 18
     }
   },
 
@@ -56,6 +91,14 @@ export default {
       if (this.tag === 'a') return 'link'
 
       return 'button'
+    },
+
+    getClasses () {
+      return {
+        'button-input--rounded': this.rounded,
+        'button-input--has-text': this.text,
+        [`button-input--${this.type}`]: this.type
+      }
     }
   },
 

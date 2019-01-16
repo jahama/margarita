@@ -70,7 +70,7 @@ thead {
 tbody {
   tr {
     border-radius: rem(4px);
-    box-shadow: 0 0 rem(6.4px) rem(4px) get-color("shadow");
+    box-shadow: 0 0 rem(6.4px) rem(4px) get-color("shadow-light");
     background-color: get-color("white");
 
     td {

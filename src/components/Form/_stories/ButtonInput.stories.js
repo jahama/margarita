@@ -1,47 +1,97 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
-import GridSystemNotes from '../../Grid/_stories/notes/GridSystem.md'
+import GridRow from '../../Grid/GridRow/GridRow'
+import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 
-const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
-const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient' ]
-const ICONS_BUTTON = [ 'icon-telephone-white', 'None' ]
+const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const ICONS_BUTTON = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone', 'None' ]
+const HTML_TAGS = [ 'button', 'a' ]
 
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Button Input', withMarkdownNotes(GridSystemNotes)(() => {
-    const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
+  .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
+    const iconSize = number('Icon height size in px', 18)
+    const rounded = boolean('Rounded', false)
     const type = select('Types', BUTTON_TYPES, 'primary')
     const icon = select('Icons', ICONS_BUTTON, 'None')
-    const textButton = text('Label', 'Click me')
+    const tag = select('HTML tag', HTML_TAGS, 'button')
+    const textButton = text('Text', 'Click me')
 
     return ({
-      components: { ButtonInput, GridColumn },
+      components: { ButtonInput, GridColumn, GridRow },
 
       template: `
-        <GridColumn :class="getClass">
-          <ButtonInput
-            @click="action"
-            :text="text"
-            :icon="getIcon"
-            :type="type"
-          />
-        </GridColumn>`,
+      <div>
+        <h2>Dynamic button:</h2>
+        <GridRow>
+          <GridColumn
+            class="grid-col--3"
+          >
+            <ButtonInput
+              @click="action"
+              :text="text"
+              :rounded="rounded"
+              :icon="getIcon"
+              :iconSize="iconSize"
+              :type="type"
+              :tag="tag"
+            />
+        </GridColumn>
+        </GridRow>
+
+        <h2>Examples:</h2>
+        <GridRow>
+          <GridColumn
+            class="grid-col--3"
+          >
+            <ButtonInput
+              text="Esto es un link"
+              type="gradient"
+              href="https://www.holaluz.com/"
+            />
+          </GridColumn>
+          <GridColumn
+            class="grid-col--1"
+          >
+            <ButtonInput
+              icon="DownloadContract"
+              iconAlt="download contract icon"
+              rounded
+              :iconSize="50"
+              type="secondary"
+              href="https://www.holaluz.com/"
+            />
+          </GridColumn>
+          <GridColumn
+            class="grid-col--3"
+          >
+            <ButtonInput
+              text="Esto es un texto con icono"
+              icon="DownloadContract"
+              iconAlt="download contract icon"
+              href="https://www.holaluz.com/"
+            />
+          </GridColumn>
+          <GridColumn
+            class="grid-col--3"
+          >
+            <ButtonInput
+              text="Esto es un link"
+              type="no-background"
+              href="https://www.holaluz.com/"
+              tag="a"
+            />
+          </GridColumn>
+        </GridRow>
+      </div>`,
 
       computed: {
-        getClass () {
-          const classes = [ `grid-col--${this.size}` ]
-          const offset = Number(this.offset)
-
-          if (offset) classes.push(`grid-col--offset-${offset}`)
-          return classes
-        },
         getIcon () {
           return this.icon === 'None' ? null : this.icon
         }
@@ -51,9 +101,10 @@ storiesOf('Form Components', module)
         return {
           text: textButton,
           type: type,
-          size: size,
+          rounded: rounded,
+          iconSize: iconSize,
           icon: icon,
-          offset: offset
+          tag: tag
         }
       },
 
