@@ -15,41 +15,18 @@
   }
 
   &__current {
-    padding: 0 rem(24px);
+    padding: 0 rem(16px);
     min-width: rem(210px);
     text-align: center;
     color: get-color("tundora");
   }
 
-  &__start,
-  &__back,
-  &__forward,
-  &__end {
-    margin: rem(4px);
-    background-position: center;
-    width: rem(36px);
-    height: rem(36px);
+  &__icon {
+    margin: 0 rem(8px);
 
-    &:hover {
-      cursor: pointer;
+    &--back,
+    &--start {
+      transform: scaleX(-1);
     }
-  }
-
-  &__back,
-  &__forward {
-    background-color: get-color("dark-hot-pink");
-    background-image: url("../../../assets/icons/chevron.svg");
-    background-repeat: no-repeat;
-  }
-
-  &__forward,
-  &__end {
-    transform: scaleX(-1);
-  }
-
-  &__start,
-  &__end {
-    background-image: url("../../../assets/icons/chevron_to_end.svg");
-    background-repeat: no-repeat;
   }
 }

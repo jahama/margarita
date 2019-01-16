@@ -6,12 +6,19 @@
       :class="{ 'pagination-bar--invisible': isStart }"
       class="pagination-bar__left"
     >
-      <div
-        class="pagination-bar__start"
+      <ButtonInput
+        icon="ArrowToEnd"
+        icon-alt="Go to the start icon"
+        :icon-size="16"
+        type="no-background"
+        class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       />
-      <div
-        class="pagination-bar__back"
+      <ButtonInput
+        icon="Arrow"
+        icon-alt="Go back icon"
+        :icon-size="16"
+        class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
       />
     </div>
@@ -22,12 +29,19 @@
       :class="{ 'pagination-bar--invisible': isEnd }"
       class="pagination-bar__right"
     >
-      <div
-        class="pagination-bar__forward"
+      <ButtonInput
+        icon="Arrow"
+        icon-alt="Go forward icon"
+        :icon-size="16"
+        class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
       />
-      <div
-        class="pagination-bar__end"
+      <ButtonInput
+        icon="ArrowToEnd"
+        icon-alt="Go to the end icon"
+        :icon-size="16"
+        type="no-background"
+        class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       />
     </div>
@@ -35,8 +49,14 @@
 </template>
 
 <script>
+import ButtonInput from '../../Form/ButtonInput/ButtonInput'
+
 export default {
   name: 'PaginationBar',
+
+  components: {
+    ButtonInput
+  },
 
   props: {
     totalItems: {
