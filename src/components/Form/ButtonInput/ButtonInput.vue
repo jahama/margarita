@@ -25,7 +25,7 @@
 import IconBase from '../../Components/Icons/IconBase'
 
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
-const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit' ]
+const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone' ]
 
 export default {
   name: 'ButtonInput',
