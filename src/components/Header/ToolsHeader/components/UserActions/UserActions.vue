@@ -10,16 +10,26 @@
       class="user-actions__user-role"
       v-text="userRole"
     />
-    <div
+    <ButtonInput
+      icon="Exit"
+      icon-alt="exit icon"
+      type="no-background"
       class="user-actions__icon"
+      :icon-size="16"
       @click="emitClickEvent"
     />
   </div>
 </template>
 
 <script>
+import ButtonInput from '../../../../Form/ButtonInput/ButtonInput'
+
 export default {
   name: 'UserActions',
+
+  components: {
+    ButtonInput
+  },
 
   props: {
     loggedUser: {

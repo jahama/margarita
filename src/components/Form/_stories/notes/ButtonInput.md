@@ -15,9 +15,9 @@ In the case you want an **icon only button**:
 ```handlebars
 <ButtonInput
   icon="DownloadContract"
-  iconAlt="download contract icon"
+  icon-alt="download contract icon"
   rounded
-  :iconSize="50"
+  :icon-size="50"
   type="secondary"
   href="https://www.holaluz.com/"
 />
@@ -28,7 +28,7 @@ In the case you want a **text with icon button**:
 <ButtonInput
   text="Esto es un texto con icono"
   icon="DownloadContract"
-  iconAlt="download contract icon"
+  icon-alt="download contract icon"
   href="https://www.holaluz.com/"
 />
 ```
