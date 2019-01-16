@@ -11,20 +11,13 @@
   >
     <template v-if="text">
       {{ text }}
-      <IconBase
-        v-if="icon"
-        :width="iconSize"
-        :height="iconSize"
-        :icon="icon"
-      />
     </template>
-    <template v-else>
-      <IconBase
-        :width="iconSize"
-        :height="iconSize"
-        :icon="icon"
-      />
-    </template>
+    <IconBase
+      v-if="icon"
+      :width="iconSize"
+      :height="iconSize"
+      :icon="icon"
+    />
   </button>
 </template>
 
@@ -101,13 +94,11 @@ export default {
     },
 
     getClasses () {
-      const classes = []
-
-      if (this.rounded) classes.push('button-input--rounded')
-      if (this.type) classes.push(`button-input--${this.type}`)
-      if (this.text) classes.push(`button-input--has-text`)
-
-      return classes
+      return {
+        'button-input--rounded': this.rounded,
+        'button-input--has-text': this.text,
+        [`button-input--${this.type}`]: this.type
+      }
     }
   },
 
