@@ -21,7 +21,7 @@ storiesOf('Form Components', module)
   .add('Select Input', () => {
     const selectedValue = select('Value', [ '', ...DEFAULT_OPTIONS.map(o => o.value) ], '')
     const label = text('Label', 'Label')
-    const ariaLabel = text('ARIA Label', 'language')
+    const ariaLabel = text('ARIA Label', '')
     const disabled = boolean('Disable', false)
     const weight = select('Peso', [ '', ...AVAILABLE_WEIGHTS ], '')
     const hasError = boolean('Has error', false)
@@ -39,7 +39,7 @@ storiesOf('Form Components', module)
         <GridColumn :class="getClass">
           <SelectInput
             id="my-select-input"
-            :ariaLabel="ariaLabel"
+            :aria-label="ariaLabel"
             :errorMessage="errorMessage"
             :disabled="disabled"
             :hasError="hasError"
