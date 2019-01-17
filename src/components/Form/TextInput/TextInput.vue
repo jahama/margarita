@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import uuid from '@/utils/uuid'
+
 const INPUT_CLASSES = {
   hasError: 'text-input__field--error'
 }
@@ -49,7 +51,7 @@ export default {
 
     id: {
       type: String,
-      default: () => `id_${new Date().getTime()}`
+      default: uuid
     },
 
     hasError: {

@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import uuid from '@/utils/uuid'
+
 export default {
   name: 'CheckboxInput',
 
@@ -37,7 +39,7 @@ export default {
 
     id: {
       type: String,
-      default: () => `id_${new Date().getTime()}`
+      default: uuid
     },
 
     label: {
