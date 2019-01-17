@@ -10,9 +10,12 @@
             tools-header
             @click="toggleBurgerState"
           />
-          <span
-            :class="{ 'tools-header__logo--color': burgerState }"
-            class="tools-header__logo"
+          <IconBase
+            icon="Logo"
+            view-box-width="70"
+            :width="77"
+            :height="20"
+            :icon-color="getLogoColor"
           />
         </div>
         <div class="tools-header__section">
@@ -42,6 +45,7 @@
 
 <script>
 import ToolsNavbar from './components/ToolsNavbar/ToolsNavbar.vue'
+import IconBase from '../../../components/Components/Icons/IconBase'
 import TheBurger from '../common/TheBurger/TheBurger.vue'
 import UserActions from './components/UserActions/UserActions.vue'
 
@@ -51,7 +55,8 @@ export default {
   components: {
     ToolsNavbar,
     TheBurger,
-    UserActions
+    UserActions,
+    IconBase
   },
 
   props: {
@@ -94,6 +99,14 @@ export default {
 
     emitLogoutEvent () {
       this.$emit('logout')
+    }
+  },
+
+  computed: {
+    getLogoColor () {
+      if (this.burgerState) return 'url(#Gradient)'
+
+      return 'white'
     }
   }
 }
