@@ -35,6 +35,8 @@
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
+  inheritAttrs: false,
+
   name: 'SelectInput',
 
   model: {
@@ -116,7 +118,7 @@ export default {
 
     getLabelClass () {
       return {
-        'select-input__label--hidden': this.ariaLabel
+        'select-input__label--hidden': this.$attrs['aria-label']
       }
     }
   }
