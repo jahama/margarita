@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import uuid from '@/utils/uuid'
+
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
@@ -56,7 +58,7 @@ export default {
 
     id: {
       type: String,
-      default: () => `id_${new Date().getTime()}`
+      default: uuid
     },
 
     label: {

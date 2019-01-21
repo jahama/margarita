@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import uuid from '@/utils/uuid'
+
 const REQUIRED_STEP_KEYS = [ 'value', 'text' ]
 
 export default {
@@ -68,7 +70,7 @@ export default {
 
     id: {
       type: String,
-      default: () => `id_${new Date().getTime()}`
+      default: uuid
     }
 
   },
