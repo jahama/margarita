@@ -25,7 +25,6 @@
 import IconBase from '../../Components/Icons/IconBase'
 
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
-const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone' ]
 
 export default {
   name: 'ButtonInput',
@@ -48,11 +47,7 @@ export default {
 
     icon: {
       type: String,
-      default: '',
-      validator: function (value) {
-        if (!value) return true
-        return AVAILABLE_ICONS.includes(value)
-      }
+      default: ''
     },
 
     text: {
