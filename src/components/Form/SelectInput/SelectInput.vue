@@ -3,8 +3,8 @@
 <template>
   <div class="select-input">
     <label
-      v-if="label"
       :for="id"
+      :class="getLabelClass"
       class="select-input__label"
       v-text="label"
     />
@@ -18,6 +18,7 @@
       <option
         v-for="(option, index) in options"
         :key="index"
+        :label="option.label"
         :value="option.value"
         :label="option.label"
         v-text="option.text"
@@ -37,6 +38,8 @@ import uuid from '@/utils/uuid'
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 
 export default {
+  inheritAttrs: false,
+
   name: 'SelectInput',
 
   model: {
@@ -64,7 +67,7 @@ export default {
 
     label: {
       type: String,
-      default: ''
+      required: true
     },
 
     errorMessage: {
@@ -87,7 +90,6 @@ export default {
       default: '',
       validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
     }
-
   },
 
   mounted () {
@@ -114,6 +116,12 @@ export default {
         'select-input__field--error': this.hasError,
         [`select-input__field--${this.weight}`]: this.weight,
         [`${this.fieldClass}`]: this.fieldClass
+      }
+    },
+
+    getLabelClass () {
+      return {
+        'select-input__label--hidden': this.$attrs['aria-label']
       }
     }
   }

@@ -9,6 +9,17 @@
 
   &__label {
     margin-bottom: rem(4px);
+
+    &--hidden {
+      position: absolute;
+      margin: rem(-1px);
+      border: 0;
+      padding: 0;
+      width: rem(1px);
+      height: rem(1px);
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
   }
 
   &__field {
