@@ -3,7 +3,6 @@
 <template>
   <div class="select-input">
     <label
-      v-if="label"
       :for="id"
       :class="getLabelClass"
       class="select-input__label"
@@ -19,6 +18,7 @@
       <option
         v-for="(option, index) in options"
         :key="index"
+        :label="option.label"
         :value="option.value"
         v-text="option.text"
       />
@@ -64,7 +64,8 @@ export default {
 
     label: {
       type: String,
-      default: ''
+      default: '',
+      required: true
     },
 
     errorMessage: {
