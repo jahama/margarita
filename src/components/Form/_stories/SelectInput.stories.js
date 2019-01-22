@@ -9,10 +9,10 @@ import SelectInput from '../SelectInput/SelectInput'
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 const DEFAULT_OPTIONS = [
-  { text: 'Option1', value: 'option1' },
-  { text: 'Option2', value: 'option2' },
-  { text: 'Option3', value: 'option3' },
-  { text: 'Option4', value: 'option4' }
+  { label: 'Option1', text: 'Option1', value: 'option1' },
+  { label: 'Option1', text: 'Option2', value: 'option2' },
+  { label: 'Option1', text: 'Option3', value: 'option3' },
+  { label: 'Option1', text: 'Option4', value: 'option4' }
 ]
 
 storiesOf('Form Components', module)
