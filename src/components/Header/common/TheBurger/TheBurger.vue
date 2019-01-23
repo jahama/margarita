@@ -25,10 +25,6 @@ export default {
     toolsHeader: {
       type: Boolean,
       default: false
-    },
-    webHeader: {
-      type: Boolean,
-      default: false
     }
   },
 
@@ -38,7 +34,6 @@ export default {
 
       if (this.isClose) classes.push('btn-burger--close')
       if (this.toolsHeader) classes.push('btn-burger--tools-header')
-      if (this.webHeader) classes.push('btn-burger--web-header')
 
       return classes
     }
