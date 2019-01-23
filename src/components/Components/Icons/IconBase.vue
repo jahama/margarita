@@ -24,6 +24,9 @@
 const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone', 'Logo' ]
 
 export default {
+
+  name: 'IconBase',
+
   props: {
     icon: {
       type: String,
