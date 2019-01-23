@@ -17,6 +17,7 @@
       :width="iconSize"
       :height="iconSize"
       :icon="icon"
+      :title="iconAlt"
     />
   </button>
 </template>

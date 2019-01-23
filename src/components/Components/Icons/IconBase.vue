@@ -10,7 +10,6 @@
   >
     <title
       :id="iconName"
-      lang="en"
     >
       {{ iconName }}
     </title>
@@ -55,6 +54,11 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+
+    title: {
+      type: String,
+      default: ''
     }
   },
 
@@ -65,6 +69,7 @@ export default {
       }
     },
     iconName () {
+      if (this.title) return this.title
       return `${this.icon}-icon`
     }
   }
