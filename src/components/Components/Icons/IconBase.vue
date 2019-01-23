@@ -11,7 +11,7 @@
     <title
       :id="iconName"
     >
-      {{ title ? title : iconName }}
+      {{ iconName }}
     </title>
     <g :fill="iconColor">
       <Component :is="componentLoader" />
@@ -66,6 +66,7 @@ export default {
       }
     },
     iconName () {
+      if (this.title) return this.title
       return `${this.icon}-icon`
     }
   }
