@@ -10,9 +10,8 @@
   >
     <title
       :id="iconName"
-      lang="en"
     >
-      {{ iconName }}
+      {{ title ? title : iconName }}
     </title>
     <g :fill="iconColor">
       <Component :is="componentLoader" />
@@ -52,6 +51,11 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+
+    title: {
+      type: String,
+      default: ''
     }
   },
 
