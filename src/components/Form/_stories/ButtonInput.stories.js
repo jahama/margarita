@@ -9,7 +9,19 @@ import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
-const ICONS_BUTTON = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone', 'None', 'BulbOn', 'Gas' ]
+const ICONS_BUTTON = [
+  'DownloadContract',
+  'DetailsContract',
+  'AddContract',
+  'Arrow',
+  'ArrowToEnd',
+  'Exit',
+  'Phone',
+  'Logo',
+  'BulbOn',
+  'Gas',
+  'None'
+]
 const HTML_TAGS = [ 'button', 'a' ]
 
 storiesOf('Form Components', module)
