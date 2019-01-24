@@ -10,7 +10,8 @@ const AVAILABLE_COLORS = [
   'green',
   'orange',
   'red',
-  'gray'
+  'gray',
+  'dark'
 ]
 
 storiesOf('Components', module)
