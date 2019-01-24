@@ -15,7 +15,8 @@ const AVAILABLE_COLORS = [
   'green',
   'orange',
   'red',
-  'gray'
+  'gray',
+  'dark'
 ]
 
 export default {
