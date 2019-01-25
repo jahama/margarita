@@ -5,7 +5,6 @@
     :is="tag"
     :class="getClasses"
     :href="href"
-    :role="getRole"
     class="button-input"
     @click="onClick"
   >
@@ -83,12 +82,6 @@ export default {
   },
 
   computed: {
-    getRole () {
-      if (this.tag === 'a') return 'link'
-
-      return 'button'
-    },
-
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
