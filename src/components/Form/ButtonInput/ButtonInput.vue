@@ -1,7 +1,7 @@
 <style scoped lang="scss" src="./ButtonInput.scss"></style>
 
 <template>
-  <button
+  <component
     :is="tag"
     :class="getClasses"
     :href="href"
@@ -18,7 +18,7 @@
       :icon="icon"
       :title="iconAlt"
     />
-  </button>
+  </component>
 </template>
 
 <script>
