@@ -64,6 +64,7 @@ storiesOf('Form Components', module)
           >
             <ButtonInput
               text="Esto es un link"
+              tag="a"
               type="gradient"
               href="https://www.holaluz.com/"
             />
