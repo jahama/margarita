@@ -38,9 +38,14 @@
     -webkit-appearance: none;
     -webkit-border-radius: 0;
 
-    &:focus,
     &:active {
       outline: none;
+      border: rem(1px) solid get-color("dark-hot-pink");
+    }
+
+    &:focus {
+      outline: .25rem solid get-color("classic-rose");
+      outline-offset: 0;
       border: rem(1px) solid get-color("dark-hot-pink");
     }
 
