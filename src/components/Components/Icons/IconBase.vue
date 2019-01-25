@@ -21,16 +21,16 @@
 
 <script>
 const AVAILABLE_ICONS = [
-  'DownloadContract',
-  'DetailsContract',
   'AddContract',
   'Arrow',
   'ArrowToEnd',
-  'Exit',
-  'Phone',
-  'Logo',
   'BulbOn',
-  'Gas'
+  'DetailsContract',
+  'DownloadContract',
+  'Exit',
+  'Gas',
+  'Logo',
+  'Phone'
 ]
 
 export default {

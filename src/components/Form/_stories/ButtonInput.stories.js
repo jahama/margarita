@@ -10,17 +10,17 @@ import ButtonInput from '../ButtonInput/ButtonInput'
 
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
-  'DownloadContract',
-  'DetailsContract',
   'AddContract',
   'Arrow',
   'ArrowToEnd',
-  'Exit',
-  'Phone',
-  'Logo',
   'BulbOn',
+  'DetailsContract',
+  'DownloadContract',
+  'Exit',
   'Gas',
-  'None'
+  'Logo',
+  'None',
+  'Phone'
 ]
 const HTML_TAGS = [ 'button', 'a' ]
 
