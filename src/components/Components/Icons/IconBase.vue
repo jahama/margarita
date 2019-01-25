@@ -20,7 +20,18 @@
 </template>
 
 <script>
-const AVAILABLE_ICONS = [ 'DownloadContract', 'DetailsContract', 'AddContract', 'Arrow', 'ArrowToEnd', 'Exit', 'Phone', 'Logo' ]
+const AVAILABLE_ICONS = [
+  'AddContract',
+  'Arrow',
+  'ArrowToEnd',
+  'BulbOn',
+  'DetailsContract',
+  'DownloadContract',
+  'Exit',
+  'Gas',
+  'Logo',
+  'Phone'
+]
 
 export default {
 

@@ -32,7 +32,7 @@ export default {
     },
 
     text: {
-      type: String,
+      type: [ Number, String ],
       default: ''
     }
   },
