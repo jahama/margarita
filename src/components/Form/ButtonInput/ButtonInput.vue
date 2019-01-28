@@ -1,11 +1,10 @@
 <style scoped lang="scss" src="./ButtonInput.scss"></style>
 
 <template>
-  <button
+  <component
     :is="tag"
     :class="getClasses"
     :href="href"
-    :role="getRole"
     class="button-input"
     @click="onClick"
   >
@@ -19,7 +18,7 @@
       :icon="icon"
       :title="iconAlt"
     />
-  </button>
+  </component>
 </template>
 
 <script>
@@ -83,12 +82,6 @@ export default {
   },
 
   computed: {
-    getRole () {
-      if (this.tag === 'a') return 'link'
-
-      return 'button'
-    },
-
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
