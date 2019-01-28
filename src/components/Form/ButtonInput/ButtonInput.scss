@@ -50,6 +50,11 @@
       color: get-color("white");
     }
 
+    &:focus {
+      outline: .25rem solid get-color("classic-rose");
+      outline-offset: 0;
+    }
+
     &.button-input--rounded {
       box-shadow: 0 rem(2px) rem(3px) rem(2px) get-color("shadow-medium");
     }
@@ -64,6 +69,11 @@
     &:active {
       background-color: get-color("dark-hot-pink");
       color: get-color("white");
+    }
+
+    &:focus {
+      outline: .25rem solid get-color("classic-rose");
+      outline-offset: 0;
     }
 
     &.button-input--rounded {
@@ -90,6 +100,11 @@
     &:hover,
     &:active {
       background-position: right center;
+    }
+
+    &:focus {
+      outline: .25rem solid get-color("classic-rose");
+      outline-offset: 0;
     }
 	}
 }
