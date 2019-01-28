@@ -38,7 +38,8 @@
     -webkit-appearance: none;
     -webkit-border-radius: 0;
 
-    &:active {
+    &:active,
+    &:hover {
       outline: none;
       border: rem(1px) solid get-color("dark-hot-pink");
     }
