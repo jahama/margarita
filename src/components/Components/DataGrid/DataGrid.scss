@@ -19,7 +19,7 @@ td {
 
 table {
   z-index: 1;
-  width: 100%;
+  min-width: 100%;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 rem(16px);
@@ -85,5 +85,10 @@ tbody {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+  }
+
+  * {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
