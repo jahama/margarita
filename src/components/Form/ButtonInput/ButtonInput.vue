@@ -4,7 +4,7 @@
   <component
     :is="tag"
     :class="getClasses"
-    :href="href"
+    :href="handleHref"
     class="button-input"
     @click="onClick"
   >
@@ -88,6 +88,10 @@ export default {
         'button-input--has-text': this.text,
         [`button-input--${this.type}`]: this.type
       }
+    },
+
+    handleHref () {
+      return this.href ? this.href : null
     }
   },
 
