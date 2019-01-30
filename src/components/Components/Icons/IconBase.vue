@@ -5,11 +5,11 @@
     :height="height"
     :viewBox="`0 0 ${viewBoxWidth} 18`"
     class="icon-base"
-    :aria-labelledby="iconName"
+    :aria-labelledby="id"
     role="presentation"
   >
     <title
-      :id="iconName"
+      :id="id"
     >
       {{ iconName }}
     </title>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import uuid from '@/utils/uuid'
+
 const AVAILABLE_ICONS = [
   'AddContract',
   'Arrow',
@@ -45,6 +47,11 @@ export default {
         if (!value) return true
         return AVAILABLE_ICONS.includes(value)
       }
+    },
+
+    id: {
+      type: String,
+      default: uuid
     },
 
     width: {
