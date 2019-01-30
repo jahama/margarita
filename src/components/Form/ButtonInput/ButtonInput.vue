@@ -36,8 +36,7 @@ export default {
   props: {
     href: {
       type: String,
-      default: '',
-      required: false
+      default: null
     },
 
     tag: {
@@ -89,6 +88,7 @@ export default {
         [`button-input--${this.type}`]: this.type
       }
     }
+
   },
 
   methods: {

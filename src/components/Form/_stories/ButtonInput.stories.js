@@ -78,7 +78,6 @@ storiesOf('Form Components', module)
               rounded
               :iconSize="50"
               type="secondary"
-              href="https://www.holaluz.com/"
             />
           </GridColumn>
           <GridColumn
@@ -88,7 +87,6 @@ storiesOf('Form Components', module)
               text="Esto es un texto con icono"
               icon="DownloadContract"
               iconAlt="download contract icon"
-              href="https://www.holaluz.com/"
             />
           </GridColumn>
           <GridColumn
