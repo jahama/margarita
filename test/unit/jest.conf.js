@@ -22,5 +22,7 @@ module.exports = {
     'src/**/*.{js,vue}',
     '!src/**/*.stories.js',
     '!**/node_modules/**'
-  ]
+  ],
+
+  testURL: 'http://localhost:6006'
 }
