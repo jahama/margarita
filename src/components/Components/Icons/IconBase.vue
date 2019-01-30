@@ -85,7 +85,9 @@ export default {
       if (this.icon) {
         return () => import(/* webpackMode: "eager" */`../../Components/Icons/Icons/${this.icon}.vue`)
       }
+      return null
     },
+
     iconName () {
       if (this.title) return this.title
       return `${this.icon}-icon`
