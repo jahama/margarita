@@ -4,7 +4,7 @@
   <component
     :is="tag"
     :class="getClasses"
-    :href="handleHref"
+    :href="href"
     class="button-input"
     @click="onClick"
   >
@@ -36,8 +36,7 @@ export default {
   props: {
     href: {
       type: String,
-      default: '',
-      required: false
+      default: null
     },
 
     tag: {
@@ -88,11 +87,8 @@ export default {
         'button-input--has-text': this.text,
         [`button-input--${this.type}`]: this.type
       }
-    },
-
-    handleHref () {
-      return this.href ? this.href : null
     }
+
   },
 
   methods: {
