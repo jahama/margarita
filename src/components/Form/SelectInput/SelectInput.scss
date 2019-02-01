@@ -45,7 +45,7 @@
     }
 
     &:focus {
-      outline: .25rem solid get-color("classic-rose");
+      outline: rem(2px) solid get-color("classic-rose");
       outline-offset: 0;
       border: rem(1px) solid get-color("dark-hot-pink");
     }

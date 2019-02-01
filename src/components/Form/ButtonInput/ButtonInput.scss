@@ -51,7 +51,7 @@
     }
 
     &:focus {
-      outline: .25rem solid get-color("classic-rose");
+      outline: rem(2px) solid get-color("classic-rose");
       outline-offset: 0;
     }
 
@@ -72,7 +72,7 @@
     }
 
     &:focus {
-      outline: .25rem solid get-color("classic-rose");
+      outline: rem(2px) solid get-color("classic-rose");
       outline-offset: 0;
     }
 
@@ -103,7 +103,7 @@
     }
 
     &:focus {
-      outline: .25rem solid get-color("classic-rose");
+      outline: rem(2px) solid get-color("classic-rose");
       outline-offset: 0;
     }
 	}
