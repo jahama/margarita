@@ -20,7 +20,7 @@
   }
 
   &__mobile {
-    padding: 0 2rem;
+    padding: 0 rem(32px);
     @include mq($from: md) {
       display: none;
     }
