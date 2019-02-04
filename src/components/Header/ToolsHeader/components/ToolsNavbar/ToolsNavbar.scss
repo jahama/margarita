@@ -19,6 +19,22 @@
     line-height: rem(56px);
   }
 
+  &__mobile {
+    padding: 0 2rem;
+    @include mq($from: md) {
+      display: none;
+    }
+  }
+
+  &__mobile-user {
+    display: inline-block;
+  }
+
+  &__mobile-icon {
+    display: inline-block;
+    padding-left: rem(8px);
+  }
+
   &__anchor {
     transition: color .3s;
     text-decoration: none;

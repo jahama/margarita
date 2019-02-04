@@ -16,6 +16,7 @@
             :width="77"
             :height="20"
             :icon-color="getLogoColor"
+            class="tools-header__logo"
           />
         </div>
         <div class="tools-header__section">
@@ -36,8 +37,10 @@
     <transition name="horizontal-slide-animation">
       <ToolsNavbar
         v-if="burgerState"
+        :logged-user="loggedUser"
         :active="active"
         :links="links"
+        @logout="emitLogoutEvent"
       />
     </transition>
   </div>
