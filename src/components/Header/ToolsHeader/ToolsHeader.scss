@@ -32,7 +32,7 @@
     justify-content: center;
 
     @include mq($until: md) {
-      flex: auto;
+      flex: initial;
     }
 
     &:first-child {
