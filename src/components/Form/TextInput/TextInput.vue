@@ -10,6 +10,7 @@
     <input
       :id="id"
       v-model="lazyValue"
+      v-bind="$attrs"
       :class="getComputedClass"
       :type="type"
       :placeholder="placeholder"
