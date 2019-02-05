@@ -19,11 +19,21 @@
     width: 100%;
   }
 
+  &__logo {
+    @include mq($until: md) {
+      display: none;
+    }
+  }
+
   &__section {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
+
+    @include mq($until: md) {
+      flex: auto;
+    }
 
     &:first-child {
       justify-content: flex-start;

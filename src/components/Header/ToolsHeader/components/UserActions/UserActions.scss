@@ -11,6 +11,10 @@
   white-space: pre-wrap;
   font-size: rem(14px);
 
+  @include mq($until: md) {
+    display: none;
+  }
+
   &__logged-user {
     color: get-color("gray");
   }
