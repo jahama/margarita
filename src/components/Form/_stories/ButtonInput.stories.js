@@ -7,6 +7,7 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import GridRow from '../../Grid/GridRow/GridRow'
 import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
+import IconBase from '../../Components/Icons/IconBase'
 
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
@@ -40,7 +41,7 @@ storiesOf('Form Components', module)
     const textButton = text('Text', 'Click me')
 
     return ({
-      components: { ButtonInput, GridColumn, GridRow },
+      components: { ButtonInput, GridColumn, GridRow, IconBase },
 
       template: `
       <div>
@@ -53,12 +54,20 @@ storiesOf('Form Components', module)
               @click="action"
               :text="text"
               :rounded="rounded"
-              :icon="getIcon"
-              :iconSize="iconSize"
               :type="type"
               :tag="tag"
-            />
-        </GridColumn>
+            >
+              <template v-if="text">
+                {{ text }}
+              </template>
+              <IconBase
+                v-if="getIcon"
+                :width="iconSize"
+                :height="iconSize"
+                :icon="icon"
+              />
+            </ButtonInput>
+          </GridColumn>
         </GridRow>
 
         <h2>Examples:</h2>
@@ -67,41 +76,53 @@ storiesOf('Form Components', module)
             class="grid-col--3"
           >
             <ButtonInput
-              text="Esto es un link"
               tag="a"
               type="gradient"
               href="https://www.holaluz.com/"
-            />
+            >
+              Esto es un link
+              <IconBase
+                icon="DownloadContract"
+              />
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--1"
           >
             <ButtonInput
-              icon="DownloadContract"
-              iconAlt="download contract icon"
+              @click="action"
               rounded
-              :iconSize="50"
               type="secondary"
-            />
+            >
+              <IconBase
+                :width="50"
+                :height="50"
+                icon="DownloadContract"
+              />
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--3"
           >
             <ButtonInput
-              text="Esto es un texto con icono"
-              icon="DownloadContract"
-              iconAlt="download contract icon"
-            />
+              href="https://www.holaluz.com/"
+            >
+              Esto es un texto con icono
+              <IconBase
+                icon="DownloadContract"
+              />
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--3"
           >
             <ButtonInput
-              text="Esto es un link"
               type="no-background"
               href="https://www.holaluz.com/"
               tag="a"
-            />
+            >
+              Esto es un link
+            </ButtonInput>
           </GridColumn>
         </GridRow>
       </div>`,

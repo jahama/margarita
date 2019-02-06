@@ -8,16 +8,7 @@
     class="button-input"
     @click="onClick"
   >
-    <template v-if="text">
-      {{ text }}
-    </template>
-    <IconBase
-      v-if="icon"
-      :width="iconSize"
-      :height="iconSize"
-      :icon="icon"
-      :title="iconAlt"
-    />
+    <slot />
   </component>
 </template>
 
@@ -84,7 +75,7 @@ export default {
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
-        'button-input--has-text': this.text,
+        'button-input--has-text': this.$slots.default[0].text,
         [`button-input--${this.type}`]: this.type
       }
     }
