@@ -19,9 +19,13 @@ const ICONS_BUTTON = [
   'Exit',
   'Gas',
   'Logo',
+  'LongArrow',
   'None',
-  'Phone'
+  'Phone',
+  'Plug',
+  'User'
 ]
+
 const HTML_TAGS = [ 'button', 'a' ]
 
 storiesOf('Form Components', module)

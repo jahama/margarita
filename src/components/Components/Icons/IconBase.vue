@@ -32,7 +32,10 @@ const AVAILABLE_ICONS = [
   'Exit',
   'Gas',
   'Logo',
-  'Phone'
+  'LongArrow',
+  'Phone',
+  'Plug',
+  'User'
 ]
 
 export default {
