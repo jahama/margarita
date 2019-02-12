@@ -18,7 +18,21 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody v-if="isLoading">
+      <tr
+        v-for="index in 3"
+        :key="index"
+        class="datagrid__row--loader"
+      >
+        <td
+          v-for="column in columns"
+          :key="column.title"
+        >
+          <DataGridLoader />
+        </td>
+      </tr>
+    </tbody>
+    <tbody v-else>
       <tr
         v-for="item in data"
         :key="item.id"
@@ -43,8 +57,14 @@
 </template>
 
 <script>
+import DataGridLoader from './loader/DataGridLoader'
+
 export default {
   name: 'DataGrid',
+
+  components: {
+    DataGridLoader
+  },
 
   props: {
     data: {
@@ -55,6 +75,11 @@ export default {
     columns: {
       type: Array,
       required: true
+    },
+
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
 

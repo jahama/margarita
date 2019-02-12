@@ -1,5 +1,29 @@
 @import "../../../scss/margarita";
 
+@keyframes aniUISkeleton {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes aniVertical {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 table,
 caption,
 tbody,
@@ -30,6 +54,9 @@ ul {
 
 thead {
   tr {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
     th {
       padding: 0 rem(16px);
       text-align: left;
@@ -73,9 +100,13 @@ thead {
 
 tbody {
   tr {
+    display: grid;
+    align-items: center;
+    margin-bottom: 1rem;
     border-radius: rem(4px);
     box-shadow: 0 0 rem(6.4px) rem(4px) get-color("shadow-light");
     background-color: get-color("white");
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
     td {
       padding: rem(8px) rem(16px);
@@ -89,5 +120,40 @@ tbody {
   * {
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.datagrid__row--loader {
+  position: relative;
+  animation: aniVertical 3s ease;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  height: rem(52px);
+
+  &::before {
+    position: absolute;
+    animation-name: aniUISkeleton;
+    animation-duration: 3.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background: linear-gradient(
+      to right, lighten(get-color("black"), 80%) 2%,
+      lighten(get-color("black"), 40%) 18%,
+      lighten(get-color("black"), 80%) 33%
+    );
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+    content: "";
+    mix-blend-mode: overlay;
+  }
+
+  &:nth-child(2) {
+    animation-delay: .5s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 1s;
   }
 }
