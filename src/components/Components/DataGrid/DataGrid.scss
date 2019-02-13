@@ -43,9 +43,6 @@ td {
 
 table {
   z-index: 1;
-  table-layout: fixed;
-  border-collapse: separate;
-  border-spacing: 0 rem(16px);
 }
 
 ul {
@@ -56,6 +53,7 @@ thead {
   tr {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin-bottom: rem(16px);
 
     th {
       padding: 0 rem(16px);
@@ -99,14 +97,35 @@ thead {
 }
 
 tbody {
+  display: block;
+  position: relative;
+
+  &.datagrid--shadow {
+    &::before {
+      position: absolute;
+      top: 1%;
+      left: 2%;
+      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) #00000008;
+      background-color: #00000008;
+      width: calc(100% - 4%);
+      height: calc(100% - 2%);
+      content: "";
+    }
+  }
+
   tr {
     display: grid;
+    position: relative;
     align-items: center;
     margin-bottom: 1rem;
-    border-radius: rem(4px);
     box-shadow: 0 0 rem(6.4px) rem(4px) get-color("shadow-light");
+    border-radius: rem(4px);
     background-color: get-color("white");
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     td {
       padding: rem(8px) rem(16px);
@@ -121,6 +140,7 @@ tbody {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
 }
 
 .datagrid__row--loader {
@@ -129,7 +149,7 @@ tbody {
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   opacity: 0;
-  height: rem(52px);
+  height: rem(66px);
 
   &::before {
     position: absolute;

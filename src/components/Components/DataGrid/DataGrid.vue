@@ -1,4 +1,4 @@
-<style lang="scss" src="./DataGrid.scss" scoped></style>
+<style lang="scss" src="./DataGrid.scss"></style>
 
 <template>
   <table>
@@ -32,7 +32,10 @@
         </td>
       </tr>
     </tbody>
-    <tbody v-else>
+    <tbody
+      v-else
+      class="datagrid--shadow"
+    >
       <tr
         v-for="item in data"
         :key="item.id"
