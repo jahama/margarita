@@ -24,7 +24,7 @@ const columns = [
   }
 ]
 
-const dataSample = [
+const rowsSample = [
   {
     name: 'Anna',
     age: 30,
@@ -94,7 +94,7 @@ storiesOf('Components', module)
         <GridColumn>
           <DataGrid
             :columns="columns"
-            :data="dataSample"
+            :rows="rowsSample"
             @sort="sortBy"
             :isLoading="isLoading"
           />
@@ -103,7 +103,7 @@ storiesOf('Components', module)
       data () {
         return {
           columns,
-          dataSample,
+          rowsSample,
           isLoading
         }
       },
@@ -113,7 +113,7 @@ storiesOf('Components', module)
           const sortBy = key.column.value
           const sortDirection = key.dir
 
-          this.dataSample.sort(this.dynamicSort(sortBy, sortDirection))
+          this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
         },
 
         dynamicSort (key, sortDirection) {

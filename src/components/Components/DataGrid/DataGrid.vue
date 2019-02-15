@@ -1,13 +1,13 @@
 <style lang="scss" src="./DataGrid.scss"></style>
 
 <template>
-  <div class="datagrid datagrid__overflow">
+  <div class="datagrid">
     <div
       class="datagrid__container"
     >
       <keep-alive>
         <div
-          v-if="totalItems === 0"
+          v-if="hasItems === 0 && !isLoading"
           class="datagrid__no-results"
           v-text="noResultsText"
         />
@@ -20,7 +20,10 @@
                 :class="sortClass(column.value, column.sortable)"
                 @click="sort(column)"
               >
-                <span class="column-title">{{ column.title }}</span>
+                <span
+                  class="column-title"
+                  v-text="column.title"
+                />
                 <span
                   v-if="column.sortable"
                   class="sort-arrow"
@@ -47,7 +50,7 @@
             class="datagrid__shadow"
           >
             <tr
-              v-for="item in data"
+              v-for="item in rows"
               :key="item.id"
             >
               <td
@@ -83,7 +86,7 @@ export default {
   },
 
   props: {
-    data: {
+    rows: {
       type: Array,
       required: true
     },
@@ -100,12 +103,7 @@ export default {
 
     noResultsText: {
       type: String,
-      default: ''
-    },
-
-    totalItems: {
-      type: Number,
-      required: true
+      default: 'No results.'
     }
   },
 
@@ -139,6 +137,12 @@ export default {
       }
 
       return `sort-arrow--unsorted ${sortableClass}`
+    }
+  },
+
+  computed: {
+    hasItems () {
+      return this.rows.length
     }
   }
 }
