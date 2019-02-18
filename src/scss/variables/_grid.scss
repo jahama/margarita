@@ -2,6 +2,7 @@ $grid-gutter-width: 24px;
 $grid-columns: 12;
 
 $grid-breakpoints: (
+  none: 0,
   xs: 380px,
   sm: 576px,
   md: 768px,
