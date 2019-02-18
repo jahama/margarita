@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean } from '@storybook/addon-knobs/vue'
 import { withMarkdownNotes } from '@storybook/addon-notes'
 
 import DataGridNotes from './notes/DataGrid.md'
@@ -24,7 +24,7 @@ const columns = [
   }
 ]
 
-const dataSample = [
+const rowsSample = [
   {
     name: 'Anna',
     age: 30,
@@ -82,6 +82,8 @@ storiesOf('Components', module)
   .addDecorator(withKnobs)
 
   .add('DataGrid', withMarkdownNotes(DataGridNotes)(() => {
+    const isLoading = boolean('Loading', false)
+
     return ({
       components: {
         DataGrid,
@@ -92,15 +94,17 @@ storiesOf('Components', module)
         <GridColumn>
           <DataGrid
             :columns="columns"
-            :data="dataSample"
+            :rows="rowsSample"
             @sort="sortBy"
+            :isLoading="isLoading"
           />
         </GridColumn>`,
 
       data () {
         return {
           columns,
-          dataSample
+          rowsSample,
+          isLoading
         }
       },
 
@@ -109,7 +113,7 @@ storiesOf('Components', module)
           const sortBy = key.column.value
           const sortDirection = key.dir
 
-          this.dataSample.sort(this.dynamicSort(sortBy, sortDirection))
+          this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
         },
 
         dynamicSort (key, sortDirection) {

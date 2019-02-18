@@ -1,53 +1,92 @@
-<style lang="scss" src="./DataGrid.scss" scoped></style>
+<style lang="scss" src="./DataGrid.scss"></style>
 
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th
-          v-for="column in columns"
-          :key="column.title"
-          :class="sortClass(column.value, column.sortable)"
-          @click="sort(column)"
-        >
-          <span class="column-title">{{ column.title }}</span>
-          <span
-            v-if="column.sortable"
-            class="sort-arrow"
-          />
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="item in data"
-        :key="item.id"
-      >
-        <td
-          v-for="rowCell in item"
-          :key="rowCell.keyValue"
-        >
-          <span
-            :is="rowCell.component"
-            v-if="rowCell.component"
-            v-bind="rowCell.componentData"
-          />
-          <span
+  <div class="datagrid">
+    <div
+      class="datagrid__container"
+    >
+      <keep-alive>
+        <div
+          v-if="hasItems === 0 && !isLoading"
+          class="datagrid__no-results"
+          v-text="noResultsText"
+        />
+        <table v-else>
+          <thead>
+            <tr>
+              <th
+                v-for="column in columns"
+                :key="column.title"
+                :class="sortClass(column.value, column.sortable)"
+                @click="sort(column)"
+              >
+                <span
+                  class="column-title"
+                  v-text="column.title"
+                />
+                <span
+                  v-if="column.sortable"
+                  class="sort-arrow"
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody v-if="isLoading">
+            <tr
+              v-for="index in 3"
+              :key="index"
+              class="datagrid__row--loader"
+            >
+              <td
+                v-for="column in columns"
+                :key="column.title"
+              >
+                <DataGridLoader />
+              </td>
+            </tr>
+          </tbody>
+          <tbody
             v-else
-            v-text="rowCell"
-          />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            class="datagrid__shadow"
+          >
+            <tr
+              v-for="item in rows"
+              :key="item.id"
+            >
+              <td
+                v-for="rowCell in item"
+                :key="rowCell.keyValue"
+              >
+                <span
+                  :is="rowCell.component"
+                  v-if="rowCell.component"
+                  v-bind="rowCell.componentData"
+                />
+                <span
+                  v-else
+                  v-text="rowCell"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </keep-alive>
+    </div>
+  </div>
 </template>
 
 <script>
+import DataGridLoader from './loader/DataGridLoader'
+
 export default {
   name: 'DataGrid',
 
+  components: {
+    DataGridLoader
+  },
+
   props: {
-    data: {
+    rows: {
       type: Array,
       required: true
     },
@@ -55,6 +94,16 @@ export default {
     columns: {
       type: Array,
       required: true
+    },
+
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
+
+    noResultsText: {
+      type: String,
+      default: 'No results.'
     }
   },
 
@@ -88,6 +137,12 @@ export default {
       }
 
       return `sort-arrow--unsorted ${sortableClass}`
+    }
+  },
+
+  computed: {
+    hasItems () {
+      return this.rows.length
     }
   }
 }
