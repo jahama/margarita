@@ -6,6 +6,7 @@
     :class="getClasses"
     :href="href"
     class="button-input"
+    :aria-label="ariaLabel"
     @click="onClick"
   >
     <span>
@@ -24,6 +25,12 @@ export default {
 
   components: {
     IconBase
+  },
+
+  data () {
+    return {
+      slotIsAnIconOnly: !this.$slots.default[0].text && !this.$slots.default[1]
+    }
   },
 
   props: {
@@ -77,10 +84,16 @@ export default {
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
-        [`button-input--${this.type}`]: this.type
+        [`button-input--${this.type}`]: this.type,
+        'button-input--icon-only': this.slotIsAnIconOnly
+      }
+    },
+
+    ariaLabel () {
+      if (this.slotIsAnIconOnly) {
+        return this.$slots.default[0].componentOptions.propsData.icon
       }
     }
-
   },
 
   methods: {

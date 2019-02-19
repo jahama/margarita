@@ -82,10 +82,10 @@ storiesOf('Form Components', module)
               type="gradient"
               href="https://www.holaluz.com/"
             >
-              Esto es un link
               <IconBase
                 icon="DownloadContract"
               />
+              Esto es un link
             </ButtonInput>
           </GridColumn>
           <GridColumn
