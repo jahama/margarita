@@ -11,6 +11,7 @@
 
   > span {
     display: grid;
+    align-items: center;
     grid-auto-flow: column;
     grid-gap: rem(8px);
   }
