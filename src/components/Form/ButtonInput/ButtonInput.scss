@@ -1,26 +1,18 @@
 @import "../../../scss/margarita";
 
 .button-input {
-  display: flex;
-  flex-grow: 0;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
+  @include font-weight(semibold);
+  display: block;
   transition: background-color .3s, background-position .3s, border-color .3s;
   border: rem(1px) solid transparent;
-  padding: rem(11px);
+  padding: rem(9px);
   text-decoration: none;
+  line-height: 1.13;
 
-  &--has-text {
-    @include font-weight(semibold);
-    padding: rem(9px) rem(12px);
-    width: 100%;
-    line-height: 1.13;
-    font-size: rem(16px);
-
-    .icon-base {
-      margin-left: rem(8px);
-    }
+  > span {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: rem(8px);
   }
 
   &--rounded {

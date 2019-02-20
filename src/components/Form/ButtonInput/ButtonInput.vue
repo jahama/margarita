@@ -8,7 +8,9 @@
     class="button-input"
     @click="onClick"
   >
-    <slot />
+    <span>
+      <slot />
+    </span>
   </component>
 </template>
 
@@ -75,7 +77,6 @@ export default {
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
-        'button-input--has-text': this.$slots.default[0].text,
         [`button-input--${this.type}`]: this.type
       }
     }
