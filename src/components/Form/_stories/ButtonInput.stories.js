@@ -33,6 +33,7 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
+    const disabled = boolean('Disabled', false)
     const iconSize = number('Icon height size in px', 18)
     const rounded = boolean('Rounded', false)
     const type = select('Types', BUTTON_TYPES, 'primary')
@@ -56,6 +57,7 @@ storiesOf('Form Components', module)
               :rounded="rounded"
               :type="type"
               :tag="tag"
+              :disabled="disabled"
             >
               <template v-if="text">
                 {{ text }}
@@ -140,7 +142,8 @@ storiesOf('Form Components', module)
           rounded: rounded,
           iconSize: iconSize,
           icon: icon,
-          tag: tag
+          tag: tag,
+          disabled: disabled
         }
       },
 
