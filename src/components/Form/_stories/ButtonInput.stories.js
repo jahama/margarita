@@ -80,40 +80,33 @@ storiesOf('Form Components', module)
             class="grid-col--3"
           >
             <ButtonInput
-              tag="a"
               type="gradient"
-              href="https://www.holaluz.com/"
             >
-              <IconBase
-                icon="DownloadContract"
-              />
-              Esto es un link
+            This is a button with text only
             </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--1"
           >
             <ButtonInput
-              @click="action"
+              aria-label="Download PDF"
               rounded
               type="secondary"
             >
               <IconBase
-                :width="50"
-                :height="50"
                 icon="DownloadContract"
+                width="50"
+                height="50"
               />
             </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--3"
           >
-            <ButtonInput
-              href="https://www.holaluz.com/"
-            >
-              Esto es un texto con icono
+            <ButtonInput>
+              This is a button with text and icon
               <IconBase
-                icon="DownloadContract"
+                icon="Arrow"
               />
             </ButtonInput>
           </GridColumn>
@@ -125,7 +118,10 @@ storiesOf('Form Components', module)
               href="https://www.holaluz.com/"
               tag="a"
             >
-              Esto es un link
+              This is a link with text and icon
+              <IconBase
+                icon="Exit"
+              />
             </ButtonInput>
           </GridColumn>
         </GridRow>
