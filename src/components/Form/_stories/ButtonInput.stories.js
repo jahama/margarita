@@ -40,6 +40,7 @@ storiesOf('Form Components', module)
     const icon = select('Icons', ICONS_BUTTON, 'None')
     const tag = select('HTML tag', HTML_TAGS, 'button')
     const textButton = text('Text', 'Click me')
+    const ariaLabel = text('AriaLabel', '')
 
     return ({
       components: { ButtonInput, GridColumn, GridRow, IconBase },
@@ -58,6 +59,7 @@ storiesOf('Form Components', module)
               :type="type"
               :tag="tag"
               :disabled="disabled"
+              :ariaLabel="ariaLabel"
             >
               <template v-if="text">
                 {{ text }}
@@ -137,6 +139,7 @@ storiesOf('Form Components', module)
 
       data () {
         return {
+          ariaLabel: ariaLabel,
           text: textButton,
           type: type,
           rounded: rounded,

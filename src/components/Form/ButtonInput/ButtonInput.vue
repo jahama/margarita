@@ -6,7 +6,7 @@
     :class="getClasses"
     :href="href"
     class="button-input"
-    :aria-label="ariaLabel"
+    :aria-label="getAriaLabel"
     @click="onClick"
   >
     <span>
@@ -34,6 +34,11 @@ export default {
   },
 
   props: {
+    ariaLabel: {
+      type: String,
+      default: null
+    },
+
     href: {
       type: String,
       default: null
@@ -89,9 +94,9 @@ export default {
       }
     },
 
-    ariaLabel () {
+    getAriaLabel () {
       if (this.slotIsAnIconOnly) {
-        return this.$slots.default[0].componentOptions.propsData.icon
+        return !this.ariaLabel ? this.$slots.default[0].componentOptions.propsData.icon : this.ariaLabel
       }
     }
   },
