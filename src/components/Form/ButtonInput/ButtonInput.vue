@@ -49,26 +49,9 @@ export default {
       default: 'button'
     },
 
-    icon: {
-      type: String,
-      default: ''
-    },
-
-    text: {
-      type: String,
-      required: false,
-      default: ''
-    },
-
     rounded: {
       type: Boolean,
       default: false
-    },
-
-    iconAlt: {
-      type: String,
-      required: false,
-      default: ''
     },
 
     type: {
@@ -77,11 +60,6 @@ export default {
       validator: function (value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       }
-    },
-
-    iconSize: {
-      type: Number,
-      default: 18
     }
   },
 
