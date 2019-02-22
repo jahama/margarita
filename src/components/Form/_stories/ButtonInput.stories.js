@@ -33,14 +33,15 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
-    const disabled = boolean('Disabled', false)
-    const iconSize = number('Icon height size in px', 18)
-    const rounded = boolean('Rounded', false)
     const type = select('Types', BUTTON_TYPES, 'primary')
-    const icon = select('Icons', ICONS_BUTTON, 'None')
-    const tag = select('HTML tag', HTML_TAGS, 'button')
     const textButton = text('Text', 'Click me')
-    const ariaLabel = text('AriaLabel', '')
+    const icon = select('Icons', ICONS_BUTTON, 'None')
+    const iconSize = number('Icon height size in px', 18)
+    const fluid = boolean('Fluid', false)
+    const rounded = boolean('Rounded', false)
+    const ariaLabel = text('Aria Label', '')
+    const disabled = boolean('Disabled', false)
+    const tag = select('HTML tag', HTML_TAGS, 'button')
 
     return ({
       components: { ButtonInput, GridColumn, GridRow, IconBase },
@@ -58,6 +59,7 @@ storiesOf('Form Components', module)
               :rounded="rounded"
               :type="type"
               :tag="tag"
+              :fluid="fluid"
               :disabled="disabled"
               :ariaLabel="ariaLabel"
             >
@@ -146,6 +148,7 @@ storiesOf('Form Components', module)
           iconSize: iconSize,
           icon: icon,
           tag: tag,
+          fluid: fluid,
           disabled: disabled
         }
       },

@@ -6,7 +6,7 @@
     :class="getClasses"
     :href="href"
     class="button-input"
-    :aria-label="getAriaLabel"
+    :aria-label="ariaLabel"
     @click="onClick"
   >
     <span>
@@ -27,16 +27,15 @@ export default {
     IconBase
   },
 
-  data () {
-    return {
-      slotIsAnIconOnly: !this.$slots.default[0].text && !this.$slots.default[1]
-    }
-  },
-
   props: {
     ariaLabel: {
       type: String,
       default: null
+    },
+
+    fluid: {
+      type: Boolean,
+      default: false
     },
 
     href: {
@@ -68,13 +67,7 @@ export default {
       return {
         'button-input--rounded': this.rounded,
         [`button-input--${this.type}`]: this.type,
-        'button-input--icon-only': this.slotIsAnIconOnly
-      }
-    },
-
-    getAriaLabel () {
-      if (this.slotIsAnIconOnly) {
-        return !this.ariaLabel ? this.$slots.default[0].componentOptions.propsData.icon : this.ariaLabel
+        'button-input--fluid': this.fluid
       }
     }
   },
