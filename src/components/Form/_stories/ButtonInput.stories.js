@@ -78,6 +78,7 @@ storiesOf('Form Components', module)
         <GridRow>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
             <ButtonInput
               type="gradient"
@@ -87,6 +88,7 @@ storiesOf('Form Components', module)
           </GridColumn>
           <GridColumn
             class="grid-col--1"
+            align-start
           >
             <ButtonInput
               aria-label="Download PDF"
@@ -102,6 +104,7 @@ storiesOf('Form Components', module)
           </GridColumn>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
             <ButtonInput>
               This is a button with text and icon
@@ -112,6 +115,7 @@ storiesOf('Form Components', module)
           </GridColumn>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
             <ButtonInput
               type="no-background"

@@ -7,7 +7,8 @@ const componentData = function () {
   return {
     staticClass: 'grid-col',
     class: {
-      'grid-col--direction-column': this.directionColumn
+      'grid-col--direction-column': this.directionColumn,
+      'grid-col--align-start': this.alignStart
     }
   }
 }
@@ -19,6 +20,11 @@ export default {
 
   props: {
     directionColumn: {
+      type: Boolean,
+      default: false
+    },
+
+    alignStart: {
       type: Boolean,
       default: false
     },
