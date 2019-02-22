@@ -95,12 +95,12 @@ storiesOf('Form Components', module)
             <ButtonInput
               aria-label="Download PDF"
               rounded
-              type="secondary"
+              type="primary"
             >
               <IconBase
                 icon="DownloadContract"
-                width="50"
-                height="50"
+                width="35"
+                height="35"
               />
             </ButtonInput>
           </GridColumn>
