@@ -7,6 +7,7 @@
     :href="href"
     class="button-input"
     :aria-label="ariaLabel"
+    :disabled="loading || disabled"
     @click="onClick"
   >
     <span>
@@ -57,6 +58,11 @@ export default {
     },
 
     loading: {
+      type: Boolean,
+      default: false
+    },
+
+    disabled: {
       type: Boolean,
       default: false
     },
