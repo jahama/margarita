@@ -4,22 +4,20 @@
   <component
     :is="tag"
     :class="getClasses"
-    :href="href"
     class="button-input"
-    :aria-label="ariaLabel"
     :disabled="loading || disabled"
     @click="onClick"
   >
     <span>
       <slot />
-      <SpinnerButton v-if="loading" />
+      <ButtonInputSpinner v-if="loading" />
     </span>
   </component>
 </template>
 
 <script>
 import IconBase from '../../Components/Icons/IconBase'
-import SpinnerButton from './components/SpinnerButton'
+import ButtonInputSpinner from './components/ButtonInputSpinner'
 
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 
@@ -28,23 +26,13 @@ export default {
 
   components: {
     IconBase,
-    SpinnerButton
+    ButtonInputSpinner
   },
 
   props: {
-    ariaLabel: {
-      type: String,
-      default: null
-    },
-
     fluid: {
       type: Boolean,
       default: false
-    },
-
-    href: {
-      type: String,
-      default: null
     },
 
     tag: {
