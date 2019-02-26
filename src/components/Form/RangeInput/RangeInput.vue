@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import uuid from '@/utils/uuid'
+import uuid from '@margarita/utils/uuid'
 
 const REQUIRED_STEP_KEYS = [ 'value', 'text' ]
 

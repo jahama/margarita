@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import GridContainer from '@/components/Grid/GridContainer/GridContainer.vue'
+import GridContainer from '@margarita/components/Grid/GridContainer/GridContainer.vue'
 
 describe('GridContainer', () => {
   it('should render correct contents', () => {

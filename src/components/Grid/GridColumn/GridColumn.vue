@@ -1,7 +1,7 @@
 <style lang="scss" src="./GridColumn.scss"></style>
 
 <script>
-import { mergeDataWithProps } from '@/utils/mergeData'
+import { mergeDataWithProps } from '@margarita/utils/mergeData'
 
 const componentData = function () {
   return {

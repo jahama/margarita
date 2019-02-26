@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import uuid from '@/utils/uuid'
+import uuid from '@margarita/utils/uuid'
 
 const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
 

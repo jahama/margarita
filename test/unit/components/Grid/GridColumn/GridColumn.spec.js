@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import GridColumn from '@/components/Grid/GridColumn/GridColumn.vue'
+import GridColumn from '@margarita/components/Grid/GridColumn/GridColumn.vue'
 
 describe('GridColumn', () => {
   it('should render correct contents', () => {

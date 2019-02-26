@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import SelectInput from '@/components/Form/SelectInput/SelectInput.vue'
+import SelectInput from '@margarita/components/Form/SelectInput/SelectInput.vue'
 
 describe('SelectInput', () => {
   it('should have a select with a class', () => {

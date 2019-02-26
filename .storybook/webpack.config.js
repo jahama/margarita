@@ -39,7 +39,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
   }
 
   defaultConfig.resolve.alias['^'] = path.resolve(__dirname, '../.storybook')
-  defaultConfig.resolve.alias['@'] = path.resolve(__dirname, '../src')
+  defaultConfig.resolve.alias['@margarita'] = path.resolve(__dirname, '../src')
 
   return defaultConfig
 }

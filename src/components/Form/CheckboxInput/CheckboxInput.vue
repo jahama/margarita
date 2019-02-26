@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import uuid from '@/utils/uuid'
+import uuid from '@margarita/utils/uuid'
 
 export default {
   name: 'CheckboxInput',
