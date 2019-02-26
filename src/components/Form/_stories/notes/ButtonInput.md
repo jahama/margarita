@@ -53,6 +53,7 @@ In the case you want a **text and icon link**:
 ### Props are:
 
 - <kbd>String</kbd> **type**: Available types are showed in the component's const `AVAILABLE_TYPES`. Default value is `primary`.
+- <kbd>Boolean</kbd> **loading**: It defines if the button is loading. Defaul value is `false`.
 - <kbd>Boolean</kbd> **rounded**: It defines if it's a rounded button or not. Defaul value is `false`.
 - <kbd>Boolean</kbd> **fluid**: It defines if it's a fluid button or not. Defaul value is `false`.
 - <kbd>String</kbd> **aria-label**: It defines an aria-label when a button has only an icon inside for accessibility.

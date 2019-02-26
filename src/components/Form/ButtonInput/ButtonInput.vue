@@ -11,12 +11,14 @@
   >
     <span>
       <slot />
+      <SpinnerButton v-if="loading" />
     </span>
   </component>
 </template>
 
 <script>
 import IconBase from '../../Components/Icons/IconBase'
+import SpinnerButton from './components/SpinnerButton'
 
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 
@@ -24,7 +26,8 @@ export default {
   name: 'ButtonInput',
 
   components: {
-    IconBase
+    IconBase,
+    SpinnerButton
   },
 
   props: {
@@ -49,6 +52,11 @@ export default {
     },
 
     rounded: {
+      type: Boolean,
+      default: false
+    },
+
+    loading: {
       type: Boolean,
       default: false
     },

@@ -35,6 +35,7 @@ storiesOf('Form Components', module)
   .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
     const type = select('Types', BUTTON_TYPES, 'primary')
     const textButton = text('Text', 'Click me')
+    const loading = boolean('Loading', false)
     const icon = select('Icons', ICONS_BUTTON, 'None')
     const iconSize = number('Icon height size in px', 18)
     const fluid = boolean('Fluid', false)
@@ -61,6 +62,7 @@ storiesOf('Form Components', module)
               :tag="tag"
               :fluid="fluid"
               :disabled="disabled"
+              :loading="loading"
               :ariaLabel="ariaLabel"
             >
               <template v-if="text">
@@ -142,14 +144,15 @@ storiesOf('Form Components', module)
       data () {
         return {
           ariaLabel: ariaLabel,
-          text: textButton,
-          type: type,
-          rounded: rounded,
-          iconSize: iconSize,
-          icon: icon,
-          tag: tag,
+          disabled: disabled,
           fluid: fluid,
-          disabled: disabled
+          icon: icon,
+          iconSize: iconSize,
+          loading: loading,
+          rounded: rounded,
+          tag: tag,
+          text: textButton,
+          type: type
         }
       },
 
