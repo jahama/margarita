@@ -11,23 +11,29 @@
       v-text="userRole"
     />
     <ButtonInput
-      icon="Exit"
-      icon-alt="exit icon"
+      aria-label="exit icon"
       type="no-background"
       class="user-actions__icon"
-      :icon-size="16"
       @click="emitClickEvent"
-    />
+    >
+      <IconBase
+        icon="Exit"
+        width="16"
+        height="16"
+      />
+    </ButtonInput>
   </div>
 </template>
 
 <script>
 import ButtonInput from '../../../../Form/ButtonInput/ButtonInput'
+import IconBase from '../../../../Components/Icons/IconBase'
 
 export default {
   name: 'UserActions',
 
   components: {
+    IconBase,
     ButtonInput
   },
 
