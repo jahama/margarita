@@ -69,7 +69,8 @@ export default {
       return {
         'button-input--rounded': this.rounded,
         [`button-input--${this.type}`]: this.type,
-        'button-input--fluid': this.fluid
+        'button-input--fluid': this.fluid,
+        'button-input--loading': this.loading
       }
     }
   },

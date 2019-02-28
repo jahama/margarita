@@ -13,8 +13,17 @@
   font-size: rem(16px);
 
   &:disabled {
-    opacity: .5;
     cursor: not-allowed;
+
+    &:not(.button-input--loading) {
+      border-color: get-color("boulder");
+      color: get-color("boulder");
+
+      &:not(.button-input--secondary):not(.button-input--no-background) {
+        background: get-color("boulder");
+        color: get-color("white");
+      }
+    }
   }
 
   > span {
@@ -39,6 +48,7 @@
     @include font-weight(regular);
     justify-content: start;
     transition: color .3s;
+    border: 0;
     padding: 0;
     width: auto;
     color: get-color("dark-hot-pink");

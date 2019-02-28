@@ -1,11 +1,21 @@
 <style scoped lang="scss" src="./ButtonInputSpinner.scss"></style>
 
 <template>
-  <div class="button-input-spinner">
-    <div
-      v-for="index in 12"
-      :key="index"
-      :class="`button-input-spinner__content button-input-spinner__content--${index}`"
+  <svg
+    class="button-input-spinner"
+    width="18px"
+    height="18px"
+    viewBox="0 0 66 66"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      class="path"
+      fill="none"
+      stroke-width="6"
+      stroke-linecap="round"
+      cx="33"
+      cy="33"
+      r="30"
     />
-  </div>
+  </svg>
 </template>
