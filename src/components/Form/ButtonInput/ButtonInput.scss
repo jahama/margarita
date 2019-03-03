@@ -101,7 +101,8 @@
       color: get-color("dark-hot-pink");
 
       &:hover:enabled,
-      &:active:enabled {
+      &:active:enabled,
+      &.button-input--loading {
         border-color: lighten(get-color("dark-hot-pink"), 50%);
         background-color: lighten(get-color("dark-hot-pink"), 50%);
         color: get-color("dark-hot-pink");
