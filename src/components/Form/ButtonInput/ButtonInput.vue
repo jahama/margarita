@@ -9,7 +9,7 @@
     @click="onClick"
   >
     <span>
-      <slot />
+      <slot v-if="!loading || !rounded" />
       <ButtonInputSpinner v-if="loading" />
     </span>
   </component>
