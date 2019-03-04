@@ -4,25 +4,20 @@
   <component
     :is="tag"
     :class="getClasses"
-    :href="href"
     class="button-input"
+    :disabled="loading || disabled"
     @click="onClick"
   >
-    <template v-if="text">
-      {{ text }}
-    </template>
-    <IconBase
-      v-if="icon"
-      :width="iconSize"
-      :height="iconSize"
-      :icon="icon"
-      :title="iconAlt"
-    />
+    <span>
+      <slot v-if="!loading || !rounded" />
+      <ButtonInputSpinner v-if="loading" />
+    </span>
   </component>
 </template>
 
 <script>
 import IconBase from '../../Components/Icons/IconBase'
+import ButtonInputSpinner from './components/ButtonInputSpinner'
 
 const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 
@@ -30,13 +25,14 @@ export default {
   name: 'ButtonInput',
 
   components: {
-    IconBase
+    IconBase,
+    ButtonInputSpinner
   },
 
   props: {
-    href: {
-      type: String,
-      default: null
+    fluid: {
+      type: Boolean,
+      default: false
     },
 
     tag: {
@@ -44,26 +40,19 @@ export default {
       default: 'button'
     },
 
-    icon: {
-      type: String,
-      default: ''
-    },
-
-    text: {
-      type: String,
-      required: false,
-      default: ''
-    },
-
     rounded: {
       type: Boolean,
       default: false
     },
 
-    iconAlt: {
-      type: String,
-      required: false,
-      default: ''
+    loading: {
+      type: Boolean,
+      default: false
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false
     },
 
     type: {
@@ -72,11 +61,6 @@ export default {
       validator: function (value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       }
-    },
-
-    iconSize: {
-      type: Number,
-      default: 18
     }
   },
 
@@ -84,11 +68,11 @@ export default {
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
-        'button-input--has-text': this.text,
-        [`button-input--${this.type}`]: this.type
+        [`button-input--${this.type}`]: this.type,
+        'button-input--fluid': this.fluid,
+        'button-input--loading': this.loading
       }
     }
-
   },
 
   methods: {

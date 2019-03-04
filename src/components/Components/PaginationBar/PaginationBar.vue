@@ -7,20 +7,28 @@
       class="pagination-bar__left"
     >
       <ButtonInput
-        icon="ArrowToEnd"
-        icon-alt="Go to the start icon"
-        :icon-size="16"
+        aria-label="Go to the start icon"
         type="no-background"
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
-      />
+      >
+        <IconBase
+          icon="ArrowToEnd"
+          width="16"
+          height="16"
+        />
+      </ButtonInput>
       <ButtonInput
-        icon="Arrow"
-        icon-alt="Go back icon"
-        :icon-size="16"
+        aria-label="Go back icon"
         class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
-      />
+      >
+        <IconBase
+          icon="Arrow"
+          width="16"
+          height="16"
+        />
+      </ButtonInput>
     </div>
     <div class="pagination-bar__current">
       <slot />
@@ -30,31 +38,41 @@
       class="pagination-bar__right"
     >
       <ButtonInput
-        icon="Arrow"
-        icon-alt="Go forward icon"
-        :icon-size="16"
+        aria-label="Go forward icon"
         class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
-      />
+      >
+        <IconBase
+          icon="Arrow"
+          width="16"
+          height="16"
+        />
+      </ButtonInput>
       <ButtonInput
-        icon="ArrowToEnd"
-        icon-alt="Go to the end icon"
-        :icon-size="16"
+        aria-label="Go to the end icon"
         type="no-background"
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
-      />
+      >
+        <IconBase
+          icon="ArrowToEnd"
+          width="16"
+          height="16"
+        />
+      </ButtonInput>
     </div>
   </div>
 </template>
 
 <script>
 import ButtonInput from '../../Form/ButtonInput/ButtonInput'
+import IconBase from '../../Components/Icons/IconBase'
 
 export default {
   name: 'PaginationBar',
 
   components: {
+    IconBase,
     ButtonInput
   },
 

@@ -1,41 +1,60 @@
 @import "../../../scss/margarita";
 
 .button-input {
+  @include font-weight(semibold);
   display: flex;
-  flex-grow: 0;
-  align-items: center;
-  align-self: center;
   justify-content: center;
   transition: background-color .3s, background-position .3s, border-color .3s;
   border: rem(1px) solid transparent;
-  padding: rem(11px);
+  cursor: pointer;
+  padding: rem(9px);
   text-decoration: none;
+  line-height: 1.13;
+  font-size: rem(16px);
 
-  &--has-text {
-    @include font-weight(semibold);
-    padding: rem(9px) rem(12px);
-    width: 100%;
-    line-height: 1.13;
-    font-size: rem(16px);
+  &:disabled {
+    cursor: not-allowed;
 
-    .icon-base {
-      margin-left: rem(8px);
+    &:not(.button-input--loading) {
+      border-color: get-color("boulder");
+      color: get-color("boulder");
+
+      &:not(.button-input--secondary):not(.button-input--no-background) {
+        background: get-color("boulder");
+        color: get-color("white");
+      }
     }
   }
 
+  > span {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-gap: rem(8px);
+  }
+
+  &--fluid {
+    flex-grow: 0;
+    padding: rem(11px);
+  }
+
   &--rounded {
+    flex-grow: 0;
     border-radius: 100%;
+    padding: rem(11px);
   }
 
   &--no-background {
     @include font-weight(regular);
+    justify-content: start;
     transition: color .3s;
+    border: 0;
     padding: 0;
     width: auto;
     color: get-color("dark-hot-pink");
 
-    &:hover,
-    &:active {
+    &:hover:enabled,
+    &:active:enabled {
       color: darken(get-color("dark-hot-pink"), 10%);
     }
   }
@@ -44,8 +63,8 @@
     background-color: get-color("dark-hot-pink");
     color: get-color("white");
 
-    &:hover,
-    &:active {
+    &:hover:enabled,
+    &:active:enabled {
       background-color: darken(get-color("dark-hot-pink"), 10%);
       color: get-color("white");
     }
@@ -65,8 +84,8 @@
     background-color: transparent;
     color: get-color("dark-hot-pink");
 
-    &:hover,
-    &:active {
+    &:hover:enabled,
+    &:active:enabled {
       background-color: get-color("dark-hot-pink");
       color: get-color("white");
     }
@@ -81,10 +100,12 @@
       background-color: transparent;
       color: get-color("dark-hot-pink");
 
-      &:hover,
-      &:active {
+      &:hover:enabled,
+      &:active:enabled,
+      &.button-input--loading {
         border-color: lighten(get-color("dark-hot-pink"), 50%);
         background-color: lighten(get-color("dark-hot-pink"), 50%);
+        color: get-color("dark-hot-pink");
       }
     }
   }
@@ -97,8 +118,8 @@
     background-size: 200% auto;
     color: get-color("white");
 
-    &:hover,
-    &:active {
+    &:hover:enabled,
+    &:active:enabled {
       background-position: right center;
     }
 

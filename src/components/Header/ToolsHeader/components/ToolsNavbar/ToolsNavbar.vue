@@ -20,24 +20,30 @@
         v-text="loggedUser"
       />
       <ButtonInput
-        icon="Exit"
-        icon-alt="exit icon"
+        aria-label="exit icon"
         type="no-background"
         class="tools-navbar__mobile-icon"
-        :icon-size="16"
         @click="emitClickEvent"
-      />
+      >
+        <IconBase
+          icon="Exit"
+          width="16"
+          height="16"
+        />
+      </ButtonInput>
     </div>
   </ul>
 </template>
 
 <script>
 import ButtonInput from '../../../../Form/ButtonInput/ButtonInput'
+import IconBase from '../../../../Components/Icons/IconBase'
 
 export default {
   name: 'ToolsNavbar',
 
   components: {
+    IconBase,
     ButtonInput
   },
 

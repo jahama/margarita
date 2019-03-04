@@ -7,6 +7,7 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import GridRow from '../../Grid/GridRow/GridRow'
 import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
+import IconBase from '../../Components/Icons/IconBase'
 
 const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
@@ -32,15 +33,19 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
-    const iconSize = number('Icon height size in px', 18)
-    const rounded = boolean('Rounded', false)
     const type = select('Types', BUTTON_TYPES, 'primary')
-    const icon = select('Icons', ICONS_BUTTON, 'None')
-    const tag = select('HTML tag', HTML_TAGS, 'button')
     const textButton = text('Text', 'Click me')
+    const loading = boolean('Loading', false)
+    const icon = select('Icons', ICONS_BUTTON, 'None')
+    const iconSize = number('Icon height size in px', 18)
+    const fluid = boolean('Fluid', false)
+    const rounded = boolean('Rounded', false)
+    const ariaLabel = text('Aria Label', '')
+    const disabled = boolean('Disabled', false)
+    const tag = select('HTML tag', HTML_TAGS, 'button')
 
     return ({
-      components: { ButtonInput, GridColumn, GridRow },
+      components: { ButtonInput, GridColumn, GridRow, IconBase },
 
       template: `
       <div>
@@ -53,55 +58,79 @@ storiesOf('Form Components', module)
               @click="action"
               :text="text"
               :rounded="rounded"
-              :icon="getIcon"
-              :iconSize="iconSize"
               :type="type"
               :tag="tag"
-            />
-        </GridColumn>
+              :fluid="fluid"
+              :disabled="disabled"
+              :loading="loading"
+              :ariaLabel="ariaLabel"
+            >
+              <template v-if="text">
+                {{ text }}
+              </template>
+              <IconBase
+                v-if="getIcon"
+                :width="iconSize"
+                :height="iconSize"
+                :icon="icon"
+              />
+            </ButtonInput>
+          </GridColumn>
         </GridRow>
 
         <h2>Examples:</h2>
         <GridRow>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
             <ButtonInput
-              text="Esto es un link"
-              tag="a"
               type="gradient"
-              href="https://www.holaluz.com/"
-            />
+            >
+            This is a button with text only
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--1"
+            align-start
           >
             <ButtonInput
-              icon="DownloadContract"
-              iconAlt="download contract icon"
+              aria-label="Download PDF"
               rounded
-              :iconSize="50"
-              type="secondary"
-            />
+              type="primary"
+            >
+              <IconBase
+                icon="DownloadContract"
+                width="35"
+                height="35"
+              />
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
-            <ButtonInput
-              text="Esto es un texto con icono"
-              icon="DownloadContract"
-              iconAlt="download contract icon"
-            />
+            <ButtonInput>
+              This is a button with text and icon
+              <IconBase
+                icon="Arrow"
+              />
+            </ButtonInput>
           </GridColumn>
           <GridColumn
             class="grid-col--3"
+            align-start
           >
             <ButtonInput
-              text="Esto es un link"
               type="no-background"
               href="https://www.holaluz.com/"
               tag="a"
-            />
+            >
+              This is a link with text and icon
+              <IconBase
+                icon="Exit"
+              />
+            </ButtonInput>
           </GridColumn>
         </GridRow>
       </div>`,
@@ -114,12 +143,16 @@ storiesOf('Form Components', module)
 
       data () {
         return {
-          text: textButton,
-          type: type,
-          rounded: rounded,
-          iconSize: iconSize,
+          ariaLabel: ariaLabel,
+          disabled: disabled,
+          fluid: fluid,
           icon: icon,
-          tag: tag
+          iconSize: iconSize,
+          loading: loading,
+          rounded: rounded,
+          tag: tag,
+          text: textButton,
+          type: type
         }
       },
 

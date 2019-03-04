@@ -7,6 +7,10 @@
     flex-direction: column;
   }
 
+  &--align-start {
+    align-items: start;
+  }
+
   & > * {
     flex: auto;
   }
