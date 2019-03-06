@@ -8,7 +8,7 @@
     >
       <ButtonInput
         aria-label="Go to the start icon"
-        type="no-background"
+        category="no-background"
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       >
@@ -50,7 +50,7 @@
       </ButtonInput>
       <ButtonInput
         aria-label="Go to the end icon"
-        type="no-background"
+        category="no-background"
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       >

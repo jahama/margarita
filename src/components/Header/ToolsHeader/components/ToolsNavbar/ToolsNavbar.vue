@@ -21,7 +21,7 @@
       />
       <ButtonInput
         aria-label="exit icon"
-        type="no-background"
+        category="no-background"
         class="tools-navbar__mobile-icon"
         @click="emitClickEvent"
       >

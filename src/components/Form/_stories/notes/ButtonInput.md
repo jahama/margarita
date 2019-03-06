@@ -5,7 +5,7 @@ You can use **Button Input** component as following minimal configuration:
 In the case you want a **text only button**:
 ```handlebars
 <ButtonInput
-  type="gradient"
+  category="gradient"
 >
 This is a button with text only
 </ButtonInput>
@@ -16,7 +16,7 @@ In the case you want an **icon only button**:
 <ButtonInput
   aria-label="Download PDF"
   rounded
-  type="secondary"
+  category="secondary"
 >
   <IconBase
     icon="DownloadContract"
@@ -39,7 +39,7 @@ In the case you want a **text with icon button**:
 In the case you want a **text and icon link**:
 ```handlebars
 <ButtonInput
-  type="no-background"
+  category="no-background"
   href="https://www.holaluz.com/"
   tag="a"
 >
@@ -52,7 +52,7 @@ In the case you want a **text and icon link**:
 
 ### Props are:
 
-- <kbd>String</kbd> **type**: Available types are showed in the component's const `AVAILABLE_TYPES`. Default value is `primary`.
+- <kbd>String</kbd> **category**: Available categories are showed in the component's const `AVAILABLE_CATEGORIES`. Default value is `primary`.
 - <kbd>Boolean</kbd> **loading**: It defines if the button is loading. Defaul value is `false`.
 - <kbd>Boolean</kbd> **rounded**: It defines if it's a rounded button or not. Defaul value is `false`.
 - <kbd>Boolean</kbd> **fluid**: It defines if it's a fluid button or not. Defaul value is `false`.

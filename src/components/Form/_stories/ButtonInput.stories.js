@@ -9,7 +9,7 @@ import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 import IconBase from '../../Components/Icons/IconBase'
 
-const BUTTON_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const BUTTON_CATEGORIES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
   'AddContract',
   'Arrow',
@@ -33,7 +33,7 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
-    const type = select('Types', BUTTON_TYPES, 'primary')
+    const category = select('Categories', BUTTON_CATEGORIES, 'primary')
     const textButton = text('Text', 'Click me')
     const loading = boolean('Loading', false)
     const icon = select('Icons', ICONS_BUTTON, 'None')
@@ -58,7 +58,7 @@ storiesOf('Form Components', module)
               @click="action"
               :text="text"
               :rounded="rounded"
-              :type="type"
+              :category="category"
               :tag="tag"
               :fluid="fluid"
               :disabled="disabled"
@@ -85,7 +85,7 @@ storiesOf('Form Components', module)
             align-start
           >
             <ButtonInput
-              type="gradient"
+              category="gradient"
             >
             This is a button with text only
             </ButtonInput>
@@ -97,7 +97,7 @@ storiesOf('Form Components', module)
             <ButtonInput
               aria-label="Download PDF"
               rounded
-              type="primary"
+              category="primary"
             >
               <IconBase
                 icon="DownloadContract"
@@ -122,7 +122,7 @@ storiesOf('Form Components', module)
             align-start
           >
             <ButtonInput
-              type="no-background"
+              category="no-background"
               href="https://www.holaluz.com/"
               tag="a"
             >
@@ -152,7 +152,7 @@ storiesOf('Form Components', module)
           rounded: rounded,
           tag: tag,
           text: textButton,
-          type: type
+          category: category
         }
       },
 

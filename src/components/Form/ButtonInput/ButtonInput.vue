@@ -19,7 +19,7 @@
 import IconBase from '../../Components/Icons/IconBase'
 import ButtonInputSpinner from './components/ButtonInputSpinner'
 
-const AVAILABLE_TYPES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const AVAILABLE_CATEGORIES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
 
 export default {
   name: 'ButtonInput',
@@ -55,11 +55,11 @@ export default {
       default: false
     },
 
-    type: {
+    category: {
       type: String,
       default: 'primary',
       validator: function (value) {
-        return AVAILABLE_TYPES.indexOf(value) !== -1
+        return AVAILABLE_CATEGORIES.indexOf(value) !== -1
       }
     }
   },
@@ -68,7 +68,7 @@ export default {
     getClasses () {
       return {
         'button-input--rounded': this.rounded,
-        [`button-input--${this.type}`]: this.type,
+        [`button-input--${this.category}`]: this.category,
         'button-input--fluid': this.fluid,
         'button-input--loading': this.loading
       }
