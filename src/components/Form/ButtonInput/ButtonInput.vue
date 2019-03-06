@@ -59,7 +59,7 @@ export default {
       type: String,
       default: 'primary',
       validator: function (value) {
-        return AVAILABLE_CATEGORIES.indexOf(value) !== -1
+        return AVAILABLE_CATEGORIES.includes(value)
       }
     }
   },
