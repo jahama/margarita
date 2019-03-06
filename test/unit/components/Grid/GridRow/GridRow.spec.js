@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import GridRow from '@/components/Grid/GridRow/GridRow.vue'
+import GridRow from '@margarita/components/Grid/GridRow/GridRow.vue'
 
 describe('GridRow', () => {
   it('should render correct contents', () => {

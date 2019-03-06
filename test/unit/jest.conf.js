@@ -9,7 +9,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(svg|jpg|png)$': '<rootDir>/test/unit/fake-module.js',
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@margarita/(.*)$': '<rootDir>/src/$1'
   },
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import uuid from '@/utils/uuid'
+import uuid from '@margarita/utils/uuid'
 
 const INPUT_CLASSES = {
   hasError: 'text-input__field--error'
