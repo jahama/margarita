@@ -1,7 +1,7 @@
 <style scoped lang="scss" src="./ButtonInput.scss"></style>
 
 <template>
-  <component
+  <Component
     :is="tag"
     :class="getClasses"
     class="button-input"
@@ -12,11 +12,10 @@
       <slot v-if="!loading || !rounded" />
       <ButtonInputSpinner v-if="loading" />
     </span>
-  </component>
+  </Component>
 </template>
 
 <script>
-import IconBase from '../../Components/Icons/IconBase'
 import ButtonInputSpinner from './components/ButtonInputSpinner'
 
 const AVAILABLE_CATEGORIES = [ 'primary', 'secondary', 'white', 'gradient', 'no-background' ]
@@ -25,7 +24,6 @@ export default {
   name: 'ButtonInput',
 
   components: {
-    IconBase,
     ButtonInputSpinner,
   },
 
