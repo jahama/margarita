@@ -10,7 +10,6 @@ describe('ButtonInput', () => {
     })
 
     expect(wrapper.is('button')).toBe(true)
-    expect(wrapper.is('a')).toBe(false)
   })
 
   it('should be a link element', () => {
@@ -20,7 +19,6 @@ describe('ButtonInput', () => {
       }
     })
 
-    expect(wrapper.is('button')).toBe(false)
     expect(wrapper.is('a')).toBe(true)
   })
 
