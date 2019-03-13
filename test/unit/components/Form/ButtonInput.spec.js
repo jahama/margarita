@@ -22,6 +22,15 @@ describe('ButtonInput', () => {
     expect(wrapper.is('a')).toBe(true)
   })
 
+  it('should emit click event', () => {
+    const wrapper = shallowMount(ButtonInput, {
+      propsData: {}
+    })
+
+    expect(wrapper.find('button').trigger('click'))
+    expect(wrapper.emitted().click).toBeTruthy()
+  })
+
   it('should have fluid CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
