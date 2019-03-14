@@ -72,7 +72,6 @@ export default {
     },
 
     emitClickEvent () {
-      this.$emit('click')
       this.$emit('logout')
     }
   }

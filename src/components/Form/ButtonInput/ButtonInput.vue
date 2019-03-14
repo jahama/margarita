@@ -6,6 +6,7 @@
     :class="getClasses"
     class="button-input"
     :disabled="loading || disabled"
+    @click="handleClick"
   >
     <span>
       <slot v-if="!loading || !rounded" />
@@ -71,6 +72,12 @@ export default {
         'button-input--fluid': this.fluid,
         'button-input--loading': this.loading
       }
+    }
+  },
+
+  methods: {
+    handleClick (event) {
+      this.$emit('click', event)
     }
   }
 }
