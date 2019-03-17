@@ -26,13 +26,13 @@ export default {
   },
 
   render (h, { props, data, children }) {
-  const componentData = {
-    staticClass: 'grid-col',
-    class: {
-      'grid-col--direction-column': props.directionColumn,
-      'grid-col--align-start': props.alignStart
+    const componentData = {
+      staticClass: 'grid-col',
+      class: {
+        'grid-col--direction-column': props.directionColumn,
+        'grid-col--align-start': props.alignStart
+      }
     }
-  }
 
     return h(props.tag, mergeData(data, componentData), children)
   }
