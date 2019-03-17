@@ -1,19 +1,7 @@
 <style lang="scss" src="./GridRow.scss"></style>
 
 <script>
-import { mergeDataWithProps } from '@margarita/utils/mergeData'
-
-const componentData = function () {
-  return {
-    staticClass: 'grid-row',
-    class: {
-      'grid-row--no-gutters': this.noGutters,
-      'grid-row--no-margin-bottom': this.noMarginBottom,
-      'grid-row--direction-column': this.directionColumn,
-      'grid-row--has-margin-top': this.hasMarginTop
-    }
-  }
-}
+import { mergeData } from 'vue-functional-data-merge'
 
 export default {
   name: 'GridRow',
@@ -48,8 +36,17 @@ export default {
   },
 
   render (h, { props, data, children }) {
-    data = mergeDataWithProps(data, componentData, props)
-    return h(props.tag, data, children)
+    const componentData = {
+      staticClass: 'grid-row',
+      class: {
+        'grid-row--no-gutters': props.noGutters,
+        'grid-row--no-margin-bottom': props.noMarginBottom,
+        'grid-row--direction-column': props.directionColumn,
+        'grid-row--has-margin-top': props.hasMarginTop
+      }
+    }
+
+    return h(props.tag, mergeData(data, componentData), children)
   }
 }
 </script>

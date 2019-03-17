@@ -1,17 +1,7 @@
 <style lang="scss" src="./GridColumn.scss"></style>
 
 <script>
-import { mergeDataWithProps } from '@margarita/utils/mergeData'
-
-const componentData = function () {
-  return {
-    staticClass: 'grid-col',
-    class: {
-      'grid-col--direction-column': this.directionColumn,
-      'grid-col--align-start': this.alignStart
-    }
-  }
-}
+import { mergeData } from 'vue-functional-data-merge'
 
 export default {
   name: 'GridColumn',
@@ -36,8 +26,15 @@ export default {
   },
 
   render (h, { props, data, children }) {
-    data = mergeDataWithProps(data, componentData, props)
-    return h(props.tag, data, children)
+  const componentData = {
+    staticClass: 'grid-col',
+    class: {
+      'grid-col--direction-column': props.directionColumn,
+      'grid-col--align-start': props.alignStart
+    }
+  }
+
+    return h(props.tag, mergeData(data, componentData), children)
   }
 }
 </script>
