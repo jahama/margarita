@@ -1,5 +1,3 @@
-// TODO: Fix me!!
-
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'

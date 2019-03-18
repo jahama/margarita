@@ -1,6 +1,6 @@
 # Layout Cards
 
-Margarita has two different cards that are used as <kbd>content containers</kbd>. They can be:
+Margarita has two different cards that are used as <code>content containers</code>. They can be:
 
 ## White cards
 

@@ -2,15 +2,15 @@
 
 Margarita has 9 different types of Status Pill.
 
-  <kbd>active</kbd>
-  <kbd>awaiting-validation</kbd>
-  <kbd>cancellation-in-process</kbd>
-  <kbd>cancelled</kbd>
-  <kbd>disconnection-in-process</kbd>
-  <kbd>error</kbd>
-  <kbd>in-process</kbd>
-  <kbd>non-payment-disconnection</kbd>
-  <kbd>not-started</kbd>
+  <code>active</code>
+  <code>awaiting-validation</code>
+  <code>cancellation-in-process</code>
+  <code>cancelled</code>
+  <code>disconnection-in-process</code>
+  <code>error</code>
+  <code>in-process</code>
+  <code>non-payment-disconnection</code>
+  <code>not-started</code>
 
 ### With the corresponding text:
 
