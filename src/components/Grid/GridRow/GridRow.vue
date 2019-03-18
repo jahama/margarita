@@ -35,7 +35,7 @@ export default {
     }
   },
 
-  render (h, { props, data, children }) {
+  render (createElement, { props, data, children }) {
     const componentData = {
       staticClass: 'grid-row',
       class: {
@@ -46,7 +46,7 @@ export default {
       }
     }
 
-    return h(props.tag, mergeData(data, componentData), children)
+    return createElement(props.tag, mergeData(data, componentData), children)
   }
 }
 </script>
