@@ -75,19 +75,16 @@ export default {
 
   },
 
-  data () {
-    return {
-      selectedValue: this.steps.findIndex(step => step.value === this.value)
-    }
-  },
-
-  watch: {
-    selectedValue (newValue) {
-      this.$emit('input', this.steps[newValue].value)
-    }
-  },
-
   computed: {
+    selectedValue: {
+      get () {
+        return this.steps.findIndex(step => step.value === this.value)
+      },
+      set (newValue) {
+        this.$emit('input', this.steps[newValue].value)
+      }
+    },
+
     stepsAmount () {
       return this.steps.length
     },

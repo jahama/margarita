@@ -31,9 +31,9 @@ storiesOf('Form Components', module)
           <div>
             <GridColumn>
               <RangeInput
-                v-model="selectedValue"
                 :steps="steps"
                 :label="label"
+                v-model="value"
               />
             </GridColumn>
           </div>
@@ -51,8 +51,17 @@ storiesOf('Form Components', module)
         }
       },
 
+      data () {
+        return {
+          value: this.selectedValue
+        }
+      },
+
       watch: {
-        selectedValue: action('value')
+        selectedValue (newValue) {
+          this.value = newValue
+        },
+        value: action('value')
       }
     })
   }, { notes })
