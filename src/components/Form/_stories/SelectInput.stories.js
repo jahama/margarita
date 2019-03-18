@@ -47,7 +47,7 @@ storiesOf('Form Components', module)
             :options="options"
             :weight="weight"
             :fieldClass="fieldClass"
-            v-model="selectedValue"
+            v-model="value"
           />
         </GridColumn>`,
 
@@ -87,6 +87,12 @@ storiesOf('Form Components', module)
         }
       },
 
+      data () {
+        return {
+          value: this.selectedValue
+        }
+      },
+
       computed: {
         getClass () {
           return {
@@ -97,7 +103,10 @@ storiesOf('Form Components', module)
       },
 
       watch: {
-        selectedValue: action('value')
+        selectedValue (newValue) {
+          this.value = newValue
+        },
+        value: action('value')
       }
     }
   })

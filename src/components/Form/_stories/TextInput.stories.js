@@ -36,9 +36,8 @@ storiesOf('Form Components', module)
             :hasError="hasError"
             :label="label"
             :placeholder="placeholder"
-            @blur="onBlur"
-            @input="onInput"
             v-model="value"
+            @blur="onBlur"
           />
         </GridColumn>`,
 
@@ -74,18 +73,25 @@ storiesOf('Form Components', module)
         size: {
           default: size
         },
-        value: {
+        textValue: {
           default: value
         }
       },
 
-      methods: {
-        onInput: action(`${TRIGGERED_MSG} 'input'`),
+      data () {
+        return {
+          value: this.textValue
+        }
+      },
 
+      methods: {
         onBlur: action(`${TRIGGERED_MSG} blur`)
       },
 
       watch: {
+        textValue (newValue) {
+          this.value = newValue
+        },
         value: action(`${CHANGED_MSG} value`)
       }
     })
