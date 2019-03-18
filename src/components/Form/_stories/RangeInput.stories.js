@@ -1,9 +1,10 @@
+// TODO: Fix me!!
+
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, object, text } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import RangeInputNotes from './notes/RangeInput.md'
+import notes from './notes/RangeInput.md'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import RangeInput from '../RangeInput/RangeInput'
 
@@ -17,7 +18,7 @@ const defaultSteps = [
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Range Input', withMarkdownNotes(RangeInputNotes)(() => {
+  .add('Range Input', () => {
     const selectedValue = select('Value', defaultSteps.map(s => s.value), 'medium')
     const steps = object('Steps', defaultSteps)
     const label = text('Label', 'Label')
@@ -38,11 +39,15 @@ storiesOf('Form Components', module)
           </div>
         </div>`,
 
-      data () {
-        return {
-          steps,
-          label,
-          selectedValue
+      props: {
+        steps: {
+          default: steps
+        },
+        label: {
+          default: label
+        },
+        selectedValue: {
+          default: selectedValue
         }
       },
 
@@ -50,4 +55,4 @@ storiesOf('Form Components', module)
         selectedValue: action('value')
       }
     })
-  }))
+  }, { notes })

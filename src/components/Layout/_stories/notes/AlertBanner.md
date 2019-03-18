@@ -6,9 +6,9 @@ Margarita has 4 different types of alert banners and come in three different siz
 
 There are three types of alert banner:
 
-<kbd>info</kbd>,
-<kbd>error</kbd>,
-<kbd>success</kbd>,
+<kbd>info</kbd>
+<kbd>error</kbd>
+<kbd>success</kbd>
 <kbd>warning</kbd>
 
 ## Alert Banner sizes

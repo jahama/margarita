@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import CheckboxInput from '../CheckboxInput/CheckboxInput'
@@ -10,6 +10,7 @@ storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
   .add('CheckBox Input', () => {
+    const checked = boolean('Checked', false)
     const label = text('Label', 'Click to check the checkbox')
     const size = select('Size', GRID_ARRAY, 3)
     const offset = select('Offset', [ 0, ...GRID_ARRAY ], 4)
@@ -29,21 +30,28 @@ storiesOf('Form Components', module)
 
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
-          const offset = Number(this.offset)
-
-          if (offset) classes.push(`grid-col--offset-${offset}`)
-          return classes
+          return {
+            [ `grid-col--${this.size}` ]: this.size,
+            [ `grid-col--offset-${this.offset}` ]: this.offset
+          }
         }
       },
 
-      data () {
-        return {
-          checked: true,
-          disabled: disabled,
-          label: label,
-          offset: offset,
-          size: size
+      props: {
+        checked: {
+          default: checked
+        },
+        disabled: {
+          default: disabled
+        },
+        label: {
+          default: label
+        },
+        offset: {
+          default: offset
+        },
+        size: {
+          default: size
         }
       }
     }

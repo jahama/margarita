@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
-
-import DataGridNotes from './notes/DataGrid.md'
+import { withKnobs, boolean } from '@storybook/addon-knobs'
+import notes from './notes/DataGrid.md'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import DataGrid from '../DataGrid/DataGrid'
 import StatusPill from '../StatusPill/StatusPill'
@@ -81,7 +79,7 @@ const rowsSample = [
 storiesOf('Components', module)
   .addDecorator(withKnobs)
 
-  .add('DataGrid', withMarkdownNotes(DataGridNotes)(() => {
+  .add('DataGrid', () => {
     const isLoading = boolean('Loading', false)
 
     return ({
@@ -100,11 +98,15 @@ storiesOf('Components', module)
           />
         </GridColumn>`,
 
-      data () {
-        return {
-          columns,
-          rowsSample,
-          isLoading
+      props: {
+        columns: {
+          default: columns
+        },
+        rowsSample: {
+          default: rowsSample
+        },
+        isLoading: {
+          default: isLoading
         }
       },
 
@@ -128,4 +130,4 @@ storiesOf('Components', module)
         }
       }
     })
-  }))
+  }, { notes })

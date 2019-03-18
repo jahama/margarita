@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
@@ -51,35 +51,53 @@ storiesOf('Form Components', module)
           />
         </GridColumn>`,
 
+      props: {
+        ariaLabel: {
+          default: ariaLabel
+        },
+        disabled: {
+          default: disabled
+        },
+        errorMessage: {
+          default: errorMessage
+        },
+        hasError: {
+          default: hasError
+        },
+        label: {
+          default: label
+        },
+        options: {
+          default: options
+        },
+        offset: {
+          default: offset
+        },
+        size: {
+          default: size
+        },
+        fieldClass: {
+          default: fieldClass
+        },
+        weight: {
+          default: weight
+        },
+        selectedValue: {
+          default: selectedValue
+        }
+      },
+
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
-          const offset = Number(this.offset)
-
-          if (offset) classes.push(`grid-col--offset-${offset}`)
-          return classes
+          return {
+            [ `grid-col--${this.size}` ]: this.size,
+            [ `grid-col--offset-${this.offset}` ]: this.offset
+          }
         }
       },
 
       watch: {
         selectedValue: action('value')
-      },
-
-      data () {
-        return {
-          ariaLabel,
-          disabled,
-          errorMessage,
-          hasError,
-          label,
-          options,
-          offset,
-          size,
-          fieldClass,
-          weight,
-          selectedValue
-        }
       }
-
     }
   })

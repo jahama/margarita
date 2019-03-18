@@ -1,10 +1,9 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, text } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import TheHeaderNotes from './notes/TheHeader.md'
+import notes from './notes/TheHeader.md'
 import links from '../../../assets/json/links.json'
 
 import ToolsHeader from '../ToolsHeader/ToolsHeader'
@@ -12,7 +11,7 @@ import ToolsHeader from '../ToolsHeader/ToolsHeader'
 storiesOf('Header', module)
   .addDecorator(withKnobs)
 
-  .add('Tools Header', withMarkdownNotes(TheHeaderNotes)(() => {
+  .add('Tools Header', () => {
     const loggedUser = text('Logged User', 'Anna Collins')
     const pageTitle = text('Page Title', 'New Contract')
     const userRole = text('User Role', 'Administrator')
@@ -21,13 +20,21 @@ storiesOf('Header', module)
     return ({
       components: { ToolsHeader },
 
-      data () {
-        return {
-          active,
-          links,
-          loggedUser,
-          pageTitle,
-          userRole
+      props: {
+        active: {
+          default: active
+        },
+        links: {
+          default: links
+        },
+        loggedUser: {
+          default: loggedUser
+        },
+        pageTitle: {
+          default: pageTitle
+        },
+        userRole: {
+          default: userRole
         }
       },
 
@@ -49,4 +56,4 @@ storiesOf('Header', module)
         </div>
       `
     })
-  }))
+  }, { notes })

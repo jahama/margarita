@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 
 import TextInput from '../TextInput/TextInput'
-import TextInputNotes from './notes/TextInput.md'
+import notes from './notes/TextInput.md'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 
@@ -15,7 +14,7 @@ const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
-  .add('Text Input', withMarkdownNotes(TextInputNotes)(() => {
+  .add('Text Input', () => {
     const disabled = boolean('Disable', false)
     const errorMessage = text('Error msg', 'You have an error')
     const hasError = boolean('Has error', false)
@@ -53,16 +52,30 @@ storiesOf('Form Components', module)
         }
       },
 
-      data () {
-        return {
-          disabled,
-          errorMessage,
-          hasError,
-          label,
-          placeholder,
-          offset,
-          size,
-          value
+      props: {
+        disabled: {
+          default: disabled
+        },
+        errorMessage: {
+          default: errorMessage
+        },
+        hasError: {
+          default: hasError
+        },
+        label: {
+          default: label
+        },
+        placeholder: {
+          default: placeholder
+        },
+        offset: {
+          default: offset
+        },
+        size: {
+          default: size
+        },
+        value: {
+          default: value
         }
       },
 
@@ -76,4 +89,4 @@ storiesOf('Form Components', module)
         value: action(`${CHANGED_MSG} value`)
       }
     })
-  }))
+  }, { notes })
