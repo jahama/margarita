@@ -39,7 +39,7 @@ storiesOf('Form Components', module)
     const iconSize = number('Icon height size in px', 18)
     const fluid = boolean('Fluid', false)
     const rounded = boolean('Rounded', false)
-    const ariaLabel = text('Aria Label', 'holi')
+    const ariaLabel = text('Aria Label', '')
     const disabled = boolean('Disabled', false)
     const tag = select('HTML tag', HTML_TAGS, 'button')
 
