@@ -15,6 +15,25 @@ import StatusPill from './components/Components/StatusPill/StatusPill.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
 
+export {
+  AlertBanner,
+  ButtonInput,
+  CheckboxInput,
+  DataGrid,
+  LayoutCard,
+  GridColumn,
+  GridContainer,
+  GridRow,
+  IconBase,
+  PaginationBar,
+  RadioButton,
+  RangeInput,
+  SelectInput,
+  StatusPill,
+  TextInput,
+  ToolsHeader
+}
+
 function install (Vue) {
   Vue.component('AlertBanner', AlertBanner)
   Vue.component('ButtonInput', ButtonInput)
