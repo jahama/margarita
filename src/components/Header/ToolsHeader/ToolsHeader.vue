@@ -34,7 +34,7 @@
         </div>
       </header>
     </div>
-    <transition name="horizontal-slide-animation">
+    <transition name="horizontal-slide-animation-left">
       <ToolsNavbar
         v-if="burgerState"
         :logged-user="loggedUser"
