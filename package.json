@@ -17,7 +17,8 @@
     "start": "npm run storybook:serve",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit --watchAll"
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
