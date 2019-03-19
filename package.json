@@ -12,13 +12,12 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "lint": "vue-cli-service lint",
     "start": "npm run storybook:serve",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "test:unit": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit"
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
@@ -62,7 +61,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm run test:unit"
+      "pre-push": "npm run lint && npm test"
     }
   }
 }
