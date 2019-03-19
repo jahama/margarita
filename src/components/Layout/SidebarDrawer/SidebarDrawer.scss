@@ -1,0 +1,43 @@
+@import "../../../scss/margarita";
+
+.sidebar-drawer {
+  display: flex;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+  z-index: 9999;
+  margin: 0;
+  background-color: get-color("white");
+  padding: rem(16px) rem(16px);
+  min-width: rem(216px);
+  overflow-x: hidden;
+
+  &-attached {
+    @extend .sidebar-drawer;
+    position: absolute;
+  }
+
+  &-fixed {
+    @extend .sidebar-drawer;
+    position: fixed;
+  }
+
+  &-left {
+    @extend .sidebar-drawer;
+    left: 0;
+  }
+
+  &-right {
+    @extend .sidebar-drawer;
+    right: 0;
+  }
+
+  &-shadow {
+    @extend .sidebar-drawer;
+    box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow-light");
+  }
+
+}
+
+
+
