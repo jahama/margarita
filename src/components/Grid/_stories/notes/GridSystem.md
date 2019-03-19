@@ -6,7 +6,7 @@ Margarita has a 12 point grid system. Built using <code>flex-box</code>, the gri
 
 The `grid-container` can be used for a center focused page, or given the `fluid` prop to extend its full width. `grid-row` is used for separating sections and contains the `grid-col`. The structure of your layout will be as follows, **grid-container >> grid-row >> grid-col**. Each part of the grid chain is a `flex-box` element. The final, `grid-col`, automatically sets its children to have <code>flex: 1 1 auto</code>.
 
-```jsx
+```livescript
 <GridContainer class="grid-example">
   <GridRow>
     <GridColumn v-for="col in 1" :key="col" class="grid-col--12">

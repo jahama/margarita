@@ -2,7 +2,7 @@
 
 Grids can be nested, similar to other frameworks, in order to achieve very custom layouts.
 
-```jsx
+```livescript
 <GridContainer class="grid-example">
   <GridRow>
     <GridColumn class="grid-col--12 grid-col--sm-6 grid-col--md-4">

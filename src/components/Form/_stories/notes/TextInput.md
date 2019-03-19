@@ -2,7 +2,7 @@
 
 You can use **TextInput** component as following minimal configuration:
 
-```jsx
+```livescript
 <GridColumn class="grid-col--4">
   <TextInput
     label="Field Name"

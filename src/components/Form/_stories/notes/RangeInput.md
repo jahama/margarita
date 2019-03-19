@@ -2,7 +2,7 @@
 
 You can use **RangeInput** component as following minimal configuration:
 
-```jsx
+```livescript
 <GridColumn class="grid-col--4">
   <RangeInput
     v-model="someValue"

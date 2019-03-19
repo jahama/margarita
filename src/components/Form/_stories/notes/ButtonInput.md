@@ -3,7 +3,7 @@
 You can use **Button Input** component as following minimal configuration:
 
 In the case you want a **text only button**:
-```jsx
+```livescript
 <ButtonInput
   category="gradient"
 >
@@ -12,7 +12,7 @@ This is a button with text only
 ```
 
 In the case you want an **icon only button**:
-```jsx
+```livescript
 <ButtonInput
   aria-label="Download PDF"
   rounded
@@ -27,7 +27,7 @@ In the case you want an **icon only button**:
 ```
 
 In the case you want a **text with icon button**:
-```jsx
+```livescript
 <ButtonInput>
   This is a button with text and icon
   <IconBase
@@ -37,7 +37,7 @@ In the case you want a **text with icon button**:
 ```
 
 In the case you want a **text and icon link**:
-```jsx
+```livescript
 <ButtonInput
   category="no-background"
   href="https://www.holaluz.com/"

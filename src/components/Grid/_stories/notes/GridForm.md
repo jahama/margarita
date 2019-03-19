@@ -10,7 +10,7 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
 
 ## Final Example
 
-```jsx
+```livescript
 <GridContainer form>
   <LayoutCard>
     <GridRow>
