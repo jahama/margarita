@@ -3,12 +3,14 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
 
 import LayoutCardNotes from './notes/LayoutCard.md'
 import AlertBannerNotes from './notes/AlertBanner.md'
+import SidebarDrawerNotes from './notes/SidebarDrawer.md'
 
 import GridContainer from '../../Grid/GridContainer/GridContainer'
 import GridRow from '../../Grid/GridRow/GridRow'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import LayoutCard from '../LayoutCard/LayoutCard'
 import AlertBanner from '../AlertBanner/AlertBanner'
+import SidebarDrawer from '../SidebarDrawer/SidebarDrawer'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
@@ -96,3 +98,42 @@ storiesOf('Layout', module)
       },
     })
   }, { notes: AlertBannerNotes })
+  .add('SidebarDrawer', () => {
+    const position = select('Position', [ 'left', 'right' ], 'left')
+    const type = select('Type', [ 'attached', 'fixed' ], 'attached')
+    const show = boolean('Show', false)
+    const shadow = boolean('Shadow', true)
+
+    return ({
+      components: { SidebarDrawer, LayoutCard, GridContainer, GridRow, GridColumn },
+      template: `
+        <GridRow>
+          <GridColumn class="grid-col--12">
+            <LayoutCard
+              color="gray"
+              has-margin-top
+            >
+            I'm a layout card
+              <SidebarDrawer
+              :position="position"
+              :show="show"
+              :type="type"
+              :shadow="shadow"
+              >
+                <span>I am a Navigation Drawer</span>
+            </SidebarDrawer>
+            </LayoutCard>
+          </GridColumn>
+        </GridRow>
+    `,
+
+      data () {
+        return {
+          position: position,
+          show: show,
+          type: type,
+          shadow: shadow,
+        }
+      },
+    })
+  }, { notes: SidebarDrawer })
