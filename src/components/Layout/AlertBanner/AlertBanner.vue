@@ -34,18 +34,18 @@ export default {
       type: String,
       validator: function (value) {
         return AVAILABLE_SIZES.indexOf(value) !== -1
-      }
+      },
     },
 
     text: {
       type: String,
-      required: true
+      required: true,
     },
 
     title: {
       default: '',
       type: String,
-      required: false
+      required: false,
     },
 
     type: {
@@ -53,8 +53,8 @@ export default {
       type: String,
       validator: function (value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -72,13 +72,13 @@ export default {
 
     showAlertIcon () {
       return this.type === 'error' && this.size === 'medium'
-    }
+    },
   },
 
   methods: {
     alertWithTitle () {
       return this.size === 'large' && this.title !== ''
-    }
-  }
+    },
+  },
 }
 </script>

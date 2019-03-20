@@ -40,27 +40,27 @@ storiesOf('Form Components', module)
         getClass () {
           return {
             [ `grid-col--${this.size}` ]: this.size,
-            [ `grid-col--offset-${this.offset}` ]: this.offset
+            [ `grid-col--offset-${this.offset}` ]: this.offset,
           }
-        }
+        },
       },
 
       props: {
         someOptionProperty: {
-          default: option
+          default: option,
         },
         defaultOption: {
-          default: defaultOption
+          default: defaultOption,
         },
         disabled: {
-          default: disabled
+          default: disabled,
         },
         offset: {
-          default: offset
+          default: offset,
         },
         size: {
-          default: size
-        }
+          default: size,
+        },
       },
 
       data () {
@@ -68,19 +68,19 @@ storiesOf('Form Components', module)
           items: [
             {
               value: 'id-de-prueba',
-              text: 'Texto de prueba para radio button 1'
+              text: 'Texto de prueba para radio button 1',
             },
 
             {
               value: 'id-de-prueba-2',
-              text: 'Texto de prueba para radio button 2'
-            }
-          ]
+              text: 'Texto de prueba para radio button 2',
+            },
+          ],
         }
       },
 
       methods: {
-        onChange: action(`${TRIGGERED_MSG} change`)
+        onChange: action(`${TRIGGERED_MSG} change`),
       },
 
       watch: {
@@ -88,7 +88,7 @@ storiesOf('Form Components', module)
           this.option = newValue
         },
 
-        option: action(`${TRIGGERED_MSG} change`)
-      }
+        option: action(`${TRIGGERED_MSG} change`),
+      },
     })
   }, { notes })

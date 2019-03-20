@@ -11,28 +11,28 @@ export default {
   props: {
     directionColumn: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     hasMarginTop: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     noGutters: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     noMarginBottom: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: 'div'
-    }
+      default: 'div',
+    },
   },
 
   render (createElement, { props, data, children }) {
@@ -42,11 +42,11 @@ export default {
         'grid-row--no-gutters': props.noGutters,
         'grid-row--no-margin-bottom': props.noMarginBottom,
         'grid-row--direction-column': props.directionColumn,
-        'grid-row--has-margin-top': props.hasMarginTop
-      }
+        'grid-row--has-margin-top': props.hasMarginTop,
+      },
     }
 
     return createElement(props.tag, mergeData(data, componentData), children)
-  }
+  },
 }
 </script>

@@ -11,18 +11,18 @@ export default {
   props: {
     fluid: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     form: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: 'div'
-    }
+      default: 'div',
+    },
   },
 
   render (createElement, { props, data, children }) {
@@ -30,11 +30,11 @@ export default {
       staticClass: 'grid-container',
       class: {
         'grid-container--fluid': props.fluid,
-        'grid-container--form': props.form
-      }
+        'grid-container--form': props.form,
+      },
     }
 
     return createElement(props.tag, mergeData(data, componentData), children)
-  }
+  },
 }
 </script>

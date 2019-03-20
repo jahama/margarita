@@ -9,17 +9,17 @@ const columns = [
   {
     title: 'Name',
     value: 'name',
-    sortable: true
+    sortable: true,
   },
   {
     title: 'Age',
     value: 'age',
-    sortable: true
+    sortable: true,
   },
   {
     title: 'Status',
-    value: 'status'
-  }
+    value: 'status',
+  },
 ]
 
 const rowsSample = [
@@ -30,9 +30,9 @@ const rowsSample = [
       component: StatusPill,
       componentData: {
         color: 'green',
-        text: 'success'
-      }
-    }
+        text: 'success',
+      },
+    },
   }, {
     name: 'Biel',
     age: 31,
@@ -40,9 +40,9 @@ const rowsSample = [
       component: StatusPill,
       componentData: {
         color: 'red',
-        text: 'error'
-      }
-    }
+        text: 'error',
+      },
+    },
   }, {
     name: 'Carlos',
     age: 29,
@@ -50,9 +50,9 @@ const rowsSample = [
       component: StatusPill,
       componentData: {
         color: 'red',
-        text: 'error'
-      }
-    }
+        text: 'error',
+      },
+    },
   }, {
     name: 'Marina',
     age: 23,
@@ -60,9 +60,9 @@ const rowsSample = [
       component: StatusPill,
       componentData: {
         color: 'orange',
-        text: 'warning'
-      }
-    }
+        text: 'warning',
+      },
+    },
   }, {
     name: 'Estela',
     age: 36,
@@ -70,10 +70,10 @@ const rowsSample = [
       component: StatusPill,
       componentData: {
         color: 'orange',
-        text: 'warning'
-      }
-    }
-  }
+        text: 'warning',
+      },
+    },
+  },
 ]
 
 storiesOf('Components', module)
@@ -85,7 +85,7 @@ storiesOf('Components', module)
     return ({
       components: {
         DataGrid,
-        GridColumn
+        GridColumn,
       },
 
       template: `
@@ -100,14 +100,14 @@ storiesOf('Components', module)
 
       props: {
         columns: {
-          default: columns
+          default: columns,
         },
         rowsSample: {
-          default: rowsSample
+          default: rowsSample,
         },
         isLoading: {
-          default: isLoading
-        }
+          default: isLoading,
+        },
       },
 
       methods: {
@@ -127,7 +127,7 @@ storiesOf('Components', module)
             let result = (a[key] < b[key]) ? -1 : (a[key] > b[key]) ? 1 : 0
             return result * sortOrder
           }
-        }
-      }
+        },
+      },
     })
   }, { notes })

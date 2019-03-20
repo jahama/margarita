@@ -33,18 +33,18 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
 
     value: {
       type: [ String, Object, Number, Boolean ],
-      default: ''
-    }
+      default: '',
+    },
   },
 
   computed: {
@@ -55,16 +55,16 @@ export default {
 
       set (newSelectedValue) {
         this.$emit('input', newSelectedValue)
-      }
-    }
+      },
+    },
   },
 
   methods: {
     emit (e) {
       // TODO: Try if in bonasera works with change event
       this.$emit(e.type, e.target.value)
-    }
-  }
+    },
+  },
 
 }
 </script>

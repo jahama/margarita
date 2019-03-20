@@ -22,24 +22,24 @@ storiesOf('Header', module)
 
       props: {
         active: {
-          default: active
+          default: active,
         },
         links: {
-          default: links
+          default: links,
         },
         loggedUser: {
-          default: loggedUser
+          default: loggedUser,
         },
         pageTitle: {
-          default: pageTitle
+          default: pageTitle,
         },
         userRole: {
-          default: userRole
-        }
+          default: userRole,
+        },
       },
 
       methods: {
-        onLogout: action('Logout user')
+        onLogout: action('Logout user'),
       },
 
       template: `
@@ -54,6 +54,6 @@ storiesOf('Header', module)
           />
           <div class="page-content"></div>
         </div>
-      `
+      `,
     })
   }, { notes })

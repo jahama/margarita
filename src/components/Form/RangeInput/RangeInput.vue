@@ -51,7 +51,7 @@ export default {
   props: {
     value: {
       type: String,
-      required: true
+      required: true,
     },
 
     steps: {
@@ -60,18 +60,18 @@ export default {
       validator: propValue =>
         propValue.every(
           step => REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
-        )
+        ),
     },
 
     label: {
       type: String,
-      default: ''
+      default: '',
     },
 
     id: {
       type: String,
-      default: uuid
-    }
+      default: uuid,
+    },
 
   },
 
@@ -82,7 +82,7 @@ export default {
       },
       set (newValue) {
         this.$emit('input', this.steps[newValue].value)
-      }
+      },
     },
 
     stepsAmount () {
@@ -133,7 +133,7 @@ export default {
       }
 
       return { width: progressBarWidth }
-    }
+    },
   },
 
   methods: {
@@ -141,7 +141,7 @@ export default {
       const leftOffset = Math.floor((index + 1) * this.offsetMultiplier)
 
       return {
-        left: `calc(${leftOffset}% - 1px)`
+        left: `calc(${leftOffset}% - 1px)`,
       }
     },
 
@@ -160,13 +160,13 @@ export default {
 
       return {
         left: `calc(${leftOffset}%)`,
-        transform: `translateX(${translateOffset})`
+        transform: `translateX(${translateOffset})`,
       }
     },
 
     updateSelectedValue (newValue) {
       this.selectedValue = newValue
-    }
-  }
+    },
+  },
 }
 </script>

@@ -32,27 +32,27 @@ storiesOf('Form Components', module)
         getClass () {
           return {
             [ `grid-col--${this.size}` ]: this.size,
-            [ `grid-col--offset-${this.offset}` ]: this.offset
+            [ `grid-col--offset-${this.offset}` ]: this.offset,
           }
-        }
+        },
       },
 
       props: {
         checked: {
-          default: checked
+          default: checked,
         },
         disabled: {
-          default: disabled
+          default: disabled,
         },
         label: {
-          default: label
+          default: label,
         },
         offset: {
-          default: offset
+          default: offset,
         },
         size: {
-          default: size
-        }
-      }
+          default: size,
+        },
+      },
     }
   })

@@ -62,15 +62,15 @@ storiesOf('Grid System', module)
 
       props: {
         fluid: {
-          default: fluid
+          default: fluid,
         },
         tag: {
-          default: tag
+          default: tag,
         },
         noGutters: {
-          default: noGutters
-        }
-      }
+          default: noGutters,
+        },
+      },
     })
   }, { notes: GridSystemNotes })
   .add('Offset', () => {
@@ -101,12 +101,12 @@ storiesOf('Grid System', module)
 
       props: {
         fluid: {
-          default: fluid
+          default: fluid,
         },
         noGutters: {
-          default: noGutters
-        }
-      }
+          default: noGutters,
+        },
+      },
     })
   }, { notes: GridOffsetNotes })
   .add('Order', () => {
@@ -156,12 +156,12 @@ storiesOf('Grid System', module)
 
       props: {
         fluid: {
-          default: fluid
+          default: fluid,
         },
         noGutters: {
-          default: noGutters
-        }
-      }
+          default: noGutters,
+        },
+      },
     })
   }, { notes: GridOrderNotes })
   .add('Nested', () => {
@@ -202,21 +202,21 @@ storiesOf('Grid System', module)
 
       props: {
         fluid: {
-          default: fluid
+          default: fluid,
         },
         noGutters: {
-          default: noGutters
+          default: noGutters,
         },
         directionColumn: {
-          default: directionColumn
-        }
+          default: directionColumn,
+        },
       },
 
       data () {
         return {
-          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
+          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
         }
-      }
+      },
     })
   }, { notes: GridNestedNotes })
 
@@ -225,7 +225,7 @@ storiesOf('Grid System', module)
       { text: 'Option1', value: 'option1' },
       { text: 'Option2', value: 'option2' },
       { text: 'Option3', value: 'option3' },
-      { text: 'Option4', value: 'option4' }
+      { text: 'Option4', value: 'option4' },
     ]
     const options = object('Options', defaultOptions)
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
@@ -279,14 +279,14 @@ storiesOf('Grid System', module)
 
       props: {
         hasMarginTop: {
-          default: hasMarginTop
+          default: hasMarginTop,
         },
         noMarginBottom: {
-          default: noMarginBottom
+          default: noMarginBottom,
         },
         options: {
-          default: options
-        }
-      }
+          default: options,
+        },
+      },
     })
   }, { notes: GridFormNotes })

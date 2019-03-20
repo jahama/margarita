@@ -33,7 +33,7 @@
 import uuid from '@margarita/utils/uuid'
 
 const INPUT_CLASSES = {
-  hasError: 'text-input__field--error'
+  hasError: 'text-input__field--error',
 }
 
 export default {
@@ -42,54 +42,54 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     errorMessage: {
       type: String,
-      default: 'Error message'
+      default: 'Error message',
     },
 
     id: {
       type: String,
-      default: uuid
+      default: uuid,
     },
 
     hasError: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     label: {
       type: String,
-      required: true
+      required: true,
     },
 
     mask: {
       type: Function,
-      default: () => {}
+      default: () => {},
     },
 
     placeholder: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
 
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
 
     value: {
       type: [ String, Number ],
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data () {
     return {
-      lazyValue: this.value
+      lazyValue: this.value,
     }
   },
 
@@ -100,13 +100,13 @@ export default {
       return propKeys
         .filter(this._filterByExistProp)
         .map(this._getClassNameByProp)
-    }
+    },
   },
 
   watch: {
     value (newValue) {
       this.lazyValue = newValue
-    }
+    },
   },
 
   methods: {
@@ -124,7 +124,7 @@ export default {
 
     _getClassNameByProp (className) {
       return INPUT_CLASSES[className]
-    }
-  }
+    },
+  },
 }
 </script>

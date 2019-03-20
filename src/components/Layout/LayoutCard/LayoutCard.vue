@@ -28,13 +28,13 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'gray'
+      default: 'gray',
     },
 
     hasPaddingTop: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
@@ -48,7 +48,7 @@ export default {
       if (this.hasPaddingTop) spacingClasses.push('layout-card--has-padding-top')
 
       return spacingClasses
-    }
-  }
+    },
+  },
 }
 </script>

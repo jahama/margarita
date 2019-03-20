@@ -35,7 +35,7 @@ const AVAILABLE_ICONS = [
   'LongArrow',
   'Phone',
   'Plug',
-  'User'
+  'User',
 ]
 
 export default {
@@ -49,38 +49,38 @@ export default {
       validator: function (value) {
         if (!value) return true
         return AVAILABLE_ICONS.includes(value)
-      }
+      },
     },
 
     id: {
       type: String,
-      default: uuid
+      default: uuid,
     },
 
     width: {
       type: [ Number, String ],
-      default: 18
+      default: 18,
     },
 
     height: {
       type: [ Number, String ],
-      default: 18
+      default: 18,
     },
 
     viewBoxWidth: {
       type: [ Number, String ],
-      default: 18
+      default: 18,
     },
 
     iconColor: {
       type: String,
-      default: 'currentColor'
+      default: 'currentColor',
     },
 
     title: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   computed: {
@@ -94,8 +94,8 @@ export default {
     iconName () {
       if (this.title) return this.title
       return `${this.icon}-icon`
-    }
-  }
+    },
+  },
 }
 </script>
 

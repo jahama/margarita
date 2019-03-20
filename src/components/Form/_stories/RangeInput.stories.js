@@ -10,7 +10,7 @@ const defaultSteps = [
   { text: 'Especial', value: 'special' },
   { text: 'Bajo', value: 'low' },
   { text: 'Medio', value: 'medium' },
-  { text: 'Alto', value: 'high' }
+  { text: 'Alto', value: 'high' },
 ]
 
 storiesOf('Form Components', module)
@@ -25,33 +25,29 @@ storiesOf('Form Components', module)
       components: { RangeInput, GridColumn },
 
       template: `
-        <div>
-          <div>
-            <GridColumn>
-              <RangeInput
-                :steps="steps"
-                :label="label"
-                v-model="value"
-              />
-            </GridColumn>
-          </div>
-        </div>`,
+        <GridColumn>
+          <RangeInput
+            :steps="steps"
+            :label="label"
+            v-model="value"
+          />
+        </GridColumn>`,
 
       props: {
         steps: {
-          default: steps
+          default: steps,
         },
         label: {
-          default: label
+          default: label,
         },
         selectedValue: {
-          default: selectedValue
-        }
+          default: selectedValue,
+        },
       },
 
       data () {
         return {
-          value: this.selectedValue
+          value: this.selectedValue,
         }
       },
 
@@ -59,7 +55,7 @@ storiesOf('Form Components', module)
         selectedValue (newValue) {
           this.value = newValue
         },
-        value: action('value')
-      }
+        value: action('value'),
+      },
     })
   }, { notes })

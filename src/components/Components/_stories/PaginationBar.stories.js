@@ -35,24 +35,24 @@ storiesOf('Components', module)
 
       props: {
         from: {
-          default: from
+          default: from,
         },
         totalItems: {
-          default: totalItems
+          default: totalItems,
         },
         to: {
-          default: to
+          default: to,
         },
         isStart: {
-          default: isStart
+          default: isStart,
         },
         isEnd: {
-          default: isEnd
-        }
+          default: isEnd,
+        },
       },
 
       methods: {
-        changePage: action('clicked')
-      }
+        changePage: action('clicked'),
+      },
     })
   }, { notes })

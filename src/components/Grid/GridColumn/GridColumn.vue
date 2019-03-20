@@ -11,18 +11,18 @@ export default {
   props: {
     directionColumn: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     alignStart: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: 'div'
-    }
+      default: 'div',
+    },
   },
 
   render (createElement, { props, data, children }) {
@@ -30,11 +30,11 @@ export default {
       staticClass: 'grid-col',
       class: {
         'grid-col--direction-column': props.directionColumn,
-        'grid-col--align-start': props.alignStart
-      }
+        'grid-col--align-start': props.alignStart,
+      },
     }
 
     return createElement(props.tag, mergeData(data, componentData), children)
-  }
+  },
 }
 </script>

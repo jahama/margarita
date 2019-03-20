@@ -26,33 +26,33 @@ export default {
 
   components: {
     IconBase,
-    ButtonInputSpinner
+    ButtonInputSpinner,
   },
 
   props: {
     fluid: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
 
     rounded: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     category: {
@@ -60,8 +60,8 @@ export default {
       default: 'primary',
       validator: function (value) {
         return AVAILABLE_CATEGORIES.includes(value)
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -70,15 +70,15 @@ export default {
         'button-input--rounded': this.rounded,
         [`button-input--${this.category}`]: this.category,
         'button-input--fluid': this.fluid,
-        'button-input--loading': this.loading
+        'button-input--loading': this.loading,
       }
-    }
+    },
   },
 
   methods: {
     handleClick (event) {
       this.$emit('click', event)
-    }
-  }
+    },
+  },
 }
 </script>

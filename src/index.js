@@ -31,7 +31,7 @@ export {
   SelectInput,
   StatusPill,
   TextInput,
-  ToolsHeader
+  ToolsHeader,
 }
 
 function install (Vue) {

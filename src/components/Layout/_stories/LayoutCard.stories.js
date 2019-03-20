@@ -43,12 +43,12 @@ storiesOf('Layout', module)
 
       props: {
         color: {
-          default: color
+          default: color,
         },
         hasPaddingTop: {
-          default: hasPaddingTop
-        }
-      }
+          default: hasPaddingTop,
+        },
+      },
     })
   }, { notes: LayoutCardNotes })
   .add('Alerts', () => {
@@ -85,14 +85,14 @@ storiesOf('Layout', module)
 
       props: {
         size: {
-          default: size
+          default: size,
         },
         text: {
-          default: alertText
+          default: alertText,
         },
         type: {
-          default: type
-        }
-      }
+          default: type,
+        },
+      },
     })
   }, { notes: AlertBannerNotes })

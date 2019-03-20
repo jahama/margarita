@@ -6,8 +6,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(SelectInput, {
       props: {
         options: [],
-        label: 'Label'
-      }
+        label: 'Label',
+      },
     })
 
     expect(wrapper.contains('select')).toBe(true)

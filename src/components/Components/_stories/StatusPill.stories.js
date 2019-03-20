@@ -10,7 +10,7 @@ const AVAILABLE_COLORS = [
   'orange',
   'red',
   'gray',
-  'dark'
+  'dark',
 ]
 
 storiesOf('Components', module)
@@ -33,11 +33,11 @@ storiesOf('Components', module)
 
       props: {
         color: {
-          default: color
+          default: color,
         },
         pillText: {
-          default: pillText
-        }
-      }
+          default: pillText,
+        },
+      },
     })
   }, { notes })

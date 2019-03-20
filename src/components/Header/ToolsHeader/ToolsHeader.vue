@@ -59,39 +59,39 @@ export default {
     ToolsNavbar,
     TheBurger,
     UserActions,
-    IconBase
+    IconBase,
   },
 
   props: {
     links: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
 
     loggedUser: {
       default: '',
-      type: String
+      type: String,
     },
 
     pageTitle: {
       default: '',
-      type: String
+      type: String,
     },
 
     userRole: {
       default: '',
-      type: String
+      type: String,
     },
 
     active: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data () {
     return {
-      burgerState: false
+      burgerState: false,
     }
   },
 
@@ -102,7 +102,7 @@ export default {
 
     emitLogoutEvent () {
       this.$emit('logout')
-    }
+    },
   },
 
   computed: {
@@ -110,7 +110,7 @@ export default {
       if (this.burgerState) return 'url(#Gradient)'
 
       return 'white'
-    }
-  }
+    },
+  },
 }
 </script>

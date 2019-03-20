@@ -48,51 +48,51 @@ storiesOf('Form Components', module)
 
           if (offset) classes.push(`grid-col--offset-${offset}`)
           return classes
-        }
+        },
       },
 
       props: {
         disabled: {
-          default: disabled
+          default: disabled,
         },
         errorMessage: {
-          default: errorMessage
+          default: errorMessage,
         },
         hasError: {
-          default: hasError
+          default: hasError,
         },
         label: {
-          default: label
+          default: label,
         },
         placeholder: {
-          default: placeholder
+          default: placeholder,
         },
         offset: {
-          default: offset
+          default: offset,
         },
         size: {
-          default: size
+          default: size,
         },
         textValue: {
-          default: value
-        }
+          default: value,
+        },
       },
 
       data () {
         return {
-          value: this.textValue
+          value: this.textValue,
         }
       },
 
       methods: {
-        onBlur: action(`${TRIGGERED_MSG} blur`)
+        onBlur: action(`${TRIGGERED_MSG} blur`),
       },
 
       watch: {
         textValue (newValue) {
           this.value = newValue
         },
-        value: action(`${CHANGED_MSG} value`)
-      }
+        value: action(`${CHANGED_MSG} value`),
+      },
     })
   }, { notes })

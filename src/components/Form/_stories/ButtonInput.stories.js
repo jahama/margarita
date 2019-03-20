@@ -23,7 +23,7 @@ const ICONS_BUTTON = [
   'None',
   'Phone',
   'Plug',
-  'User'
+  'User',
 ]
 
 const HTML_TAGS = [ 'button', 'a' ]
@@ -137,44 +137,44 @@ storiesOf('Form Components', module)
       computed: {
         getIcon () {
           return this.icon === 'None' ? null : this.icon
-        }
+        },
       },
 
       props: {
         ariaLabel: {
-          default: ariaLabel
+          default: ariaLabel,
         },
         disabled: {
-          default: disabled
+          default: disabled,
         },
         fluid: {
-          default: fluid
+          default: fluid,
         },
         icon: {
-          default: icon
+          default: icon,
         },
         iconSize: {
-          default: iconSize
+          default: iconSize,
         },
         loading: {
-          default: loading
+          default: loading,
         },
         rounded: {
-          default: rounded
+          default: rounded,
         },
         tag: {
-          default: tag
+          default: tag,
         },
         text: {
-          default: textButton
+          default: textButton,
         },
         category: {
-          default: category
-        }
+          default: category,
+        },
       },
 
       methods: {
-        action: action('clicked')
-      }
+        action: action('clicked'),
+      },
     })
   }, { notes })

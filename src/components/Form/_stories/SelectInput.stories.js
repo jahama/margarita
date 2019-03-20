@@ -12,7 +12,7 @@ const DEFAULT_OPTIONS = [
   { label: 'Option1', text: 'Option1', value: 'option1' },
   { label: 'Option2', text: 'Option2', value: 'option2' },
   { label: 'Option3', text: 'Option3', value: 'option3' },
-  { label: 'Option4', text: 'Option4', value: 'option4' }
+  { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
 storiesOf('Form Components', module)
@@ -53,43 +53,43 @@ storiesOf('Form Components', module)
 
       props: {
         ariaLabel: {
-          default: ariaLabel
+          default: ariaLabel,
         },
         disabled: {
-          default: disabled
+          default: disabled,
         },
         errorMessage: {
-          default: errorMessage
+          default: errorMessage,
         },
         hasError: {
-          default: hasError
+          default: hasError,
         },
         label: {
-          default: label
+          default: label,
         },
         options: {
-          default: options
+          default: options,
         },
         offset: {
-          default: offset
+          default: offset,
         },
         size: {
-          default: size
+          default: size,
         },
         fieldClass: {
-          default: fieldClass
+          default: fieldClass,
         },
         weight: {
-          default: weight
+          default: weight,
         },
         selectedValue: {
-          default: selectedValue
-        }
+          default: selectedValue,
+        },
       },
 
       data () {
         return {
-          value: this.selectedValue
+          value: this.selectedValue,
         }
       },
 
@@ -97,16 +97,16 @@ storiesOf('Form Components', module)
         getClass () {
           return {
             [ `grid-col--${this.size}` ]: this.size,
-            [ `grid-col--offset-${this.offset}` ]: this.offset
+            [ `grid-col--offset-${this.offset}` ]: this.offset,
           }
-        }
+        },
       },
 
       watch: {
         selectedValue (newValue) {
           this.value = newValue
         },
-        value: action('value')
-      }
+        value: action('value'),
+      },
     }
   })

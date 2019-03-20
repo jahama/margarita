@@ -5,18 +5,18 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@margarita': path.resolve(__dirname, 'src/')
-      }
+        '@margarita': path.resolve(__dirname, 'src/'),
+      },
     },
     plugins: [
       new CopyWebpackPlugin([ {
         from: 'src/assets/fonts',
-        to: 'fonts'
+        to: 'fonts',
       } ]),
       new CopyWebpackPlugin([ {
         from: 'src/scss',
-        to: 'scss'
-      } ])
-    ]
-  }
+        to: 'scss',
+      } ]),
+    ],
+  },
 }
