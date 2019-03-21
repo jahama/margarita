@@ -4,8 +4,8 @@
   <transition :name="slideDirection">
     <div
       v-if="show"
+      class="sidebar-drawer"
       :class="computeClass"
-      @click="hideDrawer"
     >
       <slot />
     </div>
@@ -23,17 +23,13 @@ export default {
     type: {
       type: String,
       default: 'attached',
-      validator: function (value) {
-        return DRAWER_TYPES.includes(value)
-      }
+      validator: value => DRAWER_TYPES.includes(value)
     },
 
     position: {
       type: String,
       default: 'left',
-      validator: function (value) {
-        return SLIDE_DIRECTIONS.includes(value)
-      }
+      validator: value => SLIDE_DIRECTIONS.includes(value)
     },
 
     shadow: {
@@ -53,17 +49,11 @@ export default {
     },
 
     computeClass () {
-      return [
-        `sidebar-drawer-${this.position}`,
-        `sidebar-drawer-${this.type}`,
-        this.shadow ? 'sidebar-drawer-shadow' : ''
-      ]
-    }
-  },
-
-  methods: {
-    hideDrawer () {
-      this.disp = false
+      return {
+        [`sidebar-drawer--${this.position}`]: this.position,
+        [`sidebar-drawer--${this.type}`]: this.type,
+        'sidebar-drawer--shadow': this.shadow
+      }
     }
   }
 }
