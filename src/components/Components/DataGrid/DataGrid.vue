@@ -82,35 +82,35 @@ export default {
   name: 'DataGrid',
 
   components: {
-    DataGridLoader
+    DataGridLoader,
   },
 
   props: {
     rows: {
       type: Array,
-      required: true
+      required: true,
     },
 
     columns: {
       type: Array,
-      required: true
+      required: true,
     },
 
     isLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     noResultsText: {
       type: String,
-      default: 'No results.'
-    }
+      default: 'No results.',
+    },
   },
 
   data () {
     return {
       currentSort: '',
-      currentSortDir: 'ASC'
+      currentSortDir: 'ASC',
     }
   },
 
@@ -137,13 +137,13 @@ export default {
       }
 
       return `sort-arrow--unsorted ${sortableClass}`
-    }
+    },
   },
 
   computed: {
     hasItems () {
       return this.rows.length
-    }
-  }
+    },
+  },
 }
 </script>

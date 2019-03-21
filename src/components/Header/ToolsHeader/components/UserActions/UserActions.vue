@@ -34,25 +34,25 @@ export default {
 
   components: {
     IconBase,
-    ButtonInput
+    ButtonInput,
   },
 
   props: {
     loggedUser: {
       type: String,
-      default: ''
+      default: '',
     },
 
     userRole: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   methods: {
     emitClickEvent () {
       this.$emit('logout')
-    }
-  }
+    },
+  },
 }
 </script>

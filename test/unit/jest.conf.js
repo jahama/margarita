@@ -5,15 +5,15 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'json',
-    'vue'
+    'vue',
   ],
   moduleNameMapper: {
     '\\.(svg|jpg|png)$': '<rootDir>/test/unit/fake-module.js',
-    '^@margarita/(.*)$': '<rootDir>/src/$1'
+    '^@margarita/(.*)$': '<rootDir>/src/$1',
   },
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest'
+    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest',
   },
   snapshotSerializers: [ '<rootDir>/node_modules/jest-serializer-vue' ],
   setupFiles: [ '<rootDir>/test/unit/setup' ],
@@ -21,8 +21,8 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
     '!src/**/*.stories.js',
-    '!**/node_modules/**'
+    '!**/node_modules/**',
   ],
 
-  testURL: 'http://localhost:6006'
+  testURL: 'http://localhost:6006',
 }

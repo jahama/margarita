@@ -1,6 +1,4 @@
-import './reset.css'
-import '../node_modules/highlight.js/styles/atom-one-dark.css'
-
+/* eslint-disable import/no-extraneous-dependencies */
 import '@storybook/addon-actions/register'
 import '@storybook/addon-knobs/register'
 import '@storybook/addon-links/register'

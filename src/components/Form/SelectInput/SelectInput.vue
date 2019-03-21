@@ -45,50 +45,50 @@ export default {
     // By default, `v-model` reacts to the `input` event for updating the
     // value, we change this to `change` for similar behavior as the native
     // `<select>` element.
-    event: 'change'
+    event: 'change',
   },
 
   props: {
     options: {
       type: Array,
-      required: true
+      required: true,
     },
 
     value: {
       type: [ String, Number, Boolean, Object ],
-      default: ''
+      default: '',
     },
 
     id: {
       type: String,
-      default: uuid
+      default: uuid,
     },
 
     label: {
       type: String,
-      required: true
+      required: true,
     },
 
     errorMessage: {
       type: String,
-      default: ''
+      default: '',
     },
 
     hasError: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     fieldClass: {
       type: String,
-      default: ''
+      default: '',
     },
 
     weight: {
       type: String,
       default: '',
-      validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value)
-    }
+      validator: value => !value || AVAILABLE_WEIGHTS.includes(value),
+    },
   },
 
   mounted () {
@@ -107,23 +107,23 @@ export default {
       },
       set (newVal) {
         this.$emit('change', newVal)
-      }
+      },
     },
 
     computedClass () {
       return {
         'select-input__field--error': this.hasError,
         [`select-input__field--${this.weight}`]: this.weight,
-        [`${this.fieldClass}`]: this.fieldClass
+        [`${this.fieldClass}`]: this.fieldClass,
       }
     },
 
     getLabelClass () {
       return {
-        'select-input__label--hidden': this.$attrs['aria-label']
+        'select-input__label--hidden': this.$attrs['aria-label'],
       }
-    }
-  }
+    },
+  },
 
 }
 </script>

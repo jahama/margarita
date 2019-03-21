@@ -1,11 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import GridRow from '../../Grid/GridRow/GridRow'
-import ButtonInputNotes from '../../Form/_stories/notes/ButtonInput.md'
+import notes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 import IconBase from '../../Components/Icons/IconBase'
 
@@ -24,7 +23,7 @@ const ICONS_BUTTON = [
   'None',
   'Phone',
   'Plug',
-  'User'
+  'User',
 ]
 
 const HTML_TAGS = [ 'button', 'a' ]
@@ -32,7 +31,7 @@ const HTML_TAGS = [ 'button', 'a' ]
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Button Input', withMarkdownNotes(ButtonInputNotes)(() => {
+  .add('Button Input', () => {
     const category = select('Categories', BUTTON_CATEGORIES, 'primary')
     const textButton = text('Text', 'Click me')
     const loading = boolean('Loading', false)
@@ -63,7 +62,7 @@ storiesOf('Form Components', module)
               :fluid="fluid"
               :disabled="disabled"
               :loading="loading"
-              :ariaLabel="ariaLabel"
+              :aria-label="ariaLabel"
             >
               <template v-if="text">
                 {{ text }}
@@ -138,26 +137,44 @@ storiesOf('Form Components', module)
       computed: {
         getIcon () {
           return this.icon === 'None' ? null : this.icon
-        }
+        },
       },
 
-      data () {
-        return {
-          ariaLabel: ariaLabel,
-          disabled: disabled,
-          fluid: fluid,
-          icon: icon,
-          iconSize: iconSize,
-          loading: loading,
-          rounded: rounded,
-          tag: tag,
-          text: textButton,
-          category: category
-        }
+      props: {
+        ariaLabel: {
+          default: ariaLabel,
+        },
+        disabled: {
+          default: disabled,
+        },
+        fluid: {
+          default: fluid,
+        },
+        icon: {
+          default: icon,
+        },
+        iconSize: {
+          default: iconSize,
+        },
+        loading: {
+          default: loading,
+        },
+        rounded: {
+          default: rounded,
+        },
+        tag: {
+          default: tag,
+        },
+        text: {
+          default: textButton,
+        },
+        category: {
+          default: category,
+        },
       },
 
       methods: {
-        action: action('clicked')
-      }
+        action: action('clicked'),
+      },
     })
-  }))
+  }, { notes })

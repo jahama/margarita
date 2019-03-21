@@ -1,7 +1,6 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, object } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, boolean, select, object } from '@storybook/addon-knobs'
 
 import GridNestedNotes from './notes/GridNested.md'
 import GridOffsetNotes from './notes/GridOffset.md'
@@ -18,7 +17,7 @@ import LayoutCard from '../../Layout/LayoutCard/LayoutCard'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
-  .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
+  .add('Usage', () => {
     const fluid = boolean('Fluid layout', false)
     const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
     const noGutters = boolean('No gutters', false)
@@ -61,16 +60,20 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          fluid: fluid,
-          tag: tag,
-          noGutters: noGutters
-        }
-      }
+      props: {
+        fluid: {
+          default: fluid,
+        },
+        tag: {
+          default: tag,
+        },
+        noGutters: {
+          default: noGutters,
+        },
+      },
     })
-  }))
-  .add('Offset', withMarkdownNotes(GridOffsetNotes)(() => {
+  }, { notes: GridSystemNotes })
+  .add('Offset', () => {
     const fluid = boolean('fluid', false)
     const noGutters = boolean('noGutters', false)
 
@@ -96,15 +99,17 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          fluid: fluid,
-          noGutters: noGutters
-        }
-      }
+      props: {
+        fluid: {
+          default: fluid,
+        },
+        noGutters: {
+          default: noGutters,
+        },
+      },
     })
-  }))
-  .add('Order', withMarkdownNotes(GridOrderNotes)(() => {
+  }, { notes: GridOffsetNotes })
+  .add('Order', () => {
     const fluid = boolean('fluid', false)
     const noGutters = boolean('noGutters', false)
 
@@ -149,15 +154,17 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          fluid: fluid,
-          noGutters: noGutters
-        }
-      }
+      props: {
+        fluid: {
+          default: fluid,
+        },
+        noGutters: {
+          default: noGutters,
+        },
+      },
     })
-  }))
-  .add('Nested', withMarkdownNotes(GridNestedNotes)(() => {
+  }, { notes: GridOrderNotes })
+  .add('Nested', () => {
     const fluid = boolean('fluid', false)
     const noGutters = boolean('noGutters', false)
     const directionColumn = boolean('Light blue row has flex direction column', true)
@@ -193,23 +200,32 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
+      props: {
+        fluid: {
+          default: fluid,
+        },
+        noGutters: {
+          default: noGutters,
+        },
+        directionColumn: {
+          default: directionColumn,
+        },
+      },
+
       data () {
         return {
-          fluid: fluid,
-          noGutters: noGutters,
-          directionColumn: directionColumn,
-          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
+          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
         }
-      }
+      },
     })
-  }))
+  }, { notes: GridNestedNotes })
 
-  .add('Form', withMarkdownNotes(GridFormNotes)(() => {
+  .add('Form', () => {
     const defaultOptions = [
       { text: 'Option1', value: 'option1' },
       { text: 'Option2', value: 'option2' },
       { text: 'Option3', value: 'option3' },
-      { text: 'Option4', value: 'option4' }
+      { text: 'Option4', value: 'option4' },
     ]
     const options = object('Options', defaultOptions)
     const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
@@ -261,12 +277,16 @@ storiesOf('Grid System', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          hasMarginTop: hasMarginTop,
-          noMarginBottom: noMarginBottom,
-          options: options
-        }
-      }
+      props: {
+        hasMarginTop: {
+          default: hasMarginTop,
+        },
+        noMarginBottom: {
+          default: noMarginBottom,
+        },
+        options: {
+          default: options,
+        },
+      },
     })
-  }))
+  }, { notes: GridFormNotes })

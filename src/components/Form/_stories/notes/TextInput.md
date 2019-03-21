@@ -2,7 +2,7 @@
 
 You can use **TextInput** component as following minimal configuration:
 
-```handlebars
+```livescript
 <GridColumn class="grid-col--4">
   <TextInput
     label="Field Name"
@@ -13,16 +13,16 @@ You can use **TextInput** component as following minimal configuration:
 
 ### Required props are:
 
-- **label** <kbd>String</kbd>: The label for the form input.
-- **value** <kbd>String, Number</kbd>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
+- **label** <code>String</code>: The label for the form input.
+- **value** <code>String, Number</code>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
 
 ### TextInput allows you to use the next configuration fields:
 
-- <kbd>String</kbd> **id**: Id for the input.
-- <kbd>Boolean</kbd> **hasError**: Defines if input is errored. Adds styles and shows the error message.
-- <kbd>String</kbd> **errorMessage**: A String that defines de error message (not shown if `hasError` is `false`).
-- <kbd>String</kbd> **type**: The input HTML `type`.
-- <kbd>Boolean</kbd> **disabled**: Sets the disabled status for the input.
+- <code>String</code> **id**: Id for the input.
+- <code>Boolean</code> **hasError**: Defines if input is errored. Adds styles and shows the error message.
+- <code>String</code> **errorMessage**: A String that defines de error message (not shown if `hasError` is `false`).
+- <code>String</code> **type**: The input HTML `type`.
+- <code>Boolean</code> **disabled**: Sets the disabled status for the input.
 
 ### Events:
 

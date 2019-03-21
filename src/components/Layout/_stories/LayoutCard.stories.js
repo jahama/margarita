@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
 
 import LayoutCardNotes from './notes/LayoutCard.md'
 import AlertBannerNotes from './notes/AlertBanner.md'
@@ -13,7 +12,7 @@ import AlertBanner from '../AlertBanner/AlertBanner'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
-  .add('Cards', withMarkdownNotes(LayoutCardNotes)(() => {
+  .add('Cards', () => {
     const color = select('Color', [ 'white', 'gray' ], 'white')
     const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
@@ -42,15 +41,17 @@ storiesOf('Layout', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          color: color,
-          hasPaddingTop: hasPaddingTop
-        }
-      }
+      props: {
+        color: {
+          default: color,
+        },
+        hasPaddingTop: {
+          default: hasPaddingTop,
+        },
+      },
     })
-  }))
-  .add('Alerts', withMarkdownNotes(AlertBannerNotes)(() => {
+  }, { notes: LayoutCardNotes })
+  .add('Alerts', () => {
     const size = select('Size', [ 'small', 'medium', 'large' ], 'medium')
     const type = select('Alert type', [ 'info', 'error', 'success', 'warning' ], 'error')
     const alertText = text('Alert text', 'Alert text')
@@ -82,12 +83,16 @@ storiesOf('Layout', module)
         </GridContainer>
       `,
 
-      data () {
-        return {
-          size,
-          text: alertText,
-          type
-        }
-      }
+      props: {
+        size: {
+          default: size,
+        },
+        text: {
+          default: alertText,
+        },
+        type: {
+          default: type,
+        },
+      },
     })
-  }))
+  }, { notes: AlertBannerNotes })

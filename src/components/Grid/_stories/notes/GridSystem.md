@@ -1,12 +1,12 @@
 # Grid System
 
-Margarita has a 12 point grid system. Built using <kbd>flex-box</kbd>, the grid is used to layout an application’s content. It contains 5 types of media breakpoints that are used for targeting specific screen sizes or orientations. The props for grid components are actually classes that are derived from their defined properties. This allows you to easily specify these helper classes as props, while still providing the classes to be used anywhere.
+Margarita has a 12 point grid system. Built using <code>flex-box</code>, the grid is used to layout an application’s content. It contains 5 types of media breakpoints that are used for targeting specific screen sizes or orientations. The props for grid components are actually classes that are derived from their defined properties. This allows you to easily specify these helper classes as props, while still providing the classes to be used anywhere.
 
 ## Usage
 
-The `grid-container` can be used for a center focused page, or given the `fluid` prop to extend its full width. `grid-row` is used for separating sections and contains the `grid-col`. The structure of your layout will be as follows, **grid-container » grid-row » grid-col**. Each part of the grid chain is a `flex-box` element. The final, `grid-col`, automatically sets its children to have <kbd>flex: 1 1 auto</kbd>.
+The `grid-container` can be used for a center focused page, or given the `fluid` prop to extend its full width. `grid-row` is used for separating sections and contains the `grid-col`. The structure of your layout will be as follows, **grid-container >> grid-row >> grid-col**. Each part of the grid chain is a `flex-box` element. The final, `grid-col`, automatically sets its children to have <code>flex: 1 1 auto</code>.
 
-```handlebars
+```livescript
 <GridContainer class="grid-example">
   <GridRow>
     <GridColumn v-for="col in 1" :key="col" class="grid-col--12">

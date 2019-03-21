@@ -73,45 +73,45 @@ export default {
 
   components: {
     IconBase,
-    ButtonInput
+    ButtonInput,
   },
 
   props: {
     totalItems: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     isEnd: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     isStart: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     from: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     paginationContent: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
 
     to: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   methods: {
     pagination (direction) {
       this.$emit('pagination', direction)
-    }
-  }
+    },
+  },
 }
 </script>

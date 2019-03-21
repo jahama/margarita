@@ -16,7 +16,7 @@ const AVAILABLE_COLORS = [
   'orange',
   'red',
   'gray',
-  'dark'
+  'dark',
 ]
 
 export default {
@@ -28,13 +28,13 @@ export default {
       default: 'green',
       validator: function (value) {
         return AVAILABLE_COLORS.indexOf(value) !== -1
-      }
+      },
     },
 
     text: {
       type: [ Number, String ],
-      default: ''
-    }
+      default: '',
+    },
   },
 
   computed: {
@@ -44,7 +44,7 @@ export default {
       classes.push(`status-pill--${this.color}`)
 
       return classes
-    }
-  }
+    },
+  },
 }
 </script>

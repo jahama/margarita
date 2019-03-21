@@ -11,9 +11,9 @@ describe('GridColumn', () => {
     const wrapper = shallowMount(GridColumn, {
       context: Object.assign({
         props: {
-          tag: 'section'
-        }
-      })
+          tag: 'section',
+        },
+      }),
     })
 
     expect(wrapper.contains('section')).toBe(true)
@@ -23,9 +23,9 @@ describe('GridColumn', () => {
     const wrapper = shallowMount(GridColumn, {
       context: Object.assign({
         class: {
-          'grid-col--12': true
-        }
-      })
+          'grid-col--12': true,
+        },
+      }),
     })
 
     expect(wrapper.classes()).toContain('grid-col')
@@ -35,8 +35,8 @@ describe('GridColumn', () => {
   it('should render the default slot', () => {
     const wrapper = shallowMount(GridColumn, {
       slots: {
-        default: '<span>Example</span>'
-      }
+        default: '<span>Example</span>',
+      },
     })
 
     expect(wrapper.find('span').text()).toBe('Example')

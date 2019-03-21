@@ -44,25 +44,25 @@ export default {
 
   components: {
     IconBase,
-    ButtonInput
+    ButtonInput,
   },
 
   props: {
     loggedUser: {
       type: String,
-      default: ''
+      default: '',
     },
 
     links: {
       type: Array,
       default: () => [],
-      required: true
+      required: true,
     },
 
     active: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   methods: {
@@ -73,7 +73,7 @@ export default {
 
     emitClickEvent () {
       this.$emit('logout')
-    }
-  }
+    },
+  },
 }
 </script>

@@ -29,23 +29,23 @@ export default {
   props: {
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     id: {
       type: String,
-      default: uuid
+      default: uuid,
     },
 
     label: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
@@ -56,8 +56,8 @@ export default {
 
       set (checkedValue) {
         this.$emit('input', checkedValue)
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>

@@ -1,17 +1,7 @@
 <style lang="scss" src="./GridContainer.scss"></style>
 
 <script>
-import { mergeDataWithProps } from '@margarita/utils/mergeData'
-
-const componentData = function () {
-  return {
-    staticClass: 'grid-container',
-    class: {
-      'grid-container--fluid': this.fluid,
-      'grid-container--form': this.form
-    }
-  }
-}
+import { mergeData } from 'vue-functional-data-merge'
 
 export default {
   name: 'GridContainer',
@@ -21,23 +11,30 @@ export default {
   props: {
     fluid: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     form: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: 'div'
-    }
+      default: 'div',
+    },
   },
 
-  render (h, { props, data, children }) {
-    data = mergeDataWithProps(data, componentData, props)
-    return h(props.tag, data, children)
-  }
+  render (createElement, { props, data, children }) {
+    const componentData = {
+      staticClass: 'grid-container',
+      class: {
+        'grid-container--fluid': props.fluid,
+        'grid-container--form': props.form,
+      },
+    }
+
+    return createElement(props.tag, mergeData(data, componentData), children)
+  },
 }
 </script>

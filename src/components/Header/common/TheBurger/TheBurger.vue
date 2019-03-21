@@ -20,12 +20,12 @@ export default {
   props: {
     isClose: {
       type: Boolean,
-      default: false
+      default: false,
     },
     toolsHeader: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
@@ -36,14 +36,14 @@ export default {
       if (this.toolsHeader) classes.push('btn-burger--tools-header')
 
       return classes
-    }
+    },
   },
 
   methods: {
     onClick () {
       this.$emit('click')
-    }
-  }
+    },
+  },
 
 }
 </script>

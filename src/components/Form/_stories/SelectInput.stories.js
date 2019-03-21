@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs/vue'
+import { withKnobs, boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
@@ -12,7 +12,7 @@ const DEFAULT_OPTIONS = [
   { label: 'Option1', text: 'Option1', value: 'option1' },
   { label: 'Option2', text: 'Option2', value: 'option2' },
   { label: 'Option3', text: 'Option3', value: 'option3' },
-  { label: 'Option4', text: 'Option4', value: 'option4' }
+  { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
 storiesOf('Form Components', module)
@@ -47,39 +47,66 @@ storiesOf('Form Components', module)
             :options="options"
             :weight="weight"
             :fieldClass="fieldClass"
-            v-model="selectedValue"
+            v-model="value"
           />
         </GridColumn>`,
 
-      computed: {
-        getClass () {
-          const classes = [ `grid-col--${this.size}` ]
-          const offset = Number(this.offset)
-
-          if (offset) classes.push(`grid-col--offset-${offset}`)
-          return classes
-        }
-      },
-
-      watch: {
-        selectedValue: action('value')
+      props: {
+        ariaLabel: {
+          default: ariaLabel,
+        },
+        disabled: {
+          default: disabled,
+        },
+        errorMessage: {
+          default: errorMessage,
+        },
+        hasError: {
+          default: hasError,
+        },
+        label: {
+          default: label,
+        },
+        options: {
+          default: options,
+        },
+        offset: {
+          default: offset,
+        },
+        size: {
+          default: size,
+        },
+        fieldClass: {
+          default: fieldClass,
+        },
+        weight: {
+          default: weight,
+        },
+        selectedValue: {
+          default: selectedValue,
+        },
       },
 
       data () {
         return {
-          ariaLabel,
-          disabled,
-          errorMessage,
-          hasError,
-          label,
-          options,
-          offset,
-          size,
-          fieldClass,
-          weight,
-          selectedValue
+          value: this.selectedValue,
         }
-      }
+      },
 
+      computed: {
+        getClass () {
+          return {
+            [ `grid-col--${this.size}` ]: this.size,
+            [ `grid-col--offset-${this.offset}` ]: this.offset,
+          }
+        },
+      },
+
+      watch: {
+        selectedValue (newValue) {
+          this.value = newValue
+        },
+        value: action('value'),
+      },
     }
   })

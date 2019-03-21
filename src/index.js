@@ -20,37 +20,37 @@ export {
   ButtonInput,
   CheckboxInput,
   DataGrid,
+  LayoutCard,
   GridColumn,
   GridContainer,
   GridRow,
   IconBase,
-  LayoutCard,
   PaginationBar,
   RadioButton,
   RangeInput,
   SelectInput,
   StatusPill,
   TextInput,
-  ToolsHeader
+  ToolsHeader,
 }
 
-export default {
-  install (Vue) {
-    Vue.component('AlertBanner', AlertBanner)
-    Vue.component('ButtonInput', ButtonInput)
-    Vue.component('CheckboxInput', CheckboxInput)
-    Vue.component('DataGrid', DataGrid)
-    Vue.component('GridColumn', GridColumn)
-    Vue.component('GridContainer', GridContainer)
-    Vue.component('GridRow', GridRow)
-    Vue.component('IconBase', IconBase)
-    Vue.component('LayoutCard', LayoutCard)
-    Vue.component('PaginationBar', PaginationBar)
-    Vue.component('RadioButton', RadioButton)
-    Vue.component('RangeInput', RangeInput)
-    Vue.component('SelectInput', SelectInput)
-    Vue.component('StatusPill', StatusPill)
-    Vue.component('TextInput', TextInput)
-    Vue.component('ToolsHeader', ToolsHeader)
-  }
+function install (Vue) {
+  Vue.component('AlertBanner', AlertBanner)
+  Vue.component('ButtonInput', ButtonInput)
+  Vue.component('CheckboxInput', CheckboxInput)
+  Vue.component('DataGrid', DataGrid)
+  Vue.component('GridColumn', GridColumn)
+  Vue.component('GridContainer', GridContainer)
+  Vue.component('GridRow', GridRow)
+  Vue.component('IconBase', IconBase)
+  Vue.component('LayoutCard', LayoutCard)
+  Vue.component('PaginationBar', PaginationBar)
+  Vue.component('RadioButton', RadioButton)
+  Vue.component('RangeInput', RangeInput)
+  Vue.component('SelectInput', SelectInput)
+  Vue.component('StatusPill', StatusPill)
+  Vue.component('TextInput', TextInput)
+  Vue.component('ToolsHeader', ToolsHeader)
 }
+
+export default { install: install }

@@ -11,9 +11,9 @@ describe('GridRow', () => {
     const wrapper = shallowMount(GridRow, {
       context: Object.assign({
         props: {
-          tag: 'section'
-        }
-      })
+          tag: 'section',
+        },
+      }),
     })
 
     expect(wrapper.contains('section')).toBe(true)
@@ -23,9 +23,9 @@ describe('GridRow', () => {
     const wrapper = shallowMount(GridRow, {
       context: Object.assign({
         props: {
-          noGutters: true
-        }
-      })
+          noGutters: true,
+        },
+      }),
     })
 
     expect(wrapper.classes()).toContain('grid-row--no-gutters')
@@ -33,9 +33,9 @@ describe('GridRow', () => {
     const wrapper1 = shallowMount(GridRow, {
       context: Object.assign({
         props: {
-          noGutters: false
-        }
-      })
+          noGutters: false,
+        },
+      }),
     })
 
     expect(wrapper1.classes()).not.toContain('grid-row--no-gutters')
@@ -45,9 +45,9 @@ describe('GridRow', () => {
     const wrapper = shallowMount(GridRow, {
       context: Object.assign({
         class: {
-          'test-class': true
-        }
-      })
+          'test-class': true,
+        },
+      }),
     })
 
     expect(wrapper.classes()).toContain('grid-row')
@@ -57,8 +57,8 @@ describe('GridRow', () => {
   it('should render the default slot', () => {
     const wrapper = shallowMount(GridRow, {
       slots: {
-        default: '<span>Example</span>'
-      }
+        default: '<span>Example</span>',
+      },
     })
 
     expect(wrapper.find('span').text()).toBe('Example')

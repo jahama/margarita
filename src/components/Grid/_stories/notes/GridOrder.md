@@ -2,7 +2,7 @@
 
 You can control the ordering of grid items. As with offsets, you can set different orders for different sizes. Design specialized screen layouts that accommodate to any application.
 
-```handlebars
+```livescript
 <GridContainer class="grid-example">
   <GridRow>
     <GridColumn class="grid-col--6 grid-col--lg-order-2">

@@ -2,7 +2,7 @@
 
 You can use **RangeInput** component as following minimal configuration:
 
-```handlebars
+```livescript
 <GridColumn class="grid-col--4">
   <RangeInput
     v-model="someValue"
@@ -13,12 +13,12 @@ You can use **RangeInput** component as following minimal configuration:
 
 ### Required props are:
 
-- **value** <kbd>String</kbd>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
-- **steps** <kbd>Array</kbd>: The list of ranges. Every element must contain `value` and `text` keys.
+- **value** <code>String</code>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
+- **steps** <code>Array</code>: The list of ranges. Every element must contain `value` and `text` keys.
 
 ### Range Input allows you to use the following optionals fields:
 
-- <kbd>String</kbd> **label**: Label for the input.
+- <code>String</code> **label**: Label for the input.
 
 
 ### Events:

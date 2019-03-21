@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, text } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
+import { withKnobs, select, text } from '@storybook/addon-knobs'
 
-import StatusPillNotes from './notes/StatusPill.md'
+import notes from './notes/StatusPill.md'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import StatusPill from '../StatusPill/StatusPill'
 
@@ -11,13 +10,13 @@ const AVAILABLE_COLORS = [
   'orange',
   'red',
   'gray',
-  'dark'
+  'dark',
 ]
 
 storiesOf('Components', module)
   .addDecorator(withKnobs)
 
-  .add('Status Pill', withMarkdownNotes(StatusPillNotes)(() => {
+  .add('Status Pill', () => {
     const color = select('Color', AVAILABLE_COLORS, 'green')
     const pillText = text('Pill Text', 'Active')
 
@@ -32,11 +31,13 @@ storiesOf('Components', module)
           />
         </GridColumn>`,
 
-      data () {
-        return {
-          color,
-          pillText
-        }
-      }
+      props: {
+        color: {
+          default: color,
+        },
+        pillText: {
+          default: pillText,
+        },
+      },
     })
-  }))
+  }, { notes })
