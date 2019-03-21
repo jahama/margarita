@@ -8,32 +8,27 @@
   z-index: 9999;
   margin: 0;
   background-color: get-color("white");
-  padding: rem(16px) rem(16px);
+  padding: rem(16px);
   min-width: rem(216px);
   overflow-x: hidden;
 
-  &-attached {
-    @extend .sidebar-drawer;
+  &--attached {
     position: absolute;
   }
 
-  &-fixed {
-    @extend .sidebar-drawer;
+  &--fixed {
     position: fixed;
   }
 
-  &-left {
-    @extend .sidebar-drawer;
+  &--left {
     left: 0;
   }
 
-  &-right {
-    @extend .sidebar-drawer;
+  &--right {
     right: 0;
   }
 
-  &-shadow {
-    @extend .sidebar-drawer;
+  &--shadow {
     box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow-light");
   }
 
