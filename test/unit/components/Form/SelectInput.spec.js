@@ -1,134 +1,80 @@
-import { shallowMount } from '@vue/test-utils'
-import SelectInput from '@margarita/components/Form/SelectInput/SelectInput.vue'
+import { render, fireEvent } from 'vue-testing-library'
+
+import SelectInput from '@margarita/components/Form/SelectInput/SelectInput'
+
+const SelectInputBuilder = customProps => render(SelectInput, {
+  props: {
+    label: 'Test Select label',
+    options: [
+      { label: 'Option1', text: 'Option1', value: 'option1' },
+      { label: 'Option2', text: 'Option2', value: 'option2' },
+      { label: 'Option3', text: 'Option3', value: 'option3' },
+    ],
+    ...customProps,
+  },
+})
 
 describe('SelectInput', () => {
-  it('should be select element with label and option', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-        ],
-        label: 'Test Select',
-      },
-    })
-
-    expect(wrapper.emitted().mount).toBeTruthy()
-
-    expect(wrapper.find('label').text()).toBe('Test Select')
-    expect(wrapper.find('select').text()).toBe('Option1')
-
-    const select = wrapper.find('select')
-    expect(select.is('select')).toBe(true)
-
-    const option = select.findAll('option').at(0)
-
-    expect(option.attributes().label).toBe('Option1')
-    expect(option.text()).toBe('Option1')
-    expect(option.attributes().value).toBe('option1')
-
-    expect(option.is(':selected')).toBe(true)
-  })
-
   it('should have multiple options', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-          { label: 'Option2', text: 'Option2', value: 'option2' },
-          { label: 'Option3', text: 'Option3', value: 'option3' },
-        ],
-        label: 'Test Select',
-      },
-    })
+    const wrapper = SelectInputBuilder()
 
-    const options = wrapper.find('select').findAll('option')
-    expect(options.at(0).exists()).toBe(true)
-    expect(options.at(1).exists()).toBe(true)
-    expect(options.at(2).exists()).toBe(true)
+    wrapper.getByText(/option1/i)
+    wrapper.getByText(/option2/i)
+    wrapper.getByText(/option3/i)
   })
 
   it('should have change its value when selected option changes', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-          { label: 'Option2', text: 'Option2', value: 'option2' },
-          { label: 'Option3', text: 'Option3', value: 'option3' },
-        ],
-        label: 'Test Select',
-      },
-    })
+    const wrapper = SelectInputBuilder()
 
-    const options = wrapper.find('select').findAll('option')
+    const select = wrapper.getByDisplayValue(/option1/i)
 
-    options.at(1).element.selected = true
-    wrapper.find('select').trigger('change')
+    fireEvent.change(select, { target: { value: 'option2' } })
 
-    expect(options.at(1).is(':selected')).toBe(true)
-    expect(wrapper.emitted().change).toBeTruthy()
+    expect(wrapper.queryByDisplayValue(/option1/i)).toBe(null)
+    wrapper.getByDisplayValue(/option2/i)
   })
 
   it('should have error with custom error message', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-        ],
-        label: 'Test Select',
-        errorMessage: 'Something went wrong',
-        hasError: true,
-      },
+    const wrapper = SelectInputBuilder({
+      hasError: true,
+      errorMessage: 'Something went wrong',
     })
 
-    expect(wrapper.find('select').classes()).toContain('select-input__field--error')
-    expect(wrapper.findAll('div').at(1).exists()).toBe(true)
-
-    const errorDiv = wrapper.findAll('div').at(1)
-    expect(errorDiv.classes()).toContain('select-input__error-message')
-    expect(errorDiv.text()).toBe('Something went wrong')
+    wrapper.getByText(/Something went wrong/i)
   })
 
   it('should have bold class', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-        ],
-        label: 'Test Select',
-        weight: 'bold',
-      },
+    const wrapper = SelectInputBuilder({
+      weight: 'bold',
     })
 
-    expect(wrapper.find('select').classes()).toContain('select-input__field--bold')
+    const select = wrapper.getByDisplayValue(/option1/i)
+
+    expect(select.classList.contains('select-input__field--bold')).toBeTruthy()
   })
 
   it('should have custom class', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-        ],
-        label: 'Test Select',
-        fieldClass: 'select-input__test',
-      },
-    })
+    const customClass = 'my-custom-class'
+    const wrapper = SelectInputBuilder({ fieldClass: customClass })
 
-    expect(wrapper.find('select').classes()).toContain('select-input__test')
+    const select = wrapper.getByDisplayValue(/option1/i)
+
+    expect(select.classList.contains(customClass)).toBeTruthy()
   })
 
   it('should have aria-label attr and hidden label', () => {
-    const wrapper = shallowMount(SelectInput, {
-      propsData: {
-        options: [
-          { label: 'Option1', text: 'Option1', value: 'option1' },
-        ],
-        label: 'Test Select',
-      },
-      attrs: {
-        'aria-label': 'Test',
-      },
+    const wrapper = SelectInputBuilder({
+      'aria-label': 'test',
     })
 
-    expect(wrapper.find('label').classes()).toContain('select-input__label--hidden')
+    const select = wrapper.getByDisplayValue(/option1/i)
+
+    const { name, value } = select.attributes[1]
+
+    expect(name).toBe('aria-label')
+    expect(value).toBe('test')
+
+    // If we provide an aria-label, the <label> element should not be there
+    expect(wrapper.queryByDisplayValue(/Test Select label/i)).toBe(null)
   })
 })
