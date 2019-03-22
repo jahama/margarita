@@ -142,8 +142,8 @@
       position: absolute;
       top: 1%;
       left: 2%;
-      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) #00000008;
-      background-color: #00000008;
+      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) rgba(0, 0, 0, 3%);
+      background-color: rgba(0, 0, 0, 3%);
       width: calc(100% - 4%);
       height: calc(100% - 2%);
       content: "";
