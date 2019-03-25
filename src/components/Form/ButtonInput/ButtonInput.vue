@@ -3,9 +3,9 @@
 <template>
   <Component
     :is="tag"
-    :class="getClasses"
-    class="button-input"
     :disabled="loading || disabled"
+    :class="[getClasses, 'button-input']"
+    data-testid="button-input"
     @click="handleClick"
   >
     <span>
