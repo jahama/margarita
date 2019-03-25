@@ -1,5 +1,5 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
-import ButtonInput from '@margarita/components/Form/ButtonInput/ButtonInput.vue'
+import ButtonInput from '../ButtonInput.vue'
 
 describe('ButtonInput', () => {
   afterEach(cleanup)
