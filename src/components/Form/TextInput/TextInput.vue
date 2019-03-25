@@ -115,6 +115,7 @@ export default {
     },
 
     removeFocus () {
+      this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
     },
 

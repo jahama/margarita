@@ -1,155 +1,98 @@
-import { shallowMount } from '@vue/test-utils'
-import TextInput from '@margarita/components/Form/TextInput/TextInput.vue'
+import { render, fireEvent, cleanup } from 'vue-testing-library'
+import TextInput from '@margarita/components/Form/TextInput/TextInput'
 
-describe('SelectInput', () => {
-  it('should be checkbox element with label', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-      },
-    })
+const TextInputBuilder = customProps => render(TextInput, {
+  props: {
+    label: 'input label',
+    ...customProps,
+  },
+})
 
-    expect(wrapper.find('input[type="text"]').exists()).toBe(true)
+describe('TextInput', () => {
+  afterEach(cleanup)
+
+  it('should render an input element with a label', () => {
+    const wrapper = TextInputBuilder()
+
+    expect(wrapper.getByLabelText(/input label/i).type).toEqual('text')
   })
 
-  it('should be another type of input', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        type: 'button',
-      },
-    })
+  it('should render a button element with a label', () => {
+    const wrapper = TextInputBuilder({ type: 'button ' })
 
-    expect(wrapper.find('input[type="button"]').exists()).toBe(true)
-    expect(wrapper.find('label').text()).toBe('Test TextInput')
+    expect(wrapper.getByLabelText(/input label/i).type.trim()).toEqual('button')
   })
 
   it('should have error CSS class', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        hasError: true,
-        errorMessage: 'Something went wrong',
-      },
+    const wrapper = TextInputBuilder({
+      hasError: true,
+      errorMessage: 'Something went wrong',
     })
 
-    expect(wrapper.find('input').classes()).toContain('text-input__field--error')
-    expect(wrapper.findAll('div').at(1).exists()).toBe(true)
+    expect(
+      wrapper.getByLabelText(/input label/i).classList.contains('text-input__field--error')
+    ).toBeTruthy()
 
-    const errorDiv = wrapper.findAll('div').at(1)
-    expect(errorDiv.classes()).toContain('text-input__error-message')
-    expect(errorDiv.text()).toBe('Something went wrong')
+    expect(wrapper.getByText(/Something went wrong/i))
   })
 
   it('should be disabled', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        disabled: true,
-      },
-    })
+    const wrapper = TextInputBuilder({ disabled: true })
 
-    expect(wrapper.find('input').is(':disabled')).toBe(true)
+    expect(wrapper.getByLabelText(/input label/i).disabled).toBeTruthy()
   })
 
   it('should have custom id', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        id: 'test_textInput',
-      },
-    })
+    const wrapper = TextInputBuilder({ id: 'customId' })
 
-    expect(wrapper.find('label').attributes().for).toBe('test_textInput')
-    expect(wrapper.find('input').attributes().id).toBe('test_textInput')
-  })
-
-  it('should have custom placeholder', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        placeholder: 'This is an input text',
-      },
-    })
-
-    expect(wrapper.find('input').attributes().placeholder).toBe('This is an input text')
+    expect(wrapper.getByText(/input label/i).getAttribute('for'))
+      .toBe('customId')
+    expect(wrapper.getByLabelText(/input label/i).id).toBe('customId')
   })
 
   it('should have initial value', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        value: 'Test text',
-      },
-    })
+    const wrapper = TextInputBuilder({ value: 'initial value' })
 
-    expect(wrapper.find('input').element.value).toBe('Test text')
+    wrapper.getByDisplayValue(/initial value/i)
   })
 
   it('should trigger input event with its value when typing', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-      },
-    })
+    const wrapper = TextInputBuilder({ value: 'initial value' })
 
-    const textInput = wrapper.find('input')
-    textInput.element.value = 'test input'
-    textInput.trigger('input', textInput.element.value)
+    fireEvent.input(
+      wrapper.getByLabelText(/input label/i),
+      { target: { value: '42' } }
+    )
 
+    wrapper.getByDisplayValue(/42/i)
     expect(wrapper.emitted().input).toBeTruthy()
-    expect(wrapper.emitted().input[0][0]).toBe('test input')
-    expect(wrapper.vm.lazyValue).toBe('test input')
+    expect(wrapper.emitted().input[0]).toContain('42')
   })
 
-  it('should trigger change event with its value when changing content', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        value: 'Test text',
-      },
-    })
+  it('should trigger change event with its value when typing', async () => {
+    const wrapper = TextInputBuilder()
 
-    const textInput = wrapper.find('input')
-    textInput.element.value = 'test input'
-    textInput.trigger('input', textInput.element.value)
-    textInput.trigger('change', textInput.element.value)
+    fireEvent.change(wrapper.getByLabelText(/input label/i))
 
     expect(wrapper.emitted().change).toBeTruthy()
-    expect(wrapper.emitted().change[0][0]).toBe('test input')
-    expect(wrapper.vm.lazyValue).toBe('test input')
   })
 
-  it('should trigger blur event with its value', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        value: 'Test text',
-      },
-    })
+  it('should emit its value on blur', () => {
+    const wrapper = TextInputBuilder()
 
-    const textInput = wrapper.find('input')
-    textInput.trigger('blur', wrapper.vm.lazyValue)
+    fireEvent.blur(wrapper.getByLabelText(/input label/i))
 
     expect(wrapper.emitted().blur).toBeTruthy()
-    expect(wrapper.emitted().blur[0][0]).toBe('Test text')
   })
 
-  it('should remove focus when pressing enter key', () => {
-    const wrapper = shallowMount(TextInput, {
-      propsData: {
-        label: 'Test TextInput',
-        value: 'Test text',
-      },
-    })
+  it('should emit its value on Enter', () => {
+    const wrapper = TextInputBuilder()
 
-    const textInput = wrapper.find('input')
-    textInput.element.focus()
-    console.log('before -->', textInput.is(':focus'))
+    fireEvent.keyUp(
+      wrapper.getByLabelText(/input label/i),
+      { key: 'Enter', code: 13 }
+    )
 
-    textInput.trigger('keyup')
-    console.log(wrapper.trigger('keyup'))
-
-    // expect(textInput.is(':focus')).toBe(false)
+    expect(wrapper.emitted().enter).toBeTruthy()
   })
 })
