@@ -5,8 +5,8 @@ describe('ButtonInput', () => {
   it('should be a button element', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        tag: 'button'
-      }
+        tag: 'button',
+      },
     })
 
     expect(wrapper.is('button')).toBe(true)
@@ -15,8 +15,8 @@ describe('ButtonInput', () => {
   it('should be a link element', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        tag: 'a'
-      }
+        tag: 'a',
+      },
     })
 
     expect(wrapper.is('a')).toBe(true)
@@ -24,7 +24,7 @@ describe('ButtonInput', () => {
 
   it('should emit click event', () => {
     const wrapper = shallowMount(ButtonInput, {
-      propsData: {}
+      propsData: {},
     })
 
     expect(wrapper.find('button').trigger('click'))
@@ -34,8 +34,8 @@ describe('ButtonInput', () => {
   it('should have fluid CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        fluid: true
-      }
+        fluid: true,
+      },
     })
 
     expect(wrapper.classes()).toContain('button-input--fluid')
@@ -43,7 +43,7 @@ describe('ButtonInput', () => {
 
   it('should NOT have fluid CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
-      propsData: {}
+      propsData: {},
     })
 
     expect(wrapper.classes()).not.toContain('button-input--fluid')
@@ -52,8 +52,8 @@ describe('ButtonInput', () => {
   it('should have rounded CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        rounded: true
-      }
+        rounded: true,
+      },
     })
 
     expect(wrapper.classes()).toContain('button-input--rounded')
@@ -61,7 +61,7 @@ describe('ButtonInput', () => {
 
   it('should NOT have rounded CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
-      propsData: {}
+      propsData: {},
     })
 
     expect(wrapper.classes()).not.toContain('button-input--rounded')
@@ -70,8 +70,8 @@ describe('ButtonInput', () => {
   it('should have loading CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        loading: true
-      }
+        loading: true,
+      },
     })
 
     expect(wrapper.classes()).toContain('button-input--loading')
@@ -79,7 +79,7 @@ describe('ButtonInput', () => {
 
   it('should NOT have loading CSS class applied', () => {
     const wrapper = shallowMount(ButtonInput, {
-      propsData: {}
+      propsData: {},
     })
 
     expect(wrapper.classes()).not.toContain('button-input--loading')
@@ -88,8 +88,8 @@ describe('ButtonInput', () => {
   it('should be disabled', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        disabled: true
-      }
+        disabled: true,
+      },
     })
 
     expect(wrapper.attributes().disabled).toBe('disabled')
@@ -97,7 +97,7 @@ describe('ButtonInput', () => {
 
   it('should NOT be disabled', () => {
     const wrapper = shallowMount(ButtonInput, {
-      propsData: {}
+      propsData: {},
     })
 
     expect(wrapper.attributes().disabled).toBe(undefined)
@@ -106,8 +106,8 @@ describe('ButtonInput', () => {
   it('should have primary CSS class', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        category: 'primary'
-      }
+        category: 'primary',
+      },
     })
 
     expect(wrapper.classes()).toContain('button-input--primary')
@@ -119,8 +119,8 @@ describe('ButtonInput', () => {
   it('should have secondary CSS class', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        category: 'secondary'
-      }
+        category: 'secondary',
+      },
     })
 
     expect(wrapper.classes()).not.toContain('button-input--primary')
@@ -132,8 +132,8 @@ describe('ButtonInput', () => {
   it('should have gradient CSS class', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        category: 'gradient'
-      }
+        category: 'gradient',
+      },
     })
 
     expect(wrapper.classes()).not.toContain('button-input--primary')
@@ -145,8 +145,8 @@ describe('ButtonInput', () => {
   it('should have no-background CSS class', () => {
     const wrapper = shallowMount(ButtonInput, {
       propsData: {
-        category: 'no-background'
-      }
+        category: 'no-background',
+      },
     })
 
     expect(wrapper.classes()).not.toContain('button-input--primary')

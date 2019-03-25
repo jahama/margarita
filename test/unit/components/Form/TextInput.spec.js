@@ -5,8 +5,8 @@ describe('SelectInput', () => {
   it('should be checkbox element with label', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
-        label: 'Test TextInput'
-      }
+        label: 'Test TextInput',
+      },
     })
 
     expect(wrapper.find('input[type="text"]').exists()).toBe(true)
@@ -16,8 +16,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        type: 'button'
-      }
+        type: 'button',
+      },
     })
 
     expect(wrapper.find('input[type="button"]').exists()).toBe(true)
@@ -29,8 +29,8 @@ describe('SelectInput', () => {
       propsData: {
         label: 'Test TextInput',
         hasError: true,
-        errorMessage: 'Something went wrong'
-      }
+        errorMessage: 'Something went wrong',
+      },
     })
 
     expect(wrapper.find('input').classes()).toContain('text-input__field--error')
@@ -45,8 +45,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        disabled: true
-      }
+        disabled: true,
+      },
     })
 
     expect(wrapper.find('input').is(':disabled')).toBe(true)
@@ -56,8 +56,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        id: 'test_textInput'
-      }
+        id: 'test_textInput',
+      },
     })
 
     expect(wrapper.find('label').attributes().for).toBe('test_textInput')
@@ -68,8 +68,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        placeholder: 'This is an input text'
-      }
+        placeholder: 'This is an input text',
+      },
     })
 
     expect(wrapper.find('input').attributes().placeholder).toBe('This is an input text')
@@ -79,8 +79,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        value: 'Test text'
-      }
+        value: 'Test text',
+      },
     })
 
     expect(wrapper.find('input').element.value).toBe('Test text')
@@ -89,8 +89,8 @@ describe('SelectInput', () => {
   it('should trigger input event with its value when typing', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
-        label: 'Test TextInput'
-      }
+        label: 'Test TextInput',
+      },
     })
 
     const textInput = wrapper.find('input')
@@ -106,8 +106,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        value: 'Test text'
-      }
+        value: 'Test text',
+      },
     })
 
     const textInput = wrapper.find('input')
@@ -124,8 +124,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        value: 'Test text'
-      }
+        value: 'Test text',
+      },
     })
 
     const textInput = wrapper.find('input')
@@ -139,8 +139,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(TextInput, {
       propsData: {
         label: 'Test TextInput',
-        value: 'Test text'
-      }
+        value: 'Test text',
+      },
     })
 
     const textInput = wrapper.find('input')

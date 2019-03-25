@@ -5,8 +5,8 @@ describe('SelectInput', () => {
   it('should be checkbox element with label', () => {
     const wrapper = shallowMount(CheckboxInput, {
       propsData: {
-        label: 'Test Checkbox'
-      }
+        label: 'Test Checkbox',
+      },
     })
 
     expect(wrapper.find('label').text()).toBe('Test Checkbox')
@@ -17,8 +17,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(CheckboxInput, {
       propsData: {
         label: 'Test Checkbox',
-        disabled: true
-      }
+        disabled: true,
+      },
     })
 
     expect(wrapper.find('input').is(':disabled')).toBe(true)
@@ -28,8 +28,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(CheckboxInput, {
       propsData: {
         label: 'Test Checkbox',
-        checked: true
-      }
+        checked: true,
+      },
     })
 
     expect(wrapper.find('input').is(':checked')).toBe(true)
@@ -39,8 +39,8 @@ describe('SelectInput', () => {
     const wrapper = shallowMount(CheckboxInput, {
       propsData: {
         label: 'Test Checkbox',
-        id: 'test_checkbox'
-      }
+        id: 'test_checkbox',
+      },
     })
 
     expect(wrapper.find('label').attributes().for).toBe('test_checkbox')
@@ -50,8 +50,8 @@ describe('SelectInput', () => {
   it('should emit event when checked', () => {
     const wrapper = shallowMount(CheckboxInput, {
       propsData: {
-        label: 'Test Checkbox'
-      }
+        label: 'Test Checkbox',
+      },
     })
 
     const checkbox = wrapper.find('input')
