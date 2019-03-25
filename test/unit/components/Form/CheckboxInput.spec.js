@@ -1,63 +1,51 @@
-import { shallowMount } from '@vue/test-utils'
+import { render, fireEvent, cleanup } from 'vue-testing-library'
 import CheckboxInput from '@margarita/components/Form/CheckboxInput/CheckboxInput.vue'
 
-describe('SelectInput', () => {
+const CheckboxInputBuilder = customProps => render(CheckboxInput, {
+  props: {
+    label: 'checkbox label',
+    ...customProps,
+  },
+})
+
+describe('CheckboxInput', () => {
+  afterEach(cleanup)
+
   it('should be checkbox element with label', () => {
-    const wrapper = shallowMount(CheckboxInput, {
-      propsData: {
-        label: 'Test Checkbox',
-      },
-    })
+    const wrapper = CheckboxInputBuilder()
 
-    expect(wrapper.find('label').text()).toBe('Test Checkbox')
-    expect(wrapper.find('input').exists()).toBe(true)
+    wrapper.getByLabelText(/checkbox label/i)
   })
 
-  it('should be disabled', () => {
-    const wrapper = shallowMount(CheckboxInput, {
-      propsData: {
-        label: 'Test Checkbox',
-        disabled: true,
-      },
-    })
+  it('should render a disabled checkbox on passing the right prop', () => {
+    const wrapper = CheckboxInputBuilder({ disabled: true })
 
-    expect(wrapper.find('input').is(':disabled')).toBe(true)
+    expect(wrapper.getByLabelText(/checkbox label/i).disabled).toBeTruthy()
   })
 
-  it('should be checked', () => {
-    const wrapper = shallowMount(CheckboxInput, {
-      propsData: {
-        label: 'Test Checkbox',
-        checked: true,
-      },
-    })
+  it('should render a checked checkbox on passing the right prop', () => {
+    const wrapper = CheckboxInputBuilder({ checked: true })
 
-    expect(wrapper.find('input').is(':checked')).toBe(true)
+    expect(wrapper.getByLabelText(/checkbox label/i).checked).toBeTruthy()
   })
 
-  it('should have custom id', () => {
-    const wrapper = shallowMount(CheckboxInput, {
-      propsData: {
-        label: 'Test Checkbox',
-        id: 'test_checkbox',
-      },
-    })
+  it('should render a custom id', () => {
+    const wrapper = CheckboxInputBuilder({ id: 'customId' })
 
-    expect(wrapper.find('label').attributes().for).toBe('test_checkbox')
-    expect(wrapper.find('input').attributes().id).toBe('test_checkbox')
+    expect(wrapper.getByText(/checkbox label/i).getAttribute('for'))
+      .toBe('customId')
+    expect(wrapper.getByLabelText(/checkbox label/i).id).toBe('customId')
   })
 
-  it('should emit event when checked', () => {
-    const wrapper = shallowMount(CheckboxInput, {
-      propsData: {
-        label: 'Test Checkbox',
-      },
-    })
+  it('should emit an event when checked', () => {
+    const wrapper = CheckboxInputBuilder()
 
-    const checkbox = wrapper.find('input')
-    checkbox.trigger('click')
-    checkbox.trigger('change')
-    expect(checkbox.is(':checked')).toBe(true)
-    expect(wrapper.emitted().input).toBeTruthy()
+    fireEvent.click(wrapper.getByLabelText(/checkbox label/i))
+
+    expect(wrapper.emitted().input[0]).toContain(true)
+
+    fireEvent.click(wrapper.getByLabelText(/checkbox label/i))
+
+    expect(wrapper.emitted().input[1]).toContain(false)
   })
 })
