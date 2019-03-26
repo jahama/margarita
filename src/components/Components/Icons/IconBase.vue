@@ -27,6 +27,7 @@ const AVAILABLE_ICONS = [
   'Arrow',
   'ArrowToEnd',
   'BulbOn',
+  'Close',
   'DetailsContract',
   'DownloadContract',
   'Exit',
