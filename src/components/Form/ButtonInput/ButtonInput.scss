@@ -23,6 +23,11 @@
         background: get-color("boulder");
         color: get-color("white");
       }
+
+      &:not(.button-input--white):not(.button-input--no-background) {
+        background: get-color("boulder");
+        color: get-color("white");
+      }
     }
   }
 
@@ -106,6 +111,37 @@
         border-color: lighten(get-color("dark-hot-pink"), 50%);
         background-color: lighten(get-color("dark-hot-pink"), 50%);
         color: get-color("dark-hot-pink");
+      }
+    }
+  }
+
+  &--white {
+    border-color: get-color("white");
+    background-color: transparent;
+    color: get-color("white");
+
+    &:hover:enabled,
+    &:active:enabled {
+      background-color: get-color("tango");
+      color: get-color("white");
+    }
+
+    &:focus {
+      outline: rem(2px) solid get-color("classic-rose");
+      outline-offset: 0;
+    }
+
+    &.button-input--rounded {
+      border-color: transparent;
+      background-color: transparent;
+      color: get-color("white");
+
+      &:hover:enabled,
+      &:active:enabled,
+      &.button-input--loading {
+        border-color: lighten(get-color("white"), 50%);
+        background-color: lighten(get-color("white"), 50%);
+        color: get-color("white");
       }
     }
   }

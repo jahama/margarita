@@ -19,7 +19,7 @@
 import IconBase from '../../Components/Icons/IconBase'
 import ButtonInputSpinner from './components/ButtonInputSpinner'
 
-const AVAILABLE_CATEGORIES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const AVAILABLE_CATEGORIES = [ 'primary', 'secondary', 'white', 'gradient', 'no-background' ]
 
 export default {
   name: 'ButtonInput',
