@@ -1,5 +1,5 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
-import TextInput from '@margarita/components/Form/TextInput/TextInput'
+import TextInput from './TextInput'
 
 const TextInputBuilder = customProps => render(TextInput, {
   props: {

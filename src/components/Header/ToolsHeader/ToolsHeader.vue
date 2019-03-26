@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import ToolsNavbar from './components/ToolsNavbar/ToolsNavbar.vue'
 import IconBase from '../../../components/Components/Icons/IconBase'
-import TheBurger from '../common/TheBurger/TheBurger.vue'
-import UserActions from './components/UserActions/UserActions.vue'
+import TheBurger from '../common/TheBurger'
+import ToolsNavbar from './components/ToolsNavbar'
+import UserActions from './components/UserActions'
 
 export default {
   name: 'ToolsHeader',

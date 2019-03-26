@@ -1,6 +1,5 @@
 import { render, fireEvent } from 'vue-testing-library'
-
-import SelectInput from '@margarita/components/Form/SelectInput/SelectInput'
+import SelectInput from './SelectInput'
 
 const SelectInputBuilder = customProps => render(SelectInput, {
   props: {

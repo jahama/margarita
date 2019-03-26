@@ -1,5 +1,5 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
-import CheckboxInput from '@margarita/components/Form/CheckboxInput/CheckboxInput.vue'
+import CheckboxInput from './CheckboxInput'
 
 const CheckboxInputBuilder = customProps => render(CheckboxInput, {
   props: {
