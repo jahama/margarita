@@ -8,12 +8,13 @@ import notes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 import IconBase from '../../Components/Icons/IconBase'
 
-const BUTTON_CATEGORIES = [ 'primary', 'secondary', 'gradient', 'no-background' ]
+const BUTTON_CATEGORIES = [ 'primary', 'secondary', 'tertiary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
   'AddContract',
   'Arrow',
   'ArrowToEnd',
   'BulbOn',
+  'Close',
   'DetailsContract',
   'DownloadContract',
   'Exit',

@@ -1,14 +1,17 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
+import { action } from '@storybook/addon-actions'
 
 import LayoutCardNotes from './notes/LayoutCard.md'
 import AlertBannerNotes from './notes/AlertBanner.md'
+import SidebarDrawerNotes from './notes/SidebarDrawer.md'
 
 import GridContainer from '../../Grid/GridContainer/GridContainer'
 import GridRow from '../../Grid/GridRow/GridRow'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 import LayoutCard from '../LayoutCard/LayoutCard'
 import AlertBanner from '../AlertBanner/AlertBanner'
+import SidebarDrawer from '../SidebarDrawer/SidebarDrawer'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
@@ -96,3 +99,53 @@ storiesOf('Layout', module)
       },
     })
   }, { notes: AlertBannerNotes })
+  .add('SidebarDrawer', () => {
+    const position = select('Position', [ 'left', 'right' ], 'left')
+    const type = select('Type', [ 'attached', 'fixed' ], 'attached')
+    const show = boolean('Show', true)
+    const overlay = boolean('Overlay', true)
+
+    return ({
+      components: { SidebarDrawer, LayoutCard, GridContainer, GridRow, GridColumn },
+      template: `
+        <GridRow>
+          <GridColumn class="grid-col--12">
+            <LayoutCard
+              color="gray"
+              has-margin-top
+            >
+            I'm a layout card
+              <SidebarDrawer
+              :position="position"
+              :show="show"
+              :type="type"
+              :overlay="overlay"
+              @click-overlay="action"
+              >
+                <span>I am a Navigation Drawer</span>
+            </SidebarDrawer>
+            </LayoutCard>
+          </GridColumn>
+        </GridRow>
+      `,
+
+      props: {
+        position: {
+          default: position,
+        },
+        show: {
+          default: show,
+        },
+        type: {
+          default: type,
+        },
+        overlay: {
+          default: overlay,
+        },
+      },
+
+      methods: {
+        action: action('clicked'),
+      },
+    })
+  }, { notes: SidebarDrawerNotes })

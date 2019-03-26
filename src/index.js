@@ -14,6 +14,7 @@ import SelectInput from './components/Form/SelectInput/SelectInput.vue'
 import StatusPill from './components/Components/StatusPill/StatusPill.vue'
 import TextInput from './components/Form/TextInput/TextInput.vue'
 import ToolsHeader from './components/Header/ToolsHeader/ToolsHeader.vue'
+import SidebarDrawer from './components/Layout/SidebarDrawer/SidebarDrawer.vue'
 
 export {
   AlertBanner,
@@ -29,6 +30,7 @@ export {
   RadioButton,
   RangeInput,
   SelectInput,
+  SidebarDrawer,
   StatusPill,
   TextInput,
   ToolsHeader,
@@ -48,6 +50,7 @@ function install (Vue) {
   Vue.component('RadioButton', RadioButton)
   Vue.component('RangeInput', RangeInput)
   Vue.component('SelectInput', SelectInput)
+  Vue.component('SidebarDrawer', SidebarDrawer)
   Vue.component('StatusPill', StatusPill)
   Vue.component('TextInput', TextInput)
   Vue.component('ToolsHeader', ToolsHeader)
