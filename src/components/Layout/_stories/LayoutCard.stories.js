@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
+import { action } from '@storybook/addon-actions'
 
 import LayoutCardNotes from './notes/LayoutCard.md'
 import AlertBannerNotes from './notes/AlertBanner.md'
@@ -101,8 +102,8 @@ storiesOf('Layout', module)
   .add('SidebarDrawer', () => {
     const position = select('Position', [ 'left', 'right' ], 'left')
     const type = select('Type', [ 'attached', 'fixed' ], 'attached')
-    const show = boolean('Show', false)
-    const shadow = boolean('Shadow', true)
+    const show = boolean('Show', true)
+    const overlay = boolean('Overlay', true)
 
     return ({
       components: { SidebarDrawer, LayoutCard, GridContainer, GridRow, GridColumn },
@@ -118,22 +119,33 @@ storiesOf('Layout', module)
               :position="position"
               :show="show"
               :type="type"
-              :shadow="shadow"
+              :overlay="overlay"
+              @click-overlay="action"
               >
                 <span>I am a Navigation Drawer</span>
             </SidebarDrawer>
             </LayoutCard>
           </GridColumn>
         </GridRow>
-    `,
+      `,
 
-      data () {
-        return {
-          position: position,
-          show: show,
-          type: type,
-          shadow: shadow,
-        }
+      props: {
+        position: {
+          default: position,
+        },
+        show: {
+          default: show,
+        },
+        type: {
+          default: type,
+        },
+        overlay: {
+          default: overlay,
+        },
+      },
+
+      methods: {
+        action: action('clicked'),
       },
     })
-  }, { notes: SidebarDrawer })
+  }, { notes: SidebarDrawerNotes })

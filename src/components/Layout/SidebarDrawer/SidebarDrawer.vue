@@ -1,15 +1,22 @@
 <style lang="scss" src="./SidebarDrawer.scss" scoped></style>
 
 <template>
-  <transition :name="slideDirection">
+  <div>
+    <transition :name="slideDirection">
+      <aside
+        v-if="show"
+        class="sidebar-drawer"
+        :class="computeClass"
+      >
+        <slot />
+      </aside>
+    </transition>
     <div
       v-if="show"
-      class="sidebar-drawer"
-      :class="computeClass"
-    >
-      <slot />
-    </div>
-  </transition>
+      :class="displayOverlay"
+      @click="handleClick"
+    />
+  </div>
 </template>
 
 <script>
@@ -23,24 +30,24 @@ export default {
     type: {
       type: String,
       default: 'attached',
-      validator: value => DRAWER_TYPES.includes(value)
+      validator: value => DRAWER_TYPES.includes(value),
     },
 
     position: {
       type: String,
       default: 'left',
-      validator: value => SLIDE_DIRECTIONS.includes(value)
+      validator: value => SLIDE_DIRECTIONS.includes(value),
     },
 
-    shadow: {
+    overlay: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     show: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
@@ -52,9 +59,18 @@ export default {
       return {
         [`sidebar-drawer--${this.position}`]: this.position,
         [`sidebar-drawer--${this.type}`]: this.type,
-        'sidebar-drawer--shadow': this.shadow
       }
-    }
-  }
+    },
+
+    displayOverlay () {
+      return (this.overlay && this.type === 'fixed') ? 'sidebar-drawer--overlay' : ''
+    },
+  },
+
+  methods: {
+    handleClick (event) {
+      this.$emit('click-overlay', event)
+    },
+  },
 }
 </script>
