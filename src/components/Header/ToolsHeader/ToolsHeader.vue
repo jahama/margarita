@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import IconBase from '../../../components/Components/Icons/IconBase'
+import IconBase from '@margarita/components/Components/IconBase'
 import TheBurger from '../common/TheBurger'
 import ToolsNavbar from './components/ToolsNavbar'
 import UserActions from './components/UserActions'

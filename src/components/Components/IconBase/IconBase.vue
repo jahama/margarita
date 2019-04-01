@@ -87,7 +87,7 @@ export default {
   computed: {
     componentLoader () {
       if (this.icon) {
-        return () => import(/* webpackMode: "eager" */`../../Components/Icons/Icons/${this.icon}.vue`)
+        return () => import(/* webpackMode: "eager" */`./Icons/${this.icon}.vue`)
       }
       return null
     },

@@ -6,7 +6,7 @@ import GridColumn from '../../Grid/GridColumn/GridColumn'
 import GridRow from '../../Grid/GridRow/GridRow'
 import notes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
-import IconBase from '../../Components/Icons/IconBase'
+import IconBase from '../../Components/IconBase'
 
 const BUTTON_CATEGORIES = [ 'primary', 'secondary', 'tertiary', 'gradient', 'no-background' ]
 const ICONS_BUTTON = [
