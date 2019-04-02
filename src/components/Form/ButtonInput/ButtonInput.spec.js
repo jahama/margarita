@@ -21,7 +21,8 @@ describe('ButtonInput', () => {
       props: { tag: 'a' },
     })
 
-    expect(wrapper.getByTestId('button-input').tagName).toEqual('A')
+    expect(wrapper.getByTestId('button-input').tagName.toLowerCase())
+      .toEqual('a')
   })
 
   it('should emit on click', () => {
