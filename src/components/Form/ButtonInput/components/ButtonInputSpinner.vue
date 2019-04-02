@@ -7,6 +7,7 @@
     height="18px"
     viewBox="0 0 66 66"
     xmlns="http://www.w3.org/2000/svg"
+    data-testid="button-input-spinner"
   >
     <circle
       class="path"

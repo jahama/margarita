@@ -37,7 +37,7 @@
 
 <script>
 import ButtonInput from '../../../../Form/ButtonInput/ButtonInput'
-import IconBase from '../../../../Components/Icons/IconBase'
+import IconBase from '@margarita/components/Components/IconBase'
 
 export default {
   name: 'ToolsNavbar',
