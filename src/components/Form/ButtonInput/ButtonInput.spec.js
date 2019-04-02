@@ -4,7 +4,7 @@ import ButtonInput from './ButtonInput'
 describe('ButtonInput', () => {
   afterEach(cleanup)
 
-  it.only('should render a button element by default', () => {
+  it('should render a button element by default', () => {
     const wrapper = render(ButtonInput, {
       slots: { default: 'Hello World' },
     })
@@ -16,7 +16,7 @@ describe('ButtonInput', () => {
     expect(wrapper.getByTestId('button-input').type).toEqual('submit')
   })
 
-  it.only('should render a link element on passing the right prop', () => {
+  it('should render a link element on passing the right prop', () => {
     const wrapper = render(ButtonInput, {
       props: { tag: 'a' },
     })
