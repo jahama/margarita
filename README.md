@@ -1,24 +1,42 @@
 ![margarita](margarita.png)
 
-# margarita
+# Margarita
 
-> vue.js storybook
+Margarita is the UI Library from Holaluz.
 
-## Build Setup
+
+## About Margarita
+
+* Built on top of [@vue/cli](https://cli.vuejs.org/).
+* Uses [Storybook](https://github.com/storybooks/storybook) to develop, showcase, and test each component.
+* Unit testing based on [Jest](https://jestjs.io/) and [vue-testing-library](https://github.com/dfcook/vue-testing-library).
+
+
+## Installation
+
+Clone the repo and install node dependencies:
 
 ```bash
-# storybook with hot reload at localhost:6006
-$ npm start
-
-# run tests with watch mode enabled
-$ npm run docker:test
+$ npm install
 ```
 
-## Working on Margarita as a project dependency
 
-More often than not we'd want to develop a "parent" project (such as Bonasera
-or Dry Martini) while adding changes to Magarita.
+## Useful commands
 
-The best way to do so is by installing Margarita as a local dependency.
-Check out the instructions in [Local Installation](LOCAL_INSTALLATION.md).
+```bash
+# run storybook
+$ npm start
+
+# run unit tests
+$ npm test
+
+# run unit tests with watch mode enabled
+$ npm run test:watch
+```
+
+## How can I use Margarita as a dependency in a local project?
+
+More often than not we'd want to develop a "parent" project (such as Bonasera or Dry Martini) while tweaking Magarita.
+
+The best way to do so is by installing Margarita as a local dependency. Check out the instructions in [Local Installation](LOCAL_INSTALLATION.md).
 
