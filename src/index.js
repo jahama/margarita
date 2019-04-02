@@ -1,20 +1,23 @@
 import AlertBanner from './components/Layout/AlertBanner'
+import LayoutCard from './components/Layout/LayoutCard'
+import SidebarDrawer from './components/Layout/SidebarDrawer'
+
+import GridContainer from './components/Grid/GridContainer'
+import GridColumn from './components/Grid/GridColumn'
+import GridRow from './components/Grid/GridRow'
+
 import ButtonInput from './components/Form/ButtonInput'
 import CheckboxInput from './components/Form/CheckboxInput'
-import DataGrid from './components/Components/DataGrid'
-import LayoutCard from './components/Layout/LayoutCard'
-import GridColumn from './components/Grid/GridColumn'
-import GridContainer from './components/Grid/GridContainer'
-import GridRow from './components/Grid/GridRow'
-import IconBase from './components/Components/IconBase'
-import PaginationBar from './components/Components/PaginationBar'
 import RadioButton from './components/Form/RadioButton'
 import RangeInput from './components/Form/RangeInput'
 import SelectInput from './components/Form/SelectInput'
-import StatusPill from './components/Components/StatusPill'
 import TextInput from './components/Form/TextInput'
+
+import DataGrid from './components/Components/DataGrid'
+import IconBase from './components/Components/IconBase'
+import PaginationBar from './components/Components/PaginationBar'
+import StatusPill from './components/Components/StatusPill'
 import ToolsHeader from './components/Header/ToolsHeader'
-import SidebarDrawer from './components/Layout/SidebarDrawer'
 
 export {
   AlertBanner,
@@ -56,4 +59,4 @@ function install (Vue) {
   Vue.component('ToolsHeader', ToolsHeader)
 }
 
-export default { install: install }
+export default { install }
