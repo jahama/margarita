@@ -19,6 +19,7 @@ const ICONS_BUTTON = [
   'DownloadContract',
   'Exit',
   'Gas',
+  'Link',
   'Logo',
   'LongArrow',
   'None',
