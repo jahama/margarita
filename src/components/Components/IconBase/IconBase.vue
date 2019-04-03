@@ -32,6 +32,7 @@ const AVAILABLE_ICONS = [
   'DownloadContract',
   'Exit',
   'Gas',
+  'Link',
   'Logo',
   'LongArrow',
   'Phone',
