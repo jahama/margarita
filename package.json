@@ -53,6 +53,7 @@
     "highlight-loader": "^0.7.3",
     "html-loader": "^0.5.5",
     "husky": "^1.0.0-rc.9",
+    "is-vue-component": "^1.0.0",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.9.0",
     "pre-push": "^0.1.1",
