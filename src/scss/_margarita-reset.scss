@@ -1,4 +1,10 @@
+// Load Ciutadella font
 @import "variables/fonts";
 @import "mixins/font-mixin";
 @import "ciutadella-loader";
+
+// Apply normalize browsers stuff
 @import "normalize";
+
+// Add transitions
+@import "transitions/slide-fade";
