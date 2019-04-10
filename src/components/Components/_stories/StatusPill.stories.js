@@ -24,12 +24,12 @@ storiesOf('Components', module)
       components: { StatusPill, GridColumn },
 
       template: `
-        <GridColumn>
-          <StatusPill
+        <grid-column>
+          <status-pill
             :color="color"
             :text="pillText"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       props: {
         color: {

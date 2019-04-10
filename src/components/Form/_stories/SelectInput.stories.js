@@ -36,8 +36,8 @@ storiesOf('Form Components', module)
       components: { GridColumn, SelectInput },
 
       template: `
-        <GridColumn :class="getClass">
-          <SelectInput
+        <grid-column :class="getClass">
+          <select-input
             id="my-select-input"
             :aria-label="ariaLabel"
             :errorMessage="errorMessage"
@@ -49,7 +49,7 @@ storiesOf('Form Components', module)
             :fieldClass="fieldClass"
             v-model="value"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       props: {
         ariaLabel: {

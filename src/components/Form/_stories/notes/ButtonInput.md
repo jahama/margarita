@@ -4,7 +4,7 @@ You can use **Button Input** component as following minimal configuration:
 
 In the case you want a **text only button**:
 ```livescript
-<ButtonInput
+<button-input
   category="gradient"
 >
 This is a button with text only
@@ -13,12 +13,12 @@ This is a button with text only
 
 In the case you want an **icon only button**:
 ```livescript
-<ButtonInput
+<button-input
   aria-label="Download PDF"
   rounded
   category="secondary"
 >
-  <IconBase
+  <icon-base
     icon="DownloadContract"
     width="50"
     height="50"
@@ -28,9 +28,9 @@ In the case you want an **icon only button**:
 
 In the case you want a **text with icon button**:
 ```livescript
-<ButtonInput>
+<button-input>
   This is a button with text and icon
-  <IconBase
+  <icon-base
     icon="Arrow"
   />
 </ButtonInput>
@@ -38,13 +38,13 @@ In the case you want a **text with icon button**:
 
 In the case you want a **text and icon link**:
 ```livescript
-<ButtonInput
+<button-input
   category="no-background"
   href="https://www.holaluz.com/"
   tag="a"
 >
   This is a link with text and icon
-  <IconBase
+  <icon-base
     icon="Exit"
   />
 </ButtonInput>

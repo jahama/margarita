@@ -44,7 +44,7 @@ storiesOf('Header', module)
 
       template: `
         <div class="story--no-margin">
-          <ToolsHeader
+          <tools-header
             :active="active"
             :links="links"
             :loggedUser="loggedUser"

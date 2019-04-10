@@ -22,26 +22,26 @@ storiesOf('Layout', module)
     return ({
       components: { LayoutCard, GridContainer, GridRow, GridColumn },
       template: `
-        <GridContainer class="grid-example">
-          <GridRow>
-            <GridColumn class="grid-col--12">
-              <LayoutCard
+        <grid-container class="grid-example">
+          <grid-row>
+            <grid-column class="grid-col--12">
+              <layout-card
                 :color="color"
                 has-margin-top
               >
               I'm a {{ color }} layout card
               </LayoutCard>
-            </GridColumn>
-          </GridRow>
-          <GridRow>
-            <GridColumn v-for="col in 2" :key="col" class="grid-col--6">
-              <LayoutCard
+            </grid-column>
+          </grid-row>
+          <grid-row>
+            <grid-column v-for="col in 2" :key="col" class="grid-col--6">
+              <layout-card
                 color="gray"
                 :hasPaddingTop="hasPaddingTop"
               />
-            </GridColumn>
-          </GridRow>
-        </GridContainer>
+            </grid-column>
+          </grid-row>
+        </grid-container>
       `,
 
       props: {
@@ -62,28 +62,28 @@ storiesOf('Layout', module)
     return ({
       components: { AlertBanner, GridContainer, GridRow, GridColumn },
       template: `
-        <GridContainer class="grid-example">
-          <GridRow>
-            <GridColumn class="grid-col--12">
-              <AlertBanner
+        <grid-container class="grid-example">
+          <grid-row>
+            <grid-column class="grid-col--12">
+              <alert-banner
                 :text="text"
                 :type="type"
                 :size="size"
               />
-            </GridColumn>
-          </GridRow>
+            </grid-column>
+          </grid-row>
           <br />
-          <GridRow>
-            <GridColumn class="grid-col--12">
-              <AlertBanner
+          <grid-row>
+            <grid-column class="grid-col--12">
+              <alert-banner
                 text="This is the text for a large alert banner"
                 type="success"
                 size="large"
                 title="This is the title for a large alert banner"
               />
-            </GridColumn>
-          </GridRow>
-        </GridContainer>
+            </grid-column>
+          </grid-row>
+        </grid-container>
       `,
 
       props: {
@@ -108,14 +108,14 @@ storiesOf('Layout', module)
     return ({
       components: { SidebarDrawer, LayoutCard, GridContainer, GridRow, GridColumn },
       template: `
-        <GridRow>
-          <GridColumn class="grid-col--12">
-            <LayoutCard
+        <grid-row>
+          <grid-column class="grid-col--12">
+            <layout-card
               color="gray"
               has-margin-top
             >
             I'm a layout card
-              <SidebarDrawer
+              <sidebar-drawer
               :position="position"
               :show="show"
               :type="type"
@@ -123,10 +123,10 @@ storiesOf('Layout', module)
               @click-overlay="action"
               >
                 <span>I am a Navigation Drawer</span>
-            </SidebarDrawer>
-            </LayoutCard>
-          </GridColumn>
-        </GridRow>
+            </sidebar-drawer>
+            </layout-card>
+          </grid-column>
+        </grid-row>
       `,
 
       props: {

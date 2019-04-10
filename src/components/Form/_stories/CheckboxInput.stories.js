@@ -20,13 +20,13 @@ storiesOf('Form Components', module)
       components: { CheckboxInput, GridColumn },
 
       template: `
-        <GridColumn :class="getClass">
-          <CheckboxInput
+        <grid-column :class="getClass">
+          <checkbox-input
             :label="label"
             :checked="checked"
             :disabled="disabled"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       computed: {
         getClass () {
