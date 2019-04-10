@@ -17,7 +17,6 @@ import DataGrid from './components/Components/DataGrid'
 import IconBase from './components/Components/IconBase'
 import PaginationBar from './components/Components/PaginationBar'
 import StatusPill from './components/Components/StatusPill'
-import ToolsHeader from './components/Header/ToolsHeader'
 
 export {
   AlertBanner,
@@ -36,7 +35,6 @@ export {
   SidebarDrawer,
   StatusPill,
   TextInput,
-  ToolsHeader,
 }
 
 function install (Vue) {
@@ -56,7 +54,6 @@ function install (Vue) {
   Vue.component('SidebarDrawer', SidebarDrawer)
   Vue.component('StatusPill', StatusPill)
   Vue.component('TextInput', TextInput)
-  Vue.component('ToolsHeader', ToolsHeader)
 }
 
 export default { install }
