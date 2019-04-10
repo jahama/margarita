@@ -5,12 +5,12 @@
     <div class="tools-header">
       <header class="tools-header__toolbar">
         <div class="tools-header__section">
-          <TheBurger
+          <the-burger
             :is-close="burgerState"
             tools-header
             @click="toggleBurgerState"
           />
-          <IconBase
+          <icon-base
             icon="Logo"
             view-box-width="70"
             :width="77"
@@ -26,7 +26,7 @@
           />
         </div>
         <div class="tools-header__section">
-          <UserActions
+          <user-actions
             :logged-user="loggedUser"
             :user-role="userRole"
             @logout="emitLogoutEvent"
@@ -35,7 +35,7 @@
       </header>
     </div>
     <transition name="horizontal-slide-animation-left">
-      <ToolsNavbar
+      <tools-navbar
         v-if="burgerState"
         :logged-user="loggedUser"
         :active="active"

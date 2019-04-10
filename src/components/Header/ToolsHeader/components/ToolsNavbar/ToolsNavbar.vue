@@ -19,18 +19,18 @@
         class="tools-navbar__mobile-user"
         v-text="loggedUser"
       />
-      <ButtonInput
+      <button-input
         aria-label="exit icon"
         category="no-background"
         class="tools-navbar__mobile-icon"
         @click="emitClickEvent"
       >
-        <IconBase
+        <icon-base
           icon="Exit"
           width="16"
           height="16"
         />
-      </ButtonInput>
+      </button-input>
     </div>
   </ul>
 </template>

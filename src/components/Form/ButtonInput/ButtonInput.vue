@@ -10,7 +10,7 @@
   >
     <span>
       <slot v-if="!loading || !rounded" />
-      <ButtonInputSpinner v-if="loading" />
+      <button-input-spinner v-if="loading" />
     </span>
   </Component>
 </template>

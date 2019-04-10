@@ -41,7 +41,7 @@
                 v-for="column in columns"
                 :key="column.title"
               >
-                <DataGridLoader />
+                <data-grid-loader />
               </td>
             </tr>
           </tbody>
