@@ -28,8 +28,8 @@ storiesOf('Form Components', module)
       components: { TextInput, GridColumn },
 
       template: `
-        <GridColumn :class="getClass">
-          <TextInput
+        <grid-column :class="getClass">
+          <text-input
             id="my-text-input"
             :errorMessage="errorMessage"
             :disabled="disabled"
@@ -39,7 +39,7 @@ storiesOf('Form Components', module)
             v-model="value"
             @blur="onBlur"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       computed: {
         getClass () {

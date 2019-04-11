@@ -89,14 +89,14 @@ storiesOf('Components', module)
       },
 
       template: `
-        <GridColumn>
-          <DataGrid
+        <grid-column>
+          <data-grid
             :columns="columns"
             :rows="rowsSample"
             @sort="sortBy"
             :isLoading="isLoading"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       props: {
         columns: {

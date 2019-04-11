@@ -14,7 +14,7 @@
       {{ iconName }}
     </title>
     <g :fill="iconColor">
-      <Component :is="componentLoader" />
+      <component :is="componentLoader" />
     </g>
   </svg>
 </template>

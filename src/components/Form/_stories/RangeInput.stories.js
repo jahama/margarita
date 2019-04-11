@@ -25,13 +25,13 @@ storiesOf('Form Components', module)
       components: { RangeInput, GridColumn },
 
       template: `
-        <GridColumn>
-          <RangeInput
+        <grid-column>
+          <range-input
             :steps="steps"
             :label="label"
             v-model="value"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       props: {
         steps: {

@@ -3,12 +3,12 @@
 You can use **RangeInput** component as following minimal configuration:
 
 ```livescript
-<GridColumn class="grid-col--4">
-  <RangeInput
+<grid-column class="grid-col--4">
+  <range-input
     v-model="someValue"
     :steps="steps"
   />
-</GridColumn>
+</grid-column>
 ```
 
 ### Required props are:

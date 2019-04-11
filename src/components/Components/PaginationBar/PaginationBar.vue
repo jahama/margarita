@@ -6,29 +6,29 @@
       :class="{ 'pagination-bar--invisible': isStart }"
       class="pagination-bar__left"
     >
-      <ButtonInput
+      <button-input
         aria-label="Go to the start icon"
         category="no-background"
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       >
-        <IconBase
+        <icon-base
           icon="ArrowToEnd"
           width="16"
           height="16"
         />
-      </ButtonInput>
-      <ButtonInput
+      </button-input>
+      <button-input
         aria-label="Go back icon"
         class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
       >
-        <IconBase
+        <icon-base
           icon="Arrow"
           width="16"
           height="16"
         />
-      </ButtonInput>
+      </button-input>
     </div>
     <div class="pagination-bar__current">
       <slot />
@@ -37,29 +37,29 @@
       :class="{ 'pagination-bar--invisible': isEnd }"
       class="pagination-bar__right"
     >
-      <ButtonInput
+      <button-input
         aria-label="Go forward icon"
         class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
       >
-        <IconBase
+        <icon-base
           icon="Arrow"
           width="16"
           height="16"
         />
-      </ButtonInput>
-      <ButtonInput
+      </button-input>
+      <button-input
         aria-label="Go to the end icon"
         category="no-background"
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       >
-        <IconBase
+        <icon-base
           icon="ArrowToEnd"
           width="16"
           height="16"
         />
-      </ButtonInput>
+      </button-input>
     </div>
   </div>
 </template>

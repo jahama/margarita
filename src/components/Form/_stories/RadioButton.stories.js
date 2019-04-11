@@ -27,14 +27,14 @@ storiesOf('Form Components', module)
       components: { RadioButton, GridColumn },
 
       template: `
-        <GridColumn :class="getClass">
-          <RadioButton
+        <grid-column :class="getClass">
+          <radio-button
             :disabled="disabled"
             :items="items"
             :value="defaultOption"
             @change="onChange"
           />
-        </GridColumn>`,
+        </grid-column>`,
 
       computed: {
         getClass () {

@@ -10,18 +10,18 @@
       class="user-actions__user-role"
       v-text="userRole"
     />
-    <ButtonInput
+    <button-input
       aria-label="exit icon"
       category="no-background"
       class="user-actions__icon"
       @click="emitClickEvent"
     >
-      <IconBase
+      <icon-base
         icon="Exit"
         width="16"
         height="16"
       />
-    </ButtonInput>
+    </button-input>
   </div>
 </template>
 

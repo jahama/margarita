@@ -51,11 +51,11 @@ storiesOf('Form Components', module)
       template: `
       <div>
         <h2>Dynamic button:</h2>
-        <GridRow>
-          <GridColumn
+        <grid-row>
+          <grid-column
             class="grid-col--3"
           >
-            <ButtonInput
+            <button-input
               @click="action"
               :text="text"
               :rounded="rounded"
@@ -69,71 +69,71 @@ storiesOf('Form Components', module)
               <template v-if="text">
                 {{ text }}
               </template>
-              <IconBase
+              <icon-base
                 v-if="getIcon"
                 :width="iconSize"
                 :height="iconSize"
                 :icon="icon"
               />
             </ButtonInput>
-          </GridColumn>
-        </GridRow>
+          </grid-column>
+        </grid-row>
 
         <h2>Examples:</h2>
-        <GridRow>
-          <GridColumn
+        <grid-row>
+          <grid-column
             class="grid-col--3"
             align-start
           >
-            <ButtonInput
+            <button-input
               category="gradient"
             >
             This is a button with text only
             </ButtonInput>
-          </GridColumn>
-          <GridColumn
+          </grid-column>
+          <grid-column
             class="grid-col--1"
             align-start
           >
-            <ButtonInput
+            <button-input
               aria-label="Download PDF"
               rounded
               category="primary"
             >
-              <IconBase
+              <icon-base
                 icon="DownloadContract"
                 width="35"
                 height="35"
               />
             </ButtonInput>
-          </GridColumn>
-          <GridColumn
+          </grid-column>
+          <grid-column
             class="grid-col--3"
             align-start
           >
-            <ButtonInput>
+            <button-input>
               This is a button with text and icon
-              <IconBase
+              <icon-base
                 icon="Arrow"
               />
             </ButtonInput>
-          </GridColumn>
-          <GridColumn
+          </grid-column>
+          <grid-column
             class="grid-col--3"
             align-start
           >
-            <ButtonInput
+            <button-input
               category="no-background"
               href="https://www.holaluz.com/"
               tag="a"
             >
               This is a link with text and icon
-              <IconBase
+              <icon-base
                 icon="Exit"
               />
             </ButtonInput>
-          </GridColumn>
-        </GridRow>
+          </grid-column>
+        </grid-row>
       </div>`,
 
       computed: {

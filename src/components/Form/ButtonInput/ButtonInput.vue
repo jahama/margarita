@@ -1,7 +1,7 @@
 <style scoped lang="scss" src="./ButtonInput.scss"></style>
 
 <template>
-  <Component
+  <component
     :is="tag"
     :disabled="loading || disabled"
     :class="[getClasses, 'button-input']"
@@ -10,9 +10,9 @@
   >
     <span>
       <slot v-if="!loading || !rounded" />
-      <ButtonInputSpinner v-if="loading" />
+      <button-input-spinner v-if="loading" />
     </span>
-  </Component>
+  </component>
 </template>
 
 <script>

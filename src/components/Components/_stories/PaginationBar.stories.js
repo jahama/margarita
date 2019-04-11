@@ -20,8 +20,8 @@ storiesOf('Components', module)
       components: { PaginationBar, GridColumn },
 
       template: `
-        <GridColumn>
-          <PaginationBar
+        <grid-column>
+          <pagination-bar
             :is-start="isStart"
             :is-end="isEnd"
             @pagination="changePage"
@@ -30,8 +30,8 @@ storiesOf('Components', module)
               Viendo del <strong>{{ from }}</strong> al <strong>{{ to }}</strong><br>
               de {{ totalItems }} contratos en total
             </span>
-          </PaginationBar>
-        </GridColumn>`,
+          </pagination-bar>
+        </grid-column>`,
 
       props: {
         from: {
