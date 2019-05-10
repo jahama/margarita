@@ -20,6 +20,7 @@
         :key="index"
         :label="option.label"
         :value="option.value"
+        :disabled="!option.value"
         v-text="option.text"
       />
     </select>
