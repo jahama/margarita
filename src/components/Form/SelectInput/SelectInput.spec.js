@@ -1,6 +1,13 @@
 import { render, fireEvent } from 'vue-testing-library'
 import SelectInput from './SelectInput'
 
+const OPTIONS_WITH_PLACEHOLDER = [
+  { label: 'Placeholder text', text: 'Placeholder text', value: '' },
+  { label: 'Option1', text: 'Option1', value: 'option1' },
+  { label: 'Option2', text: 'Option2', value: 'option2' },
+  { label: 'Option3', text: 'Option3', value: 'option3' },
+]
+
 const SelectInputBuilder = customProps => render(SelectInput, {
   props: {
     label: 'Test Select label',
@@ -75,5 +82,33 @@ describe('SelectInput', () => {
 
     // If we provide an aria-label, the <label> element should not be there
     expect(wrapper.queryByDisplayValue(/Test Select label/i)).toBe(null)
+  })
+
+  it('should have a placeholder text', () => {
+    const wrapper = SelectInputBuilder({
+      options: OPTIONS_WITH_PLACEHOLDER,
+    })
+
+    wrapper.getByDisplayValue(/placeholder text/i)
+  })
+
+  it('should\'nt show placeholder text after change value', () => {
+    const wrapper = SelectInputBuilder({
+      options: OPTIONS_WITH_PLACEHOLDER,
+    })
+
+    const select = wrapper.getByDisplayValue(/placeholder text/i)
+
+    fireEvent.change(select, { target: { value: 'option1' } })
+    wrapper.getByDisplayValue(/option1/i)
+  })
+
+  it('placeholder option should be disabled', () => {
+    const wrapper = SelectInputBuilder({
+      options: OPTIONS_WITH_PLACEHOLDER,
+    })
+
+    const placeholder = wrapper.getByText(/placeholder text/i)
+    expect(placeholder.disabled).toBe(true)
   })
 })
