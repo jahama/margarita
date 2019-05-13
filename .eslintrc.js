@@ -16,7 +16,7 @@ module.exports = {
     'prettier/vue',
     // Treat prettier errors as linting errors
     // Disable certain rules that interfere with prettier
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: [
     'vue',
