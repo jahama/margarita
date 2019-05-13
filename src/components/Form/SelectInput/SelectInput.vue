@@ -20,7 +20,7 @@
         :key="index"
         :label="option.label"
         :value="option.value"
-        :disabled="!option.value"
+        :disabled="isPlaceholder(option.value)"
         v-text="option.text"
       />
     </select>
@@ -123,6 +123,12 @@ export default {
       return {
         'select-input__label--hidden': this.$attrs['aria-label'],
       }
+    },
+  },
+
+  methods: {
+    isPlaceholder (value) {
+      return typeof value !== 'boolean' && !value
     },
   },
 
