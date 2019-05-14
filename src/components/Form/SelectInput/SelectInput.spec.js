@@ -92,7 +92,7 @@ describe('SelectInput', () => {
     wrapper.getByDisplayValue(/placeholder text/i)
   })
 
-  it('should\'nt show placeholder text after change value', () => {
+  it(`shouldn't show placeholder text after change value`, () => { 
     const wrapper = SelectInputBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
