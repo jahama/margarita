@@ -20,7 +20,7 @@
         :key="index"
         :label="option.label"
         :value="option.value"
-        :disabled="isPlaceholder(option.value)"
+        :disabled="option.disabled"
         v-text="option.text"
       />
     </select>
@@ -125,12 +125,5 @@ export default {
       }
     },
   },
-
-  methods: {
-    isPlaceholder (value) {
-      return typeof value !== 'boolean' && !value
-    },
-  },
-
 }
 </script>

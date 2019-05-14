@@ -2,7 +2,7 @@ import { render, fireEvent } from 'vue-testing-library'
 import SelectInput from './SelectInput'
 
 const OPTIONS_WITH_PLACEHOLDER = [
-  { label: 'Placeholder text', text: 'Placeholder text', value: '' },
+  { label: 'Placeholder text', text: 'Placeholder text', value: '', disabled: true },
   { label: 'Option1', text: 'Option1', value: 'option1' },
   { label: 'Option2', text: 'Option2', value: 'option2' },
   { label: 'Option3', text: 'Option3', value: 'option3' },
@@ -92,7 +92,7 @@ describe('SelectInput', () => {
     wrapper.getByDisplayValue(/placeholder text/i)
   })
 
-  it(`shouldn't show placeholder text after change value`, () => { 
+  it(`shouldn't show placeholder text after change value`, () => {
     const wrapper = SelectInputBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
