@@ -29,6 +29,7 @@
     font-family: quote($name);
     font-weight: $weight;
     font-style: $style;
+    font-display: swap;
     src: $src;
   }
 }
