@@ -25,6 +25,7 @@
       <template v-if="$slots.button">
         <button-input
           class="text-input__button"
+          data-testid="input-slot-button"
           @click="$emit('click-button')"
         >
           <slot name="button" />

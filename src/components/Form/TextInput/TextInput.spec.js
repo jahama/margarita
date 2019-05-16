@@ -1,11 +1,12 @@
-import { render, fireEvent, cleanup } from 'vue-testing-library'
+import { render, fireEvent, cleanup, wait } from 'vue-testing-library'
 import TextInput from './TextInput'
 
-const TextInputBuilder = customProps => render(TextInput, {
+const TextInputBuilder = (customProps, customParams) => render(TextInput, {
   props: {
     label: 'input label',
     ...customProps,
   },
+  ...customParams,
 })
 
 describe('TextInput', () => {
@@ -94,5 +95,23 @@ describe('TextInput', () => {
     )
 
     expect(wrapper.emitted().enter).toBeTruthy()
+  })
+
+  it('should have a button with text if slot provided', async () => {
+    const wrapper = TextInputBuilder(null, {
+      slots: {
+        button: 'Test slot',
+      },
+    })
+
+    await wait(() => wrapper.getByTestId('input-slot-button'))
+  })
+
+  it('should have not a button with text if not slot provided', async () => {
+    const wrapper = TextInputBuilder()
+
+    await wait(() =>
+      (expect(wrapper.queryByTestId('input-slot-button')).toBe(null))
+    )
   })
 })
