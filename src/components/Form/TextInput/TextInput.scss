@@ -10,12 +10,22 @@
     margin-bottom: rem(4px);
   }
 
+  &__field-wrapper {
+    display: flex;
+    height: rem(36px);
+  }
+
+  &__button {
+    height: 100%;
+  }
+
   &__field {
+    flex: 0 1 100%;
     transition: border .2s ease;
     border: rem(1px) solid get-color("alto");
     background-color: get-color("white");
     padding: 0 rem(8px);
-    height: rem(36px);
+    height: 100%;
     font-size: rem(16px);
 
     &:active,

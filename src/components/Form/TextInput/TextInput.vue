@@ -7,20 +7,30 @@
       class="text-input__label"
       v-text="label"
     />
-    <input
-      :id="id"
-      v-model="lazyValue"
-      v-bind="$attrs"
-      :class="getComputedClass"
-      :type="type"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      class="text-input__field"
-      @blur="emit"
-      @change="emit"
-      @input="emit"
-      @keyup.enter="removeFocus"
-    >
+    <div class="text-input__field-wrapper">
+      <input
+        :id="id"
+        v-model="lazyValue"
+        v-bind="$attrs"
+        :class="getComputedClass"
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        class="text-input__field"
+        @blur="emit"
+        @change="emit"
+        @input="emit"
+        @keyup.enter="removeFocus"
+      >
+      <template v-if="$slots.button">
+        <button-input
+          class="text-input__button"
+          @click="$emit('click-button')"
+        >
+          <slot name="button" />
+        </button-input>
+      </template>
+    </div>
     <div
       v-if="hasError"
       class="text-input__error-message"
@@ -32,12 +42,18 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
+const ButtonInput = () => import('@/components/Form/ButtonInput')
+
 const INPUT_CLASSES = {
   hasError: 'text-input__field--error',
 }
 
 export default {
   name: 'TextInput',
+
+  components: {
+    ButtonInput,
+  },
 
   props: {
     disabled: {
