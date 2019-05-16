@@ -5,9 +5,27 @@ import { action } from '@storybook/addon-actions'
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 
 import TextInput from '../TextInput/TextInput'
+import IconBase from '../../Components/IconBase'
 import notes from './notes/TextInput.md'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+const ICONS = [
+  'AddContract',
+  'Arrow',
+  'ArrowToEnd',
+  'BulbOn',
+  'Close',
+  'DetailsContract',
+  'DownloadContract',
+  'Exit',
+  'Gas',
+  'Link',
+  'Logo',
+  'LongArrow',
+  'Phone',
+  'Plug',
+  'User',
+]
 
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
@@ -23,9 +41,10 @@ storiesOf('Form Components', module)
     const placeholder = text('Placeholder', 'Placeholder')
     const size = select('Size', GRID_ARRAY, 4)
     const value = text('Value', '')
+    const icon = select('Icon', [ '', ...ICONS ], '')
 
     return ({
-      components: { TextInput, GridColumn },
+      components: { TextInput, GridColumn, IconBase },
 
       template: `
         <grid-column :class="getClass">
@@ -38,7 +57,15 @@ storiesOf('Form Components', module)
             :placeholder="placeholder"
             v-model="value"
             @blur="onBlur"
-          />
+          >
+            <icon-base
+              v-if="icon"
+              slot="button"
+              :icon="icon"
+              width="16"
+              height="16"
+            />
+          </text-input>
         </grid-column>`,
 
       computed: {
@@ -75,6 +102,9 @@ storiesOf('Form Components', module)
         },
         textValue: {
           default: value,
+        },
+        icon: {
+          default: icon,
         },
       },
 
