@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
 
-import TextInput from '../TextInput/TextInput'
+import TextInput from '../TextInput'
+import ButtonInput from '../ButtonInput'
 import IconBase from '../../Components/IconBase'
 import notes from './notes/TextInput.md'
 
@@ -44,7 +45,7 @@ storiesOf('Form Components', module)
     const icon = select('Icon', [ '', ...ICONS ], '')
 
     return ({
-      components: { TextInput, GridColumn, IconBase },
+      components: { TextInput, GridColumn, IconBase, ButtonInput },
 
       template: `
         <grid-column :class="getClass">
@@ -58,13 +59,16 @@ storiesOf('Form Components', module)
             v-model="value"
             @blur="onBlur"
           >
-            <icon-base
+            <button-input
               v-if="icon"
-              slot="button"
-              :icon="icon"
-              width="16"
-              height="16"
-            />
+              slot="inputSibling"
+            >
+              <icon-base
+                :icon="icon"
+                width="16"
+                height="16"
+              />
+            </button-input>
           </text-input>
         </grid-column>`,
 

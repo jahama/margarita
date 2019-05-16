@@ -26,7 +26,7 @@ You can use **TextInput** component as following minimal configuration:
 
 ### Slots
 
-- **button**: If exists, adds a button with an `<slot />`.
+- **inputSibling**: Able to add a input sibling, like a button, a counter, an icon, etc.
 
 ### Events:
 

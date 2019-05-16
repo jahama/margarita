@@ -22,15 +22,7 @@
         @input="emit"
         @keyup.enter="removeFocus"
       >
-      <template v-if="$slots.button">
-        <button-input
-          class="text-input__button"
-          data-testid="input-slot-button"
-          @click="$emit('click-button')"
-        >
-          <slot name="button" />
-        </button-input>
-      </template>
+      <slot name="inputSibling" />
     </div>
     <div
       v-if="hasError"
@@ -43,18 +35,12 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const ButtonInput = () => import('@/components/Form/ButtonInput')
-
 const INPUT_CLASSES = {
   hasError: 'text-input__field--error',
 }
 
 export default {
   name: 'TextInput',
-
-  components: {
-    ButtonInput,
-  },
 
   props: {
     disabled: {
