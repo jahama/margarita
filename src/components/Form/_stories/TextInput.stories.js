@@ -43,6 +43,7 @@ storiesOf('Form Components', module)
     const size = select('Size', GRID_ARRAY, 4)
     const value = text('Value', '')
     const icon = select('Icon', [ '', ...ICONS ], '')
+    const siblingLabel = text('Sibling label', '')
 
     return ({
       components: { TextInput, GridColumn, IconBase, ButtonInput },
@@ -59,6 +60,14 @@ storiesOf('Form Components', module)
             v-model="value"
             @blur="onBlur"
           >
+            <button-input
+              v-if="siblingLabel"
+              href="#"
+              category="no-background"
+              style="flex: 0 1 100%; margin-left: 1rem;"
+              slot="labelSibling"
+              v-text="siblingLabel"
+            />
             <button-input
               v-if="icon"
               slot="inputSibling"
@@ -109,6 +118,9 @@ storiesOf('Form Components', module)
         },
         icon: {
           default: icon,
+        },
+        siblingLabel: {
+          default: siblingLabel,
         },
       },
 

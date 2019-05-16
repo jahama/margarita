@@ -2,11 +2,14 @@
 
 <template>
   <div class="text-input">
-    <label
-      :for="id"
-      class="text-input__label"
-      v-text="label"
-    />
+    <div class="text-input__label-wrapper">
+      <label
+        :for="id"
+        class="text-input__label"
+        v-text="label"
+      />
+      <slot name="labelSibling" />
+    </div>
     <div class="text-input__field-wrapper">
       <input
         :id="id"

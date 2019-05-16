@@ -105,6 +105,19 @@ describe('TextInput', () => {
       },
     })
 
-    wrapper.getByText(SLOT_CONTENT)
+    const slotContainer = wrapper.getByText(SLOT_CONTENT)
+    expect(slotContainer.classList.contains('text-input__field-wrapper')).toBeTruthy()
+  })
+
+  it('should render the labelSibling slot if provided', () => {
+    const SLOT_CONTENT = 'Test slot'
+    const wrapper = TextInputBuilder(null, {
+      slots: {
+        labelSibling: SLOT_CONTENT,
+      },
+    })
+
+    const slotContainer = wrapper.getByText(SLOT_CONTENT)
+    expect(slotContainer.classList.contains('text-input__label-wrapper')).toBeTruthy()
   })
 })

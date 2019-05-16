@@ -6,8 +6,14 @@
   width: 100%;
   color: get-color("tundora");
 
-  &__label {
+  &__label-wrapper {
+    display: flex;
+    align-items: center;
     margin-bottom: rem(4px);
+  }
+
+  &__label {
+    flex: auto;
   }
 
   &__field-wrapper {
