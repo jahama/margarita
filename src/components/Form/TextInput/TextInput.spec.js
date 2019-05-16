@@ -97,7 +97,7 @@ describe('TextInput', () => {
     expect(wrapper.emitted().enter).toBeTruthy()
   })
 
-  it('should have a button with text if slot provided', () => {
+  it('should render the inputSibling slot if provided', () => {
     const SLOT_CONTENT = 'Test slot'
     const wrapper = TextInputBuilder(null, {
       slots: {
