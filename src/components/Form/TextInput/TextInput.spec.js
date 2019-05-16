@@ -104,7 +104,7 @@ describe('TextInput', () => {
       },
     })
 
-    await wait(() => wrapper.getByTestId('input-slot-button'))
+    await wrapper.findByTestId('input-slot-button')
   })
 
   it('should have not a button with text if not slot provided', async () => {
