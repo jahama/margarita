@@ -30,6 +30,7 @@ const AVAILABLE_ICONS = [
   'Close',
   'DetailsContract',
   'DownloadContract',
+  'EditContract',
   'Exit',
   'Gas',
   'Link',
