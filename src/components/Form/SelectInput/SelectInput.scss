@@ -1,10 +1,10 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .select-input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color("tundora");
+  color: get-color('tundora');
   font-size: rem(16px);
 
   &__label {
@@ -23,17 +23,17 @@
   }
 
   &__field {
-    transition: border .2s ease;
-    border: rem(1px) solid get-color("alto");
-    background-color: get-color("white");
-    background-image: url("../../../assets/icons/arrow.svg");
+    transition: border 0.2s ease;
+    border: rem(1px) solid get-color('alto');
+    background-color: get-color('white');
+    background-image: url('../../../assets/icons/arrow.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 12px) 50%;
     background-size: auto;
     padding: 0 rem(32px) 0 rem(8px);
     width: 100%;
     height: rem(36px);
-    color: get-color("tundora");
+    color: get-color('tundora');
     font-size: rem(16px);
     -webkit-appearance: none;
     -webkit-border-radius: 0;
@@ -41,26 +41,26 @@
     &:active,
     &:hover {
       outline: none;
-      border: rem(1px) solid get-color("dark-hot-pink");
+      border: rem(1px) solid get-color('dark-hot-pink');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
-      border: rem(1px) solid get-color("dark-hot-pink");
+      border: rem(1px) solid get-color('dark-hot-pink');
     }
 
     &:disabled {
-      background-color: get-color("concrete");
+      background-color: get-color('concrete');
       pointer-events: none;
     }
 
     &--error {
-      border-color: get-color("crimson");
+      border-color: get-color('crimson');
 
       &:focus,
       &:active {
-        border: rem(1px) solid get-color("crimson");
+        border: rem(1px) solid get-color('crimson');
       }
     }
 
@@ -83,7 +83,7 @@
 
   &__error-message {
     margin-top: rem(4px);
-    color: get-color("crimson");
+    color: get-color('crimson');
     font-size: rem(14px);
   }
 }

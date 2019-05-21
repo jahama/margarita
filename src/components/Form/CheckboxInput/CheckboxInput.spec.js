@@ -1,12 +1,13 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
 import CheckboxInput from './CheckboxInput'
 
-const CheckboxInputBuilder = customProps => render(CheckboxInput, {
-  props: {
-    label: 'checkbox label',
-    ...customProps,
-  },
-})
+const CheckboxInputBuilder = customProps =>
+  render(CheckboxInput, {
+    props: {
+      label: 'checkbox label',
+      ...customProps,
+    },
+  })
 
 describe('CheckboxInput', () => {
   afterEach(cleanup)
@@ -32,8 +33,9 @@ describe('CheckboxInput', () => {
   it('should render a custom id', () => {
     const wrapper = CheckboxInputBuilder({ id: 'customId' })
 
-    expect(wrapper.getByText(/checkbox label/i).getAttribute('for'))
-      .toBe('customId')
+    expect(wrapper.getByText(/checkbox label/i).getAttribute('for')).toBe(
+      'customId'
+    )
     expect(wrapper.getByLabelText(/checkbox label/i).id).toBe('customId')
   })
 

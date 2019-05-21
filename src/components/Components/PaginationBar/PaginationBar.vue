@@ -12,22 +12,14 @@
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       >
-        <icon-base
-          icon="ArrowToEnd"
-          width="16"
-          height="16"
-        />
+        <icon-base icon="ArrowToEnd" width="16" height="16" />
       </button-input>
       <button-input
         aria-label="Go back icon"
         class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
       >
-        <icon-base
-          icon="Arrow"
-          width="16"
-          height="16"
-        />
+        <icon-base icon="Arrow" width="16" height="16" />
       </button-input>
     </div>
     <div class="pagination-bar__current">
@@ -42,11 +34,7 @@
         class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
       >
-        <icon-base
-          icon="Arrow"
-          width="16"
-          height="16"
-        />
+        <icon-base icon="Arrow" width="16" height="16" />
       </button-input>
       <button-input
         aria-label="Go to the end icon"
@@ -54,11 +42,7 @@
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       >
-        <icon-base
-          icon="ArrowToEnd"
-          width="16"
-          height="16"
-        />
+        <icon-base icon="ArrowToEnd" width="16" height="16" />
       </button-input>
     </div>
   </div>
@@ -109,7 +93,7 @@ export default {
   },
 
   methods: {
-    pagination (direction) {
+    pagination(direction) {
       this.$emit('pagination', direction)
     },
   },

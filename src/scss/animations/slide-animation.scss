@@ -1,5 +1,4 @@
 @mixin slide-animation($timeout: 0, $origin: -100%, $dest: 0) {
-
   &.slide-animation-enter-active {
     animation: slide-animation $timeout;
   }
@@ -17,5 +16,4 @@
       transform: translateX($dest);
     }
   }
-
 }

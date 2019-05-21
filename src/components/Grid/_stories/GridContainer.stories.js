@@ -17,15 +17,21 @@ import LayoutCard from '../../Layout/LayoutCard/LayoutCard'
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
-  .add('Usage', () => {
-    const fluid = boolean('Fluid layout', false)
-    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
-    const noGutters = boolean('No gutters', false)
+  .add(
+    'Usage',
+    () => {
+      const fluid = boolean('Fluid layout', false)
+      const tag = select(
+        'Tag',
+        ['div', 'header', 'aside', 'article', 'section'],
+        'div'
+      )
+      const noGutters = boolean('No gutters', false)
 
-    return ({
-      components: { GridContainer, GridRow, GridColumn },
+      return {
+        components: { GridContainer, GridRow, GridColumn },
 
-      template: `
+        template: `
         <grid-container :fluid="fluid" :tag="tag" class="grid-example">
           <grid-row :noGutters="noGutters">
             <grid-column v-for="col in 1" :key="col" class="grid-col--12">
@@ -60,27 +66,31 @@ storiesOf('Grid System', module)
         </grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
+        props: {
+          fluid: {
+            default: fluid,
+          },
+          tag: {
+            default: tag,
+          },
+          noGutters: {
+            default: noGutters,
+          },
         },
-        tag: {
-          default: tag,
-        },
-        noGutters: {
-          default: noGutters,
-        },
-      },
-    })
-  }, { notes: GridSystemNotes })
-  .add('Offset', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
+      }
+    },
+    { notes: GridSystemNotes }
+  )
+  .add(
+    'Offset',
+    () => {
+      const fluid = boolean('fluid', false)
+      const noGutters = boolean('noGutters', false)
 
-    return ({
-      components: { GridContainer, GridRow, GridColumn },
+      return {
+        components: { GridContainer, GridRow, GridColumn },
 
-      template: `
+        template: `
         <grid-container :fluid="fluid" class="grid-example">
           <grid-row :noGutters="noGutters">
             <grid-column class="grid-col--10 grid-col--offset-2">
@@ -99,24 +109,28 @@ storiesOf('Grid System', module)
         </grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
+        props: {
+          fluid: {
+            default: fluid,
+          },
+          noGutters: {
+            default: noGutters,
+          },
         },
-        noGutters: {
-          default: noGutters,
-        },
-      },
-    })
-  }, { notes: GridOffsetNotes })
-  .add('Order', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
+      }
+    },
+    { notes: GridOffsetNotes }
+  )
+  .add(
+    'Order',
+    () => {
+      const fluid = boolean('fluid', false)
+      const noGutters = boolean('noGutters', false)
 
-    return ({
-      components: { GridContainer, GridRow, GridColumn },
+      return {
+        components: { GridContainer, GridRow, GridColumn },
 
-      template: `
+        template: `
         <grid-container :fluid="fluid" class="grid-example">
           <grid-row :noGutters="noGutters">
             <grid-column class="grid-col--6 grid-col--lg-order-2">
@@ -154,25 +168,32 @@ storiesOf('Grid System', module)
         </grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
+        props: {
+          fluid: {
+            default: fluid,
+          },
+          noGutters: {
+            default: noGutters,
+          },
         },
-        noGutters: {
-          default: noGutters,
-        },
-      },
-    })
-  }, { notes: GridOrderNotes })
-  .add('Nested', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
-    const directionColumn = boolean('Light blue row has flex direction column', true)
+      }
+    },
+    { notes: GridOrderNotes }
+  )
+  .add(
+    'Nested',
+    () => {
+      const fluid = boolean('fluid', false)
+      const noGutters = boolean('noGutters', false)
+      const directionColumn = boolean(
+        'Light blue row has flex direction column',
+        true
+      )
 
-    return ({
-      components: { GridContainer, GridRow, GridColumn },
+      return {
+        components: { GridContainer, GridRow, GridColumn },
 
-      template: `
+        template: `
         <grid-container :fluid="fluid" class="grid-example">
           <grid-row :noGutters="noGutters">
             <grid-column class="grid-col--12 grid-col--sm-6 grid-col--md-4">
@@ -200,41 +221,58 @@ storiesOf('Grid System', module)
         </grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
+        props: {
+          fluid: {
+            default: fluid,
+          },
+          noGutters: {
+            default: noGutters,
+          },
+          directionColumn: {
+            default: directionColumn,
+          },
         },
-        noGutters: {
-          default: noGutters,
+
+        data() {
+          return {
+            lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
+          }
         },
-        directionColumn: {
-          default: directionColumn,
+      }
+    },
+    { notes: GridNestedNotes }
+  )
+
+  .add(
+    'Form',
+    () => {
+      const defaultOptions = [
+        { text: 'Option1', value: 'option1' },
+        { text: 'Option2', value: 'option2' },
+        { text: 'Option3', value: 'option3' },
+        { text: 'Option4', value: 'option4' },
+      ]
+      const options = object('Options', defaultOptions)
+      const noMarginBottom = boolean(
+        'All col from last row dont have margin bottom',
+        true
+      )
+      const hasMarginTop = boolean(
+        'All cols from last row have margin top',
+        false
+      )
+
+      return {
+        components: {
+          GridContainer,
+          GridRow,
+          GridColumn,
+          TextInput,
+          SelectInput,
+          LayoutCard,
         },
-      },
 
-      data () {
-        return {
-          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
-        }
-      },
-    })
-  }, { notes: GridNestedNotes })
-
-  .add('Form', () => {
-    const defaultOptions = [
-      { text: 'Option1', value: 'option1' },
-      { text: 'Option2', value: 'option2' },
-      { text: 'Option3', value: 'option3' },
-      { text: 'Option4', value: 'option4' },
-    ]
-    const options = object('Options', defaultOptions)
-    const noMarginBottom = boolean('All col from last row dont have margin bottom', true)
-    const hasMarginTop = boolean('All cols from last row have margin top', false)
-
-    return ({
-      components: { GridContainer, GridRow, GridColumn, TextInput, SelectInput, LayoutCard },
-
-      template: `
+        template: `
         <grid-container form>
           <layout-card>
             <grid-row>
@@ -277,16 +315,18 @@ storiesOf('Grid System', module)
         </grid-container>
       `,
 
-      props: {
-        hasMarginTop: {
-          default: hasMarginTop,
+        props: {
+          hasMarginTop: {
+            default: hasMarginTop,
+          },
+          noMarginBottom: {
+            default: noMarginBottom,
+          },
+          options: {
+            default: options,
+          },
         },
-        noMarginBottom: {
-          default: noMarginBottom,
-        },
-        options: {
-          default: options,
-        },
-      },
-    })
-  }, { notes: GridFormNotes })
+      }
+    },
+    { notes: GridFormNotes }
+  )

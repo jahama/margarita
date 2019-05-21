@@ -2,10 +2,7 @@
 
 <template>
   <div class="checkbox-input">
-    <label
-      :for="id"
-      class="checkbox-input__label"
-    >
+    <label :for="id" class="checkbox-input__label">
       {{ label }}
       <input
         :id="id"
@@ -14,7 +11,7 @@
         :disabled="disabled"
         type="checkbox"
         class="checkbox-input__field"
-      >
+      />
       <span class="checkmark-box" />
     </label>
   </div>
@@ -50,11 +47,11 @@ export default {
 
   computed: {
     isChecked: {
-      get () {
+      get() {
         return this.checked
       },
 
-      set (checkedValue) {
+      set(checkedValue) {
         this.$emit('input', checkedValue)
       },
     },

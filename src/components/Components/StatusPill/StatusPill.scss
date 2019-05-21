@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .status-pill {
   @include font-weight(semibold);
@@ -10,28 +10,28 @@
   font-size: rem(14px);
 
   &--green {
-    background-color: get-color("primrose");
-    color: get-color("japanese-laurel");
+    background-color: get-color('primrose');
+    color: get-color('japanese-laurel');
   }
 
   &--red {
-    background-color: get-color("pippin");
-    color: get-color("crimson");
+    background-color: get-color('pippin');
+    color: get-color('crimson');
   }
 
   &--orange {
-    background-color: get-color("peach-cream");
-    color: get-color("brown");
+    background-color: get-color('peach-cream');
+    color: get-color('brown');
   }
 
   &--gray {
-    background-color: get-color("concrete");
-    border: rem(1px) solid get-color("alto");
-    color: get-color("tundora");
+    background-color: get-color('concrete');
+    border: rem(1px) solid get-color('alto');
+    color: get-color('tundora');
   }
 
   &--dark {
-    background-color: get-color("tundora");
-    color: get-color("white");
+    background-color: get-color('tundora');
+    color: get-color('white');
   }
 }

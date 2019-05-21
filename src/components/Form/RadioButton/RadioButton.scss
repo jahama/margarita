@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23e6007d'/%3E%3C/svg%3E";
 
 .radio-button {
@@ -23,9 +23,9 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
       &:checked,
       &:focus {
         ~ .radio-button__indicator {
-          border: rem(1px) solid get-color("dark-hot-pink");
+          border: rem(1px) solid get-color('dark-hot-pink');
           box-shadow: none;
-          background-color: get-color("white");
+          background-color: get-color('white');
           background-image: url($pink-circle);
           background-size: 100% 100%;
         }
@@ -37,7 +37,7 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
         cursor: not-allowed;
       }
       & ~ .radio-button__indicator {
-        background-color: get-color("concrete");
+        background-color: get-color('concrete');
       }
     }
   }
@@ -47,9 +47,9 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
     position: absolute;
     top: rem(2.5px);
     left: 0;
-    border: rem(1px) solid get-color("gray");
+    border: rem(1px) solid get-color('gray');
     border-radius: 50%;
-    background-color: get-color("white");
+    background-color: get-color('white');
     background-repeat: no-repeat;
     background-position: center center;
     width: 1rem;

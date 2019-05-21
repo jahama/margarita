@@ -37,7 +37,7 @@ export {
   TextInput,
 }
 
-function install (Vue) {
+function install(Vue) {
   Vue.component('AlertBanner', AlertBanner)
   Vue.component('ButtonInput', ButtonInput)
   Vue.component('CheckboxInput', CheckboxInput)

@@ -1,5 +1,11 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs'
+import {
+  withKnobs,
+  select,
+  text,
+  boolean,
+  number,
+} from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import GridColumn from '../../Grid/GridColumn/GridColumn'
@@ -8,7 +14,13 @@ import notes from '../../Form/_stories/notes/ButtonInput.md'
 import ButtonInput from '../ButtonInput/ButtonInput'
 import IconBase from '../../Components/IconBase'
 
-const BUTTON_CATEGORIES = [ 'primary', 'secondary', 'tertiary', 'gradient', 'no-background' ]
+const BUTTON_CATEGORIES = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'gradient',
+  'no-background',
+]
 const ICONS_BUTTON = [
   'AddContract',
   'Arrow',
@@ -29,27 +41,29 @@ const ICONS_BUTTON = [
   'User',
 ]
 
-const HTML_TAGS = [ 'button', 'a' ]
+const HTML_TAGS = ['button', 'a']
 
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Button Input', () => {
-    const category = select('Categories', BUTTON_CATEGORIES, 'primary')
-    const textButton = text('Text', 'Click me')
-    const loading = boolean('Loading', false)
-    const icon = select('Icons', ICONS_BUTTON, 'None')
-    const iconSize = number('Icon height size in px', 18)
-    const fluid = boolean('Fluid', false)
-    const rounded = boolean('Rounded', false)
-    const ariaLabel = text('Aria Label', '')
-    const disabled = boolean('Disabled', false)
-    const tag = select('HTML tag', HTML_TAGS, 'button')
+  .add(
+    'Button Input',
+    () => {
+      const category = select('Categories', BUTTON_CATEGORIES, 'primary')
+      const textButton = text('Text', 'Click me')
+      const loading = boolean('Loading', false)
+      const icon = select('Icons', ICONS_BUTTON, 'None')
+      const iconSize = number('Icon height size in px', 18)
+      const fluid = boolean('Fluid', false)
+      const rounded = boolean('Rounded', false)
+      const ariaLabel = text('Aria Label', '')
+      const disabled = boolean('Disabled', false)
+      const tag = select('HTML tag', HTML_TAGS, 'button')
 
-    return ({
-      components: { ButtonInput, GridColumn, GridRow, IconBase },
+      return {
+        components: { ButtonInput, GridColumn, GridRow, IconBase },
 
-      template: `
+        template: `
       <div>
         <h2>Dynamic button:</h2>
         <grid-row>
@@ -137,47 +151,49 @@ storiesOf('Form Components', module)
         </grid-row>
       </div>`,
 
-      computed: {
-        getIcon () {
-          return this.icon === 'None' ? null : this.icon
+        computed: {
+          getIcon() {
+            return this.icon === 'None' ? null : this.icon
+          },
         },
-      },
 
-      props: {
-        ariaLabel: {
-          default: ariaLabel,
+        props: {
+          ariaLabel: {
+            default: ariaLabel,
+          },
+          disabled: {
+            default: disabled,
+          },
+          fluid: {
+            default: fluid,
+          },
+          icon: {
+            default: icon,
+          },
+          iconSize: {
+            default: iconSize,
+          },
+          loading: {
+            default: loading,
+          },
+          rounded: {
+            default: rounded,
+          },
+          tag: {
+            default: tag,
+          },
+          text: {
+            default: textButton,
+          },
+          category: {
+            default: category,
+          },
         },
-        disabled: {
-          default: disabled,
-        },
-        fluid: {
-          default: fluid,
-        },
-        icon: {
-          default: icon,
-        },
-        iconSize: {
-          default: iconSize,
-        },
-        loading: {
-          default: loading,
-        },
-        rounded: {
-          default: rounded,
-        },
-        tag: {
-          default: tag,
-        },
-        text: {
-          default: textButton,
-        },
-        category: {
-          default: category,
-        },
-      },
 
-      methods: {
-        action: action('clicked'),
-      },
-    })
-  }, { notes })
+        methods: {
+          action: action('clicked'),
+        },
+      }
+    },
+    { notes }
+  )

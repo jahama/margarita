@@ -33,7 +33,8 @@ const rowsSample = [
         text: 'success',
       },
     },
-  }, {
+  },
+  {
     name: 'Biel',
     age: 31,
     status: {
@@ -43,7 +44,8 @@ const rowsSample = [
         text: 'error',
       },
     },
-  }, {
+  },
+  {
     name: 'Carlos',
     age: 29,
     status: {
@@ -53,7 +55,8 @@ const rowsSample = [
         text: 'error',
       },
     },
-  }, {
+  },
+  {
     name: 'Marina',
     age: 23,
     status: {
@@ -63,7 +66,8 @@ const rowsSample = [
         text: 'warning',
       },
     },
-  }, {
+  },
+  {
     name: 'Estela',
     age: 36,
     status: {
@@ -79,16 +83,18 @@ const rowsSample = [
 storiesOf('Components', module)
   .addDecorator(withKnobs)
 
-  .add('DataGrid', () => {
-    const isLoading = boolean('Loading', false)
+  .add(
+    'DataGrid',
+    () => {
+      const isLoading = boolean('Loading', false)
 
-    return ({
-      components: {
-        DataGrid,
-        GridColumn,
-      },
+      return {
+        components: {
+          DataGrid,
+          GridColumn,
+        },
 
-      template: `
+        template: `
         <grid-column>
           <data-grid
             :columns="columns"
@@ -98,36 +104,38 @@ storiesOf('Components', module)
           />
         </grid-column>`,
 
-      props: {
-        columns: {
-          default: columns,
-        },
-        rowsSample: {
-          default: rowsSample,
-        },
-        isLoading: {
-          default: isLoading,
-        },
-      },
-
-      methods: {
-        sortBy (key) {
-          const sortBy = key.column.value
-          const sortDirection = key.dir
-
-          this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
+        props: {
+          columns: {
+            default: columns,
+          },
+          rowsSample: {
+            default: rowsSample,
+          },
+          isLoading: {
+            default: isLoading,
+          },
         },
 
-        dynamicSort (key, sortDirection) {
-          let sortOrder = 1
-          if (sortDirection === 'DESC') {
-            sortOrder = -1
-          }
-          return function (a, b) {
-            let result = (a[key] < b[key]) ? -1 : (a[key] > b[key]) ? 1 : 0
-            return result * sortOrder
-          }
+        methods: {
+          sortBy(key) {
+            const sortBy = key.column.value
+            const sortDirection = key.dir
+
+            this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
+          },
+
+          dynamicSort(key, sortDirection) {
+            let sortOrder = 1
+            if (sortDirection === 'DESC') {
+              sortOrder = -1
+            }
+            return function(a, b) {
+              let result = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0
+              return result * sortOrder
+            }
+          },
         },
-      },
-    })
-  }, { notes })
+      }
+    },
+    { notes }
+  )

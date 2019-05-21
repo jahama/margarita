@@ -1,29 +1,16 @@
 <style lang="scss" src="./AlertBanner.scss"></style>
 
 <template>
-  <div
-    :class="getClasses"
-    class="alert-banner"
-  >
-    <span
-      v-if="showAlertIcon"
-      class="alert-banner__icon"
-    />
-    <p
-      v-if="alertWithTitle"
-      class="alert-banner__title"
-      v-text="title"
-    />
-    <p
-      class="alert-banner__text"
-      v-text="text"
-    />
+  <div :class="getClasses" class="alert-banner">
+    <span v-if="showAlertIcon" class="alert-banner__icon" />
+    <p v-if="alertWithTitle" class="alert-banner__title" v-text="title" />
+    <p class="alert-banner__text" v-text="text" />
   </div>
 </template>
 
 <script>
-const AVAILABLE_SIZES = [ 'small', 'medium', 'large' ]
-const AVAILABLE_TYPES = [ 'error', 'info', 'success', 'warning' ]
+const AVAILABLE_SIZES = ['small', 'medium', 'large']
+const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
 
 export default {
   name: 'AlertBanner',
@@ -32,7 +19,7 @@ export default {
     size: {
       default: 'medium',
       type: String,
-      validator: function (value) {
+      validator: function(value) {
         return AVAILABLE_SIZES.indexOf(value) !== -1
       },
     },
@@ -51,14 +38,14 @@ export default {
     type: {
       default: 'info',
       type: String,
-      validator: function (value) {
+      validator: function(value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       },
     },
   },
 
   computed: {
-    getClasses () {
+    getClasses() {
       const classes = []
 
       if (this.alertWithTitle()) {
@@ -70,13 +57,13 @@ export default {
       return classes
     },
 
-    showAlertIcon () {
+    showAlertIcon() {
       return this.type === 'error' && this.size === 'medium'
     },
   },
 
   methods: {
-    alertWithTitle () {
+    alertWithTitle() {
       return this.size === 'large' && this.title !== ''
     },
   },

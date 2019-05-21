@@ -1,9 +1,9 @@
-@import "../../../../scss/margarita";
+@import '../../../../scss/margarita';
 
 .loader {
   margin-bottom: rem(8px);
   border-radius: rem(16px);
-  background: lighten(get-color("black"), 85%);
+  background: lighten(get-color('black'), 85%);
   height: rem(8px);
 
   &:last-child {

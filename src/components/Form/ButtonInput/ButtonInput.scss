@@ -1,10 +1,10 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .button-input {
   @include font-weight(semibold);
   display: flex;
   justify-content: center;
-  transition: background-color .3s, background-position .3s, border-color .3s;
+  transition: background-color 0.3s, background-position 0.3s, border-color 0.3s;
   border: rem(1px) solid transparent;
   cursor: pointer;
   padding: rem(9px);
@@ -16,17 +16,17 @@
     cursor: not-allowed;
 
     &:not(.button-input--loading) {
-      border-color: get-color("boulder");
-      color: get-color("boulder");
+      border-color: get-color('boulder');
+      color: get-color('boulder');
 
       &:not(.button-input--secondary):not(.button-input--no-background) {
-        background: get-color("boulder");
-        color: get-color("white");
+        background: get-color('boulder');
+        color: get-color('white');
       }
 
       &:not(.button-input--white):not(.button-input--no-background) {
-        background: get-color("boulder");
-        color: get-color("white");
+        background: get-color('boulder');
+        color: get-color('white');
       }
     }
   }
@@ -52,107 +52,110 @@
   &--no-background {
     @include font-weight(regular);
     justify-content: start;
-    transition: color .3s;
+    transition: color 0.3s;
     border: 0;
     padding: 0;
     width: auto;
-    color: get-color("dark-hot-pink");
+    color: get-color('dark-hot-pink');
 
     &:hover:enabled,
     &:active:enabled {
-      color: darken(get-color("dark-hot-pink"), 10%);
+      color: darken(get-color('dark-hot-pink'), 10%);
     }
   }
 
   &--primary {
-    background-color: get-color("dark-hot-pink");
-    color: get-color("white");
+    background-color: get-color('dark-hot-pink');
+    color: get-color('white');
 
     &:hover:enabled,
     &:active:enabled {
-      background-color: darken(get-color("dark-hot-pink"), 10%);
-      color: get-color("white");
+      background-color: darken(get-color('dark-hot-pink'), 10%);
+      color: get-color('white');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
     }
 
     &.button-input--rounded {
-      box-shadow: 0 rem(2px) rem(3px) rem(2px) get-color("shadow-medium");
+      box-shadow: 0 rem(2px) rem(3px) rem(2px) get-color('shadow-medium');
     }
-	}
+  }
 
   &--secondary {
-    border-color: get-color("dark-hot-pink");
+    border-color: get-color('dark-hot-pink');
     background-color: transparent;
-    color: get-color("dark-hot-pink");
+    color: get-color('dark-hot-pink');
 
     &:hover:enabled,
     &:active:enabled {
-      background-color: get-color("dark-hot-pink");
-      color: get-color("white");
+      background-color: get-color('dark-hot-pink');
+      color: get-color('white');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
     }
 
     &.button-input--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color("dark-hot-pink");
+      color: get-color('dark-hot-pink');
 
       &:hover:enabled,
       &:active:enabled,
       &.button-input--loading {
-        border-color: lighten(get-color("dark-hot-pink"), 50%);
-        background-color: lighten(get-color("dark-hot-pink"), 50%);
-        color: get-color("dark-hot-pink");
+        border-color: lighten(get-color('dark-hot-pink'), 50%);
+        background-color: lighten(get-color('dark-hot-pink'), 50%);
+        color: get-color('dark-hot-pink');
       }
     }
   }
 
   &--white {
-    border-color: get-color("white");
+    border-color: get-color('white');
     background-color: transparent;
-    color: get-color("white");
+    color: get-color('white');
 
     &:hover:enabled,
     &:active:enabled {
-      background-color: get-color("tango");
-      color: get-color("white");
+      background-color: get-color('tango');
+      color: get-color('white');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
     }
 
     &.button-input--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color("white");
+      color: get-color('white');
 
       &:hover:enabled,
       &:active:enabled,
       &.button-input--loading {
-        border-color: lighten(get-color("white"), 50%);
-        background-color: lighten(get-color("white"), 50%);
-        color: get-color("white");
+        border-color: lighten(get-color('white'), 50%);
+        background-color: lighten(get-color('white'), 50%);
+        color: get-color('white');
       }
     }
   }
 
   &--gradient {
-    background-image: linear-gradient(to right,
-      get-color("dark-hot-pink") 0%,
-      get-color("tango") 40%, get-color("selective-yellow") 50%,
-      get-color("dark-hot-pink") 100%);
+    background-image: linear-gradient(
+      to right,
+      get-color('dark-hot-pink') 0%,
+      get-color('tango') 40%,
+      get-color('selective-yellow') 50%,
+      get-color('dark-hot-pink') 100%
+    );
     background-size: 200% auto;
-    color: get-color("white");
+    color: get-color('white');
 
     &:hover:enabled,
     &:active:enabled {
@@ -160,10 +163,10 @@
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
     }
-	}
+  }
 }
 
 button {

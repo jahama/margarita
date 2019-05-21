@@ -1,9 +1,9 @@
-@import "../../../../scss/margarita";
+@import '../../../../scss/margarita';
 
 $offset: 187;
 $duration: 1.4s;
 
-.button-input-spinner  {
+.button-input-spinner {
   animation: rotator $duration linear infinite;
 }
 
@@ -18,16 +18,15 @@ $duration: 1.4s;
 }
 
 .path {
-  animation:
-  dash $duration ease-in-out infinite;
-  stroke: get-color("white");
+  animation: dash $duration ease-in-out infinite;
+  stroke: get-color('white');
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
   transform-origin: center;
 
   .button-input--secondary &,
   .button-input--no-background & {
-    stroke: get-color("dark-hot-pink");
+    stroke: get-color('dark-hot-pink');
   }
 }
 

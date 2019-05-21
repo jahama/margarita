@@ -3,25 +3,17 @@
 <template>
   <div>
     <transition :name="slideDirection">
-      <aside
-        v-if="show"
-        class="sidebar-drawer"
-        :class="computeClass"
-      >
+      <aside v-if="show" class="sidebar-drawer" :class="computeClass">
         <slot />
       </aside>
     </transition>
-    <div
-      v-if="show"
-      :class="displayOverlay"
-      @click="handleClick"
-    />
+    <div v-if="show" :class="displayOverlay" @click="handleClick" />
   </div>
 </template>
 
 <script>
-const SLIDE_DIRECTIONS = [ 'left', 'right' ]
-const DRAWER_TYPES = [ 'attached', 'fixed' ]
+const SLIDE_DIRECTIONS = ['left', 'right']
+const DRAWER_TYPES = ['attached', 'fixed']
 
 export default {
   name: 'SidebarDrawer',
@@ -51,24 +43,26 @@ export default {
   },
 
   computed: {
-    slideDirection () {
+    slideDirection() {
       return `horizontal-slide-animation-${this.position}`
     },
 
-    computeClass () {
+    computeClass() {
       return {
         [`sidebar-drawer--${this.position}`]: this.position,
         [`sidebar-drawer--${this.type}`]: this.type,
       }
     },
 
-    displayOverlay () {
-      return (this.overlay && this.type === 'fixed') ? 'sidebar-drawer--overlay' : ''
+    displayOverlay() {
+      return this.overlay && this.type === 'fixed'
+        ? 'sidebar-drawer--overlay'
+        : ''
     },
   },
 
   methods: {
-    handleClick (event) {
+    handleClick(event) {
       this.$emit('click-overlay', event)
     },
   },

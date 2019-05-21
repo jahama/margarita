@@ -8,9 +8,7 @@
     :aria-labelledby="id"
     role="presentation"
   >
-    <title
-      :id="id"
-    >
+    <title :id="id">
       {{ iconName }}
     </title>
     <g :fill="iconColor">
@@ -42,14 +40,13 @@ const AVAILABLE_ICONS = [
 ]
 
 export default {
-
   name: 'IconBase',
 
   props: {
     icon: {
       type: String,
       default: '',
-      validator: function (value) {
+      validator: function(value) {
         if (!value) return true
         return AVAILABLE_ICONS.includes(value)
       },
@@ -61,17 +58,17 @@ export default {
     },
 
     width: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: 18,
     },
 
     height: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: 18,
     },
 
     viewBoxWidth: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: 18,
     },
 
@@ -87,14 +84,15 @@ export default {
   },
 
   computed: {
-    componentLoader () {
+    componentLoader() {
       if (this.icon) {
-        return () => import(/* webpackMode: "eager" */`./Icons/${this.icon}.vue`)
+        return () =>
+          import(/* webpackMode: "eager" */ `./Icons/${this.icon}.vue`)
       }
       return null
     },
 
-    iconName () {
+    iconName() {
       if (this.title) return this.title
       return `${this.icon}-icon`
     },
