@@ -5,11 +5,11 @@
     <label
       v-for="(item, key) in items"
       :key="key"
-      :for="key"
+      :for="`${item.value}-${id}`"
       class="radio-button"
     >
       <input
-        :id="key"
+        :id="`${item.value}-${id}`"
         v-model="selectedValue"
         :disabled="disabled"
         :value="item.value"
@@ -27,10 +27,17 @@
 </template>
 
 <script>
+import uuid from '@margarita/utils/uuid'
+
 export default {
   name: 'RadioButton',
 
   props: {
+    id: {
+      type: String,
+      default: uuid,
+    },
+
     disabled: {
       type: Boolean,
       default: false,
