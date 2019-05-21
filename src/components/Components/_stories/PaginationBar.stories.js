@@ -9,17 +9,19 @@ import PaginationBar from '../PaginationBar/PaginationBar'
 storiesOf('Components', module)
   .addDecorator(withKnobs)
 
-  .add('Pagination Bar', () => {
-    const from = text('From', '51')
-    const totalItems = text('Total items', '25000')
-    const to = text('To', '100')
-    const isStart = boolean('Is first page', false)
-    const isEnd = boolean('Is last page', false)
+  .add(
+    'Pagination Bar',
+    () => {
+      const from = text('From', '51')
+      const totalItems = text('Total items', '25000')
+      const to = text('To', '100')
+      const isStart = boolean('Is first page', false)
+      const isEnd = boolean('Is last page', false)
 
-    return ({
-      components: { PaginationBar, GridColumn },
+      return {
+        components: { PaginationBar, GridColumn },
 
-      template: `
+        template: `
         <grid-column>
           <pagination-bar
             :is-start="isStart"
@@ -33,26 +35,28 @@ storiesOf('Components', module)
           </pagination-bar>
         </grid-column>`,
 
-      props: {
-        from: {
-          default: from,
+        props: {
+          from: {
+            default: from,
+          },
+          totalItems: {
+            default: totalItems,
+          },
+          to: {
+            default: to,
+          },
+          isStart: {
+            default: isStart,
+          },
+          isEnd: {
+            default: isEnd,
+          },
         },
-        totalItems: {
-          default: totalItems,
-        },
-        to: {
-          default: to,
-        },
-        isStart: {
-          default: isStart,
-        },
-        isEnd: {
-          default: isEnd,
-        },
-      },
 
-      methods: {
-        changePage: action('clicked'),
-      },
-    })
-  }, { notes })
+        methods: {
+          changePage: action('clicked'),
+        },
+      }
+    },
+    { notes }
+  )

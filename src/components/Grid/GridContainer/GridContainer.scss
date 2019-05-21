@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .grid-container {
   @include make-container();
@@ -12,9 +12,8 @@
     margin: rem(72px) auto;
 
     .grid-row {
-
       > .grid-col,
-      > [class*="grid-col--"] {
+      > [class*='grid-col--'] {
         margin-bottom: rem(24px);
       }
 
@@ -24,7 +23,7 @@
 
       &--no-margin-bottom {
         > .grid-col,
-        > [class*="grid-col--"] {
+        > [class*='grid-col--'] {
           @include mq($from: md) {
             margin-bottom: 0;
           }
@@ -37,9 +36,9 @@
             }
           }
         }
-        
+
         > .grid-col--6 {
-          &:nth-last-of-type(-n+2) {
+          &:nth-last-of-type(-n + 2) {
             @include mq($until: md) {
               margin-bottom: 0;
             }

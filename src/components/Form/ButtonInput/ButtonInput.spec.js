@@ -11,8 +11,9 @@ describe('ButtonInput', () => {
 
     wrapper.getByText(/Hello World/i)
 
-    expect(wrapper.getByTestId('button-input').tagName.toLowerCase())
-      .toEqual('button')
+    expect(wrapper.getByTestId('button-input').tagName.toLowerCase()).toEqual(
+      'button'
+    )
     expect(wrapper.getByTestId('button-input').type).toEqual('submit')
   })
 
@@ -21,8 +22,9 @@ describe('ButtonInput', () => {
       props: { tag: 'a' },
     })
 
-    expect(wrapper.getByTestId('button-input').tagName.toLowerCase())
-      .toEqual('a')
+    expect(wrapper.getByTestId('button-input').tagName.toLowerCase()).toEqual(
+      'a'
+    )
   })
 
   it('should emit on click', () => {

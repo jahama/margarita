@@ -35,12 +35,11 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const AVAILABLE_WEIGHTS = [ 'bold', 'semibold', 'medium', 'regular' ]
+const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 
 export default {
-  inheritAttrs: false,
-
   name: 'SelectInput',
+  inheritAttrs: false,
 
   model: {
     // By default, `v-model` reacts to the `input` event for updating the
@@ -56,7 +55,7 @@ export default {
     },
 
     value: {
-      type: [ String, Number, Boolean, Object ],
+      type: [String, Number, Boolean, Object],
       default: '',
     },
 
@@ -92,26 +91,19 @@ export default {
     },
   },
 
-  mounted () {
-    // By default, SelectInput will not emit a change event on the initial
-    // default select of one of the options. If an event is needed on this
-    // default select, subscribe to the mount event.
-    this.$emit('mount', this.selected)
-  },
-
   computed: {
     // Warning: select will be blank (empty) if `this.value` doesn't find a
     // match in the options list.
     selected: {
-      get () {
+      get() {
         return this.value
       },
-      set (newVal) {
+      set(newVal) {
         this.$emit('change', newVal)
       },
     },
 
-    computedClass () {
+    computedClass() {
       return {
         'select-input__field--error': this.hasError,
         [`select-input__field--${this.weight}`]: this.weight,
@@ -119,11 +111,18 @@ export default {
       }
     },
 
-    getLabelClass () {
+    getLabelClass() {
       return {
         'select-input__label--hidden': this.$attrs['aria-label'],
       }
     },
+  },
+
+  mounted() {
+    // By default, SelectInput will not emit a change event on the initial
+    // default select of one of the options. If an event is needed on this
+    // default select, subscribe to the mount event.
+    this.$emit('mount', this.selected)
   },
 }
 </script>

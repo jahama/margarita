@@ -1,15 +1,15 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .layout-card {
   padding: rem(24px);
 
   &--gray {
-    background-color: get-color("concrete");
+    background-color: get-color('concrete');
   }
 
   &--white {
-    box-shadow: 0 0 rem(6px) rem(2px) get-color("shadow-light");
-    background-color: get-color("white");
+    box-shadow: 0 0 rem(6px) rem(2px) get-color('shadow-light');
+    background-color: get-color('white');
   }
 
   &--has-padding-top {

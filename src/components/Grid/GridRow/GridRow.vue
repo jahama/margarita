@@ -35,7 +35,7 @@ export default {
     },
   },
 
-  render (createElement, { props, data, children }) {
+  render(createElement, { props, data, children }) {
     const componentData = {
       staticClass: 'grid-row',
       class: {

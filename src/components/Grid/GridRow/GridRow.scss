@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .grid-row {
   @include make-row();
@@ -8,7 +8,7 @@
     margin-left: 0;
 
     > .grid-col,
-    > [class*="grid-col--"] {
+    > [class*='grid-col--'] {
       padding-right: 0;
       padding-left: 0;
     }

@@ -18,7 +18,13 @@
 <script>
 import ButtonInputSpinner from './components/ButtonInputSpinner'
 
-const AVAILABLE_CATEGORIES = [ 'primary', 'secondary', 'white', 'gradient', 'no-background' ]
+const AVAILABLE_CATEGORIES = [
+  'primary',
+  'secondary',
+  'white',
+  'gradient',
+  'no-background',
+]
 
 export default {
   name: 'ButtonInput',
@@ -56,14 +62,14 @@ export default {
     category: {
       type: String,
       default: 'primary',
-      validator: function (value) {
+      validator: function(value) {
         return AVAILABLE_CATEGORIES.includes(value)
       },
     },
   },
 
   computed: {
-    getClasses () {
+    getClasses() {
       return {
         'button-input--rounded': this.rounded,
         [`button-input--${this.category}`]: this.category,
@@ -74,7 +80,7 @@ export default {
   },
 
   methods: {
-    handleClick (event) {
+    handleClick(event) {
       this.$emit('click', event)
     },
   },

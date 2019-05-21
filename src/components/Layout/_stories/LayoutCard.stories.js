@@ -15,13 +15,15 @@ import SidebarDrawer from '../SidebarDrawer/SidebarDrawer'
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)
-  .add('Cards', () => {
-    const color = select('Color', [ 'white', 'gray' ], 'white')
-    const hasPaddingTop = boolean('Bottom cards have padding top', true)
+  .add(
+    'Cards',
+    () => {
+      const color = select('Color', ['white', 'gray'], 'white')
+      const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
-    return ({
-      components: { LayoutCard, GridContainer, GridRow, GridColumn },
-      template: `
+      return {
+        components: { LayoutCard, GridContainer, GridRow, GridColumn },
+        template: `
         <grid-container class="grid-example">
           <grid-row>
             <grid-column class="grid-col--12">
@@ -44,24 +46,32 @@ storiesOf('Layout', module)
         </grid-container>
       `,
 
-      props: {
-        color: {
-          default: color,
+        props: {
+          color: {
+            default: color,
+          },
+          hasPaddingTop: {
+            default: hasPaddingTop,
+          },
         },
-        hasPaddingTop: {
-          default: hasPaddingTop,
-        },
-      },
-    })
-  }, { notes: LayoutCardNotes })
-  .add('Alerts', () => {
-    const size = select('Size', [ 'small', 'medium', 'large' ], 'medium')
-    const type = select('Alert type', [ 'info', 'error', 'success', 'warning' ], 'error')
-    const alertText = text('Alert text', 'Alert text')
+      }
+    },
+    { notes: LayoutCardNotes }
+  )
+  .add(
+    'Alerts',
+    () => {
+      const size = select('Size', ['small', 'medium', 'large'], 'medium')
+      const type = select(
+        'Alert type',
+        ['info', 'error', 'success', 'warning'],
+        'error'
+      )
+      const alertText = text('Alert text', 'Alert text')
 
-    return ({
-      components: { AlertBanner, GridContainer, GridRow, GridColumn },
-      template: `
+      return {
+        components: { AlertBanner, GridContainer, GridRow, GridColumn },
+        template: `
         <grid-container class="grid-example">
           <grid-row>
             <grid-column class="grid-col--12">
@@ -86,28 +96,38 @@ storiesOf('Layout', module)
         </grid-container>
       `,
 
-      props: {
-        size: {
-          default: size,
+        props: {
+          size: {
+            default: size,
+          },
+          text: {
+            default: alertText,
+          },
+          type: {
+            default: type,
+          },
         },
-        text: {
-          default: alertText,
-        },
-        type: {
-          default: type,
-        },
-      },
-    })
-  }, { notes: AlertBannerNotes })
-  .add('SidebarDrawer', () => {
-    const position = select('Position', [ 'left', 'right' ], 'left')
-    const type = select('Type', [ 'attached', 'fixed' ], 'attached')
-    const show = boolean('Show', true)
-    const overlay = boolean('Overlay', true)
+      }
+    },
+    { notes: AlertBannerNotes }
+  )
+  .add(
+    'SidebarDrawer',
+    () => {
+      const position = select('Position', ['left', 'right'], 'left')
+      const type = select('Type', ['attached', 'fixed'], 'attached')
+      const show = boolean('Show', true)
+      const overlay = boolean('Overlay', true)
 
-    return ({
-      components: { SidebarDrawer, LayoutCard, GridContainer, GridRow, GridColumn },
-      template: `
+      return {
+        components: {
+          SidebarDrawer,
+          LayoutCard,
+          GridContainer,
+          GridRow,
+          GridColumn,
+        },
+        template: `
         <grid-row>
           <grid-column class="grid-col--12">
             <layout-card
@@ -129,23 +149,25 @@ storiesOf('Layout', module)
         </grid-row>
       `,
 
-      props: {
-        position: {
-          default: position,
+        props: {
+          position: {
+            default: position,
+          },
+          show: {
+            default: show,
+          },
+          type: {
+            default: type,
+          },
+          overlay: {
+            default: overlay,
+          },
         },
-        show: {
-          default: show,
-        },
-        type: {
-          default: type,
-        },
-        overlay: {
-          default: overlay,
-        },
-      },
 
-      methods: {
-        action: action('clicked'),
-      },
-    })
-  }, { notes: SidebarDrawerNotes })
+        methods: {
+          action: action('clicked'),
+        },
+      }
+    },
+    { notes: SidebarDrawerNotes }
+  )

@@ -1,9 +1,9 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .checkbox-input__label {
   position: relative;
   padding-left: rem(22px);
-  color: get-color("tundora");
+  color: get-color('tundora');
   font-size: rem(16px);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -18,7 +18,7 @@
 
     &:checked ~ .checkmark-box,
     &:disabled ~ .checkmark-box {
-      background-image: url("../../../assets/icons/tick.svg");
+      background-image: url('../../../assets/icons/tick.svg');
       background-repeat: no-repeat;
       background-position: rem(3px) rem(3px);
       background-size: rem(10px) rem(10px);
@@ -26,11 +26,11 @@
 
     &:checked ~ .checkmark-box {
       border: 0;
-      background-color: get-color("dark-hot-pink");
+      background-color: get-color('dark-hot-pink');
     }
 
     &:disabled ~ .checkmark-box {
-      background-color: get-color("concrete");
+      background-color: get-color('concrete');
     }
   }
 
@@ -38,7 +38,7 @@
     position: absolute;
     top: rem(1.5px);
     left: 0;
-    border: rem(1px) solid get-color("alto");
+    border: rem(1px) solid get-color('alto');
     width: rem(16px);
     height: rem(16px);
   }

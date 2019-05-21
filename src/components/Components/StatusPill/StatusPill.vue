@@ -2,22 +2,12 @@
 
 <template>
   <div>
-    <div
-      :class="getClasses"
-      class="status-pill"
-      v-text="text"
-    />
+    <div :class="getClasses" class="status-pill" v-text="text" />
   </div>
 </template>
 
 <script>
-const AVAILABLE_COLORS = [
-  'green',
-  'orange',
-  'red',
-  'gray',
-  'dark',
-]
+const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 
 export default {
   name: 'StatusPill',
@@ -26,19 +16,19 @@ export default {
     color: {
       type: String,
       default: 'green',
-      validator: function (value) {
+      validator: function(value) {
         return AVAILABLE_COLORS.indexOf(value) !== -1
       },
     },
 
     text: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: '',
     },
   },
 
   computed: {
-    getClasses () {
+    getClasses() {
       const classes = []
 
       classes.push(`status-pill--${this.color}`)

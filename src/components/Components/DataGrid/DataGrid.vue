@@ -2,9 +2,7 @@
 
 <template>
   <div class="datagrid">
-    <div
-      class="datagrid__container"
-    >
+    <div class="datagrid__container">
       <keep-alive>
         <div
           v-if="hasItems === 0 && !isLoading"
@@ -20,52 +18,27 @@
                 :class="sortClass(column.value, column.sortable)"
                 @click="sort(column)"
               >
-                <span
-                  class="column-title"
-                  v-text="column.title"
-                />
-                <span
-                  v-if="column.sortable"
-                  class="sort-arrow"
-                />
+                <span class="column-title" v-text="column.title" />
+                <span v-if="column.sortable" class="sort-arrow" />
               </th>
             </tr>
           </thead>
           <tbody v-if="isLoading">
-            <tr
-              v-for="index in 3"
-              :key="index"
-              class="datagrid__row--loader"
-            >
-              <td
-                v-for="column in columns"
-                :key="column.title"
-              >
+            <tr v-for="index in 3" :key="index" class="datagrid__row--loader">
+              <td v-for="column in columns" :key="column.title">
                 <data-grid-loader />
               </td>
             </tr>
           </tbody>
-          <tbody
-            v-else
-            class="datagrid__shadow"
-          >
-            <tr
-              v-for="item in rows"
-              :key="item.id"
-            >
-              <td
-                v-for="rowCell in item"
-                :key="rowCell.keyValue"
-              >
+          <tbody v-else class="datagrid__shadow">
+            <tr v-for="item in rows" :key="item.id">
+              <td v-for="rowCell in item" :key="rowCell.keyValue">
                 <span
                   :is="rowCell.component"
                   v-if="rowCell.component"
                   v-bind="rowCell.componentData"
                 />
-                <span
-                  v-else
-                  v-text="rowCell"
-                />
+                <span v-else v-text="rowCell" />
               </td>
             </tr>
           </tbody>
@@ -107,15 +80,21 @@ export default {
     },
   },
 
-  data () {
+  data() {
     return {
       currentSort: '',
       currentSortDir: 'ASC',
     }
   },
 
+  computed: {
+    hasItems() {
+      return this.rows.length
+    },
+  },
+
   methods: {
-    sort (column) {
+    sort(column) {
       if (!column.sortable) return
       if (column === this.currentSort) {
         this.currentSortDir = this.currentSortDir === 'ASC' ? 'DESC' : 'ASC'
@@ -126,7 +105,7 @@ export default {
       this.$emit('sort', { column: this.currentSort, dir: this.currentSortDir })
     },
 
-    sortClass (value, isSortable) {
+    sortClass(value, isSortable) {
       let sortableClass = ''
       if (isSortable) {
         sortableClass = 'sort-cursor-pointer'
@@ -137,12 +116,6 @@ export default {
       }
 
       return `sort-arrow--unsorted ${sortableClass}`
-    },
-  },
-
-  computed: {
-    hasItems () {
-      return this.rows.length
     },
   },
 }

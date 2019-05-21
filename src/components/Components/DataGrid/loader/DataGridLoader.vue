@@ -14,7 +14,7 @@
 <script>
 export default {
   computed: {
-    numberOfLoaders () {
+    numberOfLoaders() {
       return Math.floor(Math.random() * 2) + 1
     },
   },

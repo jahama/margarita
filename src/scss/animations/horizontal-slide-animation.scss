@@ -2,7 +2,7 @@
 .horizontal-slide-animation-right-leave-active,
 .horizontal-slide-animation-left-enter-active,
 .horizontal-slide-animation-left-leave-active {
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .horizontal-slide-animation-left-enter,
@@ -14,5 +14,3 @@
 .horizontal-slide-animation-right-leave-to {
   transform: translate(100%, 0);
 }
-
-

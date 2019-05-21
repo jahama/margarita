@@ -2,12 +2,7 @@
 
 <template>
   <div>
-    <label
-      v-if="label"
-      :for="id"
-      class="range-input__label"
-      v-text="label"
-    />
+    <label v-if="label" :for="id" class="range-input__label" v-text="label" />
     <div class="range-input">
       <span
         v-for="(_, index) in new Array(bulletsAmount)"
@@ -26,12 +21,14 @@
         type="range"
         min="0"
         step="1"
-      >
+      />
       <div
         v-for="(step, index) in steps"
         :key="step.value"
         :style="getStepStyle(index)"
-        :class="{ 'range-input__step--active': index === Number(selectedValue) }"
+        :class="{
+          'range-input__step--active': index === Number(selectedValue),
+        }"
         class="range-input__step"
         @click="updateSelectedValue(index)"
       >
@@ -44,7 +41,7 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const REQUIRED_STEP_KEYS = [ 'value', 'text' ]
+const REQUIRED_STEP_KEYS = ['value', 'text']
 
 export default {
   name: 'RangeInput',
@@ -59,8 +56,8 @@ export default {
       type: Array,
       required: true,
       validator: propValue =>
-        propValue.every(
-          step => REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
+        propValue.every(step =>
+          REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
         ),
     },
 
@@ -73,44 +70,43 @@ export default {
       type: String,
       default: uuid,
     },
-
   },
 
   computed: {
     selectedValue: {
-      get () {
+      get() {
         return this.steps.findIndex(step => step.value === this.value)
       },
-      set (newValue) {
+      set(newValue) {
         this.$emit('input', this.steps[newValue].value)
       },
     },
 
-    stepsAmount () {
+    stepsAmount() {
       return this.steps.length
     },
 
-    bulletsAmount () {
+    bulletsAmount() {
       return Math.max(this.stepsAmount - 2, 0)
     },
 
-    offsetMultiplier () {
+    offsetMultiplier() {
       return 100 / (this.stepsAmount - 1)
     },
 
-    isFirstStep () {
+    isFirstStep() {
       return Number(this.selectedValue) === 0
     },
 
-    isLastStep () {
+    isLastStep() {
       return Number(this.selectedValue) === this.stepsAmount - 1
     },
 
-    selectedStepOffset () {
+    selectedStepOffset() {
       return Math.floor(this.selectedValue * this.offsetMultiplier)
     },
 
-    circleStyle () {
+    circleStyle() {
       let circleOffset = `calc(${this.selectedStepOffset}% - 8px)`
 
       if (this.isFirstStep) {
@@ -123,7 +119,7 @@ export default {
       return { left: circleOffset }
     },
 
-    progressStyle () {
+    progressStyle() {
       let progressBarWidth = `calc(${this.selectedStepOffset}% + 4px)`
 
       if (this.isFirstStep) {
@@ -138,7 +134,7 @@ export default {
   },
 
   methods: {
-    getBulletStyle (index) {
+    getBulletStyle(index) {
       const leftOffset = Math.floor((index + 1) * this.offsetMultiplier)
 
       return {
@@ -146,7 +142,7 @@ export default {
       }
     },
 
-    getStepStyle (index) {
+    getStepStyle(index) {
       let translateOffset = '-50%'
 
       // First and last labels are justified to the slider
@@ -165,7 +161,7 @@ export default {
       }
     },
 
-    updateSelectedValue (newValue) {
+    updateSelectedValue(newValue) {
       this.selectedValue = newValue
     },
   },

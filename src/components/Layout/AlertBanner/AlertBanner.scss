@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .alert-banner {
   display: flex;
@@ -29,7 +29,7 @@
     height: rem(20px);
 
     .alert-banner--error & {
-      background-image: url("../../../assets/icons/alert-error.svg");
+      background-image: url('../../../assets/icons/alert-error.svg');
     }
   }
 
@@ -47,22 +47,22 @@
   }
 
   &--error {
-    background-color: get-color("pippin");
-    color: get-color("crimson");
+    background-color: get-color('pippin');
+    color: get-color('crimson');
   }
 
   &--info {
-    background-color: get-color("alto");
-    color: get-color("gray");
+    background-color: get-color('alto');
+    color: get-color('gray');
   }
 
   &--success {
-    background-color: get-color("primrose");
-    color: get-color("japanese-laurel");
+    background-color: get-color('primrose');
+    color: get-color('japanese-laurel');
   }
 
   &--warning {
-    background-color: get-color("peach-cream");
-    color: get-color("buttercup");
+    background-color: get-color('peach-cream');
+    color: get-color('buttercup');
   }
 }

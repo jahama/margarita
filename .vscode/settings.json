@@ -1,17 +1,17 @@
 {
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
-  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "editor.formatOnSave": false,
-  "eslint.autoFixOnSave": true,
-  "vetur.validation.template": false,
+  "stylelint.enable": true,
   "eslint.validate": [
     {
       "language": "vue",
-      "autoFix": true,
+      "autoFix": true
     },
     {
       "language": "javascript",
-      "autoFix": true,
-    },
-  ]
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": false,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.validation.template": false
 }

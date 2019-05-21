@@ -3,11 +3,7 @@
 <template>
   <div class="text-input">
     <div class="text-input__label-wrapper">
-      <label
-        :for="id"
-        class="text-input__label"
-        v-text="label"
-      />
+      <label :for="id" class="text-input__label" v-text="label" />
       <slot name="labelSibling" />
     </div>
     <div class="text-input__field-wrapper">
@@ -24,7 +20,7 @@
         @change="emit"
         @input="emit"
         @keyup.enter="removeFocus"
-      >
+      />
       <slot name="inputSibling" />
     </div>
     <div
@@ -88,19 +84,19 @@ export default {
     },
 
     value: {
-      type: [ String, Number ],
+      type: [String, Number],
       default: '',
     },
   },
 
-  data () {
+  data() {
     return {
       lazyValue: this.value,
     }
   },
 
   computed: {
-    getComputedClass () {
+    getComputedClass() {
       const propKeys = Object.keys(INPUT_CLASSES)
 
       return propKeys
@@ -110,26 +106,26 @@ export default {
   },
 
   watch: {
-    value (newValue) {
+    value(newValue) {
       this.lazyValue = newValue
     },
   },
 
   methods: {
-    emit (e) {
+    emit(e) {
       this.$emit(e.type, this.lazyValue)
     },
 
-    removeFocus () {
+    removeFocus() {
       this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
     },
 
-    _filterByExistProp (className) {
+    _filterByExistProp(className) {
       return !!this[className]
     },
 
-    _getClassNameByProp (className) {
+    _getClassNameByProp(className) {
       return INPUT_CLASSES[className]
     },
   },

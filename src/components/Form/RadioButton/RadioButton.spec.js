@@ -1,16 +1,17 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
 import RadioButton from './RadioButton'
 
-const RadioButtonBuilder = customProps => render(RadioButton, {
-  props: {
-    items: [
-      { value: 'value1', text: 'text1' },
-      { value: 'value2', text: 'text2' },
-      { value: 'value3', text: 'text3' },
-    ],
-    ...customProps,
-  },
-})
+const RadioButtonBuilder = customProps =>
+  render(RadioButton, {
+    props: {
+      items: [
+        { value: 'value1', text: 'text1' },
+        { value: 'value2', text: 'text2' },
+        { value: 'value3', text: 'text3' },
+      ],
+      ...customProps,
+    },
+  })
 
 describe('RadioButton', () => {
   afterEach(cleanup)
@@ -32,7 +33,7 @@ describe('RadioButton', () => {
     fireEvent.click(wrapper.getByLabelText(/text2/i))
 
     expect(wrapper.emitted().change).toBeTruthy()
-    expect(wrapper.emitted().change[0]).toEqual([ 'value2' ])
+    expect(wrapper.emitted().change[0]).toEqual(['value2'])
   })
 
   it('should render a disabled radio element', () => {

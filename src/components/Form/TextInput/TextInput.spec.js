@@ -1,13 +1,14 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
 import TextInput from './TextInput'
 
-const TextInputBuilder = (customProps, customParams) => render(TextInput, {
-  props: {
-    label: 'input label',
-    ...customProps,
-  },
-  ...customParams,
-})
+const TextInputBuilder = (customProps, customParams) =>
+  render(TextInput, {
+    props: {
+      label: 'input label',
+      ...customProps,
+    },
+    ...customParams,
+  })
 
 describe('TextInput', () => {
   afterEach(cleanup)
@@ -31,7 +32,9 @@ describe('TextInput', () => {
     })
 
     expect(
-      wrapper.getByLabelText(/input label/i).classList.contains('text-input__field--error')
+      wrapper
+        .getByLabelText(/input label/i)
+        .classList.contains('text-input__field--error')
     ).toBeTruthy()
 
     expect(wrapper.getByText(/Something went wrong/i))
@@ -46,8 +49,9 @@ describe('TextInput', () => {
   it('should have custom id', () => {
     const wrapper = TextInputBuilder({ id: 'customId' })
 
-    expect(wrapper.getByText(/input label/i).getAttribute('for'))
-      .toBe('customId')
+    expect(wrapper.getByText(/input label/i).getAttribute('for')).toBe(
+      'customId'
+    )
     expect(wrapper.getByLabelText(/input label/i).id).toBe('customId')
   })
 
@@ -60,10 +64,9 @@ describe('TextInput', () => {
   it('should trigger input event with its value when typing', () => {
     const wrapper = TextInputBuilder({ value: 'initial value' })
 
-    fireEvent.input(
-      wrapper.getByLabelText(/input label/i),
-      { target: { value: '42' } }
-    )
+    fireEvent.input(wrapper.getByLabelText(/input label/i), {
+      target: { value: '42' },
+    })
 
     wrapper.getByDisplayValue(/42/i)
     expect(wrapper.emitted().input).toBeTruthy()
@@ -89,10 +92,10 @@ describe('TextInput', () => {
   it('should emit its value on Enter', () => {
     const wrapper = TextInputBuilder()
 
-    fireEvent.keyUp(
-      wrapper.getByLabelText(/input label/i),
-      { key: 'Enter', code: 13 }
-    )
+    fireEvent.keyUp(wrapper.getByLabelText(/input label/i), {
+      key: 'Enter',
+      code: 13,
+    })
 
     expect(wrapper.emitted().enter).toBeTruthy()
   })

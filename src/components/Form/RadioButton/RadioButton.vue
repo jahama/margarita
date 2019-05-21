@@ -16,12 +16,9 @@
         class="radio-button__input radio-button__control"
         type="radio"
         @change="emit"
-      >
-      <span class="radio-button__indicator" />
-      <span
-        class="radio-button__description"
-        v-text="item.text"
       />
+      <span class="radio-button__indicator" />
+      <span class="radio-button__description" v-text="item.text" />
     </label>
   </div>
 </template>
@@ -49,29 +46,28 @@ export default {
     },
 
     value: {
-      type: [ String, Object, Number, Boolean ],
+      type: [String, Object, Number, Boolean],
       default: '',
     },
   },
 
   computed: {
     selectedValue: {
-      get () {
+      get() {
         return this.value
       },
 
-      set (newSelectedValue) {
+      set(newSelectedValue) {
         this.$emit('input', newSelectedValue)
       },
     },
   },
 
   methods: {
-    emit (e) {
+    emit(e) {
       // TODO: Try if in bonasera works with change event
       this.$emit(e.type, e.target.value)
     },
   },
-
 }
 </script>

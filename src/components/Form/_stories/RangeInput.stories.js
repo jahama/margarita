@@ -16,15 +16,21 @@ const defaultSteps = [
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
 
-  .add('Range Input', () => {
-    const selectedValue = select('Value', defaultSteps.map(s => s.value), 'medium')
-    const steps = object('Steps', defaultSteps)
-    const label = text('Label', 'Label')
+  .add(
+    'Range Input',
+    () => {
+      const selectedValue = select(
+        'Value',
+        defaultSteps.map(s => s.value),
+        'medium'
+      )
+      const steps = object('Steps', defaultSteps)
+      const label = text('Label', 'Label')
 
-    return ({
-      components: { RangeInput, GridColumn },
+      return {
+        components: { RangeInput, GridColumn },
 
-      template: `
+        template: `
         <grid-column>
           <range-input
             :steps="steps"
@@ -33,29 +39,31 @@ storiesOf('Form Components', module)
           />
         </grid-column>`,
 
-      props: {
-        steps: {
-          default: steps,
+        props: {
+          steps: {
+            default: steps,
+          },
+          label: {
+            default: label,
+          },
+          selectedValue: {
+            default: selectedValue,
+          },
         },
-        label: {
-          default: label,
-        },
-        selectedValue: {
-          default: selectedValue,
-        },
-      },
 
-      data () {
-        return {
-          value: this.selectedValue,
-        }
-      },
-
-      watch: {
-        selectedValue (newValue) {
-          this.value = newValue
+        data() {
+          return {
+            value: this.selectedValue,
+          }
         },
-        value: action('value'),
-      },
-    })
-  }, { notes })
+
+        watch: {
+          selectedValue(newValue) {
+            this.value = newValue
+          },
+          value: action('value'),
+        },
+      }
+    },
+    { notes }
+  )

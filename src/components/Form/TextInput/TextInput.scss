@@ -1,10 +1,10 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 .text-input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color("tundora");
+  color: get-color('tundora');
 
   &__label-wrapper {
     display: flex;
@@ -23,9 +23,9 @@
 
   &__field {
     flex: 0 1 100%;
-    transition: border .2s ease;
-    border: rem(1px) solid get-color("alto");
-    background-color: get-color("white");
+    transition: border 0.2s ease;
+    border: rem(1px) solid get-color('alto');
+    background-color: get-color('white');
     padding: 0 rem(8px);
     height: 100%;
     font-size: rem(16px);
@@ -33,42 +33,39 @@
     &:active,
     &:hover {
       outline: none;
-      border: rem(1px) solid get-color("dark-hot-pink");
+      border: rem(1px) solid get-color('dark-hot-pink');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color("classic-rose");
+      outline: rem(2px) solid get-color('classic-rose');
       outline-offset: 0;
-      border: rem(1px) solid get-color("dark-hot-pink");
+      border: rem(1px) solid get-color('dark-hot-pink');
     }
 
     &:disabled {
-      background-color: get-color("concrete");
+      background-color: get-color('concrete');
       pointer-events: none;
     }
 
     &--error {
-      border-color: get-color("crimson");
+      border-color: get-color('crimson');
       background: (
-        url("../../../assets/icons/alert-error.svg")
-        no-repeat
-        scroll
-        calc(100% - 8px)
-        center
+        url('../../../assets/icons/alert-error.svg') no-repeat scroll
+          calc(100% - 8px) center
       );
-      background-color: get-color("white");
+      background-color: get-color('white');
       padding-right: rem(40px);
 
       &:focus,
       &:active {
-        border: rem(1px) solid get-color("crimson");
+        border: rem(1px) solid get-color('crimson');
       }
     }
   }
 
   &__error-message {
     margin-top: rem(4px);
-    color: get-color("crimson");
+    color: get-color('crimson');
     font-size: rem(14px);
   }
 }

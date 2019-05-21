@@ -1,4 +1,4 @@
-@import "../../../scss/margarita";
+@import '../../../scss/margarita';
 
 @keyframes aniUISkeleton {
   0% {
@@ -42,7 +42,7 @@
     border: 0;
     padding: 0;
     vertical-align: baseline;
-    color: get-color("tundora");
+    color: get-color('tundora');
     font: inherit;
     font-size: 100%;
   }
@@ -74,7 +74,7 @@
 
       .sort-arrow {
         display: inline-block;
-        background-image: url("../../../assets/icons/sorting-arrow-neutral.svg");
+        background-image: url('../../../assets/icons/sorting-arrow-neutral.svg');
         background-repeat: no-repeat;
         background-position: center;
         width: rem(16px);
@@ -89,7 +89,7 @@
         font-weight: 700;
 
         .sort-arrow {
-          background-image: url("../../../assets/icons/sorting-arrow-up.svg");
+          background-image: url('../../../assets/icons/sorting-arrow-up.svg');
         }
       }
 
@@ -97,7 +97,7 @@
         font-weight: 700;
 
         .sort-arrow {
-          background-image: url("../../../assets/icons/sorting-arrow-down.svg");
+          background-image: url('../../../assets/icons/sorting-arrow-down.svg');
         }
       }
     }
@@ -112,9 +112,9 @@
       position: relative;
       align-items: center;
       margin-bottom: 1rem;
-      box-shadow: 0 0 rem(6.4px) rem(4px) get-color("shadow-light");
+      box-shadow: 0 0 rem(6.4px) rem(4px) get-color('shadow-light');
       border-radius: rem(4px);
-      background-color: get-color("white");
+      background-color: get-color('white');
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
       &:last-child {
@@ -134,7 +134,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
   }
 
   &__shadow {
@@ -142,11 +141,11 @@
       position: absolute;
       top: 1%;
       left: 2%;
-      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) rgba(0, 0, 0, .03%);
-      background-color: rgba(0, 0, 0, .03%);
+      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) rgba(0, 0, 0, 0.03%);
+      background-color: rgba(0, 0, 0, 0.03%);
       width: calc(100% - 4%);
       height: calc(100% - 2%);
-      content: "";
+      content: '';
     }
   }
 
@@ -165,19 +164,20 @@
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       background: linear-gradient(
-        to right, lighten(get-color("black"), 80%) 2%,
-        lighten(get-color("black"), 40%) 18%,
-        lighten(get-color("black"), 80%) 33%
+        to right,
+        lighten(get-color('black'), 80%) 2%,
+        lighten(get-color('black'), 40%) 18%,
+        lighten(get-color('black'), 80%) 33%
       );
       background-size: 50%;
       width: 100%;
       height: 100%;
-      content: "";
+      content: '';
       mix-blend-mode: overlay;
     }
 
     &:nth-child(2) {
-      animation-delay: .5s;
+      animation-delay: 0.5s;
     }
 
     &:nth-child(3) {

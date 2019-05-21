@@ -1,16 +1,17 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
 import RangeInput from './RangeInput'
 
-const RangeInputBuilder = customProps => render(RangeInput, {
-  props: {
-    value: 'value1',
-    steps: [
-      { value: 'value1', text: 'step value' },
-      { value: 'value2', text: 'second value' },
-    ],
-    ...customProps,
-  },
-})
+const RangeInputBuilder = customProps =>
+  render(RangeInput, {
+    props: {
+      value: 'value1',
+      steps: [
+        { value: 'value1', text: 'step value' },
+        { value: 'value2', text: 'second value' },
+      ],
+      ...customProps,
+    },
+  })
 
 describe('RangeInput', () => {
   afterEach(cleanup)
@@ -32,7 +33,7 @@ describe('RangeInput', () => {
 
     fireEvent.click(wrapper.getByText(/second value/i))
 
-    expect(wrapper.emitted().input[0]).toEqual([ 'value2' ])
+    expect(wrapper.emitted().input[0]).toEqual(['value2'])
   })
 
   it('should render a label if prop is passed', () => {

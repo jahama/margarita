@@ -1,22 +1,12 @@
 <style lang="scss" src="./LayoutCard.scss"></style>
 
 <template>
-  <div
-    v-if="getSpacingClasses.length"
-    :class="getSpacingClasses"
-  >
-    <div
-      :class="getColorClass"
-      class="layout-card"
-    >
+  <div v-if="getSpacingClasses.length" :class="getSpacingClasses">
+    <div :class="getColorClass" class="layout-card">
       <slot />
     </div>
   </div>
-  <div
-    v-else
-    :class="getColorClass"
-    class="layout-card"
-  >
+  <div v-else :class="getColorClass" class="layout-card">
     <slot />
   </div>
 </template>
@@ -38,14 +28,15 @@ export default {
   },
 
   computed: {
-    getColorClass () {
+    getColorClass() {
       return `layout-card--${this.color}`
     },
 
-    getSpacingClasses () {
+    getSpacingClasses() {
       const spacingClasses = []
 
-      if (this.hasPaddingTop) spacingClasses.push('layout-card--has-padding-top')
+      if (this.hasPaddingTop)
+        spacingClasses.push('layout-card--has-padding-top')
 
       return spacingClasses
     },
