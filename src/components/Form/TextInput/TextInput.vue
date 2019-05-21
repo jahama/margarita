@@ -2,25 +2,31 @@
 
 <template>
   <div class="text-input">
-    <label
-      :for="id"
-      class="text-input__label"
-      v-text="label"
-    />
-    <input
-      :id="id"
-      v-model="lazyValue"
-      v-bind="$attrs"
-      :class="getComputedClass"
-      :type="type"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      class="text-input__field"
-      @blur="emit"
-      @change="emit"
-      @input="emit"
-      @keyup.enter="removeFocus"
-    >
+    <div class="text-input__label-wrapper">
+      <label
+        :for="id"
+        class="text-input__label"
+        v-text="label"
+      />
+      <slot name="labelSibling" />
+    </div>
+    <div class="text-input__field-wrapper">
+      <input
+        :id="id"
+        v-model="lazyValue"
+        v-bind="$attrs"
+        :class="getComputedClass"
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        class="text-input__field"
+        @blur="emit"
+        @change="emit"
+        @input="emit"
+        @keyup.enter="removeFocus"
+      >
+      <slot name="inputSibling" />
+    </div>
     <div
       v-if="hasError"
       class="text-input__error-message"

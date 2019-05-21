@@ -24,6 +24,11 @@ You can use **TextInput** component as following minimal configuration:
 - <code>String</code> **type**: The input HTML `type`.
 - <code>Boolean</code> **disabled**: Sets the disabled status for the input.
 
+### Slots
+
+- **inputSibling**: Able to add a input sibling, like a button, a counter, an icon, etc.
+- **labelSibling**: Able to add a label sibling, like a link, an extra description, etc.
+
 ### Events:
 
 You can listen `blur`, `input` and `change` input events directly listening these events from the parent.

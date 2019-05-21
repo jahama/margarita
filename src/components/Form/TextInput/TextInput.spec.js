@@ -1,11 +1,12 @@
 import { render, fireEvent, cleanup } from 'vue-testing-library'
 import TextInput from './TextInput'
 
-const TextInputBuilder = customProps => render(TextInput, {
+const TextInputBuilder = (customProps, customParams) => render(TextInput, {
   props: {
     label: 'input label',
     ...customProps,
   },
+  ...customParams,
 })
 
 describe('TextInput', () => {
@@ -94,5 +95,27 @@ describe('TextInput', () => {
     )
 
     expect(wrapper.emitted().enter).toBeTruthy()
+  })
+
+  it('should render the inputSibling slot if provided', () => {
+    const SLOT_CONTENT = 'Test slot'
+    const wrapper = TextInputBuilder(null, {
+      slots: {
+        inputSibling: SLOT_CONTENT,
+      },
+    })
+
+    wrapper.getByText(SLOT_CONTENT)
+  })
+
+  it('should render the labelSibling slot if provided', () => {
+    const SLOT_CONTENT = 'Test slot'
+    const wrapper = TextInputBuilder(null, {
+      slots: {
+        labelSibling: SLOT_CONTENT,
+      },
+    })
+
+    wrapper.getByText(SLOT_CONTENT)
   })
 })
