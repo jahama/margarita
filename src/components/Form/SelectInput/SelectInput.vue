@@ -20,6 +20,7 @@
         :key="index"
         :label="option.label"
         :value="option.value"
+        :disabled="option.disabled"
         v-text="option.text"
       />
     </select>
@@ -124,6 +125,5 @@ export default {
       }
     },
   },
-
 }
 </script>
