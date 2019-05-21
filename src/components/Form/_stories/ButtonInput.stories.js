@@ -17,6 +17,7 @@ const ICONS_BUTTON = [
   'Close',
   'DetailsContract',
   'DownloadContract',
+  'EditContract',
   'Exit',
   'Gas',
   'Link',
