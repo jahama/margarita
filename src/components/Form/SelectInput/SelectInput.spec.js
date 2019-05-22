@@ -1,5 +1,11 @@
-import { render, fireEvent } from 'vue-testing-library'
+import { render, fireEvent, cleanup } from 'vue-testing-library'
 import SelectInput from './SelectInput'
+
+const OPTIONS = [
+  { label: 'Option1', text: 'Option1', value: 'option1' },
+  { label: 'Option2', text: 'Option2', value: 'option2' },
+  { label: 'Option3', text: 'Option3', value: 'option3' },
+]
 
 const OPTIONS_WITH_PLACEHOLDER = [
   {
@@ -8,25 +14,21 @@ const OPTIONS_WITH_PLACEHOLDER = [
     value: '',
     disabled: true,
   },
-  { label: 'Option1', text: 'Option1', value: 'option1' },
-  { label: 'Option2', text: 'Option2', value: 'option2' },
-  { label: 'Option3', text: 'Option3', value: 'option3' },
+  ...OPTIONS,
 ]
 
 const SelectInputBuilder = customProps =>
   render(SelectInput, {
     props: {
       label: 'Test Select label',
-      options: [
-        { label: 'Option1', text: 'Option1', value: 'option1' },
-        { label: 'Option2', text: 'Option2', value: 'option2' },
-        { label: 'Option3', text: 'Option3', value: 'option3' },
-      ],
+      options: OPTIONS,
       ...customProps,
     },
   })
 
 describe('SelectInput', () => {
+  afterEach(cleanup)
+
   it('should have multiple options', () => {
     const { getByText } = SelectInputBuilder()
 
