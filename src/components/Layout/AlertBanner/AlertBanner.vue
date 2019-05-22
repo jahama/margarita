@@ -4,7 +4,9 @@
   <div :class="getClasses" class="alert-banner">
     <span v-if="showAlertIcon" class="alert-banner__icon" />
     <p v-if="alertWithTitle" class="alert-banner__title" v-text="title" />
-    <p class="alert-banner__text" v-text="text" />
+    <slot>
+      <p class="alert-banner__text" v-text="text" />
+    </slot>
   </div>
 </template>
 
@@ -26,18 +28,17 @@ export default {
 
     text: {
       type: String,
-      required: true,
+      default: '',
     },
 
     title: {
-      default: '',
       type: String,
-      required: false,
+      default: '',
     },
 
     type: {
-      default: 'info',
       type: String,
+      default: 'info',
       validator: function(value) {
         return AVAILABLE_TYPES.indexOf(value) !== -1
       },
