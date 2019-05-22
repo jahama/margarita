@@ -23,10 +23,10 @@ describe('ButtonInput', () => {
     expect(getByTestId('button-input').tagName.toLowerCase()).toEqual('a')
   })
 
-  it('should emit on click', () => {
+  it('should emit on click', async () => {
     const { emitted, getByTestId } = render(ButtonInput)
 
-    fireEvent.click(getByTestId('button-input'))
+    await fireEvent.click(getByTestId('button-input'))
 
     expect(emitted().click).toBeTruthy()
   })

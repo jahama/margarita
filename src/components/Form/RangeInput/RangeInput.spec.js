@@ -25,13 +25,13 @@ describe('RangeInput', () => {
     expect(getByTestId('range-input__native-element').value).toBe('0')
   })
 
-  it('should select the clicked element', () => {
+  it('should select the clicked element', async () => {
     const { getByTestId, getByText, emitted } = RangeInputBuilder()
 
     expect(getByTestId('range-input__native-element').value).toBe('0')
     expect(emitted()).toEqual({})
 
-    fireEvent.click(getByText(/second value/i))
+    await fireEvent.click(getByText(/second value/i))
 
     expect(emitted().input[0]).toEqual(['value2'])
   })

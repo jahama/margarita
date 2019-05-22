@@ -39,14 +39,14 @@ describe('CheckboxInput', () => {
     expect(getByLabelText(/checkbox label/i).id).toBe('customId')
   })
 
-  it('should emit an event when checked', () => {
+  it('should emit an event when checked', async () => {
     const { getByLabelText, emitted } = CheckboxInputBuilder()
 
-    fireEvent.click(getByLabelText(/checkbox label/i))
+    await fireEvent.click(getByLabelText(/checkbox label/i))
 
     expect(emitted().input[0]).toContain(true)
 
-    fireEvent.click(getByLabelText(/checkbox label/i))
+    await fireEvent.click(getByLabelText(/checkbox label/i))
 
     expect(emitted().input[1]).toContain(false)
   })

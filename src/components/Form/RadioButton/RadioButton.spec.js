@@ -27,10 +27,10 @@ describe('RadioButton', () => {
     getByDisplayValue(/value3/i)
   })
 
-  it('should render a link element on passing the right prop', () => {
+  it('should render a link element on passing the right prop', async () => {
     const { getByLabelText, emitted } = RadioButtonBuilder()
 
-    fireEvent.click(getByLabelText(/text2/i))
+    await fireEvent.click(getByLabelText(/text2/i))
 
     expect(emitted().change).toBeTruthy()
     expect(emitted().change[0]).toEqual(['value2'])
