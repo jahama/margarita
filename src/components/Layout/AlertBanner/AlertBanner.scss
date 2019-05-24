@@ -13,7 +13,7 @@
 
   &--large {
     padding: rem(24px);
-    text-align: left;
+    text-align: center;
   }
 
   &--with-title {
@@ -73,5 +73,6 @@
   .large-with-icon {
     display:flex;
     flex-direction: column;
+    text-align: left;
   }
 }
