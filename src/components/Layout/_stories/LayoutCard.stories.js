@@ -69,6 +69,8 @@ storiesOf('Layout', module)
       )
       const alertText = text('Alert text', 'Alert text')
 
+      const alertTitle = text('Alert title', 'Alert title')
+
       return {
         components: { AlertBanner, GridContainer, GridRow, GridColumn },
         template: `
@@ -76,6 +78,7 @@ storiesOf('Layout', module)
           <grid-row>
             <grid-column class="grid-col--12">
               <alert-banner
+                :title="title"
                 :text="text"
                 :type="type"
                 :size="size"
@@ -102,6 +105,9 @@ storiesOf('Layout', module)
           },
           text: {
             default: alertText,
+          },
+          title: {
+            default: alertTitle,
           },
           type: {
             default: type,
