@@ -31,6 +31,10 @@
     .alert-banner--error & {
       background-image: url('../../../assets/icons/alert-error.svg');
     }
+
+    .alert-banner--warning & {
+      background-image: url('../../../assets/icons/warning.svg');
+    }
   }
 
   &__text {
@@ -63,6 +67,12 @@
 
   &--warning {
     background-color: get-color('peach-cream');
-    color: get-color('buttercup');
+    color: get-color('brown');
+  }
+
+  .large-with-icon {
+    display:flex;
+    flex-direction: column;
+    text-align: left;
   }
 }
