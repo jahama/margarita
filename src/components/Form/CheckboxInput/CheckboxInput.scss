@@ -1,10 +1,12 @@
 @import '../../../scss/margarita';
 
 .checkbox-input__label {
+  display: block;
   position: relative;
   padding-left: rem(22px);
   color: get-color('tundora');
   font-size: rem(16px);
+  line-height: rem(22px);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -36,7 +38,7 @@
 
   .checkmark-box {
     position: absolute;
-    top: rem(1.5px);
+    top: rem(2px);
     left: 0;
     border: rem(1px) solid get-color('alto');
     width: rem(16px);
