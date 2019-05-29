@@ -37,6 +37,7 @@ $range-input-bullet-size: rem(4px);
   }
 
   &__native-element {
+    appearance: none;
     position: absolute;
     top: rem(-2px);
     left: rem(-10px);
@@ -46,7 +47,6 @@ $range-input-bullet-size: rem(4px);
     background: transparent;
     cursor: pointer;
     width: 100%;
-    appearance: none;
   }
 
   &__circle {

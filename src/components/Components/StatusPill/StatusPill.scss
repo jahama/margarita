@@ -25,8 +25,8 @@
   }
 
   &--gray {
-    background-color: get-color('concrete');
     border: rem(1px) solid get-color('alto');
+    background-color: get-color('concrete');
     color: get-color('tundora');
   }
 

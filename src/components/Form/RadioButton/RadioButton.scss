@@ -12,11 +12,11 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
   min-height: 1.5rem;
 
   &__input {
+    box-sizing: border-box;
     position: absolute;
     opacity: 0;
     z-index: -1;
     padding: 0;
-    box-sizing: border-box;
 
     &:not(:disabled) {
       &:active,
@@ -50,8 +50,8 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
     border: rem(1px) solid get-color('gray');
     border-radius: 50%;
     background-color: get-color('white');
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
     width: 1rem;
     height: 1rem;
     pointer-events: none;
