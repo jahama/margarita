@@ -75,8 +75,8 @@
       .sort-arrow {
         display: inline-block;
         background-image: url('../../../assets/icons/sorting-arrow-neutral.svg');
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
         width: rem(16px);
         height: rem(16px);
       }
@@ -110,12 +110,12 @@
     tr {
       display: grid;
       position: relative;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       align-items: center;
       margin-bottom: 1rem;
-      box-shadow: 0 0 rem(6.4px) rem(4px) get-color('shadow-light');
       border-radius: rem(4px);
+      box-shadow: 0 0 rem(6.4px) rem(4px) get-color('shadow-light');
       background-color: get-color('white');
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
       &:last-child {
         margin-bottom: 0;
@@ -151,18 +151,15 @@
 
   &__row--loader {
     position: relative;
+    opacity: 0;
+    height: rem(66px);
     animation: aniVertical 3s ease;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
-    opacity: 0;
-    height: rem(66px);
 
     &::before {
       position: absolute;
-      animation-name: aniUISkeleton;
-      animation-duration: 3.5s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
+      mix-blend-mode: overlay;
       background: linear-gradient(
         to right,
         lighten(get-color('black'), 80%) 2%,
@@ -172,8 +169,11 @@
       background-size: 50%;
       width: 100%;
       height: 100%;
+      animation-name: aniUISkeleton;
+      animation-duration: 3.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
       content: '';
-      mix-blend-mode: overlay;
     }
 
     &:nth-child(2) {

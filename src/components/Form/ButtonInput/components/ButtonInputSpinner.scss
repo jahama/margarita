@@ -18,11 +18,11 @@ $duration: 1.4s;
 }
 
 .path {
+  transform-origin: center;
   animation: dash $duration ease-in-out infinite;
   stroke: get-color('white');
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
-  transform-origin: center;
 
   .button-input--secondary &,
   .button-input--no-background & {

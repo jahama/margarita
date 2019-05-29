@@ -3,9 +3,9 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: $default-font-size;
-  box-sizing: border-box;
 }
 
 .content {
