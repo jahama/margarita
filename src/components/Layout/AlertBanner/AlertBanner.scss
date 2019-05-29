@@ -26,6 +26,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: rem(20px);
+    min-width: rem(20px);
     height: rem(20px);
 
     .alert-banner--error & {
@@ -46,7 +47,7 @@
   &__title {
     @include font-weight(semibold);
 
-    margin: 0;
+    margin: 0 0 rem(8px);
     font-size: rem(20px);
   }
 
