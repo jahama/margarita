@@ -7,4 +7,7 @@ module.exports = {
     'stylelint-prettier/recommended',
     'stylelint-config-concentric-order',
   ],
+  rules: {
+    'max-nesting-depth': 2,
+  },
 }
