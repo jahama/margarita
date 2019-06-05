@@ -9,7 +9,7 @@ Margarita is the UI Library from Holaluz.
 
 * Built on top of [@vue/cli](https://cli.vuejs.org/).
 * Uses [Storybook](https://github.com/storybooks/storybook) to develop, showcase, and test each component.
-* Unit testing based on [Jest](https://jestjs.io/) and [vue-testing-library](https://github.com/dfcook/vue-testing-library).
+* Unit testing based on [Jest](https://jestjs.io/) and [Vue Testing Library](https://github.com/testing-library/vue-testing-library).
 
 
 ## Installation

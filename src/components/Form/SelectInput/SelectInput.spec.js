@@ -1,4 +1,4 @@
-import { render, fireEvent, cleanup } from 'vue-testing-library'
+import { render, fireEvent, cleanup } from '@testing-library/vue'
 import SelectInput from './SelectInput'
 
 const OPTIONS = [

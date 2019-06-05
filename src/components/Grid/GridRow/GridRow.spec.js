@@ -1,4 +1,4 @@
-import { render } from 'vue-testing-library'
+import { render } from '@testing-library/vue'
 import GridRow from './GridRow.vue'
 
 describe('GridRow', () => {
