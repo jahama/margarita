@@ -2,8 +2,6 @@ import { render } from '@testing-library/vue'
 import GridRow from './GridRow.vue'
 
 describe('GridRow', () => {
-  // afterEach(cleanup)
-
   it('should render content from slot', () => {
     const { getByText } = render(GridRow, {
       slots: { default: 'Hello World' },

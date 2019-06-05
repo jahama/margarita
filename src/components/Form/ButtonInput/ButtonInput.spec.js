@@ -1,9 +1,9 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import ButtonInput from './ButtonInput'
 
-describe('ButtonInput', () => {
-  afterEach(cleanup)
+afterEach(cleanup)
 
+describe('ButtonInput', () => {
   it('should render a button element by default', () => {
     const { getByText, getByTestId } = render(ButtonInput, {
       slots: { default: 'Hello World' },

@@ -1,6 +1,8 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import RangeInput from './RangeInput'
 
+afterEach(cleanup)
+
 const RangeInputBuilder = customProps =>
   render(RangeInput, {
     props: {
@@ -14,8 +16,6 @@ const RangeInputBuilder = customProps =>
   })
 
 describe('RangeInput', () => {
-  afterEach(cleanup)
-
   it('should render a range input element', () => {
     const { getByTestId, getByText } = RangeInputBuilder()
 

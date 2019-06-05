@@ -1,6 +1,8 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import RadioButton from './RadioButton'
 
+afterEach(cleanup)
+
 const RadioButtonBuilder = customProps =>
   render(RadioButton, {
     props: {
@@ -14,8 +16,6 @@ const RadioButtonBuilder = customProps =>
   })
 
 describe('RadioButton', () => {
-  afterEach(cleanup)
-
   it('should render a radio element', () => {
     const { getByDisplayValue, getByLabelText } = RadioButtonBuilder()
 

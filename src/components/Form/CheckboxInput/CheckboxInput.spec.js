@@ -1,6 +1,8 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import CheckboxInput from './CheckboxInput'
 
+afterEach(cleanup)
+
 const CheckboxInputBuilder = customProps =>
   render(CheckboxInput, {
     props: {
@@ -10,8 +12,6 @@ const CheckboxInputBuilder = customProps =>
   })
 
 describe('CheckboxInput', () => {
-  afterEach(cleanup)
-
   it('should be checkbox element with label', () => {
     const { getByLabelText } = CheckboxInputBuilder()
 

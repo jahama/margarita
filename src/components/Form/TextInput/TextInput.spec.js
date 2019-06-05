@@ -1,6 +1,8 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import TextInput from './TextInput'
 
+afterEach(cleanup)
+
 const TextInputBuilder = (customProps, customParams) =>
   render(TextInput, {
     props: {
@@ -11,8 +13,6 @@ const TextInputBuilder = (customProps, customParams) =>
   })
 
 describe('TextInput', () => {
-  afterEach(cleanup)
-
   it('should render an input element with a label', () => {
     const { getByLabelText } = TextInputBuilder()
 

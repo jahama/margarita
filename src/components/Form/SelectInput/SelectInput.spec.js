@@ -1,6 +1,8 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
 import SelectInput from './SelectInput'
 
+afterEach(cleanup)
+
 const OPTIONS = [
   { label: 'Option1', text: 'Option1', value: 'option1' },
   { label: 'Option2', text: 'Option2', value: 'option2' },
@@ -27,8 +29,6 @@ const SelectInputBuilder = customProps =>
   })
 
 describe('SelectInput', () => {
-  afterEach(cleanup)
-
   it('should have multiple options', () => {
     const { getByText } = SelectInputBuilder()
 
