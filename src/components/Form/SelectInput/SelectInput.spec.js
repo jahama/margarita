@@ -37,12 +37,12 @@ describe('SelectInput', () => {
     getByText(/option3/i)
   })
 
-  it('should have change its value when selected option changes', () => {
+  it('should have change its value when selected option changes', async () => {
     const { queryByDisplayValue, getByDisplayValue } = SelectInputBuilder()
 
     const select = getByDisplayValue(/option1/i)
 
-    fireEvent.change(select, { target: { value: 'option2' } })
+    await fireEvent.change(select, { target: { value: 'option2' } })
 
     expect(queryByDisplayValue(/option1/i)).toBe(null)
     getByDisplayValue(/option2/i)

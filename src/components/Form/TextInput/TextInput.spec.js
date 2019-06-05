@@ -59,12 +59,12 @@ describe('TextInput', () => {
     getByDisplayValue(/initial value/i)
   })
 
-  it('should trigger input event with its value when typing', () => {
+  it('should trigger input event with its value when typing', async () => {
     const { getByDisplayValue, getByLabelText, emitted } = TextInputBuilder({
       value: 'initial value',
     })
 
-    fireEvent.input(getByLabelText(/input label/i), {
+    await fireEvent.input(getByLabelText(/input label/i), {
       target: { value: '42' },
     })
 
@@ -76,23 +76,23 @@ describe('TextInput', () => {
   it('should trigger change event with its value when typing', async () => {
     const { getByLabelText, emitted } = TextInputBuilder()
 
-    fireEvent.change(getByLabelText(/input label/i))
+    await fireEvent.change(getByLabelText(/input label/i))
 
     expect(emitted().change).toBeTruthy()
   })
 
-  it('should emit its value on blur', () => {
+  it('should emit its value on blur', async () => {
     const { getByLabelText, emitted } = TextInputBuilder()
 
-    fireEvent.blur(getByLabelText(/input label/i))
+    await fireEvent.blur(getByLabelText(/input label/i))
 
     expect(emitted().blur).toBeTruthy()
   })
 
-  it('should emit its value on Enter', () => {
+  it('should emit its value on Enter', async () => {
     const { getByLabelText, emitted } = TextInputBuilder()
 
-    fireEvent.keyUp(getByLabelText(/input label/i), {
+    await fireEvent.keyUp(getByLabelText(/input label/i), {
       key: 'Enter',
       code: 13,
     })
