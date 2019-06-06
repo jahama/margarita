@@ -44,6 +44,9 @@ export default {
         'grid-row--direction-column': props.directionColumn,
         'grid-row--has-margin-top': props.hasMarginTop,
       },
+      attrs: {
+        'data-testid': 'grid-row',
+      },
     }
 
     return createElement(props.tag, mergeData(data, componentData), children)

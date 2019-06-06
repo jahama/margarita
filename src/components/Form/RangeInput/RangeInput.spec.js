@@ -1,5 +1,7 @@
-import { render, fireEvent, cleanup } from 'vue-testing-library'
+import { render, fireEvent, cleanup } from '@testing-library/vue'
 import RangeInput from './RangeInput'
+
+afterEach(cleanup)
 
 const RangeInputBuilder = customProps =>
   render(RangeInput, {
@@ -14,33 +16,31 @@ const RangeInputBuilder = customProps =>
   })
 
 describe('RangeInput', () => {
-  afterEach(cleanup)
-
   it('should render a range input element', () => {
-    const wrapper = RangeInputBuilder()
+    const { getByTestId, getByText } = RangeInputBuilder()
 
-    wrapper.getByText(/step value/i)
-    wrapper.getByText(/second value/i)
+    getByText(/step value/i)
+    getByText(/second value/i)
 
-    expect(wrapper.getByTestId('range-input__native-element').value).toBe('0')
+    expect(getByTestId('range-input__native-element').value).toBe('0')
   })
 
-  it('should select the clicked element', () => {
-    const wrapper = RangeInputBuilder()
+  it('should select the clicked element', async () => {
+    const { getByTestId, getByText, emitted } = RangeInputBuilder()
 
-    expect(wrapper.getByTestId('range-input__native-element').value).toBe('0')
-    expect(wrapper.emitted()).toEqual({})
+    expect(getByTestId('range-input__native-element').value).toBe('0')
+    expect(emitted()).toEqual({})
 
-    fireEvent.click(wrapper.getByText(/second value/i))
+    await fireEvent.click(getByText(/second value/i))
 
-    expect(wrapper.emitted().input[0]).toEqual(['value2'])
+    expect(emitted().input[0]).toEqual(['value2'])
   })
 
   it('should render a label if prop is passed', () => {
-    const wrapper = RangeInputBuilder({
+    const { getByLabelText } = RangeInputBuilder({
       label: 'Custom Label',
     })
 
-    wrapper.getByLabelText(/custom label/i)
+    getByLabelText(/custom label/i)
   })
 })

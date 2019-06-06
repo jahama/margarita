@@ -1,66 +1,41 @@
-import { shallowMount } from '@vue/test-utils'
+import { render } from '@testing-library/vue'
 import GridRow from './GridRow.vue'
 
 describe('GridRow', () => {
-  it('should render correct contents', () => {
-    const wrapper = shallowMount(GridRow)
-    expect(wrapper.is(GridRow)).toBe(true)
-  })
-
-  it('should use the specified tag', () => {
-    const wrapper = shallowMount(GridRow, {
-      context: Object.assign({
-        props: {
-          tag: 'section',
-        },
-      }),
+  it('should render content from slot', () => {
+    const { getByText } = render(GridRow, {
+      slots: { default: 'Hello World' },
     })
 
-    expect(wrapper.contains('section')).toBe(true)
+    getByText(/Hello World/i)
   })
 
-  it('should add a class based in a prop', () => {
-    const wrapper = shallowMount(GridRow, {
-      context: Object.assign({
-        props: {
-          noGutters: true,
-        },
-      }),
-    })
-
-    expect(wrapper.classes()).toContain('grid-row--no-gutters')
-
-    const wrapper1 = shallowMount(GridRow, {
-      context: Object.assign({
-        props: {
-          noGutters: false,
-        },
-      }),
-    })
-
-    expect(wrapper1.classes()).not.toContain('grid-row--no-gutters')
-  })
-
-  it('should add the wanted class namess', () => {
-    const wrapper = shallowMount(GridRow, {
-      context: Object.assign({
-        class: {
-          'test-class': true,
-        },
-      }),
-    })
-
-    expect(wrapper.classes()).toContain('grid-row')
-    expect(wrapper.classes()).toContain('test-class')
-  })
-
-  it('should render the default slot', () => {
-    const wrapper = shallowMount(GridRow, {
-      slots: {
-        default: '<span>Example</span>',
+  it('should render the specified tag', () => {
+    const { getByTestId } = render(GridRow, {
+      slots: { default: 'asdasd' },
+      props: {
+        tag: 'span',
       },
     })
 
-    expect(wrapper.find('span').text()).toBe('Example')
+    expect(getByTestId('grid-row').nodeName).toBe('SPAN')
+  })
+
+  it('should add a class based in a prop', async () => {
+    const { getByTestId } = render(GridRow, {
+      props: {
+        noGutters: true,
+        noMarginBottom: true,
+        directionColumn: true,
+        hasMarginTop: true,
+      },
+    })
+
+    const gridRowClasses = getByTestId('grid-row').classList
+
+    expect(gridRowClasses.contains('grid-row--no-gutters')).toBeTruthy()
+    expect(gridRowClasses.contains('grid-row--no-margin-bottom')).toBeTruthy()
+    expect(gridRowClasses.contains('grid-row--direction-column')).toBeTruthy()
+    expect(gridRowClasses.contains('grid-row--has-margin-top')).toBeTruthy()
   })
 })
