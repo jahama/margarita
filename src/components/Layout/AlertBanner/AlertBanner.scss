@@ -68,11 +68,8 @@
     @include font-weight(semibold);
 
     margin: 0;
+    margin-bottom: rem(8px);
     font-size: rem(20px);
-
-    &:not(:empty) {
-      margin-bottom: rem(8px);
-    }
   }
 
   &--error {

@@ -23,9 +23,7 @@ export default {
     size: {
       default: 'medium',
       type: String,
-      validator: function(value) {
-        return AVAILABLE_SIZES.indexOf(value) !== -1
-      },
+      validator: value => AVAILABLE_SIZES.includes(value),
     },
 
     text: {
@@ -41,20 +39,13 @@ export default {
     type: {
       type: String,
       default: 'info',
-      validator: function(value) {
-        return AVAILABLE_TYPES.indexOf(value) !== -1
-      },
+      validator: value => AVAILABLE_TYPES.includes(value),
     },
   },
 
   computed: {
     getClasses() {
-      const classes = []
-
-      classes.push(`alert-banner--${this.size}`)
-      classes.push(`alert-banner--${this.type}`)
-
-      return classes
+      return [`alert-banner--${this.size}`, `alert-banner--${this.size}`]
     },
   },
 }
