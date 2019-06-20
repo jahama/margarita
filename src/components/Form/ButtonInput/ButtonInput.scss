@@ -58,8 +58,8 @@
     width: auto;
     color: get-color('dark-hot-pink');
 
-    &:hover:enabled,
-    &:active:enabled {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
       color: darken(get-color('dark-hot-pink'), 10%);
     }
   }
@@ -68,8 +68,8 @@
     background-color: get-color('dark-hot-pink');
     color: get-color('white');
 
-    &:hover:enabled,
-    &:active:enabled {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
       background-color: darken(get-color('dark-hot-pink'), 10%);
       color: get-color('white');
     }
@@ -89,8 +89,8 @@
     background-color: transparent;
     color: get-color('dark-hot-pink');
 
-    &:hover:enabled,
-    &:active:enabled {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
       background-color: get-color('dark-hot-pink');
       color: get-color('white');
     }
@@ -105,8 +105,8 @@
       background-color: transparent;
       color: get-color('dark-hot-pink');
 
-      &:hover:enabled,
-      &:active:enabled,
+      &:hover:not(:disabled),
+      &:active:not(:disabled),
       &.button-input--loading {
         border-color: lighten(get-color('dark-hot-pink'), 50%);
         background-color: lighten(get-color('dark-hot-pink'), 50%);
@@ -120,8 +120,8 @@
     background-color: transparent;
     color: get-color('white');
 
-    &:hover:enabled,
-    &:active:enabled {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
       background-color: get-color('tango');
       color: get-color('white');
     }
@@ -136,8 +136,8 @@
       background-color: transparent;
       color: get-color('white');
 
-      &:hover:enabled,
-      &:active:enabled,
+      &:hover:not(:disabled),
+      &:active:not(:disabled),
       &.button-input--loading {
         border-color: lighten(get-color('white'), 50%);
         background-color: lighten(get-color('white'), 50%);
@@ -157,8 +157,8 @@
     background-size: 200% auto;
     color: get-color('white');
 
-    &:hover:enabled,
-    &:active:enabled {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
       background-position: right center;
     }
 
