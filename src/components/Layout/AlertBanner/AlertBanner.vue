@@ -1,7 +1,7 @@
 <style lang="scss" src="./AlertBanner.scss"></style>
 
 <template>
-  <div :class="getClasses" class="alert-banner">
+  <div :class="['alert-banner', getClasses]">
     <span class="alert-banner__icon" />
     <div class="alert-banner__content">
       <p v-if="title" class="alert-banner__title" v-text="title" />
@@ -45,7 +45,7 @@ export default {
 
   computed: {
     getClasses() {
-      return [`alert-banner--${this.size}`, `alert-banner--${this.size}`]
+      return [`alert-banner--${this.size}`, `alert-banner--${this.type}`]
     },
   },
 }

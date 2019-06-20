@@ -9,6 +9,10 @@
     @include mq($from: sm) {
       padding: rem(8px);
     }
+
+    .alert-banner__icon {
+      margin-right: rem(8px);
+    }
   }
 
   &--medium {
@@ -79,7 +83,7 @@
 
   &--info {
     background-color: get-color('alto');
-    color: get-color('gray');
+    color: get-color('emperor');
   }
 
   &--success {
