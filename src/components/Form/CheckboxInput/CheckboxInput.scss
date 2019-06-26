@@ -12,6 +12,14 @@
   -ms-user-select: none;
   user-select: none;
 
+  &:hover {
+    cursor: pointer;
+
+    .checkmark-box {
+      border: rem(1px) solid get-color('dark-hot-pink');
+    }
+  }
+
   .checkbox-input__field {
     position: absolute;
     opacity: 0;
@@ -32,7 +40,8 @@
     }
 
     &:disabled ~ .checkmark-box {
-      background-color: get-color('concrete');
+      border: none;
+      background-color: get-color('boulder');
     }
   }
 
@@ -40,6 +49,7 @@
     position: absolute;
     top: rem(2px);
     left: 0;
+    transition: border 0.4s;
     border: rem(1px) solid get-color('alto');
     width: rem(16px);
     height: rem(16px);
