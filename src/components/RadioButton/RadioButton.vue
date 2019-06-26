@@ -1,26 +1,21 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <div class="radio-button__group">
-    <label
-      v-for="(item, key) in items"
-      :key="key"
-      :for="`${item.value}-${id}`"
-      class="radio-button"
-    >
-      <input
-        :id="`${item.value}-${id}`"
-        v-model="selectedValue"
-        :disabled="disabled"
-        :value="item.value"
-        class="radio-button__input radio-button__control"
-        type="radio"
-        @change="emit"
-      />
-      <span class="radio-button__indicator" />
-      <span class="radio-button__description" v-text="item.text" />
-    </label>
-  </div>
+  <label class="radio-button">
+    <input
+      :id="id"
+      v-model="model"
+      :value="label"
+      :disabled="disabled"
+      class="radio-button__input"
+      type="radio"
+      v-bind="$attrs"
+    />
+    <span class="radio-button__indicator" />
+    <span class="radio-button__description">
+      <slot />
+    </span>
+  </label>
 </template>
 
 <script>
@@ -29,10 +24,24 @@ import uuid from '@margarita/utils/uuid'
 export default {
   name: 'RadioButton',
 
+  inheritAttrs: false,
+
+  // Per docs: radio buttons use checked property and change event
+  // Source: https://vuejs.org/v2/guide/forms.html#Basic-Usage
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
+
   props: {
     id: {
       type: String,
       default: uuid,
+    },
+
+    label: {
+      type: String,
+      default: '',
     },
 
     disabled: {
@@ -40,33 +49,23 @@ export default {
       default: false,
     },
 
-    items: {
-      type: Array,
-      default: () => [],
-    },
-
-    value: {
+    checked: {
       type: [String, Object, Number, Boolean],
       default: '',
     },
   },
 
   computed: {
-    selectedValue: {
+    model: {
       get() {
-        return this.value
+        return this.checked
       },
 
-      set(newSelectedValue) {
-        this.$emit('input', newSelectedValue)
-      },
-    },
-  },
+      set() {
+        if (this.disabled) return false
 
-  methods: {
-    emit(e) {
-      // TODO: Try if in bonasera works with change event
-      this.$emit(e.type, e.target.value)
+        this.$emit('change', this.label)
+      },
     },
   },
 }
