@@ -51,6 +51,7 @@
     left: 0;
     transition: border 0.4s;
     border: rem(1px) solid get-color('alto');
+    background-color: get-color('white');
     width: rem(16px);
     height: rem(16px);
   }
