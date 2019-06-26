@@ -16,7 +16,7 @@ const RadioButtonBuilder = customProps =>
   })
 
 describe('RadioButton', () => {
-  it('should render a radio element', () => {
+  it.skip('should render a radio element', () => {
     const { getByDisplayValue, getByLabelText } = RadioButtonBuilder()
 
     getByLabelText(/text1/i)
@@ -27,7 +27,7 @@ describe('RadioButton', () => {
     getByDisplayValue(/value3/i)
   })
 
-  it('should render a link element on passing the right prop', async () => {
+  it.skip('should render a link element on passing the right prop', async () => {
     const { getByLabelText, emitted } = RadioButtonBuilder()
 
     await fireEvent.click(getByLabelText(/text2/i))
@@ -36,7 +36,7 @@ describe('RadioButton', () => {
     expect(emitted().change[0]).toEqual(['value2'])
   })
 
-  it('should render a disabled radio element', () => {
+  it.skip('should render a disabled radio element', () => {
     const { getByDisplayValue } = RadioButtonBuilder({ disabled: true })
 
     expect(getByDisplayValue(/value3/i).disabled).toBe(true)
