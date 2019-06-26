@@ -10,9 +10,7 @@
       type="checkbox"
       class="checkbox-input__field"
     />
-    <label :for="id" class="checkbox-input__label">
-      {{ label }}
-    </label>
+    <label :for="id" class="checkbox-input__label" v-text="label" />
     <span class="checkmark-box" />
   </div>
 </template>
