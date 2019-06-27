@@ -1,7 +1,7 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <label class="radio-button">
+  <label :class="getRadioButtonClass">
     <input
       :id="id"
       v-model="model"
@@ -49,6 +49,11 @@ export default {
       default: false,
     },
 
+    card: {
+      type: Boolean,
+      default: false,
+    },
+
     checked: {
       type: [String, Object, Number, Boolean],
       default: '',
@@ -66,6 +71,10 @@ export default {
 
         this.$emit('change', this.label)
       },
+    },
+
+    getRadioButtonClass() {
+      return this.card ? 'radio-button-card' : 'radio-button'
     },
   },
 }
