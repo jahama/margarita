@@ -7,12 +7,12 @@
       v-model="model"
       :value="label"
       :disabled="disabled"
-      class="radio-button__input"
+      class="input"
       type="radio"
       v-bind="$attrs"
     />
-    <span class="radio-button__indicator" />
-    <span class="radio-button__description">
+    <span class="radio-indicator" />
+    <span class="radio-description">
       <slot />
     </span>
   </label>
