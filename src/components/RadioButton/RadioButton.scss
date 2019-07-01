@@ -2,58 +2,19 @@
 $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23e6007d'/%3E%3C/svg%3E";
 
 .radio-button {
-  display: inline-flex;
+  display: flex;
   position: relative;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-right: 1rem;
-  cursor: pointer;
-  padding-left: 1.5rem;
+  align-items: flex-start;
+  padding: rem(12px) 0;
   width: 100%;
-  min-height: 1.5rem;
-  font-family: 'Ciutadella';
-
-  .input {
-    box-sizing: border-box;
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-    padding: 0;
-
-    &:not(:disabled) {
-      &:active,
-      &:checked,
-      &:focus {
-        ~ .radio-indicator {
-          border: rem(1px) solid get-color('dark-hot-pink');
-          box-shadow: none;
-          background-color: get-color('white');
-          background-image: url($pink-circle);
-          background-size: 100% 100%;
-        }
-      }
-    }
-
-    &:disabled {
-      & ~ .radio-description {
-        cursor: not-allowed;
-      }
-      & ~ .radio-indicator {
-        background-color: get-color('concrete');
-      }
-    }
-  }
 
   .radio-indicator {
-    display: block;
-    position: absolute;
-    top: rem(2.5px);
-    left: 0;
+    position: relative;
+    flex-shrink: 0;
     border: rem(1px) solid get-color('gray');
     border-radius: 50%;
     background-color: get-color('white');
-    background-position: center center;
-    background-repeat: no-repeat;
+    cursor: pointer;
     width: 1rem;
     height: 1rem;
     pointer-events: none;
@@ -61,42 +22,52 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
   }
 
   .radio-description {
-    flex: 0 0 100%;
     user-select: none;
+    cursor: pointer;
+    padding-left: rem(6px);
+  }
+
+  .input {
+    &:disabled ~ .radio-description,
+    &:disabled ~ .radio-indicator {
+      cursor: not-allowed;
+    }
+
+    &:disabled ~ .radio-indicator {
+      background-color: get-color('concrete');
+    }
+
+    &:not(:disabled) {
+      &:active,
+      &:checked,
+      &:focus {
+        ~ .radio-indicator::before {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          bottom: 2px;
+          left: 2px;
+          border-radius: 50%;
+          background-color: get-color('dark-hot-pink');
+          content: '';
+        }
+      }
+
+      ~ .radio-indicator {
+        border-color: get-color('dark-hot-pink');
+      }
+    }
   }
 }
 
 .radio-button-card {
-  @include mq($from: md) {
-    flex-basis: rem(192px);
-    max-width: rem(192px);
-    min-height: rem(219px);
-  }
-
   display: flex;
   position: relative;
-  flex: 0 0 100%;
   cursor: pointer;
   max-width: 100%;
   min-height: rem(72px);
-  font-family: 'Ciutadella';
-
-  &:not(:last-child) {
-    @include mq($from: md) {
-      margin-right: rem(48px);
-      margin-bottom: 0;
-    }
-
-    margin-bottom: rem(24px);
-  }
 
   .input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-    outline: none;
-    width: 0;
-
     &:hover,
     &:focus,
     &:checked {
@@ -113,8 +84,8 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
         right: rem(5px);
         z-index: 1;
         background-image: url('../../../assets/icons/tick.svg');
-        background-repeat: no-repeat;
         background-position: 90% 21%;
+        background-repeat: no-repeat;
         background-size: rem(13px) rem(13px);
         width: rem(13px);
         height: rem(13px);
@@ -158,21 +129,15 @@ $pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2
   }
 
   .radio-description {
-    @include mq($from: md) {
-      flex-direction: column;
-    }
 
     display: flex;
     flex: 0 0 100%;
     align-items: center;
-    justify-content: flex-start;
     border: rem(1px) solid get-color('alto');
     border-radius: rem(8px);
     box-shadow: 0 0 rem(8px) rem(6px) get-color('shadow-light');
     background-color: get-color('white');
-    padding: rem(24px) 0;
-    max-width: 100%;
-    height: 100%;
+    padding: rem(24px);
   }
 
   &--stretch {

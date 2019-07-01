@@ -7,7 +7,7 @@
       v-model="model"
       :value="label"
       :disabled="disabled"
-      class="input"
+      class="input visually-hidden"
       type="radio"
       v-bind="$attrs"
     />
