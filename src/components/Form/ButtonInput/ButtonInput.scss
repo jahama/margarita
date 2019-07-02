@@ -19,12 +19,7 @@
       border-color: get-color('boulder');
       color: get-color('boulder');
 
-      &:not(.button-input--secondary):not(.button-input--no-background) {
-        background: get-color('boulder');
-        color: get-color('white');
-      }
-
-      &:not(.button-input--white):not(.button-input--no-background) {
+      &:not(.button-input--secondary):not(.button-input--no-background):not(.button-input--white) {
         background: get-color('boulder');
         color: get-color('white');
       }
