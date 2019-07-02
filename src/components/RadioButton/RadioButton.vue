@@ -1,13 +1,13 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <label :class="getRadioButtonClass">
+  <label :class="radioButtonClass">
     <input
       :id="id"
       v-model="model"
       :value="label"
       :disabled="disabled"
-      class="input visually-hidden"
+      class="radio-input visually-hidden"
       type="radio"
       v-bind="$attrs"
     />
@@ -53,11 +53,6 @@ export default {
       type: Boolean,
       default: false,
     },
-
-    checked: {
-      type: [String, Object, Number, Boolean],
-      default: '',
-    },
   },
 
   computed: {
@@ -73,7 +68,7 @@ export default {
       },
     },
 
-    getRadioButtonClass() {
+    radioButtonClass() {
       return this.card ? 'radio-button-card' : 'radio-button'
     },
   },

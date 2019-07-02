@@ -25,7 +25,7 @@
     padding-left: rem(6px);
   }
 
-  .input {
+  .radio-input {
     &:disabled ~ .radio-description,
     &:disabled ~ .radio-indicator {
       cursor: not-allowed;
@@ -65,7 +65,7 @@
   max-width: 100%;
   min-height: rem(72px);
 
-  .input {
+  .radio-input {
     &:hover,
     &:focus,
     &:checked {
