@@ -10,18 +10,17 @@
   .radio-indicator {
     position: relative;
     flex-shrink: 0;
+    margin-top: 1px;
     border: rem(1px) solid get-color('gray');
     border-radius: 50%;
     background-color: get-color('white');
     cursor: pointer;
     width: 1rem;
     height: 1rem;
-    pointer-events: none;
     user-select: none;
   }
 
   .radio-description {
-    user-select: none;
     cursor: pointer;
     padding-left: rem(6px);
   }
