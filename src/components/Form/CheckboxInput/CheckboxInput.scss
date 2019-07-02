@@ -5,6 +5,7 @@
   position: relative;
 
   &__label {
+    cursor: pointer;
     padding-left: rem(22px);
     line-height: rem(22px);
     color: get-color('tundora');
@@ -24,6 +25,7 @@
 
     &:checked ~ .checkmark-box,
     &:disabled ~ .checkmark-box {
+      border: 0;
       background-image: url('../../../assets/icons/tick.svg');
       background-position: rem(3px) rem(3px);
       background-repeat: no-repeat;
@@ -31,21 +33,15 @@
     }
 
     &:checked ~ .checkmark-box {
-      border: 0;
       background-color: get-color('dark-hot-pink');
     }
 
     &:disabled ~ .checkmark-box {
-      border: none;
       background-color: get-color('boulder');
     }
 
-    &:disabled ~ .checkbox-input__label:hover {
+    &:disabled ~ .checkbox-input__label {
       cursor: not-allowed;
-    }
-
-    & ~ .checkbox-input__label:hover {
-      cursor: pointer;
     }
   }
 
