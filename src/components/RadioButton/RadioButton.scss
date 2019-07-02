@@ -15,8 +15,8 @@
     border-radius: 50%;
     background-color: get-color('white');
     cursor: pointer;
-    width: 1rem;
-    height: 1rem;
+    width: rem(16px);
+    height: rem(16px);
     user-select: none;
   }
 
