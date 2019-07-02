@@ -62,8 +62,6 @@
   display: flex;
   position: relative;
   cursor: pointer;
-  max-width: 100%;
-  min-height: rem(72px);
 
   .radio-input {
     &:hover,
@@ -75,6 +73,8 @@
     }
 
     &:checked ~ .radio-indicator {
+      $indicator-svg-size: rem(13px);
+
       &::before {
         display: block;
         position: absolute;
@@ -82,11 +82,9 @@
         right: rem(5px);
         z-index: 1;
         background-image: url('../../../assets/icons/tick.svg');
-        background-position: 90% 21%;
-        background-repeat: no-repeat;
-        background-size: rem(13px) rem(13px);
-        width: rem(13px);
-        height: rem(13px);
+        background-size: $indicator-svg-size $indicator-svg-size;
+        width: $indicator-svg-size;
+        height: $indicator-svg-size;
         content: ' ';
       }
 
@@ -95,20 +93,24 @@
         border-right-color: get-color('dark-hot-pink');
       }
     }
+
+    &:disabled ~ .radio-description,
+    &:disabled ~ .radio-indicator {
+      cursor: not-allowed;
+    }
   }
 
   .radio-indicator {
+    $indicator-size: 2.5rem;
+
     position: absolute;
-    top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
     transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
     border: 0 solid transparent;
     border-radius: rem(8px);
     background-color: transparent;
-    width: auto;
-    height: auto;
+    width: $indicator-size;
+    height: $indicator-size;
     overflow: hidden;
     user-select: none;
 
@@ -117,7 +119,7 @@
       top: rem(-1px);
       right: rem(-1px);
       transition: border-color 0.33s;
-      border-width: 0 2.5rem 2.5rem 0;
+      border-width: 0 $indicator-size $indicator-size 0;
       border-style: solid;
       border-color: transparent;
       width: 0;
@@ -127,45 +129,11 @@
   }
 
   .radio-description {
-
-    display: flex;
-    flex: 0 0 100%;
-    align-items: center;
+    flex: 1;
     border: rem(1px) solid get-color('alto');
     border-radius: rem(8px);
     box-shadow: 0 0 rem(8px) rem(6px) get-color('shadow-light');
     background-color: get-color('white');
     padding: rem(24px);
-  }
-
-  &--stretch {
-    @include mq($until: md) {
-      flex: 0 1 rem(136px);
-      min-height: rem(148px);
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-        margin-bottom: 0;
-      }
-
-      .answers-option {
-        &__label {
-          flex-direction: column;
-          justify-content: space-between;
-          padding: rem(16px) 0 0;
-        }
-
-        &__text {
-          padding: 0 rem(20px) rem(15.6px);
-          text-align: center;
-        }
-
-        &__icon {
-          margin: 0;
-          width: rem(56px);
-          height: rem(56px);
-        }
-      }
-    }
   }
 }
