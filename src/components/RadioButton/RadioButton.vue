@@ -34,6 +34,11 @@ export default {
   },
 
   props: {
+    checked: {
+      type: String,
+      required: true,
+    },
+
     id: {
       type: String,
       default: uuid,
