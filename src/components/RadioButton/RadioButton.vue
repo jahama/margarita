@@ -5,7 +5,7 @@
     <input
       :id="id"
       v-model="model"
-      :value="label"
+      :value="value"
       :disabled="disabled"
       class="radio-input visually-hidden"
       type="radio"
@@ -44,7 +44,7 @@ export default {
       default: uuid,
     },
 
-    label: {
+    value: {
       type: String,
       default: '',
     },
@@ -69,7 +69,7 @@ export default {
       set() {
         if (this.disabled) return false
 
-        this.$emit('change', this.label)
+        this.$emit('change', this.value)
       },
     },
 

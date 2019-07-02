@@ -32,22 +32,22 @@ describe('RadioButton', () => {
 
   it('should render an checked radio element if checked key matches own label', () => {
     const { input } = RadioButtonBuilder({
-      label: CHECKED_VALUE,
+      value: CHECKED_VALUE,
     })
 
     expect(input.checked).toBe(true)
   })
 
   it('should emit change event on click', async () => {
-    const label = 'checkboxLabel'
+    const value = 'checkboxvalue'
     const { input, emitted } = RadioButtonBuilder({
-      label,
+      value,
     })
 
     await fireEvent.click(input)
 
     expect(emitted().change).toBeTruthy()
-    expect(emitted().change[0]).toEqual([label])
+    expect(emitted().change[0]).toEqual([value])
     expect(input.checked).toBe(true)
   })
 
@@ -69,8 +69,8 @@ describe('RadioButton', () => {
       components: { RadioButton },
       template: `
         <div>
-          <radio-button v-model="selected" label="id1">radio1</radio-button>
-          <radio-button v-model="selected" label="id2">radio2</radio-button>
+          <radio-button v-model="selected" value="id1">radio1</radio-button>
+          <radio-button v-model="selected" value="id2">radio2</radio-button>
         </div>
       `,
       data: () => ({ selected: 'id1' }),
