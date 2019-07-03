@@ -22,10 +22,10 @@ const DEFAULT_OPTIONS = [
   { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
-storiesOf('Form Components', module)
+storiesOf('SelectInput', module)
   .addDecorator(withKnobs)
 
-  .add('Select Input', () => {
+  .add('SelectInput', () => {
     const selectedValue = select(
       'Value',
       ['', ...DEFAULT_OPTIONS.map(o => o.value)],

@@ -13,11 +13,11 @@ const defaultSteps = [
   { text: 'Alto', value: 'high' },
 ]
 
-storiesOf('Form Components', module)
+storiesOf('RangeInput', module)
   .addDecorator(withKnobs)
 
   .add(
-    'Range Input',
+    'RangeInput',
     () => {
       const selectedValue = select(
         'Value',

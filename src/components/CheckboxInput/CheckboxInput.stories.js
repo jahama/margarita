@@ -6,10 +6,10 @@ import CheckboxInput from '../CheckboxInput/CheckboxInput'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-storiesOf('Form Components', module)
+storiesOf('Checkbox', module)
   .addDecorator(withKnobs)
 
-  .add('CheckBox Input', () => {
+  .add('Checkbox', () => {
     const checked = boolean('Checked', false)
     const label = text('Label', 'Click to check the checkbox')
     const size = select('Size', GRID_ARRAY, 3)

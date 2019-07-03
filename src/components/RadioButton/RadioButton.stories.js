@@ -10,10 +10,10 @@ const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 const TRIGGERED_MSG = 'Triggered event:'
 
-storiesOf('Form Components', module)
+storiesOf('RadioInput', module)
   .addDecorator(withKnobs)
 
-  .add('Radio Button', () => {
+  .add('RadioInput', () => {
     const option = select(
       'Selected option',
       ['', 'id-de-prueba', 'id-de-prueba-2'],

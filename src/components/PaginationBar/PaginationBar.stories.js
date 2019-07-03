@@ -6,10 +6,9 @@ import GridColumn from '@margarita/components/GridColumn'
 
 import PaginationBar from '@margarita/components/PaginationBar'
 
-storiesOf('Components', module)
+storiesOf('PaginationBar', module)
   .addDecorator(withKnobs)
-
-  .add('Pagination Bar', () => {
+  .add('PaginationBar', () => {
     const from = text('From', '51')
     const totalItems = text('Total items', '25000')
     const to = text('To', '100')

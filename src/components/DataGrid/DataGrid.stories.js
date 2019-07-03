@@ -80,9 +80,8 @@ const rowsSample = [
   },
 ]
 
-storiesOf('Components', module)
+storiesOf('DataGrid', module)
   .addDecorator(withKnobs)
-
   .add(
     'DataGrid',
     () => {

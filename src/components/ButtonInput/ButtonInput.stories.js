@@ -43,11 +43,10 @@ const ICONS_BUTTON = [
 
 const HTML_TAGS = ['button', 'a']
 
-storiesOf('Form Components', module)
+storiesOf('ButtonInput', module)
   .addDecorator(withKnobs)
-
   .add(
-    'Button Input',
+    'ButtonInput',
     () => {
       const category = select('Categories', BUTTON_CATEGORIES, 'primary')
       const textButton = text('Text', 'Click me')

@@ -31,10 +31,10 @@ const ICONS = [
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
 
-storiesOf('Form Components', module)
+storiesOf('TextInput', module)
   .addDecorator(withKnobs)
   .add(
-    'Text Input',
+    'TextInput',
     () => {
       const disabled = boolean('Disable', false)
       const errorMessage = text('Error msg', 'You have an error')

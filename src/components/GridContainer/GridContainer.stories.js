@@ -15,10 +15,10 @@ import TextInput from '@margarita/components/TextInput'
 import SelectInput from '@margarita/components/SelectInput'
 import LayoutCard from '@margarita/components/LayoutCard'
 
-storiesOf('Grid System', module)
+storiesOf('Grid', module)
   .addDecorator(withKnobs)
   .add(
-    'Usage',
+    'Grid',
     () => {
       const fluid = boolean('Fluid layout', false)
       const tag = select(

@@ -8,10 +8,10 @@ import GridContainer from '@margarita/components/GridContainer'
 import GridRow from '@margarita/components/GridRow'
 import LayoutCard from '@margarita/components/LayoutCard'
 
-storiesOf('Layout', module)
+storiesOf('LayoutCard', module)
   .addDecorator(withKnobs)
   .add(
-    'Cards',
+    'LayoutCard',
     () => {
       const color = select('Color', ['white', 'gray'], 'white')
       const hasPaddingTop = boolean('Bottom cards have padding top', true)

@@ -8,11 +8,10 @@ import StatusPill from './StatusPill'
 
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 
-storiesOf('Components', module)
+storiesOf('StatusPill', module)
   .addDecorator(withKnobs)
-
   .add(
-    'Status Pill',
+    'StatusPill',
     () => {
       const color = select('Color', AVAILABLE_COLORS, 'green')
       const pillText = text('Pill Text', 'Active')
