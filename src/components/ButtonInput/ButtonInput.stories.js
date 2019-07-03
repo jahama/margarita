@@ -8,11 +8,11 @@ import {
 } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn'
-import GridRow from '../../Grid/GridRow/GridRow'
-import notes from '../../Form/_stories/notes/ButtonInput.md'
-import ButtonInput from '../ButtonInput/ButtonInput'
-import IconBase from '../../Components/IconBase'
+import notes from './notes/ButtonInput.md'
+import GridColumn from '@margarita/components/GridColumn'
+import GridRow from '@margarita/components/GridRow'
+import ButtonInput from '@margarita/components/ButtonInput'
+import IconBase from '@margarita/components/IconBase'
 
 const BUTTON_CATEGORIES = [
   'primary',

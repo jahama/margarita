@@ -3,12 +3,10 @@
 You can use **TextInput** component as following minimal configuration:
 
 ```livescript
-<grid-column class="grid-col--4">
-  <text-input
-    label="Field Name"
-    value="Property value"
-  />
-</grid-column>
+<text-input
+  label="Field Name"
+  value="Property value"
+/>
 ```
 
 ### Required props are:

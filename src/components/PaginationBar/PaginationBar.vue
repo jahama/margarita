@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import ButtonInput from '../../Form/ButtonInput/ButtonInput'
-import IconBase from '@margarita/components/Components/IconBase'
+import ButtonInput from '@margarita/components/ButtonInput'
+import IconBase from '@margarita/components/IconBase'
 
 export default {
   name: 'PaginationBar',
