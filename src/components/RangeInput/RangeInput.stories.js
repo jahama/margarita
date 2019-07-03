@@ -2,9 +2,9 @@ import { storiesOf } from '@storybook/vue'
 import { withKnobs, select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import notes from './notes/RangeInput.md'
-import GridColumn from '../../Grid/GridColumn/GridColumn'
-import RangeInput from '../RangeInput/RangeInput'
+import notes from './RangeInput.md'
+import GridColumn from '@margarita/components/GridColumn'
+import RangeInput from '@margarita/components/RangeInput'
 
 const defaultSteps = [
   { text: 'Especial', value: 'special' },

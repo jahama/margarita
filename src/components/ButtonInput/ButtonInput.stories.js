@@ -8,7 +8,7 @@ import {
 } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import notes from './notes/ButtonInput.md'
+import notes from './ButtonInput.md'
 import GridColumn from '@margarita/components/GridColumn'
 import GridRow from '@margarita/components/GridRow'
 import ButtonInput from '@margarita/components/ButtonInput'
@@ -90,7 +90,7 @@ storiesOf('Form Components', module)
                 :height="iconSize"
                 :icon="icon"
               />
-            </ButtonInput>
+            </button-input>
           </grid-column>
         </grid-row>
 
@@ -104,7 +104,7 @@ storiesOf('Form Components', module)
               category="gradient"
             >
             This is a button with text only
-            </ButtonInput>
+            </button-input>
           </grid-column>
           <grid-column
             class="grid-col--1"
@@ -120,7 +120,7 @@ storiesOf('Form Components', module)
                 width="35"
                 height="35"
               />
-            </ButtonInput>
+            </button-input>
           </grid-column>
           <grid-column
             class="grid-col--3"
@@ -131,7 +131,7 @@ storiesOf('Form Components', module)
               <icon-base
                 icon="Arrow"
               />
-            </ButtonInput>
+            </button-input>
           </grid-column>
           <grid-column
             class="grid-col--3"
@@ -146,7 +146,7 @@ storiesOf('Form Components', module)
               <icon-base
                 icon="Exit"
               />
-            </ButtonInput>
+            </button-input>
           </grid-column>
         </grid-row>
       </div>`,

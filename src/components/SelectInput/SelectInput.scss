@@ -1,4 +1,4 @@
-@import '../../../scss/margarita';
+@import '../../scss/margarita';
 
 .select-input {
   display: flex;
@@ -28,7 +28,7 @@
     border: rem(1px) solid get-color('alto');
     -webkit-border-radius: 0;
     background-color: get-color('white');
-    background-image: url('../../../assets/icons/arrow.svg');
+    background-image: url('../../assets/icons/arrow.svg');
     background-position: calc(100% - 12px) 50%;
     background-repeat: no-repeat;
     background-size: auto;

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
-import notes from './notes/DataGrid.md'
-import GridColumn from '../../Grid/GridColumn/GridColumn'
+import notes from './DataGrid.md'
+import GridColumn from '@margarita/components/GridColumn'
 import DataGrid from '../DataGrid/DataGrid'
 import StatusPill from '../StatusPill/StatusPill'
 

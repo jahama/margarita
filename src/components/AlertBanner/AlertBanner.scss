@@ -1,4 +1,4 @@
-@import '../../../scss/margarita';
+@import '../../scss/margarita';
 
 .alert-banner {
   display: flex;
@@ -46,11 +46,11 @@
     height: rem(20px);
 
     .alert-banner--error & {
-      background-image: url('../../../assets/icons/alert-error.svg');
+      background-image: url('../../assets/icons/alert-error.svg');
     }
 
     .alert-banner--warning & {
-      background-image: url('../../../assets/icons/warning.svg');
+      background-image: url('../../assets/icons/warning.svg');
     }
 
     .alert-banner--success & {

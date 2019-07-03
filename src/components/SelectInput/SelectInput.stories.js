@@ -8,7 +8,7 @@ import {
 } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn'
+import GridColumn from '@margarita/components/GridColumn'
 
 import SelectInput from '../SelectInput/SelectInput'
 

@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, select, text } from '@storybook/addon-knobs'
 
-import notes from './notes/StatusPill.md'
-import GridColumn from '../../Grid/GridColumn/GridColumn'
-import StatusPill from '../StatusPill/StatusPill'
+import GridColumn from '@margarita/components/GridColumn'
+
+import notes from './StatusPill.md'
+import StatusPill from './StatusPill'
 
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 

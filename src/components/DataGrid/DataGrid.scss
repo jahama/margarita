@@ -1,4 +1,4 @@
-@import '../../../scss/margarita';
+@import '../../scss/margarita';
 
 @keyframes aniUISkeleton {
   0% {
@@ -74,7 +74,7 @@
 
       .sort-arrow {
         display: inline-block;
-        background-image: url('../../../assets/icons/sorting-arrow-neutral.svg');
+        background-image: url('../../assets/icons/sorting-arrow-neutral.svg');
         background-position: center;
         background-repeat: no-repeat;
         width: rem(16px);
@@ -89,7 +89,7 @@
         font-weight: 700;
 
         .sort-arrow {
-          background-image: url('../../../assets/icons/sorting-arrow-up.svg');
+          background-image: url('../../assets/icons/sorting-arrow-up.svg');
         }
       }
 
@@ -97,7 +97,7 @@
         font-weight: 700;
 
         .sort-arrow {
-          background-image: url('../../../assets/icons/sorting-arrow-down.svg');
+          background-image: url('../../assets/icons/sorting-arrow-down.svg');
         }
       }
     }

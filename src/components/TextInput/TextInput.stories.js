@@ -2,12 +2,12 @@ import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import GridColumn from '../../Grid/GridColumn/GridColumn'
+import GridColumn from '@margarita/components/GridColumn'
 
-import TextInput from '../TextInput'
-import ButtonInput from '../ButtonInput'
-import IconBase from '../../Components/IconBase'
-import notes from './notes/TextInput.md'
+import TextInput from '@margarita/components/TextInput'
+import ButtonInput from '@margarita/components/ButtonInput'
+import IconBase from '@margarita/components/IconBase'
+import notes from './TextInput.md'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const ICONS = [

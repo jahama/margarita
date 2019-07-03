@@ -1,22 +1,19 @@
-import AlertBanner from './components/Layout/AlertBanner'
-import LayoutCard from './components/Layout/LayoutCard'
-import SidebarDrawer from './components/Layout/SidebarDrawer'
-
-import GridContainer from './components/Grid/GridContainer'
-import GridColumn from './components/Grid/GridColumn'
-import GridRow from './components/Grid/GridRow'
-
-import ButtonInput from './components/Form/ButtonInput'
-import CheckboxInput from './components/Form/CheckboxInput'
-import RadioButton from './components/Form/RadioButton'
-import RangeInput from './components/Form/RangeInput'
-import SelectInput from './components/Form/SelectInput'
-import TextInput from './components/Form/TextInput'
-
-import DataGrid from './components/Components/DataGrid'
-import IconBase from './components/Components/IconBase'
-import PaginationBar from './components/Components/PaginationBar'
-import StatusPill from './components/Components/StatusPill'
+import AlertBanner from './components/AlertBanner'
+import LayoutCard from './components/LayoutCard'
+import SidebarDrawer from './components/SidebarDrawer'
+import GridContainer from './components/GridContainer'
+import GridColumn from './components/GridColumn'
+import GridRow from './components/GridRow'
+import ButtonInput from './components/ButtonInput'
+import CheckboxInput from './components/CheckboxInput'
+import RadioButton from './components/RadioButton'
+import RangeInput from './components/RangeInput'
+import SelectInput from './components/SelectInput'
+import TextInput from './components/TextInput'
+import DataGrid from './components/DataGrid'
+import IconBase from './components/IconBase'
+import PaginationBar from './components/PaginationBar'
+import StatusPill from './components/StatusPill'
 
 export {
   AlertBanner,
