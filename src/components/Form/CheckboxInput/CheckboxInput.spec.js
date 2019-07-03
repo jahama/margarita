@@ -12,34 +12,37 @@ const CheckboxInputBuilder = customProps =>
   })
 
 describe('CheckboxInput', () => {
-  it('should be checkbox element with label', () => {
+  it('renders a checkbox element with its label', () => {
     const { getByLabelText } = CheckboxInputBuilder()
 
     getByLabelText(/checkbox label/i)
   })
 
-  it('should render a disabled checkbox on passing the right prop', () => {
-    const { getByLabelText } = CheckboxInputBuilder({ disabled: true })
+  it('renders a disabled checkbox', async () => {
+    const { getByLabelText, emitted } = CheckboxInputBuilder({ disabled: true })
 
     expect(getByLabelText(/checkbox label/i).disabled).toBeTruthy()
+
+    await fireEvent.click(getByLabelText(/checkbox label/i))
+
+    expect(emitted()).toEqual({})
   })
 
-  it('should render a checked checkbox on passing the right prop', () => {
+  it('renders a checked checkbox', () => {
     const { getByLabelText } = CheckboxInputBuilder({ checked: true })
 
     expect(getByLabelText(/checkbox label/i).checked).toBeTruthy()
   })
 
-  it('should render a custom id', () => {
-    const { getByLabelText, getByText } = CheckboxInputBuilder({
+  it('renders a custom id', () => {
+    const { getByLabelText } = CheckboxInputBuilder({
       id: 'customId',
     })
 
-    expect(getByText(/checkbox label/i).getAttribute('for')).toBe('customId')
     expect(getByLabelText(/checkbox label/i).id).toBe('customId')
   })
 
-  it('should emit an event when checked', async () => {
+  it('emits event when checked', async () => {
     const { getByLabelText, emitted } = CheckboxInputBuilder()
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
