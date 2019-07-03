@@ -1,18 +1,18 @@
 <style scoped lang="scss" src="./CheckboxInput.scss"></style>
 
 <template>
-  <div class="checkbox-input">
+  <label class="checkbox">
     <input
       :id="id"
       v-model="isChecked"
       :checked="checked"
       :disabled="disabled"
       type="checkbox"
-      class="checkbox-input__field"
+      class="checkbox__input"
     />
-    <label :for="id" class="checkbox-input__label" v-text="label" />
-    <span class="checkmark-box" />
-  </div>
+    <span class="checkbox__description">{{ label }}</span>
+    <span class="checkbox__indicator" />
+  </label>
 </template>
 
 <script>

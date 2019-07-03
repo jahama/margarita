@@ -1,30 +1,36 @@
 @import '../../../scss/margarita';
 
-.checkbox-input {
+.checkbox {
   display: block;
   position: relative;
+  cursor: pointer;
+  padding-left: rem(22px);
+  line-height: rem(22px);
+  color: get-color('tundora');
 
-  &__label {
-    cursor: pointer;
-    padding-left: rem(22px);
-    line-height: rem(22px);
-    color: get-color('tundora');
-    font-size: rem(16px);
-    user-select: none;
-
-    &:hover ~ .checkmark-box {
-      border: rem(1px) solid get-color('dark-hot-pink');
-    }
+  &:hover .checkbox__indicator {
+    border: rem(1px) solid get-color('dark-hot-pink');
   }
 
-  &__field {
+  .checkbox__indicator {
+    position: absolute;
+    top: rem(2px);
+    left: 0;
+    transition: border 0.4s, background-color 0.33s;
+    border: rem(1px) solid get-color('alto');
+    background-color: get-color('white');
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  &__input {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
 
-    &:checked ~ .checkmark-box,
-    &:disabled ~ .checkmark-box {
+    &:checked ~ .checkbox__indicator,
+    &:disabled ~ .checkbox__indicator {
       border: 0;
       background-image: url('../../../assets/icons/tick.svg');
       background-position: rem(3px) rem(3px);
@@ -32,27 +38,17 @@
       background-size: rem(10px) rem(10px);
     }
 
-    &:checked ~ .checkmark-box {
+    &:checked ~ .checkbox__indicator {
       background-color: get-color('dark-hot-pink');
     }
 
-    &:disabled ~ .checkmark-box {
+    &:disabled ~ .checkbox__indicator {
       background-color: get-color('boulder');
-    }
-
-    &:disabled ~ .checkbox-input__label {
       cursor: not-allowed;
     }
-  }
 
-  .checkmark-box {
-    position: absolute;
-    top: rem(2px);
-    left: 0;
-    transition: border 0.4s;
-    border: rem(1px) solid get-color('alto');
-    background-color: get-color('white');
-    width: rem(16px);
-    height: rem(16px);
+    &:disabled ~ .checkbox__description {
+      cursor: not-allowed;
+    }
   }
 }
