@@ -7,12 +7,12 @@
       v-model="model"
       :value="value"
       :disabled="disabled"
-      class="radio-input visually-hidden"
+      class="radio__input visually-hidden"
       type="radio"
       v-bind="$attrs"
     />
-    <span class="radio-indicator" />
-    <span class="radio-description">
+    <span class="radio__indicator" />
+    <span class="radio__description">
       <slot />
     </span>
   </label>
@@ -74,7 +74,7 @@ export default {
     },
 
     radioButtonClass() {
-      return this.card ? 'radio-button-card' : 'radio-button'
+      return this.card ? 'radio-card' : 'radio'
     },
   },
 }

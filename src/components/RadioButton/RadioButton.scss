@@ -1,13 +1,13 @@
 @import '../../scss/margarita';
 
-.radio-button {
+.radio {
   display: flex;
   position: relative;
   align-items: flex-start;
   padding: rem(12px) 0;
   width: 100%;
 
-  .radio-indicator {
+  .radio__indicator {
     position: relative;
     flex-shrink: 0;
     margin-top: 1px;
@@ -20,18 +20,18 @@
     user-select: none;
   }
 
-  .radio-description {
+  .radio__description {
     cursor: pointer;
     padding-left: rem(6px);
   }
 
-  .radio-input {
-    &:disabled ~ .radio-description,
-    &:disabled ~ .radio-indicator {
+  .radio__input {
+    &:disabled ~ .radio__description,
+    &:disabled ~ .radio__indicator {
       cursor: not-allowed;
     }
 
-    &:disabled ~ .radio-indicator {
+    &:disabled ~ .radio__indicator {
       background-color: get-color('concrete');
     }
 
@@ -39,7 +39,7 @@
       &:active,
       &:checked,
       &:focus {
-        ~ .radio-indicator::before {
+        ~ .radio__indicator::before {
           position: absolute;
           top: 2px;
           right: 2px;
@@ -51,28 +51,28 @@
         }
       }
 
-      ~ .radio-indicator {
+      ~ .radio__indicator {
         border-color: get-color('dark-hot-pink');
       }
     }
   }
 }
 
-.radio-button-card {
+.radio-card {
   display: flex;
   position: relative;
   cursor: pointer;
 
-  .radio-input {
+  .radio__input {
     &:hover,
     &:focus,
     &:checked {
-      & ~ .radio-description {
+      & ~ .radio__description {
         border-color: get-color('dark-hot-pink');
       }
     }
 
-    &:checked ~ .radio-indicator {
+    &:checked ~ .radio__indicator {
       $indicator-svg-size: rem(13px);
 
       &::before {
@@ -94,13 +94,13 @@
       }
     }
 
-    &:disabled ~ .radio-description,
-    &:disabled ~ .radio-indicator {
+    &:disabled ~ .radio__description,
+    &:disabled ~ .radio__indicator {
       cursor: not-allowed;
     }
   }
 
-  .radio-indicator {
+  .radio__indicator {
     $indicator-size: 2.5rem;
 
     position: absolute;
@@ -128,7 +128,7 @@
     }
   }
 
-  .radio-description {
+  .radio__description {
     flex: 1;
     border: rem(1px) solid get-color('alto');
     border-radius: rem(8px);
