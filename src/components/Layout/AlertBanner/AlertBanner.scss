@@ -4,19 +4,35 @@
   display: flex;
 
   &--small {
-    padding: rem(8px);
+    padding: rem(4px);
+
+    @include mq($from: sm) {
+      padding: rem(8px);
+    }
+
+    .alert-banner__icon {
+      margin-right: rem(8px);
+    }
   }
 
   &--medium {
-    padding: rem(16px);
+    padding: rem(8px);
+
+    @include mq($from: sm) {
+      padding: rem(16px);
+    }
   }
 
   &--large {
-    padding: rem(24px);
-    text-align: center;
+    padding: rem(12px);
+
+    @include mq($from: sm) {
+      padding: rem(24px);
+    }
   }
 
-  &--with-title {
+  &__content {
+    display: flex;
     flex-direction: column;
   }
 
@@ -36,6 +52,14 @@
     .alert-banner--warning & {
       background-image: url('../../../assets/icons/warning.svg');
     }
+
+    .alert-banner--success & {
+      background-image: url('../../../assets/icons/rounded-tick.svg');
+    }
+
+    .alert-banner--info & {
+      background-image: url('../../../assets/icons/info.svg');
+    }
   }
 
   &__text {
@@ -48,11 +72,8 @@
     @include font-weight(semibold);
 
     margin: 0;
+    margin-bottom: rem(8px);
     font-size: rem(20px);
-
-    &:not(:empty) {
-      margin-bottom: rem(8px);
-    }
   }
 
   &--error {
@@ -62,7 +83,7 @@
 
   &--info {
     background-color: get-color('alto');
-    color: get-color('gray');
+    color: get-color('emperor');
   }
 
   &--success {
@@ -73,11 +94,5 @@
   &--warning {
     background-color: get-color('peach-cream');
     color: get-color('brown');
-  }
-
-  .large-with-icon {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
   }
 }
