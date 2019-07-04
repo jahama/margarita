@@ -1,7 +1,7 @@
-<style scoped lang="scss" src="./RadioButton.scss"></style>
+<style scoped lang="scss" src="./Radio.scss"></style>
 
 <template>
-  <label :class="radioButtonClass">
+  <label :class="radioClass">
     <input
       :id="id"
       v-model="model"
@@ -22,7 +22,7 @@
 import uuid from '@margarita/utils/uuid'
 
 export default {
-  name: 'RadioButton',
+  name: 'ma-radio',
 
   inheritAttrs: false,
 
@@ -73,7 +73,7 @@ export default {
       },
     },
 
-    radioButtonClass() {
+    radioClass() {
       return this.card ? 'radio-card' : 'radio'
     },
   },

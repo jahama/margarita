@@ -1,13 +1,13 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
-import RadioButton from './RadioButton'
+import MaRadio from './Radio'
 
 afterEach(cleanup)
 
 const CHECKED_VALUE = '1'
 const SLOT_TEXT = 'text slot'
 
-const RadioButtonBuilder = customProps => {
-  const utils = render(RadioButton, {
+const RadioBuilder = customProps => {
+  const utils = render(MaRadio, {
     props: {
       checked: CHECKED_VALUE,
       ...customProps,
@@ -23,15 +23,15 @@ const RadioButtonBuilder = customProps => {
   }
 }
 
-describe('RadioButton', () => {
+describe('Radio', () => {
   it('should render an unchecked radio element by default', () => {
-    const { input } = RadioButtonBuilder()
+    const { input } = RadioBuilder()
 
     expect(input.checked).toBe(false)
   })
 
   it('should render an checked radio element if checked key matches own label', () => {
-    const { input } = RadioButtonBuilder({
+    const { input } = RadioBuilder({
       value: CHECKED_VALUE,
     })
 
@@ -40,7 +40,7 @@ describe('RadioButton', () => {
 
   it('should emit change event on click', async () => {
     const value = 'checkboxvalue'
-    const { input, emitted } = RadioButtonBuilder({
+    const { input, emitted } = RadioBuilder({
       value,
     })
 
@@ -52,7 +52,7 @@ describe('RadioButton', () => {
   })
 
   it('should not emit events if input is disabled', async () => {
-    const { input, emitted } = RadioButtonBuilder({
+    const { input, emitted } = RadioBuilder({
       disabled: true,
     })
 
@@ -66,11 +66,11 @@ describe('RadioButton', () => {
 
   it('should toggle value between related checkboxes', async () => {
     const { getByLabelText } = render({
-      components: { RadioButton },
+      components: { MaRadio },
       template: `
         <div>
-          <radio-button v-model="selected" value="id1">radio1</radio-button>
-          <radio-button v-model="selected" value="id2">radio2</radio-button>
+          <ma-radio v-model="selected" value="id1">radio1</ma-radio>
+          <ma-radio v-model="selected" value="id2">radio2</ma-radio>
         </div>
       `,
       data: () => ({ selected: 'id1' }),

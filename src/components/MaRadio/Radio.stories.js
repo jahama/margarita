@@ -4,36 +4,36 @@ import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import GridRow from '@margarita/components/GridRow'
-import GridColumn from '@margarita/components/GridColumn'
+import MaGridRow from '@margarita/components/MaGridRow'
+import MaGridColumn from '@margarita/components/MaGridColumn'
 
-import RadioButton from './RadioButton'
+import MaRadio from './Radio'
 
-storiesOf('RadioButton', module)
+storiesOf('Radio', module)
   .addDecorator(withKnobs)
 
-  .add('RadioButton', () => {
+  .add('Radio', () => {
     const card = boolean('Card', true)
     const disabled = boolean('Disabled', true)
     const text1 = text('Text radio 1', 'My first radio')
     const text2 = text('Text radio 2', 'Second radio button')
 
     return {
-      components: { RadioButton, GridRow, GridColumn },
+      components: { MaRadio, MaGridRow, MaGridColumn },
 
       template: `
-        <grid-row>
-          <grid-column class="grid-col--3 grid-col--offset-3">
-            <radio-button name="patata" v-model="selected" :card="card" value="id1" @change="onChange">
+        <ma-grid-row>
+          <ma-grid-column class="grid-col--3 grid-col--offset-3">
+            <ma-radio name="patata" v-model="selected" :card="card" value="id1" @change="onChange">
               {{ text1 }}
-            </radio-button>
-          </grid-column>
-          <grid-column class="grid-col--3">
-            <radio-button v-model="selected" :card="card" :disabled="disabled" value="id2" @change="onChange">
+            </ma-radio>
+          </ma-grid-column>
+          <ma-grid-column class="grid-col--3">
+            <ma-radio v-model="selected" :card="card" :disabled="disabled" value="id2" @change="onChange">
               {{ text2 }}
-            </radio-button>
-          </grid-column>
-        </grid-row>
+            </ma-radio>
+          </ma-grid-column>
+        </ma-grid-row>
       `,
 
       props: {
