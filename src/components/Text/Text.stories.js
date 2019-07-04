@@ -73,7 +73,7 @@ storiesOf('Text', module)
               v-if="icon"
               slot="inputSibling"
             >
-              <icon-base
+              <ma-icon
                 :icon="icon"
                 width="16"
                 height="16"

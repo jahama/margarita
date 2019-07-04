@@ -4,7 +4,7 @@
     :width="width"
     :height="height"
     :viewBox="`0 0 ${viewBoxWidth} 18`"
-    class="icon-base"
+    class="icon"
     :aria-labelledby="id"
     role="presentation"
   >

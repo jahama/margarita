@@ -3,7 +3,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import notes from './DataGrid.md'
 import GridColumn from '@margarita/components/GridColumn'
 import DataGrid from '../DataGrid/DataGrid'
-import StatusPill from '../StatusPill/StatusPill'
+import Pill from '../Pill/Pill'
 
 const columns = [
   {
@@ -27,7 +27,7 @@ const rowsSample = [
     name: 'Anna',
     age: 30,
     status: {
-      component: StatusPill,
+      component: Pill,
       componentData: {
         color: 'green',
         text: 'success',
@@ -38,7 +38,7 @@ const rowsSample = [
     name: 'Biel',
     age: 31,
     status: {
-      component: StatusPill,
+      component: Pill,
       componentData: {
         color: 'red',
         text: 'error',
@@ -49,7 +49,7 @@ const rowsSample = [
     name: 'Carlos',
     age: 29,
     status: {
-      component: StatusPill,
+      component: Pill,
       componentData: {
         color: 'red',
         text: 'error',
@@ -60,7 +60,7 @@ const rowsSample = [
     name: 'Marina',
     age: 23,
     status: {
-      component: StatusPill,
+      component: Pill,
       componentData: {
         color: 'orange',
         text: 'warning',
@@ -71,7 +71,7 @@ const rowsSample = [
     name: 'Estela',
     age: 36,
     status: {
-      component: StatusPill,
+      component: Pill,
       componentData: {
         color: 'orange',
         text: 'warning',

@@ -1,19 +1,19 @@
-<style lang="scss" src="./Layout.scss"></style>
+<style lang="scss" src="./Card.scss"></style>
 
 <template>
   <div v-if="getSpacingClasses.length" :class="getSpacingClasses">
-    <div :class="getColorClass" class="layout-card">
+    <div :class="getColorClass" class="card">
       <slot />
     </div>
   </div>
-  <div v-else :class="getColorClass" class="layout-card">
+  <div v-else :class="getColorClass" class="card">
     <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ma-layout',
+  name: 'ma-card',
 
   props: {
     color: {
@@ -29,14 +29,13 @@ export default {
 
   computed: {
     getColorClass() {
-      return `layout-card--${this.color}`
+      return `card--${this.color}`
     },
 
     getSpacingClasses() {
       const spacingClasses = []
 
-      if (this.hasPaddingTop)
-        spacingClasses.push('layout-card--has-padding-top')
+      if (this.hasPaddingTop) spacingClasses.push('card--has-padding-top')
 
       return spacingClasses
     },

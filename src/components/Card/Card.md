@@ -1,4 +1,4 @@
-# Layout Cards
+# Card
 
 Margarita has two different cards that are used as <code>content containers</code>. They can be:
 

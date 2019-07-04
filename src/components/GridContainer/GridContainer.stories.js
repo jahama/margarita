@@ -11,8 +11,8 @@ import GridFormNotes from './GridForm.md'
 import GridContainer from '@margarita/components/GridContainer'
 import GridRow from '@margarita/components/GridRow'
 import GridColumn from '@margarita/components/GridColumn'
-import TextInput from '@margarita/components/TextInput'
-import SelectInput from '@margarita/components/SelectInput'
+import Text from '@margarita/components/Text'
+import Select from '@margarita/components/Select'
 import Card from '@margarita/components/Card'
 
 storiesOf('Grid', module)
@@ -267,51 +267,51 @@ storiesOf('Grid', module)
           GridContainer,
           GridRow,
           GridColumn,
-          TextInput,
-          SelectInput,
+          Text,
+          Select,
           Card,
         },
 
         template: `
         <grid-container form>
-          <layout-card>
+          <ma-card>
             <grid-row>
               <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+                <ma-input
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </grid-column>
               <grid-column class="grid-col--12 grid-col--md-4">
-                <select-input
+                <ma-select
                   :label="'Mobile col-12, Desktop col-4'"
                   :options="options"
                 />
               </grid-column>
               <grid-column class="grid-col--12 grid-col--md-4">
-                <text-input
+                <ma-input
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </grid-column>
             </grid-row>
             <grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
               <grid-column class="grid-col--12 grid-col--md-3">
-                <text-input
+                <ma-input
                   :label="'Mobile col-12, Desktop col-3'"
                 />
               </grid-column>
               <grid-column class="grid-col--6 grid-col--md-5">
-                <select-input
+                <ma-select
                   :label="'Mobile col-6, Desktop col-5'"
                   :options="options"
                 />
               </grid-column>
               <grid-column class="grid-col--6 grid-col--md-4">
-                <text-input
+                <ma-input
                   :label="'Mobile col-6, Desktop col-4'"
                 />
               </grid-column>
             </grid-row>
-          </layout-card>
+          </ma-card>
         </grid-container>
       `,
 

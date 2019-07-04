@@ -83,7 +83,7 @@ storiesOf('Button', module)
               <template v-if="text">
                 {{ text }}
               </template>
-              <icon-base
+              <ma-icon
                 v-if="getIcon"
                 :width="iconSize"
                 :height="iconSize"
@@ -114,7 +114,7 @@ storiesOf('Button', module)
               rounded
               category="primary"
             >
-              <icon-base
+              <ma-icon
                 icon="DownloadContract"
                 width="35"
                 height="35"
@@ -127,7 +127,7 @@ storiesOf('Button', module)
           >
             <ma-button>
               This is a button with text and icon
-              <icon-base
+              <ma-icon
                 icon="Arrow"
               />
             </ma-button>
@@ -142,7 +142,7 @@ storiesOf('Button', module)
               tag="a"
             >
               This is a link with text and icon
-              <icon-base
+              <ma-icon
                 icon="Exit"
               />
             </ma-button>

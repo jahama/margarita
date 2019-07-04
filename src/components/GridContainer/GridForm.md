@@ -12,10 +12,10 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
 
 ```livescript
 <grid-container form>
-  <layout-card>
+  <ma-card>
     <grid-row>
       <grid-column class="grid-col--12 grid-col--md-4">
-        <text-input
+        <ma-input
           :label="'Mobile col-12, Desktop col-4'"
         />
       </grid-column>
@@ -25,14 +25,14 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
         />
       </grid-column>
       <grid-column class="grid-col--12 grid-col--md-4">
-        <text-input
+        <ma-input
           :label="'Mobile col-12, Desktop col-4'"
         />
       </grid-column>
     </grid-row>
     <grid-row no-margin-bottom>
       <grid-column class="grid-col--12 grid-col--md-3">
-        <text-input
+        <ma-input
           :label="'Mobile col-12, Desktop col-3'"
         />
       </grid-column>
@@ -42,11 +42,11 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
         />
       </grid-column>
       <grid-column class="grid-col--6 grid-col--md-4">
-        <text-input
+        <ma-input
           :label="'Mobile col-6, Desktop col-4'"
         />
       </grid-column>
     </grid-row>
-  </layout-card>
+  </ma-card>
 </grid-container>
 ```

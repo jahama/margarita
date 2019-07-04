@@ -12,14 +12,14 @@
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       >
-        <icon-base icon="ArrowToEnd" width="16" height="16" />
+        <ma-icon icon="ArrowToEnd" width="16" height="16" />
       </ma-button>
       <ma-button
         aria-label="Go back icon"
         class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
       >
-        <icon-base icon="Arrow" width="16" height="16" />
+        <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
     </div>
     <div class="pagination-bar__current">
@@ -34,7 +34,7 @@
         class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
       >
-        <icon-base icon="Arrow" width="16" height="16" />
+        <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
       <ma-button
         aria-label="Go to the end icon"
@@ -42,22 +42,22 @@
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       >
-        <icon-base icon="ArrowToEnd" width="16" height="16" />
+        <ma-icon icon="ArrowToEnd" width="16" height="16" />
       </ma-button>
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@margarita/components/Button'
-import IconBase from '@margarita/components/IconBase'
+import MaButton from '@margarita/components/Button'
+import MaIcon from '@margarita/components/Icon'
 
 export default {
   name: 'pagination-bar',
 
   components: {
-    IconBase,
-    Button,
+    MaIcon,
+    MaButton,
   },
 
   props: {

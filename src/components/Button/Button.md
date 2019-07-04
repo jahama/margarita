@@ -18,7 +18,7 @@ In the case you want an **icon only button**:
   rounded
   category="secondary"
 >
-  <icon-base
+  <ma-icon
     icon="DownloadContract"
     width="50"
     height="50"
@@ -30,7 +30,7 @@ In the case you want a **text with icon button**:
 ```livescript
 <ma-button>
   This is a button with text and icon
-  <icon-base
+  <ma-icon
     icon="Arrow"
   />
 </Button>
@@ -44,7 +44,7 @@ In the case you want a **text and icon link**:
   tag="a"
 >
   This is a link with text and icon
-  <icon-base
+  <ma-icon
     icon="Exit"
   />
 </Button>

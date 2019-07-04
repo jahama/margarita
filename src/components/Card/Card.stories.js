@@ -22,17 +22,17 @@ storiesOf('Card', module)
         <grid-container class="grid-example">
           <grid-row>
             <grid-column class="grid-col--12">
-              <layout-card
+              <ma-card
                 :color="color"
                 has-margin-top
               >
               I'm a {{ color }} layout card
-              </layout-card>
+              </ma-card>
             </grid-column>
           </grid-row>
           <grid-row>
             <grid-column v-for="col in 2" :key="col" class="grid-col--6">
-              <layout-card
+              <ma-card
                 color="gray"
                 :hasPaddingTop="hasPaddingTop"
               />
