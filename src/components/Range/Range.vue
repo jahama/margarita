@@ -1,4 +1,4 @@
-<style lang="scss" src="./RangeInput.scss" scoped></style>
+<style lang="scss" src="./Range.scss" scoped></style>
 
 <template>
   <div>
@@ -44,7 +44,7 @@ import uuid from '@margarita/utils/uuid'
 const REQUIRED_STEP_KEYS = ['value', 'text']
 
 export default {
-  name: 'RangeInput',
+  name: 'ma-range',
 
   props: {
     value: {

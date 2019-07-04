@@ -1,10 +1,10 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
-import RangeInput from './RangeInput'
+import Range from './Range'
 
 afterEach(cleanup)
 
-const RangeInputBuilder = customProps =>
-  render(RangeInput, {
+const RangeBuilder = customProps =>
+  render(Range, {
     props: {
       value: 'value1',
       steps: [
@@ -15,9 +15,9 @@ const RangeInputBuilder = customProps =>
     },
   })
 
-describe('RangeInput', () => {
+describe('Range', () => {
   it('should render a range input element', () => {
-    const { getByTestId, getByText } = RangeInputBuilder()
+    const { getByTestId, getByText } = RangeBuilder()
 
     getByText(/step value/i)
     getByText(/second value/i)
@@ -26,7 +26,7 @@ describe('RangeInput', () => {
   })
 
   it('should select the clicked element', async () => {
-    const { getByTestId, getByText, emitted } = RangeInputBuilder()
+    const { getByTestId, getByText, emitted } = RangeBuilder()
 
     expect(getByTestId('range-input__native-element').value).toBe('0')
     expect(emitted()).toEqual({})
@@ -37,7 +37,7 @@ describe('RangeInput', () => {
   })
 
   it('should render a label if prop is passed', () => {
-    const { getByLabelText } = RangeInputBuilder({
+    const { getByLabelText } = RangeBuilder({
       label: 'Custom Label',
     })
 

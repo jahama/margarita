@@ -1,6 +1,6 @@
 # Range Input
 
-You can use **RangeInput** component as following minimal configuration:
+You can use **Range** component as following minimal configuration:
 
 ```livescript
 <grid-column class="grid-col--4">

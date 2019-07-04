@@ -2,9 +2,9 @@ import { storiesOf } from '@storybook/vue'
 import { withKnobs, select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import notes from './RangeInput.md'
+import notes from './Range.md'
 import GridColumn from '@margarita/components/GridColumn'
-import RangeInput from '@margarita/components/RangeInput'
+import Range from '@margarita/components/Range'
 
 const defaultSteps = [
   { text: 'Especial', value: 'special' },
@@ -13,11 +13,11 @@ const defaultSteps = [
   { text: 'Alto', value: 'high' },
 ]
 
-storiesOf('RangeInput', module)
+storiesOf('Range', module)
   .addDecorator(withKnobs)
 
   .add(
-    'RangeInput',
+    'Range',
     () => {
       const selectedValue = select(
         'Value',
@@ -28,7 +28,7 @@ storiesOf('RangeInput', module)
       const label = text('Label', 'Label')
 
       return {
-        components: { RangeInput, GridColumn },
+        components: { Range, GridColumn },
 
         template: `
         <grid-column>
