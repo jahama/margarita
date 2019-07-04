@@ -1,25 +1,25 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
-import CheckboxInput from './CheckboxInput'
+import Checkbox from './Checkbox'
 
 afterEach(cleanup)
 
-const CheckboxInputBuilder = customProps =>
-  render(CheckboxInput, {
+const CheckboxBuilder = customProps =>
+  render(Checkbox, {
     props: {
       label: 'checkbox label',
       ...customProps,
     },
   })
 
-describe('CheckboxInput', () => {
+describe('Checkbox', () => {
   it('renders a checkbox element with its label', () => {
-    const { getByLabelText } = CheckboxInputBuilder()
+    const { getByLabelText } = CheckboxBuilder()
 
     getByLabelText(/checkbox label/i)
   })
 
   it('renders a disabled checkbox', async () => {
-    const { getByLabelText, emitted } = CheckboxInputBuilder({ disabled: true })
+    const { getByLabelText, emitted } = CheckboxBuilder({ disabled: true })
 
     expect(getByLabelText(/checkbox label/i).disabled).toBeTruthy()
 
@@ -29,13 +29,13 @@ describe('CheckboxInput', () => {
   })
 
   it('renders a checked checkbox', () => {
-    const { getByLabelText } = CheckboxInputBuilder({ checked: true })
+    const { getByLabelText } = CheckboxBuilder({ checked: true })
 
     expect(getByLabelText(/checkbox label/i).checked).toBeTruthy()
   })
 
   it('renders a custom id', () => {
-    const { getByLabelText } = CheckboxInputBuilder({
+    const { getByLabelText } = CheckboxBuilder({
       id: 'customId',
     })
 
@@ -43,7 +43,7 @@ describe('CheckboxInput', () => {
   })
 
   it('emits event when checked', async () => {
-    const { getByLabelText, emitted } = CheckboxInputBuilder()
+    const { getByLabelText, emitted } = CheckboxBuilder()
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 

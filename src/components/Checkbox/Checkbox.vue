@@ -1,4 +1,4 @@
-<style scoped lang="scss" src="./CheckboxInput.scss"></style>
+<style scoped lang="scss" src="./Checkbox.scss"></style>
 
 <template>
   <label class="checkbox">
@@ -19,7 +19,7 @@
 import uuid from '@margarita/utils/uuid'
 
 export default {
-  name: 'CheckboxInput',
+  name: 'checkbox',
 
   props: {
     checked: {
