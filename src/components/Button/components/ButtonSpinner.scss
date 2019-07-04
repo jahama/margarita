@@ -3,7 +3,7 @@
 $offset: 187;
 $duration: 1.4s;
 
-.button-input-spinner {
+.button-spinner {
   animation: rotator $duration linear infinite;
 }
 
@@ -24,8 +24,8 @@ $duration: 1.4s;
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
 
-  .button-input--secondary &,
-  .button-input--no-background & {
+  .button--secondary &,
+  .button--no-background & {
     stroke: get-color('dark-hot-pink');
   }
 }

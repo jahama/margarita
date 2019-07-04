@@ -4,16 +4,16 @@ You can use **Button Input** component as following minimal configuration:
 
 In the case you want a **text only button**:
 ```livescript
-<button-input
+<ma-button
   category="gradient"
 >
 This is a button with text only
-</ButtonInput>
+</Button>
 ```
 
 In the case you want an **icon only button**:
 ```livescript
-<button-input
+<ma-button
   aria-label="Download PDF"
   rounded
   category="secondary"
@@ -23,22 +23,22 @@ In the case you want an **icon only button**:
     width="50"
     height="50"
   />
-</ButtonInput>
+</Button>
 ```
 
 In the case you want a **text with icon button**:
 ```livescript
-<button-input>
+<ma-button>
   This is a button with text and icon
   <icon-base
     icon="Arrow"
   />
-</ButtonInput>
+</Button>
 ```
 
 In the case you want a **text and icon link**:
 ```livescript
-<button-input
+<ma-button
   category="no-background"
   href="https://www.holaluz.com/"
   tag="a"
@@ -47,7 +47,7 @@ In the case you want a **text and icon link**:
   <icon-base
     icon="Exit"
   />
-</ButtonInput>
+</Button>
 ```
 
 ### Props are:

@@ -1,6 +1,6 @@
 @import '../../scss/margarita';
 
-.button-input {
+.button {
   @include font-weight(semibold);
   display: flex;
   justify-content: center;
@@ -15,11 +15,11 @@
   &:disabled {
     cursor: not-allowed;
 
-    &:not(.button-input--loading) {
+    &:not(.button--loading) {
       border-color: get-color('boulder');
       color: get-color('boulder');
 
-      &:not(.button-input--secondary):not(.button-input--no-background):not(.button-input--white) {
+      &:not(.button--secondary):not(.button--no-background):not(.button--white) {
         background: get-color('boulder');
         color: get-color('white');
       }
@@ -74,7 +74,7 @@
       outline-offset: 0;
     }
 
-    &.button-input--rounded {
+    &.button--rounded {
       box-shadow: 0 rem(2px) rem(3px) rem(2px) get-color('shadow-medium');
     }
   }
@@ -95,14 +95,14 @@
       outline-offset: 0;
     }
 
-    &.button-input--rounded {
+    &.button--rounded {
       border-color: transparent;
       background-color: transparent;
       color: get-color('dark-hot-pink');
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
-      &.button-input--loading {
+      &.button--loading {
         border-color: lighten(get-color('dark-hot-pink'), 50%);
         background-color: lighten(get-color('dark-hot-pink'), 50%);
         color: get-color('dark-hot-pink');
@@ -126,14 +126,14 @@
       outline-offset: 0;
     }
 
-    &.button-input--rounded {
+    &.button--rounded {
       border-color: transparent;
       background-color: transparent;
       color: get-color('white');
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
-      &.button-input--loading {
+      &.button--loading {
         border-color: lighten(get-color('white'), 50%);
         background-color: lighten(get-color('white'), 50%);
         color: get-color('white');

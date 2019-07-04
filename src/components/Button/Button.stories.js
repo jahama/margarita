@@ -8,10 +8,10 @@ import {
 } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import notes from './ButtonInput.md'
+import notes from './Button.md'
 import GridColumn from '@margarita/components/GridColumn'
 import GridRow from '@margarita/components/GridRow'
-import ButtonInput from '@margarita/components/ButtonInput'
+import Button from '@margarita/components/Button'
 import IconBase from '@margarita/components/IconBase'
 
 const BUTTON_CATEGORIES = [
@@ -43,10 +43,10 @@ const ICONS_BUTTON = [
 
 const HTML_TAGS = ['button', 'a']
 
-storiesOf('ButtonInput', module)
+storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
-    'ButtonInput',
+    'Button',
     () => {
       const category = select('Categories', BUTTON_CATEGORIES, 'primary')
       const textButton = text('Text', 'Click me')
@@ -60,7 +60,7 @@ storiesOf('ButtonInput', module)
       const tag = select('HTML tag', HTML_TAGS, 'button')
 
       return {
-        components: { ButtonInput, GridColumn, GridRow, IconBase },
+        components: { Button, GridColumn, GridRow, IconBase },
 
         template: `
       <div>
@@ -69,7 +69,7 @@ storiesOf('ButtonInput', module)
           <grid-column
             class="grid-col--3"
           >
-            <button-input
+            <ma-button
               @click="action"
               :text="text"
               :rounded="rounded"
@@ -89,7 +89,7 @@ storiesOf('ButtonInput', module)
                 :height="iconSize"
                 :icon="icon"
               />
-            </button-input>
+            </ma-button>
           </grid-column>
         </grid-row>
 
@@ -99,17 +99,17 @@ storiesOf('ButtonInput', module)
             class="grid-col--3"
             align-start
           >
-            <button-input
+            <ma-button
               category="gradient"
             >
             This is a button with text only
-            </button-input>
+            </ma-button>
           </grid-column>
           <grid-column
             class="grid-col--1"
             align-start
           >
-            <button-input
+            <ma-button
               aria-label="Download PDF"
               rounded
               category="primary"
@@ -119,24 +119,24 @@ storiesOf('ButtonInput', module)
                 width="35"
                 height="35"
               />
-            </button-input>
+            </ma-button>
           </grid-column>
           <grid-column
             class="grid-col--3"
             align-start
           >
-            <button-input>
+            <ma-button>
               This is a button with text and icon
               <icon-base
                 icon="Arrow"
               />
-            </button-input>
+            </ma-button>
           </grid-column>
           <grid-column
             class="grid-col--3"
             align-start
           >
-            <button-input
+            <ma-button
               category="no-background"
               href="https://www.holaluz.com/"
               tag="a"
@@ -145,7 +145,7 @@ storiesOf('ButtonInput', module)
               <icon-base
                 icon="Exit"
               />
-            </button-input>
+            </ma-button>
           </grid-column>
         </grid-row>
       </div>`,

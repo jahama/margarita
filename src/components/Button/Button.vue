@@ -1,22 +1,22 @@
-<style scoped lang="scss" src="./ButtonInput.scss"></style>
+<style scoped lang="scss" src="./Button.scss"></style>
 
 <template>
   <component
     :is="tag"
     :disabled="loading || disabled"
-    :class="[getClasses, 'button-input']"
-    data-testid="button-input"
+    :class="[getClasses, 'button']"
+    data-testid="button"
     @click="handleClick"
   >
     <span>
       <slot v-if="!loading || !rounded" />
-      <button-input-spinner v-if="loading" />
+      <ma-button-spinner v-if="loading" />
     </span>
   </component>
 </template>
 
 <script>
-import ButtonInputSpinner from './components/ButtonInputSpinner'
+import ButtonSpinner from './components/ButtonSpinner'
 
 const AVAILABLE_CATEGORIES = [
   'primary',
@@ -27,10 +27,10 @@ const AVAILABLE_CATEGORIES = [
 ]
 
 export default {
-  name: 'ButtonInput',
+  name: 'ma-button',
 
   components: {
-    ButtonInputSpinner,
+    ButtonSpinner,
   },
 
   props: {
@@ -62,19 +62,17 @@ export default {
     category: {
       type: String,
       default: 'primary',
-      validator: function(value) {
-        return AVAILABLE_CATEGORIES.includes(value)
-      },
+      validator: v => AVAILABLE_CATEGORIES.includes(v),
     },
   },
 
   computed: {
     getClasses() {
       return {
-        'button-input--rounded': this.rounded,
-        [`button-input--${this.category}`]: this.category,
-        'button-input--fluid': this.fluid,
-        'button-input--loading': this.loading,
+        'button--rounded': this.rounded,
+        [`button--${this.category}`]: this.category,
+        'button--fluid': this.fluid,
+        'button--loading': this.loading,
       }
     },
   },
