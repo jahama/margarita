@@ -113,7 +113,7 @@ export default {
 
     getLabelClass() {
       return {
-        'select-input__label--hidden': this.$attrs['aria-label'],
+        'visually-hidden': this.$attrs['aria-label'],
       }
     },
   },

@@ -1,26 +1,21 @@
 <style scoped lang="scss" src="./RadioButton.scss"></style>
 
 <template>
-  <div class="radio-button__group">
-    <label
-      v-for="(item, key) in items"
-      :key="key"
-      :for="`${item.value}-${id}`"
-      class="radio-button"
-    >
-      <input
-        :id="`${item.value}-${id}`"
-        v-model="selectedValue"
-        :disabled="disabled"
-        :value="item.value"
-        class="radio-button__input radio-button__control"
-        type="radio"
-        @change="emit"
-      />
-      <span class="radio-button__indicator" />
-      <span class="radio-button__description" v-text="item.text" />
-    </label>
-  </div>
+  <label :class="radioButtonClass">
+    <input
+      :id="id"
+      v-model="model"
+      :value="value"
+      :disabled="disabled"
+      class="radio__input visually-hidden"
+      type="radio"
+      v-bind="$attrs"
+    />
+    <span class="radio__indicator" />
+    <span class="radio__description">
+      <slot />
+    </span>
+  </label>
 </template>
 
 <script>
@@ -29,10 +24,29 @@ import uuid from '@margarita/utils/uuid'
 export default {
   name: 'RadioButton',
 
+  inheritAttrs: false,
+
+  // Per docs: radio buttons use checked property and change event
+  // Source: https://vuejs.org/v2/guide/forms.html#Basic-Usage
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
+
   props: {
+    checked: {
+      type: [String, Number],
+      required: true,
+    },
+
     id: {
       type: String,
       default: uuid,
+    },
+
+    value: {
+      type: String,
+      default: '',
     },
 
     disabled: {
@@ -40,33 +54,27 @@ export default {
       default: false,
     },
 
-    items: {
-      type: Array,
-      default: () => [],
-    },
-
-    value: {
-      type: [String, Object, Number, Boolean],
-      default: '',
+    card: {
+      type: Boolean,
+      default: false,
     },
   },
 
   computed: {
-    selectedValue: {
+    model: {
       get() {
-        return this.value
+        return this.checked
       },
 
-      set(newSelectedValue) {
-        this.$emit('input', newSelectedValue)
+      set() {
+        if (this.disabled) return false
+
+        this.$emit('change', this.value)
       },
     },
-  },
 
-  methods: {
-    emit(e) {
-      // TODO: Try if in bonasera works with change event
-      this.$emit(e.type, e.target.value)
+    radioButtonClass() {
+      return this.card ? 'radio-card' : 'radio'
     },
   },
 }
