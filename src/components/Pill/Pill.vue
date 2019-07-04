@@ -1,4 +1,4 @@
-<style scoped lang="scss" src="./StatusPill.scss"></style>
+<style scoped lang="scss" src="./Pill.scss"></style>
 
 <template>
   <div>
@@ -10,7 +10,7 @@
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 
 export default {
-  name: 'StatusPill',
+  name: 'ma-pill',
 
   props: {
     color: {

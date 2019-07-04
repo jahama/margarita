@@ -3,21 +3,21 @@ import { withKnobs, select, text } from '@storybook/addon-knobs'
 
 import GridColumn from '@margarita/components/GridColumn'
 
-import notes from './StatusPill.md'
-import StatusPill from './StatusPill'
+import notes from './Pill.md'
+import Pill from './Pill'
 
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 
-storiesOf('StatusPill', module)
+storiesOf('Pill', module)
   .addDecorator(withKnobs)
   .add(
-    'StatusPill',
+    'Pill',
     () => {
       const color = select('Color', AVAILABLE_COLORS, 'green')
       const pillText = text('Pill Text', 'Active')
 
       return {
-        components: { StatusPill, GridColumn },
+        components: { Pill, GridColumn },
 
         template: `
         <grid-column>
