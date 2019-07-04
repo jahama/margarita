@@ -40,7 +40,7 @@ const AVAILABLE_ICONS = [
 ]
 
 export default {
-  name: 'IconBase',
+  name: 'ma-icon',
 
   props: {
     icon: {
