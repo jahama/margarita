@@ -1,9 +1,9 @@
 # Text Input
 
-You can use **TextInput** component as following minimal configuration:
+You can use **Text** component as following minimal configuration:
 
 ```livescript
-<text-input
+<ma-input
   label="Field Name"
   value="Property value"
 />
@@ -14,7 +14,7 @@ You can use **TextInput** component as following minimal configuration:
 - **label** <code>String</code>: The label for the form input.
 - **value** <code>String, Number</code>: The binded value. You can send v-model instead, and `v-on:input` will be the v-model default behavior.
 
-### TextInput allows you to use the next configuration fields:
+### Text allows you to use the next configuration fields:
 
 - <code>String</code> **id**: Id for the input.
 - <code>Boolean</code> **hasError**: Defines if input is errored. Adds styles and shows the error message.

@@ -4,10 +4,10 @@ import { action } from '@storybook/addon-actions'
 
 import GridColumn from '@margarita/components/GridColumn'
 
-import TextInput from '@margarita/components/TextInput'
+import Text from '@margarita/components/Text'
 import Button from '@margarita/components/Button'
-import IconBase from '@margarita/components/IconBase'
-import notes from './TextInput.md'
+import Icon from '@margarita/components/Icon'
+import notes from './Text.md'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const ICONS = [
@@ -31,10 +31,10 @@ const ICONS = [
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
 
-storiesOf('TextInput', module)
+storiesOf('Text', module)
   .addDecorator(withKnobs)
   .add(
-    'TextInput',
+    'Text',
     () => {
       const disabled = boolean('Disable', false)
       const errorMessage = text('Error msg', 'You have an error')
@@ -48,12 +48,11 @@ storiesOf('TextInput', module)
       const siblingLabel = text('Sibling label', '')
 
       return {
-        components: { TextInput, GridColumn, IconBase, Button },
+        components: { Text, GridColumn, Icon, Button },
 
         template: `
         <grid-column :class="getClass">
-          <text-input
-            id="my-text-input"
+          <ma-input
             :errorMessage="errorMessage"
             :disabled="disabled"
             :hasError="hasError"
@@ -80,7 +79,7 @@ storiesOf('TextInput', module)
                 height="16"
               />
             </ma-button>
-          </text-input>
+          </ma-input>
         </grid-column>`,
 
         computed: {

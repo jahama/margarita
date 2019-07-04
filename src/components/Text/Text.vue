@@ -1,12 +1,12 @@
-<style scoped lang="scss" src="./TextInput.scss"></style>
+<style scoped lang="scss" src="./Text.scss"></style>
 
 <template>
-  <div class="text-input">
-    <div class="text-input__label-wrapper">
-      <label :for="id" class="text-input__label" v-text="label" />
+  <div class="text">
+    <div class="text__label-wrapper">
+      <label :for="id" class="text__label" v-text="label" />
       <slot name="labelSibling" />
     </div>
-    <div class="text-input__field-wrapper">
+    <div class="text__field-wrapper">
       <input
         :id="id"
         v-model="lazyValue"
@@ -15,7 +15,7 @@
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
-        class="text-input__field"
+        class="text__field"
         @blur="emit"
         @change="emit"
         @input="emit"
@@ -23,11 +23,7 @@
       />
       <slot name="inputSibling" />
     </div>
-    <div
-      v-if="hasError"
-      class="text-input__error-message"
-      v-text="errorMessage"
-    />
+    <div v-if="hasError" class="text__error-message" v-text="errorMessage" />
   </div>
 </template>
 
@@ -35,11 +31,11 @@
 import uuid from '@margarita/utils/uuid'
 
 const INPUT_CLASSES = {
-  hasError: 'text-input__field--error',
+  hasError: 'text__field--error',
 }
 
 export default {
-  name: 'TextInput',
+  name: 'ma-text',
 
   props: {
     disabled: {
