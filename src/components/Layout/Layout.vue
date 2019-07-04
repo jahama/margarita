@@ -1,4 +1,4 @@
-<style lang="scss" src="./LayoutCard.scss"></style>
+<style lang="scss" src="./Layout.scss"></style>
 
 <template>
   <div v-if="getSpacingClasses.length" :class="getSpacingClasses">
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'LayoutCard',
+  name: 'ma-layout',
 
   props: {
     color: {

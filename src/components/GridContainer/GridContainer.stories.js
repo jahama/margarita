@@ -13,7 +13,7 @@ import GridRow from '@margarita/components/GridRow'
 import GridColumn from '@margarita/components/GridColumn'
 import TextInput from '@margarita/components/TextInput'
 import SelectInput from '@margarita/components/SelectInput'
-import LayoutCard from '@margarita/components/LayoutCard'
+import Card from '@margarita/components/Card'
 
 storiesOf('Grid', module)
   .addDecorator(withKnobs)
@@ -269,7 +269,7 @@ storiesOf('Grid', module)
           GridColumn,
           TextInput,
           SelectInput,
-          LayoutCard,
+          Card,
         },
 
         template: `

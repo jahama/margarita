@@ -1,23 +1,23 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 
-import LayoutCardNotes from './LayoutCard.md'
+import CardNotes from './Card.md'
 
 import GridColumn from '@margarita/components/GridColumn'
 import GridContainer from '@margarita/components/GridContainer'
 import GridRow from '@margarita/components/GridRow'
-import LayoutCard from '@margarita/components/LayoutCard'
+import Card from '@margarita/components/Card'
 
-storiesOf('LayoutCard', module)
+storiesOf('Card', module)
   .addDecorator(withKnobs)
   .add(
-    'LayoutCard',
+    'Card',
     () => {
       const color = select('Color', ['white', 'gray'], 'white')
       const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
       return {
-        components: { LayoutCard, GridContainer, GridRow, GridColumn },
+        components: { Card, GridContainer, GridRow, GridColumn },
         template: `
         <grid-container class="grid-example">
           <grid-row>
@@ -51,5 +51,5 @@ storiesOf('LayoutCard', module)
         },
       }
     },
-    { notes: LayoutCardNotes }
+    { notes: CardNotes }
   )
