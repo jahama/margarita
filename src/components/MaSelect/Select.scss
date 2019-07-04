@@ -1,6 +1,6 @@
 @import '../../scss/margarita';
 
-.select-input {
+.select {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,10 +12,8 @@
   }
 
   &__field {
-    -webkit-appearance: none;
     transition: border 0.2s ease;
     border: rem(1px) solid get-color('alto');
-    -webkit-border-radius: 0;
     background-color: get-color('white');
     background-image: url('../../assets/icons/arrow.svg');
     background-position: calc(100% - 12px) 50%;

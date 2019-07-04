@@ -1,11 +1,11 @@
 <style scoped lang="scss" src="./Select.scss"></style>
 
 <template>
-  <div class="select-input">
+  <div class="select">
     <label
       :for="id"
       :class="getLabelClass"
-      class="select-input__label"
+      class="select__label"
       v-text="label"
     />
     <select
@@ -13,7 +13,7 @@
       v-model="selected"
       v-bind="$attrs"
       :class="computedClass"
-      class="select-input__field"
+      class="select__field"
     >
       <option
         v-for="(option, index) in options"
@@ -24,11 +24,7 @@
         v-text="option.text"
       />
     </select>
-    <div
-      v-if="hasError"
-      class="select-input__error-message"
-      v-text="errorMessage"
-    />
+    <div v-if="hasError" class="select__error-message" v-text="errorMessage" />
   </div>
 </template>
 
@@ -106,8 +102,8 @@ export default {
 
     computedClass() {
       return {
-        'select-input__field--error': this.hasError,
-        [`select-input__field--${this.weight}`]: this.weight,
+        'select__field--error': this.hasError,
+        [`select__field--${this.weight}`]: this.weight,
         [`${this.fieldClass}`]: this.fieldClass,
       }
     },
