@@ -1,3 +1,3 @@
-import GridContainer from './GridContainer'
+import MaGridContainer from './MaGridContainer'
 
-export default GridContainer
+export default MaGridContainer

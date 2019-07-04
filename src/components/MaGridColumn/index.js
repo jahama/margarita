@@ -1,3 +1,3 @@
-import GridColumn from './GridColumn'
+import MaGridColumn from './MaGridColumn'
 
-export default GridColumn
+export default MaGridColumn

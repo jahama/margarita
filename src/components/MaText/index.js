@@ -1,3 +1,3 @@
-import Text from './Text'
+import MaText from './MaText'
 
-export default Text
+export default MaText

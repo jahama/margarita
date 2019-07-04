@@ -1,3 +1,3 @@
-import Range from './Range'
+import MaRange from './MaRange'
 
-export default Range
+export default MaRange

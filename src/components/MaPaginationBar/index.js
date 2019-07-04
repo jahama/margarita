@@ -1,3 +1,3 @@
-import PaginationBar from './PaginationBar'
+import MaPaginationBar from './MaPaginationBar'
 
-export default PaginationBar
+export default MaPaginationBar

@@ -1,3 +1,3 @@
-import Checkbox from './Checkbox'
+import MaCheckbox from './MaCheckbox'
 
-export default Checkbox
+export default MaCheckbox

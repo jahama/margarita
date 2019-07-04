@@ -1,3 +1,3 @@
-import Pill from './Pill'
+import MaPill from './MaPill'
 
-export default Pill
+export default MaPill

@@ -1,3 +1,3 @@
-import GridRow from './GridRow'
+import MaGridRow from './MaGridRow'
 
-export default GridRow
+export default MaGridRow

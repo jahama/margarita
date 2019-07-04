@@ -1,3 +1,3 @@
-import Card from './Card'
+import MaCard from './MaCard'
 
-export default Card
+export default MaCard

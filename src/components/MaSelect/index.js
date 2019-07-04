@@ -1,3 +1,3 @@
-import Select from './Select'
+import MaSelect from './MaSelect'
 
-export default Select
+export default MaSelect

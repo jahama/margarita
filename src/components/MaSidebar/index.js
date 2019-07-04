@@ -1,3 +1,3 @@
-import Sidebar from './Sidebar'
+import MaSidebar from './MaSidebar'
 
-export default Sidebar
+export default MaSidebar

@@ -1,0 +1,20 @@
+@import '../../scss/margarita';
+
+.ma-grid-row {
+  @include make-row();
+
+  &--no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .ma-grid-col,
+    > [class*='ma-grid-col--'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &--direction-column {
+    flex-direction: column;
+  }
+}

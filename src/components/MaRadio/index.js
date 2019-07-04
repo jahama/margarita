@@ -1,3 +1,3 @@
-import Radio from './Radio'
+import MaRadio from './MaRadio'
 
-export default Radio
+export default MaRadio

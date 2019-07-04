@@ -1,3 +1,3 @@
-import Icon from './Icon'
+import MaIcon from './MaIcon'
 
-export default Icon
+export default MaIcon

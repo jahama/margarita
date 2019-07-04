@@ -21,7 +21,7 @@
   }
 }
 
-.grid-row {
+.ma-grid-row {
   &:nth-child(odd) {
     .content {
       border-color: get-darken-color('picton-blue', 20%);

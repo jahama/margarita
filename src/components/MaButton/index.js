@@ -1,3 +1,3 @@
-import Button from './Button'
+import MaButton from './MaButton'
 
-export default Button
+export default MaButton

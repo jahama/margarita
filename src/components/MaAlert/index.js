@@ -1,3 +1,3 @@
-import Alert from './Alert'
+import MaAlert from './MaAlert'
 
-export default Alert
+export default MaAlert
