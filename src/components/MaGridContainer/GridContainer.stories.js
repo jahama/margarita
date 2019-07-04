@@ -277,7 +277,7 @@ storiesOf('Grid', module)
           <ma-card>
             <ma-grid-row>
               <ma-grid-column class="grid-col--12 grid-col--md-4">
-                <ma-input
+                <ma-text
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </ma-grid-column>
@@ -288,14 +288,14 @@ storiesOf('Grid', module)
                 />
               </ma-grid-column>
               <ma-grid-column class="grid-col--12 grid-col--md-4">
-                <ma-input
+                <ma-text
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </ma-grid-column>
             </ma-grid-row>
             <ma-grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
               <ma-grid-column class="grid-col--12 grid-col--md-3">
-                <ma-input
+                <ma-text
                   :label="'Mobile col-12, Desktop col-3'"
                 />
               </ma-grid-column>
@@ -306,7 +306,7 @@ storiesOf('Grid', module)
                 />
               </ma-grid-column>
               <ma-grid-column class="grid-col--6 grid-col--md-4">
-                <ma-input
+                <ma-text
                   :label="'Mobile col-6, Desktop col-4'"
                 />
               </ma-grid-column>

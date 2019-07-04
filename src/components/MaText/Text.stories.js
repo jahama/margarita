@@ -52,7 +52,7 @@ storiesOf('Text', module)
 
         template: `
         <ma-grid-column :class="getClass">
-          <ma-input
+          <ma-text
             :errorMessage="errorMessage"
             :disabled="disabled"
             :hasError="hasError"
@@ -79,7 +79,7 @@ storiesOf('Text', module)
                 height="16"
               />
             </ma-button>
-          </ma-input>
+          </ma-text>
         </ma-grid-column>`,
 
         computed: {

@@ -15,7 +15,7 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
   <ma-card>
     <ma-grid-row>
       <ma-grid-column class="grid-col--12 grid-col--md-4">
-        <ma-input
+        <ma-text
           :label="'Mobile col-12, Desktop col-4'"
         />
       </ma-grid-column>
@@ -25,14 +25,14 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
         />
       </ma-grid-column>
       <ma-grid-column class="grid-col--12 grid-col--md-4">
-        <ma-input
+        <ma-text
           :label="'Mobile col-12, Desktop col-4'"
         />
       </ma-grid-column>
     </ma-grid-row>
     <ma-grid-row no-margin-bottom>
       <ma-grid-column class="grid-col--12 grid-col--md-3">
-        <ma-input
+        <ma-text
           :label="'Mobile col-12, Desktop col-3'"
         />
       </ma-grid-column>
@@ -42,7 +42,7 @@ We are able to also add `has-margin-top` to the GridRow tag. This will add a 24p
         />
       </ma-grid-column>
       <ma-grid-column class="grid-col--6 grid-col--md-4">
-        <ma-input
+        <ma-text
           :label="'Mobile col-6, Desktop col-4'"
         />
       </ma-grid-column>

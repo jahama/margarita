@@ -3,7 +3,7 @@
 You can use **Text** component as following minimal configuration:
 
 ```livescript
-<ma-input
+<ma-text
   label="Field Name"
   value="Property value"
 />
