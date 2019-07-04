@@ -60,10 +60,6 @@ In the case you want a **text and icon link**:
 - <code>String</code> **href**: It defines the button's href tag.
 - <code>String</code> **tag**: It defines if the component is a `button` or a `a` html tag. Defaul value is `button`.
 
-### Slot can be:
-- <code>Text</code>
-- <code>IconBase</code>: Component for adding icons.
-
 ### Event:
 
 You can listen `click` event directly listening this event from the parent.

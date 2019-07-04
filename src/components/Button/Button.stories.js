@@ -12,7 +12,7 @@ import notes from './Button.md'
 import GridColumn from '@margarita/components/GridColumn'
 import GridRow from '@margarita/components/GridRow'
 import Button from '@margarita/components/Button'
-import IconBase from '@margarita/components/IconBase'
+import Icon from '@margarita/components/Icon'
 
 const BUTTON_CATEGORIES = [
   'primary',
@@ -60,7 +60,7 @@ storiesOf('Button', module)
       const tag = select('HTML tag', HTML_TAGS, 'button')
 
       return {
-        components: { Button, GridColumn, GridRow, IconBase },
+        components: { Button, GridColumn, GridRow, Icon },
 
         template: `
       <div>
