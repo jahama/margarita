@@ -1,56 +1,56 @@
-import Alert from './components/Alert'
-import Button from './components/Button'
-import Card from './components/Card'
-import Checkbox from './components/Checkbox'
-import DataGrid from './components/DataGrid'
-import GridColumn from './components/GridColumn'
-import GridContainer from './components/GridContainer'
-import GridRow from './components/GridRow'
-import Icon from './components/Icon'
-import PaginationBar from './components/PaginationBar'
-import Pill from './components/Pill'
-import Radio from './components/Radio'
-import Range from './components/Range'
-import Select from './components/Select'
-import Sidebar from './components/Sidebar'
-import Input from './components/Input'
+import MaAlert from './components/MaAlert'
+import MaButton from './components/MaButton'
+import MaCard from './components/MaCard'
+import MaCheckbox from './components/MaCheckbox'
+import MaDataGrid from './components/MaDataGrid'
+import MaGridColumn from './components/MaGridColumn'
+import MaGridContainer from './components/MaGridContainer'
+import MaGridRow from './components/MaGridRow'
+import MaIcon from './components/MaIcon'
+import MaPaginationBar from './components/MaPaginationBar'
+import MaPill from './components/MaPill'
+import MaRadio from './components/MaRadio'
+import MaRange from './components/MaRange'
+import MaSelect from './components/MaSelect'
+import MaSidebar from './components/MaSidebar'
+import MaText from './components/MaText'
 
 export {
-  Alert,
-  Button,
-  Card,
-  Checkbox,
-  DataGrid,
-  GridColumn,
-  GridContainer,
-  GridRow,
-  Icon,
-  PaginationBar,
-  Pill,
-  Radio,
-  Range,
-  Select,
-  Sidebar,
-  Input,
+  MaAlert,
+  MaButton,
+  MaCard,
+  MaCheckbox,
+  MaDataGrid,
+  MaGridColumn,
+  MaGridContainer,
+  MaGridRow,
+  MaIcon,
+  MaPaginationBar,
+  MaPill,
+  MaRadio,
+  MaRange,
+  MaSelect,
+  MaSidebar,
+  MaText,
 }
 
 function install(Vue) {
-  Vue.component('ma-alert', Alert)
-  Vue.component('ma-button', Button)
-  Vue.component('ma-card', Card)
-  Vue.component('ma-checkbox', Checkbox)
-  Vue.component('ma-data-grid', DataGrid)
-  Vue.component('ma-grid-column', GridColumn)
-  Vue.component('ma-grid-container', GridContainer)
-  Vue.component('ma-grid-row', GridRow)
-  Vue.component('ma-icon', Icon)
-  Vue.component('ma-pagination-bar', PaginationBar)
-  Vue.component('ma-pill', Pill)
-  Vue.component('ma-radio', Radio)
-  Vue.component('ma-range', Range)
-  Vue.component('ma-select', Select)
-  Vue.component('ma-sidebar', Sidebar)
-  Vue.component('ma-input', Input)
+  Vue.component('ma-alert', MaAlert)
+  Vue.component('ma-button', MaButton)
+  Vue.component('ma-card', MaCard)
+  Vue.component('ma-checkbox', MaCheckbox)
+  Vue.component('ma-data-grid', MaDataGrid)
+  Vue.component('ma-grid-column', MaGridColumn)
+  Vue.component('ma-grid-container', MaGridContainer)
+  Vue.component('ma-grid-row', MaGridRow)
+  Vue.component('ma-icon', MaIcon)
+  Vue.component('ma-pagination-bar', MaPaginationBar)
+  Vue.component('ma-pill', MaPill)
+  Vue.component('ma-radio', MaRadio)
+  Vue.component('ma-range', MaRange)
+  Vue.component('ma-select', MaSelect)
+  Vue.component('ma-sidebar', MaSidebar)
+  Vue.component('ma-text', MaText)
 }
 
 export default { install }
