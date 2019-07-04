@@ -1,95 +1,64 @@
+import '../../scss/_margarita-reset.scss'
+
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
+import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
+import GridRow from '@margarita/components/GridRow'
 import GridColumn from '@margarita/components/GridColumn'
 
 import RadioButton from './RadioButton'
 
-const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-const TRIGGERED_MSG = 'Triggered event:'
-
-storiesOf('RadioInput', module)
+storiesOf('RadioButton', module)
   .addDecorator(withKnobs)
 
-  .add('RadioInput', () => {
-    const option = select(
-      'Selected option',
-      ['', 'id-de-prueba', 'id-de-prueba-2'],
-      ''
-    )
-    const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
-    const disabled = boolean('Disabled', false)
-    const defaultOption = text('Default option')
+  .add('RadioButton', () => {
+    const card = boolean('Card', true)
+    const disabled = boolean('Disabled', true)
+    const text1 = text('Text radio 1', 'My first radio')
+    const text2 = text('Text radio 2', 'Second radio button')
 
     return {
-      components: { RadioButton, GridColumn },
+      components: { RadioButton, GridRow, GridColumn },
 
       template: `
-        <grid-column :class="getClass">
-          <radio-button
-            :disabled="disabled"
-            :items="items"
-            :value="defaultOption"
-            @change="onChange"
-          />
-        </grid-column>`,
-
-      computed: {
-        getClass() {
-          return {
-            [`grid-col--${this.size}`]: this.size,
-            [`grid-col--offset-${this.offset}`]: this.offset,
-          }
-        },
-      },
+        <grid-row>
+          <grid-column class="grid-col--3 grid-col--offset-3">
+            <radio-button name="patata" v-model="selected" :card="card" value="id1" @change="onChange">
+              {{ text1 }}
+            </radio-button>
+          </grid-column>
+          <grid-column class="grid-col--3">
+            <radio-button v-model="selected" :card="card" :disabled="disabled" value="id2" @change="onChange">
+              {{ text2 }}
+            </radio-button>
+          </grid-column>
+        </grid-row>
+      `,
 
       props: {
-        someOptionProperty: {
-          default: option,
+        card: {
+          default: card,
         },
-        defaultOption: {
-          default: defaultOption,
+        text1: {
+          default: text1,
+        },
+        text2: {
+          default: text2,
         },
         disabled: {
           default: disabled,
-        },
-        offset: {
-          default: offset,
-        },
-        size: {
-          default: size,
         },
       },
 
       data() {
         return {
-          items: [
-            {
-              value: 'id-de-prueba',
-              text: 'Texto de prueba para radio button 1',
-            },
-
-            {
-              value: 'id-de-prueba-2',
-              text: 'Texto de prueba para radio button 2',
-            },
-          ],
+          selected: 'id1',
         }
       },
 
       methods: {
-        onChange: action(`${TRIGGERED_MSG} change`),
-      },
-
-      watch: {
-        someOptionProperty(newValue) {
-          this.option = newValue
-        },
-
-        option: action(`${TRIGGERED_MSG} change`),
+        onChange: action(`Change`),
       },
     }
   })
