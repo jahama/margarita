@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import GridColumn from '@margarita/components/GridColumn'
 
 import TextInput from '@margarita/components/TextInput'
-import ButtonInput from '@margarita/components/ButtonInput'
+import Button from '@margarita/components/Button'
 import IconBase from '@margarita/components/IconBase'
 import notes from './TextInput.md'
 
@@ -48,7 +48,7 @@ storiesOf('TextInput', module)
       const siblingLabel = text('Sibling label', '')
 
       return {
-        components: { TextInput, GridColumn, IconBase, ButtonInput },
+        components: { TextInput, GridColumn, IconBase, Button },
 
         template: `
         <grid-column :class="getClass">
@@ -62,7 +62,7 @@ storiesOf('TextInput', module)
             v-model="value"
             @blur="onBlur"
           >
-            <button-input
+            <ma-button
               v-if="siblingLabel"
               href="#"
               category="no-background"
@@ -70,7 +70,7 @@ storiesOf('TextInput', module)
               slot="labelSibling"
               v-text="siblingLabel"
             />
-            <button-input
+            <ma-button
               v-if="icon"
               slot="inputSibling"
             >
@@ -79,7 +79,7 @@ storiesOf('TextInput', module)
                 width="16"
                 height="16"
               />
-            </button-input>
+            </ma-button>
           </text-input>
         </grid-column>`,
 

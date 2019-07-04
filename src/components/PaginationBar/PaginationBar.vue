@@ -6,21 +6,21 @@
       :class="{ 'pagination-bar--invisible': isStart }"
       class="pagination-bar__left"
     >
-      <button-input
+      <ma-button
         aria-label="Go to the start icon"
         category="no-background"
         class="pagination-bar__icon pagination-bar__icon--start"
         @click="pagination('start')"
       >
         <icon-base icon="ArrowToEnd" width="16" height="16" />
-      </button-input>
-      <button-input
+      </ma-button>
+      <ma-button
         aria-label="Go back icon"
         class="pagination-bar__icon pagination-bar__icon--back"
         @click="pagination('back')"
       >
         <icon-base icon="Arrow" width="16" height="16" />
-      </button-input>
+      </ma-button>
     </div>
     <div class="pagination-bar__current">
       <slot />
@@ -29,35 +29,35 @@
       :class="{ 'pagination-bar--invisible': isEnd }"
       class="pagination-bar__right"
     >
-      <button-input
+      <ma-button
         aria-label="Go forward icon"
         class="pagination-bar__icon pagination-bar__icon--forward"
         @click="pagination('forward')"
       >
         <icon-base icon="Arrow" width="16" height="16" />
-      </button-input>
-      <button-input
+      </ma-button>
+      <ma-button
         aria-label="Go to the end icon"
         category="no-background"
         class="pagination-bar__icon pagination-bar__icon--end"
         @click="pagination('end')"
       >
         <icon-base icon="ArrowToEnd" width="16" height="16" />
-      </button-input>
+      </ma-button>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonInput from '@margarita/components/ButtonInput'
+import Button from '@margarita/components/Button'
 import IconBase from '@margarita/components/IconBase'
 
 export default {
-  name: 'PaginationBar',
+  name: 'pagination-bar',
 
   components: {
     IconBase,
-    ButtonInput,
+    Button,
   },
 
   props: {
