@@ -1,4 +1,4 @@
-<style lang="scss" src="./AlertBanner.scss"></style>
+<style lang="scss" src="./Alert.scss"></style>
 
 <template>
   <div :class="['alert-banner', getClasses]">
@@ -17,7 +17,7 @@ const AVAILABLE_SIZES = ['small', 'medium', 'large']
 const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
 
 export default {
-  name: 'AlertBanner',
+  name: 'ma-alert',
 
   props: {
     size: {
