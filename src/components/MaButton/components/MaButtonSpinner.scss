@@ -3,7 +3,7 @@
 $offset: 187;
 $duration: 1.4s;
 
-.button-spinner {
+.ma-button-spinner {
   animation: rotator $duration linear infinite;
 }
 
@@ -17,15 +17,15 @@ $duration: 1.4s;
   }
 }
 
-.path {
+.ma-button-spinner__path {
   transform-origin: center;
   animation: dash $duration ease-in-out infinite;
   stroke: get-color('white');
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
 
-  .button--secondary &,
-  .button--no-background & {
+  .ma-button--secondary &,
+  .ma-button--no-background & {
     stroke: get-color('dark-hot-pink');
   }
 }

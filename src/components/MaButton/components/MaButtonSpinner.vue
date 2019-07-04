@@ -2,7 +2,7 @@
 
 <template>
   <svg
-    class="button-spinner"
+    class="ma-button-spinner"
     width="18px"
     height="18px"
     viewBox="0 0 66 66"
@@ -10,7 +10,7 @@
     data-testid="button-spinner"
   >
     <circle
-      class="path"
+      class="ma-button-spinner__path"
       fill="none"
       stroke-width="6"
       stroke-linecap="round"

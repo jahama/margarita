@@ -1,7 +1,7 @@
 <style lang="scss" src="./MaCard.scss"></style>
 
 <template>
-  <div v-if="getSpacingClasses.length" :class="getSpacingClasses">
+  <div v-if="hasPaddingTop" :class="spacingClasses">
     <div :class="getColorClass" class="ma-card">
       <slot />
     </div>
@@ -29,15 +29,13 @@ export default {
 
   computed: {
     getColorClass() {
-      return `card--${this.color}`
+      return `ma-card--${this.color}`
     },
 
-    getSpacingClasses() {
-      const spacingClasses = []
-
-      if (this.hasPaddingTop) spacingClasses.push('card--has-padding-top')
-
-      return spacingClasses
+    spacingClasses() {
+      return {
+        'ma-card--has-padding-top': this.hasPaddingTop,
+      }
     },
   },
 }

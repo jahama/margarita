@@ -7,7 +7,7 @@ import MaGridColumn from './components/MaGridColumn'
 import MaGridContainer from './components/MaGridContainer'
 import MaGridRow from './components/MaGridRow'
 import MaIcon from './components/MaIcon'
-import MaPaginationBar from './components/MaPaginationBar'
+import MaPagination from './components/MaPagination'
 import MaPill from './components/MaPill'
 import MaRadio from './components/MaRadio'
 import MaRange from './components/MaRange'
@@ -25,7 +25,7 @@ export {
   MaGridContainer,
   MaGridRow,
   MaIcon,
-  MaPaginationBar,
+  MaPagination,
   MaPill,
   MaRadio,
   MaRange,
@@ -44,7 +44,7 @@ function install(Vue) {
   Vue.component('ma-grid-container', MaGridContainer)
   Vue.component('ma-grid-row', MaGridRow)
   Vue.component('ma-icon', MaIcon)
-  Vue.component('ma-pagination-bar', MaPaginationBar)
+  Vue.component('ma-pagination', MaPagination)
   Vue.component('ma-pill', MaPill)
   Vue.component('ma-radio', MaRadio)
   Vue.component('ma-range', MaRange)
