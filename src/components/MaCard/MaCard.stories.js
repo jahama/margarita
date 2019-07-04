@@ -21,7 +21,7 @@ storiesOf('Card', module)
         template: `
         <ma-grid-container class="grid-example">
           <ma-grid-row>
-            <ma-grid-column class="grid-col--12">
+            <ma-grid-column class="ma-grid-col--12">
               <ma-card
                 :color="color"
                 has-margin-top
@@ -31,7 +31,7 @@ storiesOf('Card', module)
             </ma-grid-column>
           </ma-grid-row>
           <ma-grid-row>
-            <ma-grid-column v-for="col in 2" :key="col" class="grid-col--6">
+            <ma-grid-column v-for="col in 2" :key="col" class="ma-grid-col--6">
               <ma-card
                 color="gray"
                 :hasPaddingTop="hasPaddingTop"

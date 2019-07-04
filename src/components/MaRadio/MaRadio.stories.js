@@ -23,12 +23,12 @@ storiesOf('Radio', module)
 
       template: `
         <ma-grid-row>
-          <ma-grid-column class="grid-col--3 grid-col--offset-3">
+          <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
             <ma-radio name="patata" v-model="selected" :card="card" value="id1" @change="onChange">
               {{ text1 }}
             </ma-radio>
           </ma-grid-column>
-          <ma-grid-column class="grid-col--3">
+          <ma-grid-column class="ma-grid-col--3">
             <ma-radio v-model="selected" :card="card" :disabled="disabled" value="id2" @change="onChange">
               {{ text2 }}
             </ma-radio>

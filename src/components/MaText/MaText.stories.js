@@ -84,7 +84,7 @@ storiesOf('Text', module)
 
         computed: {
           getClass() {
-            const classes = [`grid-col--${this.size}`]
+            const classes = [`ma-grid-col--${this.size}`]
             const offset = Number(this.offset)
 
             if (offset) classes.push(`grid-col--offset-${offset}`)

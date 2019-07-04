@@ -67,7 +67,7 @@ storiesOf('Button', module)
         <h2>Dynamic button:</h2>
         <ma-grid-row>
           <ma-grid-column
-            class="grid-col--3"
+            class="ma-grid-col--3"
           >
             <ma-button
               @click="action"
@@ -96,7 +96,7 @@ storiesOf('Button', module)
         <h2>Examples:</h2>
         <ma-grid-row>
           <ma-grid-column
-            class="grid-col--3"
+            class="ma-grid-col--3"
             align-start
           >
             <ma-button
@@ -106,7 +106,7 @@ storiesOf('Button', module)
             </ma-button>
           </ma-grid-column>
           <ma-grid-column
-            class="grid-col--1"
+            class="ma-grid-col--1"
             align-start
           >
             <ma-button
@@ -122,7 +122,7 @@ storiesOf('Button', module)
             </ma-button>
           </ma-grid-column>
           <ma-grid-column
-            class="grid-col--3"
+            class="ma-grid-col--3"
             align-start
           >
             <ma-button>
@@ -133,7 +133,7 @@ storiesOf('Button', module)
             </ma-button>
           </ma-grid-column>
           <ma-grid-column
-            class="grid-col--3"
+            class="ma-grid-col--3"
             align-start
           >
             <ma-button

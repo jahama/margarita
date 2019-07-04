@@ -3,7 +3,7 @@
 You can use **Range** component as following minimal configuration:
 
 ```livescript
-<ma-grid-column class="grid-col--4">
+<ma-grid-column class="ma-grid-col--4">
   <range-input
     v-model="someValue"
     :steps="steps"

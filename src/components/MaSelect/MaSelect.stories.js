@@ -106,8 +106,8 @@ storiesOf('Select', module)
       computed: {
         getClass() {
           return {
-            [`grid-col--${this.size}`]: this.size,
-            [`grid-col--offset-${this.offset}`]: this.offset,
+            [`ma-grid-col--${this.size}`]: this.size,
+            [`ma-grid-col--offset-${this.offset}`]: this.offset,
           }
         },
       },
