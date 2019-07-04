@@ -1,4 +1,4 @@
-<style lang="scss" src="./SidebarDrawer.scss" scoped></style>
+<style lang="scss" src="./Sidebar.scss" scoped></style>
 
 <template>
   <div>
@@ -16,7 +16,7 @@ const SLIDE_DIRECTIONS = ['left', 'right']
 const DRAWER_TYPES = ['attached', 'fixed']
 
 export default {
-  name: 'SidebarDrawer',
+  name: 'ma-sidebar',
 
   props: {
     type: {
