@@ -10,7 +10,7 @@ import { action } from '@storybook/addon-actions'
 
 import GridColumn from '@margarita/components/GridColumn'
 
-import SelectInput from '../SelectInput/SelectInput'
+import Select from '../Select/Select'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
@@ -22,10 +22,10 @@ const DEFAULT_OPTIONS = [
   { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
-storiesOf('SelectInput', module)
+storiesOf('Select', module)
   .addDecorator(withKnobs)
 
-  .add('SelectInput', () => {
+  .add('Select', () => {
     const selectedValue = select(
       'Value',
       ['', ...DEFAULT_OPTIONS.map(o => o.value)],
@@ -44,7 +44,7 @@ storiesOf('SelectInput', module)
     const offset = select('Offset', [0, ...GRID_ARRAY], 4)
 
     return {
-      components: { GridColumn, SelectInput },
+      components: { GridColumn, Select },
 
       template: `
         <grid-column :class="getClass">

@@ -1,5 +1,5 @@
 import { render, fireEvent, cleanup } from '@testing-library/vue'
-import SelectInput from './SelectInput'
+import Select from './Select'
 
 afterEach(cleanup)
 
@@ -19,8 +19,8 @@ const OPTIONS_WITH_PLACEHOLDER = [
   ...OPTIONS,
 ]
 
-const SelectInputBuilder = customProps =>
-  render(SelectInput, {
+const SelectBuilder = customProps =>
+  render(Select, {
     props: {
       label: 'Test Select label',
       options: OPTIONS,
@@ -28,9 +28,9 @@ const SelectInputBuilder = customProps =>
     },
   })
 
-describe('SelectInput', () => {
+describe('Select', () => {
   it('should have multiple options', () => {
-    const { getByText } = SelectInputBuilder()
+    const { getByText } = SelectBuilder()
 
     getByText(/option1/i)
     getByText(/option2/i)
@@ -38,7 +38,7 @@ describe('SelectInput', () => {
   })
 
   it('should have change its value when selected option changes', async () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectInputBuilder()
+    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder()
 
     const select = getByDisplayValue(/option1/i)
 
@@ -49,7 +49,7 @@ describe('SelectInput', () => {
   })
 
   it('should have error with custom error message', () => {
-    const { getByText } = SelectInputBuilder({
+    const { getByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
     })
@@ -58,7 +58,7 @@ describe('SelectInput', () => {
   })
 
   it('should have bold class', () => {
-    const { getByDisplayValue } = SelectInputBuilder({
+    const { getByDisplayValue } = SelectBuilder({
       weight: 'bold',
     })
 
@@ -69,7 +69,7 @@ describe('SelectInput', () => {
 
   it('should have custom class', () => {
     const customClass = 'my-custom-class'
-    const { getByDisplayValue } = SelectInputBuilder({
+    const { getByDisplayValue } = SelectBuilder({
       fieldClass: customClass,
     })
 
@@ -79,7 +79,7 @@ describe('SelectInput', () => {
   })
 
   it('should have aria-label attr and hidden label', () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectInputBuilder({
+    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder({
       'aria-label': 'test',
     })
 
@@ -95,7 +95,7 @@ describe('SelectInput', () => {
   })
 
   it('should have a placeholder text', () => {
-    const { getByDisplayValue } = SelectInputBuilder({
+    const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
@@ -103,7 +103,7 @@ describe('SelectInput', () => {
   })
 
   it(`shouldn't show placeholder text after change value`, async () => {
-    const { getByDisplayValue } = SelectInputBuilder({
+    const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
@@ -114,7 +114,7 @@ describe('SelectInput', () => {
   })
 
   it('placeholder option should be disabled', () => {
-    const { getByText } = SelectInputBuilder({
+    const { getByText } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 

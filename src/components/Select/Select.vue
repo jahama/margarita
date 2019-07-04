@@ -1,4 +1,4 @@
-<style scoped lang="scss" src="./SelectInput.scss"></style>
+<style scoped lang="scss" src="./Select.scss"></style>
 
 <template>
   <div class="select-input">
@@ -38,7 +38,8 @@ import uuid from '@margarita/utils/uuid'
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 
 export default {
-  name: 'SelectInput',
+  name: 'ma-select',
+
   inheritAttrs: false,
 
   model: {
@@ -119,7 +120,7 @@ export default {
   },
 
   mounted() {
-    // By default, SelectInput will not emit a change event on the initial
+    // By default, Select will not emit a change event on the initial
     // default select of one of the options. If an event is needed on this
     // default select, subscribe to the mount event.
     this.$emit('mount', this.selected)
