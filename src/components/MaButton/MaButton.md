@@ -8,7 +8,7 @@ In the case you want a **text only button**:
   category="gradient"
 >
 This is a button with text only
-</Button>
+</ma-button>
 ```
 
 In the case you want an **icon only button**:
@@ -23,7 +23,7 @@ In the case you want an **icon only button**:
     width="50"
     height="50"
   />
-</Button>
+</ma-button>
 ```
 
 In the case you want a **text with icon button**:
@@ -33,7 +33,7 @@ In the case you want a **text with icon button**:
   <ma-icon
     icon="Arrow"
   />
-</Button>
+</ma-button>
 ```
 
 In the case you want a **text and icon link**:
@@ -47,7 +47,7 @@ In the case you want a **text and icon link**:
   <ma-icon
     icon="Exit"
   />
-</Button>
+</ma-button>
 ```
 
 ### Props are:
