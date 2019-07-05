@@ -71,10 +71,10 @@ const rowsSample = [
   },
 ]
 
-storiesOf('DataGrid', module)
+storiesOf('Datagrid', module)
   .addDecorator(withKnobs)
   .add(
-    'DataGrid',
+    'Datagrid',
     () => {
       const isLoading = boolean('Loading', false)
 
