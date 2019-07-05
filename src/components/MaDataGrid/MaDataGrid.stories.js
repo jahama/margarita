@@ -86,7 +86,7 @@ storiesOf('DataGrid', module)
 
         template: `
         <ma-grid-column>
-          <ma-data-grid
+          <ma-datagrid
             :columns="columns"
             :rows="rowsSample"
             @sort="sortBy"

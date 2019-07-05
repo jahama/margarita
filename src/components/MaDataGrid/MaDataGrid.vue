@@ -56,7 +56,7 @@
 import MaDataGridLoader from './components/MaDataGridLoader'
 
 export default {
-  name: 'ma-data-grid',
+  name: 'ma-datagrid',
 
   components: {
     MaDataGridLoader,

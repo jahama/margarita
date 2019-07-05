@@ -39,7 +39,7 @@ function install(Vue) {
   Vue.component('ma-button', MaButton)
   Vue.component('ma-card', MaCard)
   Vue.component('ma-checkbox', MaCheckbox)
-  Vue.component('ma-data-grid', MaDataGrid)
+  Vue.component('ma-datagrid', MaDataGrid)
   Vue.component('ma-grid-column', MaGridColumn)
   Vue.component('ma-grid-container', MaGridContainer)
   Vue.component('ma-grid-row', MaGridRow)
