@@ -9,26 +9,25 @@ const defaultExport = Margarita.default
 // ...and remove it from the object, so we have the list of imported comps.
 delete Margarita.default
 
-const margaritaComponents = Object.values(Margarita)
-
-const localVue = createLocalVue()
-localVue.use(defaultExport)
-
 describe('Margarita install function', () => {
   it('exposes an install function', () => {
     expect(defaultExport).toHaveProperty('install')
   })
 
-  margaritaComponents.forEach(({ name }) => {
-    it(`installs ${name}`, () => {
-      expect(localVue.options.components).toHaveProperty(name)
-    })
+  it(`installs Margarita components`, () => {
+    const localVue = createLocalVue()
+    localVue.use(defaultExport)
+
+    const installedComponents = Object.keys(localVue.options.components)
+    const componentNames = Object.values(Margarita).map(m => m.name)
+
+    expect(installedComponents).toEqual(componentNames)
   })
 })
 
 describe('Margarita named exports', () => {
-  margaritaComponents.forEach(component => {
-    it(`${component.name} is a valid exposed component`, () => {
+  Object.entries(Margarita).forEach(([name, component]) => {
+    it(`${name} is a valid exposed component`, () => {
       expect(isVueComponent(component)).toBe(true)
     })
   })

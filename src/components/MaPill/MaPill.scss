@@ -1,0 +1,37 @@
+@import '../../scss/margarita';
+
+.ma-pill {
+  @include font-weight(semibold);
+
+  display: inline-block;
+  border-radius: rem(8px);
+  padding: rem(6px) rem(12px);
+  width: auto;
+  font-size: rem(14px);
+
+  &--green {
+    background-color: get-color('primrose');
+    color: get-color('japanese-laurel');
+  }
+
+  &--red {
+    background-color: get-color('pippin');
+    color: get-color('crimson');
+  }
+
+  &--orange {
+    background-color: get-color('peach-cream');
+    color: get-color('brown');
+  }
+
+  &--gray {
+    border: rem(1px) solid get-color('alto');
+    background-color: get-color('concrete');
+    color: get-color('tundora');
+  }
+
+  &--dark {
+    background-color: get-color('tundora');
+    color: get-color('white');
+  }
+}

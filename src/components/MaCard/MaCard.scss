@@ -1,0 +1,18 @@
+@import '../../scss/margarita';
+
+.ma-card {
+  padding: rem(24px);
+
+  &--gray {
+    background-color: get-color('concrete');
+  }
+
+  &--white {
+    box-shadow: 0 0 rem(6px) rem(2px) get-color('shadow-light');
+    background-color: get-color('white');
+  }
+
+  &--has-padding-top {
+    padding-top: rem(24px);
+  }
+}
