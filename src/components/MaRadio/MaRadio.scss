@@ -63,7 +63,11 @@
   position: relative;
   cursor: pointer;
 
-  .ma-radio__input {
+  .ma-radio__input:not(:disabled) {
+    & ~ .ma-radio__description {
+      transition: border 0.2s ease;
+    }
+
     &:hover,
     &:focus,
     &:checked {
@@ -93,10 +97,18 @@
         border-right-color: get-color('dark-hot-pink');
       }
     }
+  }
 
-    &:disabled ~ .ma-radio__description,
-    &:disabled ~ .ma-radio__indicator {
+  .ma-radio__input:disabled {
+    & ~ .ma-radio__description,
+    & ~ .ma-radio__indicator {
       cursor: not-allowed;
+    }
+
+    & ~ .ma-radio__description {
+      border-color: get-color('alto');
+      background-color: get-color('wild-sand');
+      color: get-color('scorpion');
     }
   }
 
