@@ -53,7 +53,7 @@ $ma-range-bullet-size: rem(4px);
     display: inline-block;
     position: absolute;
     transition: $ma-range-transition;
-    border: rem(2px) solid get-color('dark-hot-pink');
+    border: 2px solid get-color('dark-hot-pink');
     border-radius: 50%;
     background: get-color('white');
     width: $ma-range-height;

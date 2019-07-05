@@ -14,7 +14,7 @@
   &__field {
     -webkit-appearance: none;
     transition: border 0.2s ease;
-    border: rem(1px) solid get-color('alto');
+    border: 1px solid get-color('alto');
     -webkit-border-radius: 0;
     background-color: get-color('white');
     background-image: url('../../assets/icons/arrow.svg');
@@ -30,13 +30,13 @@
     &:active,
     &:hover {
       outline: none;
-      border: rem(1px) solid get-color('dark-hot-pink');
+      border: 1px solid get-color('dark-hot-pink');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color('classic-rose');
+      outline: 2px solid get-color('classic-rose');
       outline-offset: 0;
-      border: rem(1px) solid get-color('dark-hot-pink');
+      border: 1px solid get-color('dark-hot-pink');
     }
 
     &:disabled {
@@ -49,7 +49,7 @@
 
       &:focus,
       &:active {
-        border: rem(1px) solid get-color('crimson');
+        border: 1px solid get-color('crimson');
       }
     }
 

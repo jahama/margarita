@@ -24,7 +24,7 @@
   &__field {
     flex: 0 1 100%;
     transition: border 0.2s ease;
-    border: rem(1px) solid get-color('alto');
+    border: 1px solid get-color('alto');
     background-color: get-color('white');
     padding: 0 rem(8px);
     max-width: 100%;
@@ -34,13 +34,13 @@
     &:active,
     &:hover {
       outline: none;
-      border: rem(1px) solid get-color('dark-hot-pink');
+      border: 1px solid get-color('dark-hot-pink');
     }
 
     &:focus {
-      outline: rem(2px) solid get-color('classic-rose');
+      outline: 2px solid get-color('classic-rose');
       outline-offset: 0;
-      border: rem(1px) solid get-color('dark-hot-pink');
+      border: 1px solid get-color('dark-hot-pink');
     }
 
     &:disabled {
@@ -59,7 +59,7 @@
 
       &:focus,
       &:active {
-        border: rem(1px) solid get-color('crimson');
+        border: 1px solid get-color('crimson');
       }
     }
   }
