@@ -1,4 +1,4 @@
-<style lang="scss" src="./MaDataGrid.scss"></style>
+<style lang="scss" src="./MaDatagrid.scss"></style>
 
 <template>
   <div class="ma-datagrid">
@@ -30,7 +30,7 @@
               class="ma-datagrid__row--loader"
             >
               <td v-for="column in columns" :key="column.title">
-                <data-grid-loader />
+                <ma-datagrid-loader />
               </td>
             </tr>
           </tbody>
@@ -53,13 +53,13 @@
 </template>
 
 <script>
-import MaDataGridLoader from './components/MaDataGridLoader'
+import MaDatagridLoader from './components/MaDatagridLoader'
 
 export default {
   name: 'ma-datagrid',
 
   components: {
-    MaDataGridLoader,
+    MaDatagridLoader,
   },
 
   props: {

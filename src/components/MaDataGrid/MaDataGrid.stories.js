@@ -4,8 +4,8 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaPill from '@margarita/components/MaPill/'
 
-import notes from './MaDataGrid.md'
-import MaDataGrid from './MaDataGrid'
+import notes from './MaDatagrid.md'
+import MaDatagrid from './MaDatagrid'
 
 const columns = [
   {
@@ -80,7 +80,7 @@ storiesOf('DataGrid', module)
 
       return {
         components: {
-          MaDataGrid,
+          MaDatagrid,
           MaGridColumn,
         },
 

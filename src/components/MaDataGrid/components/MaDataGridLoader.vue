@@ -1,4 +1,4 @@
-<style lang="scss" src="./MaDataGridLoader.scss"></style>
+<style lang="scss" src="./MaDatagridLoader.scss"></style>
 
 <template>
   <span>
@@ -13,6 +13,8 @@
 
 <script>
 export default {
+  name: 'ma-datagrid-loader',
+
   computed: {
     numberOfLoaders() {
       return Math.floor(Math.random() * 2) + 1

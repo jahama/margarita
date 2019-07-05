@@ -2,7 +2,7 @@ import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
 import MaCheckbox from './components/MaCheckbox'
-import MaDataGrid from './components/MaDataGrid'
+import MaDatagrid from './components/MaDatagrid'
 import MaGridColumn from './components/MaGridColumn'
 import MaGridContainer from './components/MaGridContainer'
 import MaGridRow from './components/MaGridRow'
@@ -20,7 +20,7 @@ export {
   MaButton,
   MaCard,
   MaCheckbox,
-  MaDataGrid,
+  MaDatagrid,
   MaGridColumn,
   MaGridContainer,
   MaGridRow,
@@ -39,7 +39,7 @@ function install(Vue) {
   Vue.component('ma-button', MaButton)
   Vue.component('ma-card', MaCard)
   Vue.component('ma-checkbox', MaCheckbox)
-  Vue.component('ma-datagrid', MaDataGrid)
+  Vue.component('ma-datagrid', MaDatagrid)
   Vue.component('ma-grid-column', MaGridColumn)
   Vue.component('ma-grid-container', MaGridContainer)
   Vue.component('ma-grid-row', MaGridRow)

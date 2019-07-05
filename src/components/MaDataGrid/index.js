@@ -1,3 +1,3 @@
-import MaDataGrid from './MaDataGrid'
+import MaDatagrid from './MaDatagrid'
 
-export default MaDataGrid
+export default MaDatagrid
