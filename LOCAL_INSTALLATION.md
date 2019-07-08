@@ -20,7 +20,7 @@ Margarita to.
 Margarita:
 
 ```bash
-npm-link-shared path/to/margarita/ path/to/project/ margarita
+npm-link-shared path/to/margarita/ path/to/project/ @holaluz/margarita
 ```
 
 This will create a link between `path/to/project/node_modules/margarita/` and
@@ -42,7 +42,7 @@ This should show your global dependencies, and among them, a symbolic link such
 as:
 
 ```bash
-├── margarita@0.0.36 -> /path/to/margarita
+├── @holaluz/margarita@0.0.36 -> /path/to/margarita
 ```
 
 This way, we know that the version `0.0.36` of Margarita will be pulled from
