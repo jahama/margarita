@@ -45,6 +45,7 @@
 
     &:disabled {
       background-color: get-color('concrete');
+      color: get-color('gray');
       pointer-events: none;
     }
 
