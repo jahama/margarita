@@ -114,7 +114,7 @@
       align-items: center;
       margin-bottom: 1rem;
       border-radius: rem(4px);
-      box-shadow: 0 0 rem(6.4px) rem(4px) get-color('shadow-light');
+      box-shadow: 0 0 6.4px 4px get-color('shadow-light');
       background-color: get-color('white');
 
       &:last-child {
@@ -141,7 +141,7 @@
       position: absolute;
       top: 1%;
       left: 2%;
-      box-shadow: rem(1px) rem(5px) rem(26px) rem(12px) rgba(0, 0, 0, 0.03%);
+      box-shadow: 1px 5px 26px 12px rgba(0, 0, 0, 0.03%);
       background-color: rgba(0, 0, 0, 0.03%);
       width: calc(100% - 4%);
       height: calc(100% - 2%);
