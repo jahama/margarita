@@ -4,8 +4,8 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaPill from '@margarita/components/MaPill/'
 
-import notes from './MaDataGrid.md'
-import MaDataGrid from './MaDataGrid'
+import notes from './MaDatagrid.md'
+import MaDatagrid from './MaDatagrid'
 
 const columns = [
   {
@@ -71,16 +71,16 @@ const rowsSample = [
   },
 ]
 
-storiesOf('DataGrid', module)
+storiesOf('Datagrid', module)
   .addDecorator(withKnobs)
   .add(
-    'DataGrid',
+    'Datagrid',
     () => {
       const isLoading = boolean('Loading', false)
 
       return {
         components: {
-          MaDataGrid,
+          MaDatagrid,
           MaGridColumn,
         },
 
