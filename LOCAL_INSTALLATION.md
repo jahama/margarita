@@ -57,7 +57,7 @@ it by running the same command again.
 To remove the symbolic link, you need to run the following command:
 
 ```bash
-npm rm -g margarita
+npm rm -g @holaluz/margarita
 ```
 
 After it, check your global dependencies and make sure the link is gone.
