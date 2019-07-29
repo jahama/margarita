@@ -5,46 +5,46 @@ afterEach(cleanup)
 
 describe('Button', () => {
   it('should render a button element by default', () => {
-    const { getByText, getByTestId } = render(MaButton, {
+    const { getByText, getByRole } = render(MaButton, {
       slots: { default: 'Hello World' },
     })
 
     getByText(/Hello World/i)
-
-    expect(getByTestId('button').tagName.toLowerCase()).toEqual('button')
-    expect(getByTestId('button').type).toEqual('submit')
+    expect(getByRole('button').type).toEqual('submit')
   })
 
   it('should render a link element on passing the right prop', () => {
-    const { getByTestId } = render(MaButton, {
-      props: { tag: 'a' },
+    const href = 'http://link.com/'
+
+    const { getByRole } = render(MaButton, {
+      props: { tag: 'a', href },
     })
 
-    expect(getByTestId('button').tagName.toLowerCase()).toEqual('a')
+    expect(getByRole('link').href).toBe(href)
   })
 
   it('should emit on click', async () => {
-    const { emitted, getByTestId } = render(MaButton)
+    const { emitted, getByRole } = render(MaButton)
 
-    await fireEvent.click(getByTestId('button'))
+    await fireEvent.click(getByRole('button'))
 
-    expect(emitted().click).toBeTruthy()
+    expect(emitted().click).toHaveLength(1)
   })
 
   it('should be render a disabled button if disabled prop is passed', () => {
-    const { getByTestId } = render(MaButton, {
+    const { getByRole } = render(MaButton, {
       props: { disabled: true },
     })
 
-    expect(getByTestId('button').disabled).toBeTruthy()
+    expect(getByRole('button').disabled).toBe(true)
   })
 
   it('should render on loading state when loading prop is passed', () => {
-    const { getByTestId } = render(MaButton, {
+    const { getByTestId, getByRole } = render(MaButton, {
       props: { loading: true },
     })
 
-    expect(getByTestId('button').disabled).toBeTruthy()
+    expect(getByRole('button').disabled).toBe(true)
     getByTestId('button-spinner')
   })
 })
