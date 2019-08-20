@@ -24,47 +24,40 @@ const RadioBuilder = customProps => {
 }
 
 describe('Radio', () => {
-  it('should render an unchecked radio element by default', () => {
+  it('renders an unchecked radio element by default', () => {
     const { input } = RadioBuilder()
 
     expect(input.checked).toBe(false)
   })
 
-  it('should render an checked radio element if checked key matches own label', () => {
-    const { input } = RadioBuilder({
-      value: CHECKED_VALUE,
-    })
+  it('renders an checked radio element if checked key matches own label', () => {
+    const { input } = RadioBuilder({ value: CHECKED_VALUE })
 
     expect(input.checked).toBe(true)
   })
 
-  it('should emit change event on click', async () => {
+  it('emits event on click', async () => {
     const value = 'checkboxvalue'
-    const { input, emitted } = RadioBuilder({
-      value,
-    })
+    const { input, emitted } = RadioBuilder({ value })
 
     await fireEvent.click(input)
 
-    expect(emitted().change).toBeTruthy()
-    expect(emitted().change[0]).toEqual([value])
+    expect(emitted()).toHaveProperty('change')
+    expect(emitted().change[0][0]).toEqual(value)
     expect(input.checked).toBe(true)
   })
 
-  it('should not emit events if input is disabled', async () => {
-    const { input, emitted } = RadioBuilder({
-      disabled: true,
-    })
+  it(`doesn't emit events if input is disabled`, async () => {
+    const { input, emitted } = RadioBuilder({ disabled: true })
 
     expect(input.disabled).toBe(true)
 
     await fireEvent.update(input)
 
-    expect(emitted().change).toBeUndefined()
-    expect(input.checked).toBe(false)
+    expect(emitted()).toEqual({})
   })
 
-  it('should toggle value between related checkboxes', async () => {
+  it('toggles value between related checkboxes', async () => {
     const { getByLabelText } = render({
       components: { MaRadio },
       template: `

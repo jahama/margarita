@@ -21,7 +21,7 @@ describe('Checkbox', () => {
   it('renders a disabled checkbox', async () => {
     const { getByLabelText, emitted } = CheckboxBuilder({ disabled: true })
 
-    expect(getByLabelText(/checkbox label/i).disabled).toBeTruthy()
+    expect(getByLabelText(/checkbox label/i).disabled).toBe(true)
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 
@@ -31,7 +31,7 @@ describe('Checkbox', () => {
   it('renders a checked checkbox', () => {
     const { getByLabelText } = CheckboxBuilder({ checked: true })
 
-    expect(getByLabelText(/checkbox label/i).checked).toBeTruthy()
+    expect(getByLabelText(/checkbox label/i).checked).toBe(true)
   })
 
   it('renders a custom id', () => {
@@ -47,10 +47,11 @@ describe('Checkbox', () => {
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 
-    expect(emitted().input[0]).toContain(true)
+    expect(emitted()).toHaveProperty('input')
+    expect(emitted().input[0][0]).toEqual(true)
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 
-    expect(emitted().input[1]).toContain(false)
+    expect(emitted().input[1][0]).toEqual(false)
   })
 })
