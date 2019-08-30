@@ -83,6 +83,6 @@
     "url": "https://github.com/holaluz/margarita.git"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   }
 }
