@@ -13,14 +13,14 @@
     "prepare": "npm run build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:css": "stylelint src/",
+    "lint:js": "eslint 'src/**/*.{js,vue}'",
+    "lint:css": "stylelint 'src/**/*.scss'",
+    "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "start": "npm run storybook:serve",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watchAll",
+    "test:watch": "vue-cli-service test:unit --watch",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@holaluz/npm-scripts": "^1.0.1",
     "@storybook/addon-a11y": "^5.1.11",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
@@ -45,11 +46,13 @@
     "babel-jest": "^23.6.0",
     "copy-webpack-plugin": "^5.0.2",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
+    "eslint-plugin-cypress": "^2.6.1",
     "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.1.1",
@@ -59,23 +62,25 @@
     "html-loader": "^0.5.5",
     "husky": "^3.0.4",
     "is-vue-component": "^1.0.0",
+    "lint-staged": "^9.2.5",
+    "lodash.camelcase": "^4.3.0",
     "markdown-loader": "^5.1.0",
     "node-sass": "^4.9.0",
     "pre-push": "^0.1.1",
     "prettier": "^1.17.0",
     "sass-loader": "^7.3.1",
+    "semantic-release": "^15.13.24",
     "stylelint": "^10.0.1",
     "stylelint-config-concentric-order": "^3.4.1",
     "stylelint-config-prettier": "^5.1.0",
     "stylelint-prettier": "^1.1.0",
     "vue-cli-plugin-storybook": "^0.6.1",
     "vue-functional-data-merge": "^2.0.7",
-    "vue-template-compiler": "^2.6.10",
-    "semantic-release": "^15.13.24"
+    "vue-template-compiler": "^2.6.10"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm test"
+      "pre-commit": "lint-staged"
     }
   },
   "repository": {
