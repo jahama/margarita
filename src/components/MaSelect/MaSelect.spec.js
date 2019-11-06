@@ -17,90 +17,66 @@ const OPTIONS_WITH_PLACEHOLDER = [
   ...OPTIONS,
 ]
 
-const SelectBuilder = customProps =>
-  render(MaSelect, {
-    props: {
-      label: 'Test Select label',
-      options: OPTIONS,
-      ...customProps,
-    },
-  })
-
 describe('Select', () => {
-  it('renders multiple options', () => {
-    const { getByText } = SelectBuilder()
+  test('renders multiple options', () => {
+    const { queryByText } = SelectBuilder()
 
-    getByText(/option1/i)
-    getByText(/option2/i)
-    getByText(/option3/i)
+    expect(queryByText(/option1/i)).toBeInTheDocument()
+    expect(queryByText(/option2/i)).toBeInTheDocument()
+    expect(queryByText(/option3/i)).toBeInTheDocument()
   })
 
-  it('changes its value when selected option changes', async () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder()
+  test('changes its value when selected option changes', async () => {
+    const { queryByDisplayValue, getSelect } = SelectBuilder()
 
-    const select = getByDisplayValue(/option1/i)
+    await fireEvent.update(getSelect(), 'option2')
 
-    await fireEvent.update(select, 'option2')
-
-    expect(queryByDisplayValue(/option1/i)).toBe(null)
-    getByDisplayValue(/option2/i)
+    expect(queryByDisplayValue(/option1/i)).not.toBeInTheDocument()
+    expect(queryByDisplayValue(/option2/i)).toBeInTheDocument()
   })
 
-  it('displays error', () => {
-    const { getByText } = SelectBuilder({
+  test('displays error message', () => {
+    const { queryByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
     })
 
-    getByText(/Something went wrong/i)
+    expect(queryByText(/Something went wrong/i)).toBeInTheDocument()
   })
 
-  it('renders bold class', () => {
-    const { getByDisplayValue } = SelectBuilder({
-      weight: 'bold',
+  test('renders bold class', () => {
+    const { getSelect } = SelectBuilder({ weight: 'bold' })
+
+    expect(getSelect()).toHaveClass('ma-select__field--bold')
+  })
+
+  test('renders custom class', () => {
+    const fieldClass = 'my-custom-class'
+    const { getSelect } = SelectBuilder({ fieldClass })
+
+    expect(getSelect()).toHaveClass(fieldClass)
+  })
+
+  test('adds aria-label attr and hids label element', () => {
+    const ariaLabel = 'test'
+    const { queryByDisplayValue, getSelect } = SelectBuilder({
+      'aria-label': ariaLabel,
     })
 
-    const select = getByDisplayValue(/option1/i)
+    expect(getSelect()).toHaveAttribute('aria-label', ariaLabel)
 
-    expect(select.classList).toContain('ma-select__field--bold')
+    expect(queryByDisplayValue(/Test Select label/i)).not.toBeInTheDocument()
   })
 
-  it('renders custom class', () => {
-    const customClass = 'my-custom-class'
-    const { getByDisplayValue } = SelectBuilder({
-      fieldClass: customClass,
-    })
-
-    const select = getByDisplayValue(/option1/i)
-
-    expect(select.classList).toContain(customClass)
-  })
-
-  it('adds aria-label attr and hidden label', () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder({
-      'aria-label': 'test',
-    })
-
-    const select = getByDisplayValue(/option1/i)
-
-    const { name, value } = select.attributes[1]
-
-    expect(name).toBe('aria-label')
-    expect(value).toBe('test')
-
-    // If we provide an aria-label, the <label> element should not be there
-    expect(queryByDisplayValue(/Test Select label/i)).toBe(null)
-  })
-
-  it('renders a placeholder text', () => {
-    const { getByDisplayValue } = SelectBuilder({
+  test('renders a placeholder text', () => {
+    const { queryByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
-    getByDisplayValue(/placeholder text/i)
+    expect(queryByDisplayValue(/placeholder text/i)).toBeInTheDocument()
   })
 
-  it('overrides placeholder with selected value', async () => {
+  test('overrides placeholder with selected value', async () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -108,19 +84,19 @@ describe('Select', () => {
     const select = getByDisplayValue(/placeholder text/i)
 
     await fireEvent.update(select, 'option1')
-    getByDisplayValue(/option1/i)
+
+    expect(getByDisplayValue(/option1/i)).toBeInTheDocument()
   })
 
-  it('renders disabled placeholder option', () => {
+  test('renders disabled placeholder option', () => {
     const { getByText } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
-    const placeholder = getByText(/placeholder text/i)
-    expect(placeholder.disabled).toBe(true)
+    expect(getByText(/placeholder text/i)).toBeDisabled()
   })
 
-  it('displays properly formatted options', () => {
+  test('displays properly formatted options', () => {
     const options = [
       { potato: 'Pataton', something: 'blabla', active: true },
       { potato: 'Pataton2', something: 'bleble' },
@@ -142,3 +118,20 @@ describe('Select', () => {
     })
   })
 })
+
+function SelectBuilder(customProps) {
+  const utils = render(MaSelect, {
+    props: {
+      label: 'Test Select label',
+      options: OPTIONS,
+      ...customProps,
+    },
+  })
+
+  const getSelect = () => utils.getByDisplayValue(/option1/i)
+
+  return {
+    ...utils,
+    getSelect,
+  }
+}

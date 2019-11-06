@@ -2,26 +2,26 @@ import { render, fireEvent } from '@testing-library/vue'
 import MaButton from './MaButton'
 
 describe('Button', () => {
-  it('renders a button element by default', () => {
-    const { getByText, getByRole } = render(MaButton, {
+  test('renders a button element by default', () => {
+    const { queryByText, queryByRole } = render(MaButton, {
       slots: { default: 'Hello World' },
     })
 
-    getByText(/Hello World/i)
-    expect(getByRole('button').type).toStrictEqual('submit')
+    expect(queryByText(/Hello World/i)).toBeInTheDocument()
+    expect(queryByRole('button')).toBeInTheDocument()
   })
 
-  it('renders a link element on passing the right prop', () => {
+  test('renders a link element on passing the right prop', () => {
     const href = 'http://link.com/'
 
     const { getByRole } = render(MaButton, {
       props: { tag: 'a', href },
     })
 
-    expect(getByRole('link').href).toBe(href)
+    expect(getByRole('link')).toHaveAttribute('href', href)
   })
 
-  it('emits on click', async () => {
+  test('emits on click', async () => {
     const { emitted, getByRole } = render(MaButton)
 
     await fireEvent.click(getByRole('button'))
@@ -30,20 +30,20 @@ describe('Button', () => {
     expect(emitted().click).toHaveLength(1)
   })
 
-  it('renders a disabled button if disabled prop is passed', () => {
+  test('renders a disabled button if disabled prop is passed', () => {
     const { getByRole } = render(MaButton, {
       props: { disabled: true },
     })
 
-    expect(getByRole('button').disabled).toBe(true)
+    expect(getByRole('button')).toBeDisabled()
   })
 
-  it('renders a loading state if loading prop is passed', () => {
-    const { getByTitle, getByRole } = render(MaButton, {
+  test('renders a loading state if loading prop is passed', () => {
+    const { queryByTitle, getByRole } = render(MaButton, {
       props: { loading: true },
     })
 
-    expect(getByRole('button').disabled).toBe(true)
-    getByTitle(/loading/i)
+    expect(getByRole('button')).toBeDisabled()
+    expect(queryByTitle(/loading/i)).toBeInTheDocument()
   })
 })

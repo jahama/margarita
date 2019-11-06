@@ -1,55 +1,64 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaCheckbox from './MaCheckbox'
 
-const CheckboxBuilder = customProps =>
-  render(MaCheckbox, {
+describe('Checkbox', () => {
+  test('renders a checkbox element with its label', () => {
+    const { checkbox } = CheckboxBuilder()
+
+    expect(checkbox).toBeInTheDocument()
+  })
+
+  test('renders a disabled checkbox', async () => {
+    const { checkbox, emitted } = CheckboxBuilder({ disabled: true })
+
+    expect(checkbox).toBeDisabled()
+
+    await fireEvent.click(checkbox)
+
+    expect(emitted()).toMatchObject({})
+  })
+
+  test('renders a checked checkbox', () => {
+    const { checkbox } = CheckboxBuilder({ checked: true })
+
+    expect(checkbox).toBeChecked()
+  })
+
+  test('renders a custom id', () => {
+    const id = 'customId'
+    const { checkbox } = CheckboxBuilder({ id })
+
+    expect(checkbox).toHaveAttribute('id', id)
+  })
+
+  test('emits event when checked', async () => {
+    const { checkbox, emitted } = CheckboxBuilder()
+
+    await fireEvent.click(checkbox)
+
+    expect(emitted()).toHaveProperty('input')
+    expect(emitted().input).toHaveLength(1)
+    expect(emitted().input[0][0]).toStrictEqual(true)
+
+    await fireEvent.click(checkbox)
+
+    expect(emitted().input).toHaveLength(2)
+    expect(emitted().input[1][0]).toStrictEqual(false)
+  })
+})
+
+function CheckboxBuilder(customProps) {
+  const utils = render(MaCheckbox, {
     props: {
       label: 'checkbox label',
       ...customProps,
     },
   })
 
-describe('Checkbox', () => {
-  it('renders a checkbox element with its label', () => {
-    const { getByLabelText } = CheckboxBuilder()
+  const checkbox = utils.getByLabelText(/checkbox label/i)
 
-    getByLabelText(/checkbox label/i)
-  })
-
-  it('renders a disabled checkbox', async () => {
-    const { getByLabelText, emitted } = CheckboxBuilder({ disabled: true })
-
-    expect(getByLabelText(/checkbox label/i).disabled).toBe(true)
-
-    await fireEvent.click(getByLabelText(/checkbox label/i))
-
-    expect(emitted()).toMatchObject({})
-  })
-
-  it('renders a checked checkbox', () => {
-    const { getByLabelText } = CheckboxBuilder({ checked: true })
-
-    expect(getByLabelText(/checkbox label/i).checked).toBe(true)
-  })
-
-  it('renders a custom id', () => {
-    const { getByLabelText } = CheckboxBuilder({
-      id: 'customId',
-    })
-
-    expect(getByLabelText(/checkbox label/i).id).toBe('customId')
-  })
-
-  it('emits event when checked', async () => {
-    const { getByLabelText, emitted } = CheckboxBuilder()
-
-    await fireEvent.click(getByLabelText(/checkbox label/i))
-
-    expect(emitted()).toHaveProperty('input')
-    expect(emitted().input[0][0]).toStrictEqual(true)
-
-    await fireEvent.click(getByLabelText(/checkbox label/i))
-
-    expect(emitted().input[1][0]).toStrictEqual(false)
-  })
-})
+  return {
+    ...utils,
+    checkbox,
+  }
+}

@@ -1,7 +1,117 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaText from './MaText'
 
-const TextBuilder = (customProps, customParams) => {
+describe('Text', () => {
+  test('renders an input element with a label', () => {
+    const { input, queryByRole } = TextBuilder()
+
+    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(input).toHaveAttribute('type', 'text')
+  })
+
+  test('renders a button element with a label', () => {
+    const { input, queryByRole } = TextBuilder({ type: 'button' })
+
+    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(input).toHaveAttribute('type', 'button')
+  })
+
+  test('renders error CSS class', () => {
+    const errorMessage = 'Something went wrong'
+    const { queryByText, input } = TextBuilder({
+      hasError: true,
+      errorMessage,
+    })
+
+    expect(input).toHaveClass('ma-text__field--error')
+
+    expect(queryByText(errorMessage)).toBeInTheDocument()
+  })
+
+  test('renders a disabled input', () => {
+    const { input } = TextBuilder({ disabled: true })
+
+    expect(input).toBeDisabled()
+  })
+
+  test('renders custom id', () => {
+    const id = 'customId'
+    const { input } = TextBuilder({ id })
+
+    expect(input).toHaveAttribute('id', id)
+  })
+
+  test('renders initial value', () => {
+    const value = 'initial value'
+    const { queryByDisplayValue } = TextBuilder({ value })
+
+    expect(queryByDisplayValue(value)).toBeInTheDocument()
+  })
+
+  test('emits its value after typing', async () => {
+    const { queryByDisplayValue, input, emitted } = TextBuilder({
+      value: 'initial value',
+    })
+
+    const newValue = '42'
+
+    await fireEvent.update(input, newValue)
+
+    expect(queryByDisplayValue(/42/i)).toBeInTheDocument()
+    expect(emitted()).toHaveProperty('input')
+    expect(emitted().input).toHaveLength(1)
+    expect(emitted().input[0][0]).toStrictEqual(newValue)
+  })
+
+  test('triggers change event with its value when typing', async () => {
+    const { input, emitted } = TextBuilder()
+
+    await fireEvent.change(input)
+
+    expect(emitted()).toHaveProperty('change')
+  })
+
+  test('emits value on blur', async () => {
+    const value = '42'
+    const { input, emitted } = TextBuilder({ value })
+
+    await fireEvent.blur(input)
+
+    expect(emitted()).toHaveProperty('blur')
+    expect(emitted().blur).toHaveLength(1)
+    expect(emitted().blur[0][0]).toStrictEqual(value)
+  })
+
+  test('emits value on enter', async () => {
+    const value = '42'
+    const { input, emitted } = TextBuilder({ value })
+
+    await fireEvent.keyUp(input, {
+      key: 'Enter',
+      code: 13,
+    })
+
+    expect(emitted()).toHaveProperty('enter')
+    expect(emitted().enter).toHaveLength(1)
+    expect(emitted().enter[0][0]).toStrictEqual(value)
+  })
+
+  test.each(['inputSibling', 'labelSibling'])(
+    'renders provided %s slot',
+    slotName => {
+      const slotText = 'Test slot'
+      const { queryByText } = TextBuilder(null, {
+        slots: {
+          [slotName]: slotText,
+        },
+      })
+
+      expect(queryByText(slotText)).toBeInTheDocument()
+    }
+  )
+})
+
+function TextBuilder(customProps, customParams) {
   const label = 'input label'
   const utils = render(MaText, {
     props: {
@@ -16,117 +126,3 @@ const TextBuilder = (customProps, customParams) => {
     ...utils,
   }
 }
-
-describe('Text', () => {
-  it('renders an input element with a label', () => {
-    const { input, getByRole } = TextBuilder()
-
-    getByRole('textbox')
-    expect(input.type).toStrictEqual('text')
-  })
-
-  it('renders a button element with a label', () => {
-    const { input, getByRole } = TextBuilder({ type: 'button' })
-
-    getByRole('textbox')
-    expect(input.type).toStrictEqual('button')
-  })
-
-  it('renders error CSS class', () => {
-    const errorMessage = 'Something went wrong'
-    const { getByText, input } = TextBuilder({
-      hasError: true,
-      errorMessage,
-    })
-
-    expect(input.classList).toContain('ma-text__field--error')
-
-    getByText(errorMessage)
-  })
-
-  it('renders a disabled input', () => {
-    const { input } = TextBuilder({ disabled: true })
-
-    expect(input.disabled).toBe(true)
-  })
-
-  it('renders custom id', () => {
-    const { input } = TextBuilder({ id: 'customId' })
-
-    expect(input.id).toBe('customId')
-  })
-
-  it('renders initial value', () => {
-    const value = 'initial value'
-    const { getByDisplayValue } = TextBuilder({ value })
-
-    getByDisplayValue(value)
-  })
-
-  it('emits its value after typing', async () => {
-    const { getByDisplayValue, input, emitted } = TextBuilder({
-      value: 'initial value',
-    })
-
-    const newValue = '42'
-
-    await fireEvent.update(input, newValue)
-
-    getByDisplayValue(/42/i)
-    expect(emitted()).toHaveProperty('input')
-    expect(emitted().input[0][0]).toStrictEqual(newValue)
-  })
-
-  it('triggers change event with its value when typing', async () => {
-    const { input, emitted } = TextBuilder()
-
-    await fireEvent.change(input)
-
-    expect(emitted()).toHaveProperty('change')
-  })
-
-  it('emits value on blur', async () => {
-    const value = '42'
-    const { input, emitted } = TextBuilder({ value })
-
-    await fireEvent.blur(input)
-
-    expect(emitted()).toHaveProperty('blur')
-    expect(emitted().blur[0][0]).toStrictEqual(value)
-  })
-
-  it('emits value on enter', async () => {
-    const value = '42'
-    const { input, emitted } = TextBuilder({ value })
-
-    await fireEvent.keyUp(input, {
-      key: 'Enter',
-      code: 13,
-    })
-
-    expect(emitted()).toHaveProperty('enter')
-    expect(emitted().enter[0][0]).toStrictEqual(value)
-  })
-
-  it('renders the inputSibling slot if provided', () => {
-    const inputSibling = 'Test slot'
-    const { getByText } = TextBuilder(null, {
-      slots: {
-        inputSibling,
-      },
-    })
-
-    getByText(inputSibling)
-  })
-
-  it('renders the labelSibling slot if provided', () => {
-    const labelSibling = 'Test slot'
-    const { getByText } = TextBuilder(null, {
-      slots: {
-        labelSibling,
-      },
-    })
-
-    getByText(labelSibling)
-  })
-})

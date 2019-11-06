@@ -2,15 +2,15 @@ import { render } from '@testing-library/vue'
 import MaGridRow from './MaGridRow'
 
 describe('GridRow', () => {
-  it('renders content from default slot', () => {
-    const { getByText } = render(MaGridRow, {
+  test('renders content from default slot', () => {
+    const { queryByText } = render(MaGridRow, {
       slots: { default: 'Hello World' },
     })
 
-    getByText(/Hello World/i)
+    expect(queryByText(/Hello World/i)).toBeInTheDocument()
   })
 
-  it('renders the specified tag', () => {
+  test('renders the specified tag', () => {
     const { getByTestId } = render(MaGridRow, {
       props: { tag: 'span' },
       attrs: { 'data-testid': 'row' },
@@ -19,7 +19,7 @@ describe('GridRow', () => {
     expect(getByTestId('row').nodeName).toBe('SPAN')
   })
 
-  it('adds a class based in a prop', async () => {
+  test('adds a class based in a prop', async () => {
     const { getByTestId } = render(MaGridRow, {
       props: {
         noGutters: true,
@@ -32,11 +32,11 @@ describe('GridRow', () => {
       },
     })
 
-    const gridRowClasses = getByTestId('row').classList
+    const row = getByTestId('row')
 
-    expect(gridRowClasses).toContain('ma-grid-row--no-gutters')
-    expect(gridRowClasses).toContain('ma-grid-row--has-margin-top')
-    expect(gridRowClasses).toContain('ma-grid-row--no-margin-bottom')
-    expect(gridRowClasses).toContain('ma-grid-row--direction-column')
+    expect(row).toHaveClass('ma-grid-row--no-gutters')
+    expect(row).toHaveClass('ma-grid-row--has-margin-top')
+    expect(row).toHaveClass('ma-grid-row--no-margin-bottom')
+    expect(row).toHaveClass('ma-grid-row--direction-column')
   })
 })
