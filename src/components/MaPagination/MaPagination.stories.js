@@ -1,51 +1,41 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, text, boolean } from '@storybook/addon-knobs'
+import { withKnobs, number, select } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaPagination from '@margarita/components/MaPagination'
+
+const BUTTONS_NUMBER = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 storiesOf('Pagination', module)
   .addDecorator(withKnobs)
   .add('Pagination', () => {
-    const from = text('From', '51')
-    const totalItems = text('Total items', '25000')
-    const to = text('To', '100')
-    const isStart = boolean('Is first page', false)
-    const isEnd = boolean('Is last page', false)
+    const totalItems = number('Total items', 500)
+    const itemsPerPage = number('Items per page', 25)
+    const buttonsNumber = select('Number of buttons', BUTTONS_NUMBER, 5)
 
     return {
-      components: { MaPagination, MaGridColumn },
+      components: { MaPagination },
 
       template: `
-        <ma-grid-column>
+        <div>
           <ma-pagination
-            :is-start="isStart"
-            :is-end="isEnd"
+            :buttons-number="buttonsNumber"
+            :items-per-page="itemsPerPage"
+            :total-items="totalItems"
             @pagination="changePage"
           >
-            <span>
-              Viendo del <strong>{{ from }}</strong> al <strong>{{ to }}</strong><br>
-              de {{ totalItems }} contratos en total
-            </span>
           </ma-pagination>
-        </ma-grid-column>`,
+        </div>`,
 
       props: {
-        from: {
-          default: from,
+        itemsPerPage: {
+          default: itemsPerPage,
         },
         totalItems: {
           default: totalItems,
         },
-        to: {
-          default: to,
-        },
-        isStart: {
-          default: isStart,
-        },
-        isEnd: {
-          default: isEnd,
+        buttonsNumber: {
+          default: buttonsNumber,
         },
       },
 

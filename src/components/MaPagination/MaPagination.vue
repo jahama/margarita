@@ -1,48 +1,45 @@
 <style lang="scss" src="./MaPagination.scss" scoped></style>
 
 <template>
-  <div class="ma-pagination">
-    <div
-      :class="{ 'ma-pagination--invisible': isStart }"
-      class="ma-pagination__left"
-    >
+  <div v-if="totalItems" class="ma-pagination">
+    <div v-show="!isStart" class="ma-pagination__left">
       <ma-button
-        aria-label="Go to the start icon"
-        category="no-background"
-        class="ma-pagination__icon ma-pagination__icon--start"
-        @click="pagination('start')"
-      >
-        <ma-icon icon="ArrowToEnd" width="16" height="16" />
-      </ma-button>
-      <ma-button
-        aria-label="Go back icon"
-        class="ma-pagination__icon ma-pagination__icon--back"
-        @click="pagination('back')"
+        category="secondary"
+        :aria-label="leftButtonAria"
+        class="ma-pagination__button ma-pagination__button--backwards"
+        @click="onButtonClick(currentPage - 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
     </div>
-    <div class="ma-pagination__current">
-      <slot />
-    </div>
-    <div
-      :class="{ 'ma-pagination--invisible': isEnd }"
-      class="ma-pagination__right"
-    >
+
+    <template v-for="(page, index) in displayedPages">
+      <div :key="index" class="ma-pagination__element">
+        <ma-button
+          :category="computedPageCategory(page)"
+          :aria-label="`${numberButtonAria} ${page}`"
+          class="ma-pagination__button ma-pagination__button--number"
+          @click="onButtonClick(page)"
+          v-text="page"
+        />
+      </div>
+      <div
+        v-if="shouldDisplaySeparator(index)"
+        :key="`${page}-separator`"
+        class="ma-pagination__separator"
+      >
+        ...
+      </div>
+    </template>
+
+    <div v-show="!isEnd" class="ma-pagination__right">
       <ma-button
-        aria-label="Go forward icon"
-        class="ma-pagination__icon ma-pagination__icon--forward"
-        @click="pagination('forward')"
+        category="secondary"
+        :aria-label="rightButtonAria"
+        class="ma-pagination__button ma-pagination__button--forwards"
+        @click="onButtonClick(currentPage + 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
-      </ma-button>
-      <ma-button
-        aria-label="Go to the end icon"
-        category="no-background"
-        class="ma-pagination__icon ma-pagination__icon--end"
-        @click="pagination('end')"
-      >
-        <ma-icon icon="ArrowToEnd" width="16" height="16" />
       </ma-button>
     </div>
   </div>
@@ -61,40 +58,102 @@ export default {
   },
 
   props: {
+    buttonsNumber: {
+      type: Number,
+      default: 5,
+      validator: value => 3 <= value,
+    },
+
     totalItems: {
       type: Number,
-      default: 0,
+      required: true,
     },
 
-    isEnd: {
-      type: Boolean,
-      default: false,
-    },
-
-    isStart: {
-      type: Boolean,
-      default: false,
-    },
-
-    from: {
+    itemsPerPage: {
       type: Number,
-      default: 0,
+      required: true,
     },
 
-    paginationContent: {
-      type: Object,
-      default: () => {},
+    leftButtonAria: {
+      type: String,
+      default: 'Previous page',
     },
 
-    to: {
+    rightButtonAria: {
+      type: String,
+      default: 'Next page',
+    },
+
+    numberButtonAria: {
+      type: String,
+      default: 'Page number',
+    },
+
+    startPage: {
       type: Number,
-      default: 0,
+      default: 1,
+      validator: value => 1 <= value,
     },
   },
 
+  data() {
+    return {
+      currentPage: this.startPage,
+    }
+  },
+
+  computed: {
+    displayedPages() {
+      let result = new Set()
+
+      if (!this.endPage) return []
+
+      result.add(1)
+      result.add(this.endPage)
+
+      for (let i = 0; result.size < this.numberOfButtonsToDisplay; ++i) {
+        if (this.currentPage - i > 1) result.add(this.currentPage - i)
+        if (this.currentPage + i < this.endPage)
+          result.add(this.currentPage + i)
+      }
+
+      return [...result].sort((a, b) => a - b)
+    },
+
+    numberOfButtonsToDisplay() {
+      if (this.endPage < this.buttonsNumber) return this.endPage
+      return this.buttonsNumber
+    },
+
+    endPage() {
+      return Math.ceil(this.totalItems / this.itemsPerPage)
+    },
+
+    isEnd() {
+      return this.currentPage === this.endPage
+    },
+
+    isStart() {
+      return this.currentPage === 1
+    },
+  },
+
+  created() {
+    if (this.endPage < this.currentPage) this.currentPage = this.endPage
+  },
+
   methods: {
-    pagination(direction) {
-      this.$emit('pagination', direction)
+    computedPageCategory(page) {
+      return this.currentPage === page ? 'primary' : 'secondary'
+    },
+
+    shouldDisplaySeparator(index) {
+      return this.displayedPages[index + 1] - this.displayedPages[index] > 1
+    },
+
+    onButtonClick(page) {
+      this.currentPage = page
+      this.$emit('pagination', page)
     },
   },
 }
