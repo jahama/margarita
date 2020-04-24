@@ -1,16 +1,5 @@
-.ma-checkbox {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  padding-left: rem(22px);
-  line-height: rem(22px);
-  color: get-color('tundora');
-
-  &:hover .ma-checkbox__indicator {
-    border: 1px solid get-color('dark-hot-pink');
-  }
-
-  &__indicator {
+.ma-option--checkbox {
+  .indicator {
     position: absolute;
     top: rem(2px);
     left: 0;
@@ -21,14 +10,17 @@
     height: rem(16px);
   }
 
-  &__input {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
+  .description {
+    padding-left: rem(22px);
+  }
 
-    &:checked ~ .ma-checkbox__indicator,
-    &:disabled ~ .ma-checkbox__indicator {
+  .input {
+    &:hover ~ .indicator {
+      border: 1px solid get-color('dark-hot-pink');
+    }
+
+    &:checked ~ .indicator,
+    &:disabled ~ .indicator {
       border: 0;
       background-image: url('../../assets/icons/tick.svg');
       background-position: rem(3px) rem(3px);
@@ -36,16 +28,16 @@
       background-size: rem(10px) rem(10px);
     }
 
-    &:checked ~ .ma-checkbox__indicator {
+    &:checked ~ .indicator {
       background-color: get-color('dark-hot-pink');
     }
 
-    &:disabled ~ .ma-checkbox__indicator {
+    &:disabled ~ .indicator {
       background-color: get-color('boulder');
       cursor: not-allowed;
     }
 
-    &:disabled ~ .ma-checkbox__description {
+    &:disabled ~ .description {
       cursor: not-allowed;
     }
   }
