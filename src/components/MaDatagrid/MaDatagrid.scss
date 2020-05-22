@@ -1,30 +1,5 @@
-@keyframes aniUISkeleton {
-  0% {
-    background-position: -100% 0;
-  }
-
-  100% {
-    background-position: 100% 0;
-  }
-}
-
-@keyframes aniVertical {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .ma-datagrid {
   display: flex;
-  flex: auto;
   min-width: 100%;
   overflow-x: auto;
 
@@ -41,17 +16,17 @@
     padding: 0;
     vertical-align: baseline;
     color: get-color('tundora');
-    font: inherit;
     font-size: 100%;
   }
 
   table {
     flex: auto;
     z-index: 1;
-  }
 
-  ul {
-    margin: 0;
+    width: 100%;
+    width: -moz-available; /* Mozilla */
+    width: -webkit-fill-available; /* Chrome */
+    width: stretch; /* Unprefixed */
   }
 
   thead {
@@ -67,35 +42,6 @@
 
         & > * {
           vertical-align: middle;
-        }
-      }
-
-      .sort-arrow {
-        display: inline-block;
-        background-image: url('../../assets/icons/sorting-arrow-neutral.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        width: rem(16px);
-        height: rem(16px);
-      }
-
-      .sort-cursor-pointer {
-        cursor: pointer;
-      }
-
-      .sort-arrow--asc {
-        font-weight: 700;
-
-        .sort-arrow {
-          background-image: url('../../assets/icons/sorting-arrow-up.svg');
-        }
-      }
-
-      .sort-arrow--desc {
-        font-weight: 700;
-
-        .sort-arrow {
-          background-image: url('../../assets/icons/sorting-arrow-down.svg');
         }
       }
     }
@@ -131,55 +77,6 @@
     * {
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-  }
-
-  &__shadow {
-    &::before {
-      position: absolute;
-      top: 1%;
-      left: 2%;
-      box-shadow: 1px 5px 26px 12px rgba(0, 0, 0, 0.03%);
-      background-color: rgba(0, 0, 0, 0.03%);
-      width: calc(100% - 4%);
-      height: calc(100% - 2%);
-      content: '';
-    }
-  }
-
-  &__row--loader {
-    position: relative;
-    opacity: 0;
-    height: rem(66px);
-    animation: aniVertical 3s ease;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-
-    &::before {
-      position: absolute;
-      mix-blend-mode: overlay;
-      background: linear-gradient(
-        to right,
-        lighten(get-color('black'), 80%) 2%,
-        lighten(get-color('black'), 40%) 18%,
-        lighten(get-color('black'), 80%) 33%
-      );
-      background-size: 50%;
-      width: 100%;
-      height: 100%;
-      animation-name: aniUISkeleton;
-      animation-duration: 3.5s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      content: '';
-    }
-
-    &:nth-child(2) {
-      animation-delay: 0.5s;
-    }
-
-    &:nth-child(3) {
-      animation-delay: 1s;
     }
   }
 
