@@ -11,7 +11,7 @@ describe('Text', () => {
   test('renders a button element with a label', () => {
     const { input, queryByRole } = TextBuilder({ type: 'button' })
 
-    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(queryByRole('button')).toBeInTheDocument()
     expect(input).toHaveAttribute('type', 'button')
   })
 
@@ -117,7 +117,7 @@ describe('Text', () => {
 
   test.each(['inputSibling', 'labelSibling'])(
     'renders provided %s slot',
-    slotName => {
+    (slotName) => {
       const slotText = 'Test slot'
       const { queryByText } = TextBuilder(null, {
         slots: {
