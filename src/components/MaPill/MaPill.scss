@@ -13,17 +13,17 @@
   }
 
   &--red {
-    background-color: get-color(pink, light);
-    color: get-color(pink);
+    background-color: get-color(red, light);
+    color: get-color(red);
   }
 
   &--orange {
-    background-color: get-color(yellow, dark);
-    color: get-color(orange);
+    background-color: get-color(yellow, light);
+    color: get-color(yellow);
   }
 
   &--gray {
-    border: 1px solid get-color(sky, light);
+    border: 1px solid get-color(sky);
     background-color: get-color(sky, light);
     color: get-color(ink, light);
   }
