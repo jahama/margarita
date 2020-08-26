@@ -75,22 +75,22 @@
   }
 
   &--error {
-    background-color: get-color('pippin');
-    color: get-color('crimson');
+    background-color: get-color(red, light);
+    color: get-color(red);
   }
 
   &--info {
-    background-color: get-color('humming-bird');
-    color: get-color('calypso');
+    background-color: get-color(blue, light);
+    color: get-color(blue);
   }
 
   &--success {
-    background-color: get-color('primrose');
-    color: get-color('japanese-laurel');
+    background-color: get-color(green, light);
+    color: get-color(green);
   }
 
   &--warning {
-    background-color: get-color('peach-cream');
-    color: get-color('brown');
+    background-color: get-color(yellow, light);
+    color: get-color(yellow);
   }
 }

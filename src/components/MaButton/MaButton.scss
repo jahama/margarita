@@ -15,12 +15,12 @@
     cursor: not-allowed;
 
     &:not(.ma-button--loading) {
-      border-color: get-color('boulder');
-      color: get-color('boulder');
+      border-color: get-color(sky);
+      color: get-color(sky);
 
       &:not(.ma-button--secondary):not(.ma-button--no-background):not(.ma-button--white) {
-        background: get-color('boulder');
-        color: get-color('white');
+        background: get-color(sky);
+        color: get-color(white);
       }
     }
   }
@@ -43,92 +43,92 @@
     border: 0;
     padding: 0;
     width: auto;
-    color: get-color('dark-hot-pink');
+    color: get-color(pink);
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      color: darken(get-color('dark-hot-pink'), 10%);
+      color: darken(get-color(pink), 10%);
     }
   }
 
   &--primary {
-    background-color: get-color('dark-hot-pink');
-    color: get-color('white');
+    background-color: get-color(pink);
+    color: get-color(white);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: darken(get-color('dark-hot-pink'), 10%);
-      color: get-color('white');
+      background-color: darken(get-color(pink), 10%);
+      color: get-color(white);
     }
 
     &.ma-button--rounded {
-      box-shadow: 0 2px 3px 2px get-color('shadow-medium');
+      box-shadow: 0 2px 3px 2px $shadow-medium;
     }
   }
 
   &--secondary {
-    border-color: get-color('dark-hot-pink');
+    border-color: get-color(pink);
     background-color: transparent;
-    color: get-color('dark-hot-pink');
+    color: get-color(pink);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: get-color('dark-hot-pink');
-      color: get-color('white');
+      background-color: get-color(pink);
+      color: get-color(white);
     }
 
     &.ma-button--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color('dark-hot-pink');
+      color: get-color(pink);
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
       &.ma-button--loading {
-        border-color: lighten(get-color('dark-hot-pink'), 50%);
-        background-color: lighten(get-color('dark-hot-pink'), 50%);
-        color: get-color('dark-hot-pink');
+        border-color: lighten(get-color(pink), 50%);
+        background-color: lighten(get-color(pink), 50%);
+        color: get-color(pink);
       }
     }
   }
 
   &--white {
-    border-color: get-color('white');
+    border-color: get-color(white);
     background-color: transparent;
-    color: get-color('white');
+    color: get-color(white);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: get-color('tango');
-      color: get-color('white');
+      background-color: get-color(orange);
+      color: get-color(white);
     }
 
     &.ma-button--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color('white');
+      color: get-color(white);
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
       &.ma-button--loading {
-        border-color: lighten(get-color('white'), 50%);
-        background-color: lighten(get-color('white'), 50%);
-        color: get-color('white');
+        border-color: lighten(get-color(white), 50%);
+        background-color: lighten(get-color(white), 50%);
+        color: get-color(white);
       }
     }
   }
@@ -136,16 +136,16 @@
   &--gradient {
     background-image: linear-gradient(
       to right,
-      get-color('dark-hot-pink') 0%,
-      get-color('tango') 40%,
-      get-color('selective-yellow') 50%,
-      get-color('dark-hot-pink') 100%
+      get-color(pink) 0%,
+      get-color(orange) 40%,
+      get-color(yellow, dark) 50%,
+      get-color(pink) 100%
     );
     background-size: 200% auto;
-    color: get-color('white');
+    color: get-color(white);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
     }
 

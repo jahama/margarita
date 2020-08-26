@@ -13,7 +13,7 @@
       &:focus,
       &:checked {
         & ~ .description {
-          border-color: get-color('dark-hot-pink');
+          border-color: get-color(pink);
         }
       }
 
@@ -35,7 +35,7 @@
 
         &::after {
           border-color: transparent;
-          border-right-color: get-color('dark-hot-pink');
+          border-right-color: get-color(pink);
         }
       }
     }
@@ -48,9 +48,9 @@
     }
 
     & ~ .description {
-      border-color: get-color('alto');
-      background-color: get-color('wild-sand');
-      color: get-color('scorpion');
+      border-color: get-color(sky, light);
+      background-color: get-color(white);
+      color: get-color(sky);
     }
   }
 
@@ -88,10 +88,10 @@
 
   .description {
     flex: 1;
-    border: 1px solid get-color('alto');
+    border: 1px solid get-color(sky, light);
     border-radius: rem(8px);
-    box-shadow: 0 0 8px 6px get-color('shadow-light');
-    background-color: get-color('white');
+    box-shadow: 0 0 8px 6px $shadow-light;
+    background-color: get-color(white);
     padding: rem(24px);
   }
 }

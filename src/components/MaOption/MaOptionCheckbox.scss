@@ -4,8 +4,8 @@
     top: rem(2px);
     left: 0;
     transition: border 0.4s, background-color 0.33s;
-    border: 1px solid get-color('alto');
-    background-color: get-color('white');
+    border: 1px solid get-color(sky, light);
+    background-color: get-color(white);
     width: rem(16px);
     height: rem(16px);
   }
@@ -13,12 +13,12 @@
   .description {
     padding-left: rem(22px);
     line-height: 1.3;
-    color: get-color('tundora');
+    color: get-color(ink, light);
   }
 
   .input {
     &:hover ~ .indicator {
-      border: 1px solid get-color('dark-hot-pink');
+      border: 1px solid get-color(pink);
     }
 
     &:checked ~ .indicator,
@@ -31,11 +31,11 @@
     }
 
     &:checked ~ .indicator {
-      background-color: get-color('dark-hot-pink');
+      background-color: get-color(pink);
     }
 
     &:disabled ~ .indicator {
-      background-color: get-color('boulder');
+      background-color: get-color(sky);
       cursor: not-allowed;
     }
 
