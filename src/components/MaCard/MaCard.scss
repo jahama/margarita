@@ -2,12 +2,12 @@
   padding: rem(24px);
 
   &--gray {
-    background-color: get-color('concrete');
+    background-color: get-color(sky, light);
   }
 
   &--white {
-    box-shadow: 0 0 6px 2px get-color('shadow-light');
-    background-color: get-color('white');
+    box-shadow: 0 0 6px 2px $shadow-light;
+    background-color: get-color(white);
   }
 
   &--has-padding-top {

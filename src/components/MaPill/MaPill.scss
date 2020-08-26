@@ -8,33 +8,33 @@
   font-size: rem(14px);
 
   &--green {
-    background-color: get-color('primrose');
-    color: get-color('japanese-laurel');
+    background-color: get-color(green, light);
+    color: get-color(green);
   }
 
   &--red {
-    background-color: get-color('pippin');
-    color: get-color('crimson');
+    background-color: get-color(pink, light);
+    color: get-color(pink);
   }
 
   &--orange {
-    background-color: get-color('peach-cream');
-    color: get-color('brown');
+    background-color: get-color(yellow, dark);
+    color: get-color(orange);
   }
 
   &--gray {
-    border: 1px solid get-color('alto');
-    background-color: get-color('concrete');
-    color: get-color('tundora');
+    border: 1px solid get-color(sky, light);
+    background-color: get-color(sky, light);
+    color: get-color(ink, light);
   }
 
   &--dark {
-    background-color: get-color('tundora');
-    color: get-color('white');
+    background-color: get-color(ink, light);
+    color: get-color(white);
   }
 
   &--blue {
-    background-color: get-color('humming-bird');
-    color: get-color('calypso');
+    background-color: get-color(blue, light);
+    color: get-color(blue);
   }
 }

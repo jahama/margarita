@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color('tundora');
+  color: get-color(ink, light);
 
   &__label-wrapper {
     display: flex;
@@ -22,34 +22,34 @@
   &__field {
     flex: 0 1 100%;
     transition: border 0.2s ease;
-    border: 1px solid get-color('alto');
-    background-color: get-color('white');
+    border: 1px solid get-color(sky, light);
+    background-color: get-color(white);
     padding: 0 rem(8px);
     max-width: 100%;
     height: 100%;
     font-size: rem(16px);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
-      border: 1px solid get-color('dark-hot-pink');
+      border: 1px solid get-color(pink);
     }
 
     &:disabled {
-      background-color: get-color('concrete');
-      color: get-color('gray');
+      background-color: get-color(sky, light);
+      color: get-color(sky);
       pointer-events: none;
     }
 
     &:active:not(:disabled),
     &:hover:not(:disabled) {
       outline: none;
-      border: 1px solid get-color('dark-hot-pink');
+      border: 1px solid get-color(pink);
     }
 
     &--error {
-      border-color: get-color('crimson');
-      background-color: get-color('white');
+      border-color: get-color(pink, dark);
+      background-color: get-color(white);
       background-image: url('../../assets/icons/alert-error.svg');
       background-position: calc(100% - 8px) center;
       background-repeat: no-repeat;
@@ -58,14 +58,14 @@
 
       &:focus,
       &:active {
-        border: 1px solid get-color('crimson');
+        border: 1px solid get-color(pink, dark);
       }
     }
   }
 
   &__error-message {
     margin-top: rem(4px);
-    color: get-color('crimson');
+    color: get-color(pink, dark);
     font-size: rem(14px);
   }
 }
