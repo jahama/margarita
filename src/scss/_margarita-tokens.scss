@@ -1,14 +1,14 @@
 @import '~sass-mq';
 
+@import 'functions/colors';
+@import 'functions/rem';
+
 @import 'variables/colors';
 @import 'variables/fonts';
 @import 'variables/grid';
 
 @import 'animations/slide-animation';
 @import 'animations/horizontal-slide-animation';
-
-@import 'functions/colors';
-@import 'functions/rem';
 
 @import 'mixins/breakpoints';
 @import 'mixins/grid';
