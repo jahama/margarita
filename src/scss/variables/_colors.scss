@@ -40,15 +40,6 @@ $colors: (
   ),
 );
 
-@mixin gradient {
-  background-image: linear-gradient(
-    to right,
-    get-color(pink) 0%,
-    get-color(orange) 85%,
-    get-color(yellow, dark) 100%
-  );
-}
-
 // Temporary. How do we handle shadows?
 $shadow-light: rgba(0, 0, 0, 0.027451);
 $shadow-medium: rgba(0, 0, 0, 0.0980392);
