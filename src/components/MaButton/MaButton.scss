@@ -15,11 +15,11 @@
     cursor: not-allowed;
 
     &:not(.ma-button--loading) {
-      border-color: get-color(sky);
-      color: get-color(sky);
+      border-color: get-color(gray);
+      color: get-color(gray);
 
       &:not(.ma-button--secondary):not(.ma-button--no-background):not(.ma-button--white) {
-        background: get-color(sky);
+        background: get-color(gray);
         color: get-color(white);
       }
     }

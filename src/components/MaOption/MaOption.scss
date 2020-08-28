@@ -48,9 +48,9 @@
     }
 
     & ~ .description {
-      border-color: get-color(sky, light);
+      border-color: get-color(gray, light);
       background-color: get-color(white);
-      color: get-color(sky);
+      color: get-color(gray);
     }
   }
 
@@ -88,7 +88,7 @@
 
   .description {
     flex: 1;
-    border: 1px solid get-color(sky, light);
+    border: 1px solid get-color(gray, light);
     border-radius: rem(8px);
     box-shadow: 0 0 8px 6px $shadow-light;
     background-color: get-color(white);
