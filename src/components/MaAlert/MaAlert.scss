@@ -1,6 +1,6 @@
 .alert-banner {
   display: flex;
-  color: get-color(ink);
+  color: get-color(gray, darkest);
 
   &--small {
     padding: rem(4px);
