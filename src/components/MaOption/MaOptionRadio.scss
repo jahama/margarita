@@ -5,7 +5,7 @@
     position: relative;
     flex-shrink: 0;
     margin-top: 1px;
-    border: 1px solid get-color(sky);
+    border: 1px solid get-color(gray);
     border-radius: 50%;
     background-color: get-color(white);
     cursor: pointer;
@@ -25,7 +25,7 @@
     }
 
     &:disabled ~ .indicator {
-      background-color: get-color(sky, light);
+      background-color: get-color(gray, light);
     }
 
     &:not(:disabled) {

@@ -10,21 +10,24 @@ $colors: (
   black: (
     base: #000000,
   ),
-  sky: (
+  gray: (
+    lighter: #f9f8f3,
     light: #dcdcdc,
-    base: #878787,
-  ),
-  ink: (
-    light: #4a4a4a,
-    base: #212121,
+    base: #767676,
+    dark: #4a4a4a,
+    darker: #212121,
   ),
   green: (
     light: #e2f3ad,
     base: #237b01,
+    dark: #1f6d4a,
   ),
   blue: (
     light: #daf4fa,
     base: #296c89,
+  ),
+  turquoise: (
+    base: #24b578,
   ),
   yellow: (
     light: #fdf6dd,

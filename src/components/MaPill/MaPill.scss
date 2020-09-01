@@ -19,17 +19,17 @@
 
   &--orange {
     background-color: get-color(yellow, light);
-    color: get-color(yellow);
+    color: get-color(orange);
   }
 
   &--gray {
-    border: 1px solid get-color(sky);
-    background-color: get-color(sky, light);
-    color: get-color(ink, light);
+    border: 1px solid get-color(gray);
+    background-color: get-color(gray, light);
+    color: get-color(gray, dark);
   }
 
   &--dark {
-    background-color: get-color(ink, light);
+    background-color: get-color(gray, dark);
     color: get-color(white);
   }
 

@@ -11,27 +11,27 @@ $ma-range-bullet-size: rem(4px);
   &::after {
     display: block;
     border-radius: $ma-range-radius;
-    background-color: get-color(sky, light);
+    background-color: get-color(gray, light);
     width: 100%;
     height: $ma-range-height;
     content: '';
   }
 
   &__label {
-    color: get-color(ink, light);
+    color: get-color(gray, dark);
   }
 
   &__step {
     position: absolute;
     cursor: pointer;
     padding-top: rem(21px);
-    color: get-color(sky);
+    color: get-color(gray);
     user-select: none;
   }
 
   &__step--active {
     @include font-weight(medium);
-    color: get-color(ink, light);
+    color: get-color(gray, dark);
   }
 
   &__native-element {

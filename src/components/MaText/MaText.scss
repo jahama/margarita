@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color(ink, light);
+  color: get-color(gray, dark);
 
   &__label-wrapper {
     display: flex;
@@ -22,7 +22,7 @@
   &__field {
     flex: 0 1 100%;
     transition: border 0.2s ease;
-    border: 1px solid get-color(sky, light);
+    border: 1px solid get-color(gray, light);
     background-color: get-color(white);
     padding: 0 rem(8px);
     max-width: 100%;
@@ -36,8 +36,8 @@
     }
 
     &:disabled {
-      background-color: get-color(sky, light);
-      color: get-color(sky);
+      background-color: get-color(gray, light);
+      color: get-color(gray);
       pointer-events: none;
     }
 
