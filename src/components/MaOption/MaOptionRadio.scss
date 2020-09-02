@@ -25,7 +25,7 @@
     }
 
     &:disabled ~ .indicator {
-      background-color: get-color(gray, light);
+      background-color: get-color(gray, lighter);
     }
 
     &:not(:disabled) {
