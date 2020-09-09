@@ -32,7 +32,7 @@
     }
 
     &:disabled {
-      background-color: get-color(gray, lighter);
+      background-color: get-color(brown, light);
       color: get-color(gray);
       pointer-events: none;
     }
