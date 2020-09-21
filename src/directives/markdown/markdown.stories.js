@@ -1,5 +1,4 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaAlert from '@margarita/components/MaAlert'
 import { markdown } from './'
@@ -19,20 +18,22 @@ export default {
 }
 `
 
-storiesOf('Markdown', module)
-  .addDecorator(withKnobs)
-  .add('v-markdown', () => {
-    const markdownText = text(
-      'Markdown',
-      'text in **bold**. text in _italics_. and also [links](https://url.com)<<.class>> and [links with target blank](https://url.com)<<blank>>'
-    )
+export default {
+  title: 'Plugins/Markdown',
+}
 
-    return {
-      directives: { markdown },
+export const VMarkdown = () => {
+  const markdownText = text(
+    'Markdown',
+    'text in **bold**. text in _italics_. and also [links](https://url.com)<<.class>> and [links with target blank](https://url.com)<<blank>>'
+  )
 
-      components: { MaGridContainer, MaAlert },
+  return {
+    directives: { markdown },
 
-      template: `
+    components: { MaGridContainer, MaAlert },
+
+    template: `
           <ma-grid-container>
             <p v-markdown="markdownText" />
             <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
@@ -45,10 +46,12 @@ storiesOf('Markdown', module)
           </ma-grid-container>
         `,
 
-      props: {
-        markdownText: {
-          default: markdownText,
-        },
+    props: {
+      markdownText: {
+        default: markdownText,
       },
-    }
-  })
+    },
+  }
+}
+
+VMarkdown.storyName = 'v-markdown'
