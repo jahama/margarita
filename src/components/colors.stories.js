@@ -31,8 +31,8 @@ storiesOf('Colors', module).add('colors', () => ({
         alignItems: 'center',
       },
       colorStyle: {
-        width: '20px',
-        height: '20px',
+        width: '4vw',
+        height: '4vw',
         borderRadius: '2px',
       },
       textStyle: {

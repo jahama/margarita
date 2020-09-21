@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color('tundora');
+  color: get-color(gray, dark);
   font-size: rem(16px);
 
   &__label {
@@ -12,9 +12,9 @@
   &__field {
     -webkit-appearance: none;
     transition: border 0.2s ease;
-    border: 1px solid get-color('alto');
+    border: 1px solid get-color(gray, light);
     border-radius: 0;
-    background-color: get-color('white');
+    background-color: get-color(white);
     background-image: url('../../assets/icons/arrow.svg');
     background-position: calc(100% - 12px) 50%;
     background-repeat: no-repeat;
@@ -22,33 +22,33 @@
     padding: 0 rem(32px) 0 rem(8px);
     width: 100%;
     height: rem(36px);
-    color: get-color('tundora');
+    color: get-color(gray, dark);
     font-size: rem(16px);
 
     &:focus {
-      outline: 2px solid get-color('classic-rose');
+      outline: 2px solid get-color(pink, light);
       outline-offset: 0;
-      border: 1px solid get-color('dark-hot-pink');
+      border: 1px solid get-color(pink);
     }
 
     &:disabled {
-      background-color: get-color('concrete');
-      color: get-color('gray');
+      background-color: get-color(brown, light);
+      color: get-color(gray);
       pointer-events: none;
     }
 
     &:active,
     &:hover {
       outline: none;
-      border: 1px solid get-color('dark-hot-pink');
+      border: 1px solid get-color(pink);
     }
 
     &--error {
-      border-color: get-color('crimson');
+      border-color: get-color(pink, dark);
 
       &:focus,
       &:active {
-        border: 1px solid get-color('crimson');
+        border: 1px solid get-color(pink, dark);
       }
     }
 
@@ -71,7 +71,7 @@
 
   &__error-message {
     margin-top: rem(4px);
-    color: get-color('crimson');
+    color: get-color(pink, dark);
     font-size: rem(14px);
   }
 }

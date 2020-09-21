@@ -25,6 +25,6 @@ export default {
 
 <style lang="scss" scoped>
 .polygon {
-  fill: get-color('dark-hot-pink');
+  fill: get-color(pink);
 }
 </style>

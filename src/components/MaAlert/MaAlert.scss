@@ -1,5 +1,6 @@
 .alert-banner {
   display: flex;
+  color: get-color(gray, darker);
 
   &--small {
     padding: rem(4px);
@@ -61,7 +62,6 @@
   }
 
   &__text {
-    @include font-weight(medium);
     margin: 0;
     width: 100%;
   }
@@ -75,22 +75,22 @@
   }
 
   &--error {
-    background-color: get-color('pippin');
-    color: get-color('crimson');
+    border: 1px solid get-color(red);
+    background-color: get-color(red, light);
   }
 
   &--info {
-    background-color: get-color('humming-bird');
-    color: get-color('calypso');
+    border: 1px solid get-color(blue);
+    background-color: get-color(blue, light);
   }
 
   &--success {
-    background-color: get-color('primrose');
-    color: get-color('japanese-laurel');
+    border: 1px solid get-color(green);
+    background-color: get-color(green, light);
   }
 
   &--warning {
-    background-color: get-color('peach-cream');
-    color: get-color('brown');
+    border: 1px solid get-color(yellow);
+    background-color: get-color(yellow, light);
   }
 }

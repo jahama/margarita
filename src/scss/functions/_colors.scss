@@ -1,13 +1,23 @@
-@function get-color($color: '') {
-  @return map-get($colors, $color);
-}
+/// Returns the color value for a given color name.
+///
+/// @param {String} $hue - The color's hue.
+/// @param {String} $value - The darkness/lightness of the color. Defaults to "base".
+/// @return {Color} The color value.
 
-@function get-darken-color($color: '', $amount: 0) {
-  @return darken(get-color($color), $amount);
-}
+@function get-color($hue, $value: base) {
+  $colorMap: map-get($colors, $hue);
 
-@function get-lighten-color($color: '', $amount: 0) {
-  @return lighten(get-color($color), $amount);
+  @if type-of($colorMap) != 'map' {
+    @error '`#{$hue} does not exist. Available colors: #{available-names($colors)}';
+  }
+
+  $fetched-color: map-get($colorMap, $value);
+
+  @if type-of($fetched-color) == color {
+    @return $fetched-color;
+  } @else {
+    @error 'Color `#{$hue} - #{$value}` not found. Available colors: #{available-names($colors)}';
+  }
 }
 
 @function get-alpha-color($color: '', $amount: 0) {
