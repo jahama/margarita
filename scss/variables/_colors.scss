@@ -1,47 +1,60 @@
 $colors: (
-  'alto': #dcdcdc,
-  'black': #000000,
-  'boulder': #767676,
-  'brown': #945d00,
-  'buttercup': #f5a623,
-  'calypso': #296c89,
-  'classic-rose': #facae5,
-  'concrete': #f3f3f3,
-  'crimson': #cb1010,
-  'dark-hot-pink': #e6007d,
-  'emperor': #505050,
-  'eucaliptus': #21865b,
-  'gray': #878787,
-  'humming-bird': #daf4fa,
-  'japanese-laurel': #237b01,
-  'lima': #70ba20,
-  'mine-shaft': #3b3b3b,
-  'peach-cream': #fff2dc,
-  'picton-blue': #54adec,
-  'pippin': #ffdddc,
-  'primrose': #e2f3ad,
-  'rice-flower': #edffda,
-  'school-bus-yellow': #ffdc00,
-  'scorpion': #595959,
-  'scotch-mist': #fff9dd,
-  'selective-yellow': #ffba03,
-  'shadow-dark': #0000007f,
-  'shadow-light': #00000007,
-  'shadow-medium': #00000019,
-  'solitude': #e7f6ff,
-  'sun': #f9a81d,
-  'tango': #f06c17,
-  'thunderbird': #cb1010,
-  'tundora': #4a4a4a,
-  'white': #ffffff,
-  'wild-sand': #f6f6f6,
+  pink: (
+    light: #f8b0cb,
+    base: #e6007d,
+    dark: #b3005d,
+  ),
+  white: (
+    base: #ffffff,
+  ),
+  black: (
+    base: #000000,
+  ),
+  gray: (
+    light: #dcdcdc,
+    base: #767676,
+    dark: #4a4a4a,
+    darker: #212121,
+  ),
+  green: (
+    light: #e2f3ad,
+    base: #237b01,
+    dark: #1f6d4a,
+  ),
+  blue: (
+    light: #daf4fa,
+    base: #296c89,
+  ),
+  turquoise: (
+    base: #24b578,
+  ),
+  yellow: (
+    light: #fdf6dd,
+    base: #f5d154,
+    dark: #ffba03,
+  ),
+  red: (
+    light: #ffdddc,
+    base: #cb1010,
+  ),
+  orange: (
+    base: #f06c17,
+  ),
+  brown: (
+    light: #f9f8f3,
+    base: #c8c0ab,
+  ),
 );
 
-$color-primary: get-color('dark-hot-pink');
+// Temporary. How do we handle shadows?
+$shadow-light: rgba(0, 0, 0, 0.027451);
+$shadow-medium: rgba(0, 0, 0, 0.0980392);
+$shadow-dark: rgba(0, 0, 0, 0.498);
 
-// export in order to use this variables from a JS file
 :export {
-  @each $name, $color in $colors {
-    #{$name}: $color;
+  @each $name, $colorGroups in $colors {
+    @each $tone, $value in $colorGroups {
+      #{$name}-#{$tone}: $value;
+    }
   }
 }
