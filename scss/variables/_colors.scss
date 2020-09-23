@@ -4,11 +4,33 @@ $colors: (
     base: #e6007d,
     dark: #b3005d,
   ),
-  white: (
-    base: #ffffff,
+  green: (
+    light: #e2f3ad,
+    base: #237b01,
+    dark: #1f6d4a,
   ),
-  black: (
-    base: #000000,
+  yellow: (
+    light: #fdf6dd,
+    base: #f5d154,
+    dark: #ffba03,
+  ),
+  blue: (
+    light: #daf4fa,
+    base: #296c89,
+  ),
+  red: (
+    light: #ffdddc,
+    base: #cb1010,
+  ),
+  brown: (
+    light: #f9f8f3,
+    base: #c8c0ab,
+  ),
+  orange: (
+    base: #f06c17,
+  ),
+  turquoise: (
+    base: #24b578,
   ),
   gray: (
     light: #dcdcdc,
@@ -16,33 +38,11 @@ $colors: (
     dark: #4a4a4a,
     darker: #212121,
   ),
-  green: (
-    light: #e2f3ad,
-    base: #237b01,
-    dark: #1f6d4a,
+  black: (
+    base: #000000,
   ),
-  blue: (
-    light: #daf4fa,
-    base: #296c89,
-  ),
-  turquoise: (
-    base: #24b578,
-  ),
-  yellow: (
-    light: #fdf6dd,
-    base: #f5d154,
-    dark: #ffba03,
-  ),
-  red: (
-    light: #ffdddc,
-    base: #cb1010,
-  ),
-  orange: (
-    base: #f06c17,
-  ),
-  brown: (
-    light: #f9f8f3,
-    base: #c8c0ab,
+  white: (
+    base: #ffffff,
   ),
 );
 
@@ -50,11 +50,3 @@ $colors: (
 $shadow-light: rgba(0, 0, 0, 0.027451);
 $shadow-medium: rgba(0, 0, 0, 0.0980392);
 $shadow-dark: rgba(0, 0, 0, 0.498);
-
-:export {
-  @each $name, $colorGroups in $colors {
-    @each $tone, $value in $colorGroups {
-      #{$name}-#{$tone}: $value;
-    }
-  }
-}
