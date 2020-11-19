@@ -5,6 +5,7 @@ module.exports = {
     [
       'semantic-release-slack-bot',
       {
+        packageName: 'margarita',
         notifyOnSuccess: true,
         notifyOnFail: true,
         markdownReleaseNotes: true,
