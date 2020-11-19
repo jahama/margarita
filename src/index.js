@@ -15,7 +15,9 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaTextField from './components/MaTextField'
+import MaStack from './components/MaStack'
 import { markdown, markdownSSR } from './directives/markdown'
+import responsivePlugin from './plugins/responsivePlugin'
 
 export {
   MaAlert,
@@ -32,12 +34,16 @@ export {
   MaRange,
   MaSelect,
   MaSidebar,
+  MaStack,
   MaTextField,
   markdown,
   markdownSSR,
+  responsivePlugin,
 }
 
 function install(Vue) {
+  Vue.use(responsivePlugin)
+
   Vue.component('MaAlert', MaAlert)
   Vue.component('MaButton', MaButton)
   Vue.component('MaCard', MaCard)
@@ -52,6 +58,7 @@ function install(Vue) {
   Vue.component('MaRange', MaRange)
   Vue.component('MaSelect', MaSelect)
   Vue.component('MaSidebar', MaSidebar)
+  Vue.component('MaStack', MaStack)
   Vue.component('MaTextField', MaTextField)
 
   Vue.directive('markdown', markdown)
