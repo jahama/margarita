@@ -1,7 +1,12 @@
 :export {
   @each $name, $colorGroups in $colors {
     @each $tone, $value in $colorGroups {
-      #{$name}-#{$tone}: $value;
+      // Inspecting name$ prevents node-sass from
+      // parsing it as a color (and transforming 'white' to '#fff').
+      // https://sass-lang.com/documentation/modules/meta#inspect
+      $stringified-name: inspect($name);
+
+      #{$stringified-name}-#{$tone}: $value;
     }
   }
 }
