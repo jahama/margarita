@@ -10,7 +10,10 @@ module.exports = {
     },
     plugins: [
       new CopyWebpackPlugin({
-        patterns: [{ from: 'src/scss', to: 'scss' }],
+        patterns: [
+          { from: 'src/scss', to: 'scss' },
+          { from: 'types', to: 'types' },
+        ],
       }),
     ],
   },
