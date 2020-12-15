@@ -8,9 +8,11 @@
   "main": "dist/margarita.umd.js",
   "unpkg": "dist/margarita.umd.min.js",
   "browser": "dist/margarita.common.js",
+  "types": "types/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "types/*.d.ts"
   ],
   "scripts": {
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
