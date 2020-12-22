@@ -15,6 +15,7 @@
     "types/*.d.ts"
   ],
   "scripts": {
+    "postinstall": "npm run tokens:build",
     "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
@@ -27,7 +28,7 @@
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
     "tokens:build": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
-    "tokens:watch": "npm run tokens:build && chokidar  \"src/tokens/*.js\" -c \"npm run tokens:build\""
+    "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'"
   },
   "husky": {
     "hooks": {
