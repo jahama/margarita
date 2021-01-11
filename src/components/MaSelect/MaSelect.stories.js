@@ -1,10 +1,6 @@
 import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
-import MaSelect from './MaSelect'
-
-const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 const DEFAULT_OPTIONS = [
   { label: 'Placeholder text', text: 'Placeholder text', disabled: true },
@@ -27,32 +23,16 @@ export const Select = () => {
   const label = text('Label', 'Label')
   const ariaLabel = text('ARIA Label', '')
   const disabled = boolean('Disable', false)
-  const weight = select('Peso', ['', ...AVAILABLE_WEIGHTS], '')
+  const weight = select('Weight', ['', ...AVAILABLE_WEIGHTS], '')
   const hasError = boolean('Has error', false)
   const errorMessage = text('Error msg', 'You have an error')
-  const fieldClass = text('Additional class', '')
+  const fieldClass = text('Field class', '')
   const options = object('Options', DEFAULT_OPTIONS)
 
-  const size = select('Size', GRID_ARRAY, 4)
-
   return {
-    components: { MaGridColumn, MaSelect },
-
     template: `
-        <ma-grid-column :class="getClass">
-          <ma-select
-            id="my-select-input"
-            :aria-label="ariaLabel"
-            :errorMessage="errorMessage"
-            :disabled="disabled"
-            :hasError="hasError"
-            :label="label"
-            :options="options"
-            :weight="weight"
-            :fieldClass="fieldClass"
-            v-model="value"
-          />
-        </ma-grid-column>`,
+        <ma-select id="my-select-input" v-bind="$props" v-model="value" />
+    `,
 
     props: {
       ariaLabel: {
@@ -73,9 +53,6 @@ export const Select = () => {
       options: {
         default: options,
       },
-      size: {
-        default: size,
-      },
       fieldClass: {
         default: fieldClass,
       },
@@ -91,14 +68,6 @@ export const Select = () => {
       return {
         value: this.selectedValue,
       }
-    },
-
-    computed: {
-      getClass() {
-        return {
-          [`ma-grid-col--${this.size}`]: this.size,
-        }
-      },
     },
 
     watch: {

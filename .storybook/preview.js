@@ -1,11 +1,11 @@
 // preview.js configures the "preview" iframe that renders your components
 import Vue from 'vue'
-import responsivePlugin from '../src/plugins/responsivePlugin'
+import margarita from '../src/index'
 
-Vue.use(responsivePlugin)
+Vue.use(margarita)
 
 export const parameters = {
-  layout: 'padded',
+  layout: 'centered',
 
   options: {
     storySort: {

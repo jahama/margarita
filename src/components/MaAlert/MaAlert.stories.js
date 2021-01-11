@@ -1,37 +1,42 @@
 import { select, text } from '@storybook/addon-knobs'
 
-import MaAlert from '@margarita/components/MaAlert'
-
 export default {
   title: 'Components/Alert',
+  decorators: [
+    () => ({
+      template: '<div style="width:600px"><story/></div>',
+    }),
+  ],
 }
+
+const TYPES = ['success', 'info', 'warning', 'error']
 
 export const Alert = () => {
   const size = select('Size', ['small', 'medium', 'large'], 'small')
-  const type = select('Type', ['info', 'error', 'success', 'warning'], 'info')
-  const title = text('Title', 'Title')
-  const content = text('Text', 'Text')
+  const content = text('Text', 'A longer alert text')
 
   return {
-    components: { MaAlert },
     template: `
-      <ma-alert
-          :size="size"
+      <ma-stack space="xxsmall">
+        <ma-alert
+          v-for="type in types"
+          :key="type"
           :type="type"
-          :title="title"
-          :text="text"
-      />
+          :title="type"
+          v-bind="$props"
+        />
+      </ma-stack>
     `,
+
+    data() {
+      return {
+        types: TYPES,
+      }
+    },
 
     props: {
       size: {
         default: size,
-      },
-      type: {
-        default: type,
-      },
-      title: {
-        default: title,
       },
       text: {
         default: content,

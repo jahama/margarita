@@ -1,9 +1,6 @@
 import { select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
-import MaRange from '@margarita/components/MaRange'
-
 const defaultSteps = [
   { text: 'Especial', value: 'special' },
   { text: 'Bajo', value: 'low' },
@@ -13,6 +10,11 @@ const defaultSteps = [
 
 export default {
   title: 'Components/Range',
+  decorators: [
+    () => ({
+      template: '<div style="width: 600px"><story/></div>',
+    }),
+  ],
 }
 
 export const Range = () => {
@@ -25,16 +27,7 @@ export const Range = () => {
   const label = text('Label', 'Label')
 
   return {
-    components: { MaRange, MaGridColumn },
-
-    template: `
-        <ma-grid-column>
-          <ma-range
-            :steps="steps"
-            :label="label"
-            v-model="value"
-          />
-        </ma-grid-column>`,
+    template: `<ma-range :steps="steps" :label="label" v-model="value"/>`,
 
     props: {
       steps: {
