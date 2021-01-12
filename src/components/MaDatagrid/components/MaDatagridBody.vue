@@ -7,8 +7,8 @@
         </template>
         <component
           :is="column.component"
-          v-else-if="column.component"
           v-bind="row"
+          v-else-if="column.component"
         />
       </td>
     </tr>
