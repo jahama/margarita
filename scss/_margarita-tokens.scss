@@ -1,15 +1,13 @@
+$rem-baseline: 16px;
+
+@import 'tokens';
+
 @import 'functions/colors';
 @import 'functions/rem';
 @import 'functions/spacing';
-
-@import 'variables/shadows';
-@import 'variables/colors';
-@import 'variables/spacing';
-@import 'variables/fonts';
-@import 'variables/sass-mq';
 
 @import 'mixins/font-mixin';
 @import 'mixins/font-weight';
 @import 'mixins/gradient-image';
 
-@import '~sass-mq';
+@import 'sass-mq';
