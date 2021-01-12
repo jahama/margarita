@@ -16,6 +16,5 @@ npm-debug.log*
 # vscode
 .vscode/!settings.json
 
-# auto generated scss token files
-src/scss/variables/_colors.scss
-src/scss/variables/_spacing.scss
+# auto generated scss token file
+src/scss/_tokens.scss
