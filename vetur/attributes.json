@@ -13,7 +13,7 @@
   },
   "ma-button/tag": {
     "type": "string",
-    "description": "The tag property of the component sets when the component tag",
+    "description": "Sets the HTML tag element of the component",
     "options": ["button", "a"]
   },
   "ma-button/rounded": {
