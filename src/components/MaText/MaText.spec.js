@@ -1,10 +1,9 @@
-import { render } from '@testing-library/vue'
+import { render } from '@margarita/margarita-test-utils'
 import MaText from './MaText'
-import responsivePlugin from '@margarita/plugins/responsivePlugin'
 
 const slotText = 'Hello everybody'
 
-describe('MaText', () => {
+describe('Text', () => {
   test('renders content from slot', () => {
     const { getByText } = renderComponent()
 
@@ -49,15 +48,9 @@ describe('MaText', () => {
   })
 })
 
-const renderComponent = (props = {}) => {
-  return render(
-    MaText,
-    {
-      props,
-      slots: { default: slotText },
-    },
-    (vue) => {
-      vue.use(responsivePlugin)
-    }
-  )
+function renderComponent(props = {}) {
+  return render(MaText, {
+    props,
+    slots: { default: slotText },
+  })
 }

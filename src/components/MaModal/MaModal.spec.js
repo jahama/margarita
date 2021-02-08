@@ -2,12 +2,11 @@ import {
   render,
   waitFor,
   waitForElementToBeRemoved,
-} from '@testing-library/vue'
+} from '@margarita/margarita-test-utils'
 import userEvent from '@testing-library/user-event'
-import responsivePlugin from '@margarita/plugins/responsivePlugin'
 import MaModal from './MaModal'
 
-describe('MaModal', () => {
+describe('Modal', () => {
   test('shows modal content on clicking trigger element', async () => {
     const { openModal, assertModalHasOpened, queryByRole } = renderComponent()
 
@@ -176,20 +175,14 @@ describe('MaModal', () => {
 
 function renderComponent({ props = {}, scopedSlots = null } = {}) {
   const title = 'my title'
-  const utils = render(
-    MaModal,
-    {
-      props: { title, ...props },
-      scopedSlots: {
-        trigger: `<button data-testid="trigger" @click="props.openModal">open</button>`,
-        content: `<div>modal content</div>`,
-        ...scopedSlots,
-      },
+  const utils = render(MaModal, {
+    props: { title, ...props },
+    scopedSlots: {
+      trigger: `<button data-testid="trigger" @click="props.openModal">open</button>`,
+      content: `<div>modal content</div>`,
+      ...scopedSlots,
     },
-    (vue) => {
-      vue.use(responsivePlugin)
-    }
-  )
+  })
 
   const openModal = async () => {
     userEvent.click(utils.getByRole('button', { name: 'open' }))
