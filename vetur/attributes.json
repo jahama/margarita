@@ -408,6 +408,9 @@
     "type": "string|number",
     "description": "Component's model value"
   },
+  "ma-text-field/suffix": {
+    "type": "string",
+    "description": "Component's suffix inside the text field"
   "ma-list/type": {
     "type": "string",
     "description": "Sets the type of list",

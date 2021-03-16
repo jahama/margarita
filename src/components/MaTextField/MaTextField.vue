@@ -12,15 +12,22 @@
       <!-- @slot Label's sibling content slot -->
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text-field__input-wrapper">
+    <div class="ma-text-field__input-wrapper" :class="inputWrapperClasses">
       <input
         :id="id"
         v-model="lazyValue"
         v-bind="$attrs"
-        :class="inputClasses"
         class="ma-text-field__input"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
+      />
+      <ma-text
+        v-if="suffix"
+        size="small"
+        tag="span"
+        tone="gray"
+        class="ma-text-field__input-suffix"
+        v-text="suffix"
       />
       <!-- @slot Input's sibling content slot -->
       <slot name="inputSibling" />
@@ -93,6 +100,13 @@ export default {
       type: [String, Number],
       default: '',
     },
+    /**
+     * Component's suffix inside the text field
+     */
+    suffix: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -100,17 +114,18 @@ export default {
       lazyValue: this.value,
     }
   },
-
   computed: {
-    inputClasses() {
-      return {
-        'ma-text-field__input--error': this.hasError,
-      }
-    },
-
     labelClasses() {
       return {
         'visually-hidden': this.$attrs['aria-label'],
+      }
+    },
+
+    inputWrapperClasses() {
+      return {
+        'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
+        'ma-text-field__input--error': this.hasError,
+        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
       }
     },
 
