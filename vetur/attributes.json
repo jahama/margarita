@@ -407,5 +407,30 @@
   "ma-text-field/v-model": {
     "type": "string|number",
     "description": "Component's model value"
+  },
+  "ma-list/type": {
+    "type": "string",
+    "description": "Sets the type of list",
+    "options": ["bullet", "check", "ordered"]
+  },
+  "ma-list/size": {
+    "type": "string",
+    "description": "Sets the text element size according to our Design System",
+    "options": ["small", "medium"]
+  },
+  "ma-list/tone": {
+    "type": "string",
+    "description": "Sets the text element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
   }
 }
