@@ -16,8 +16,8 @@ const smallScreenTextSize = {
   medium: {
     'font-size': '1.125rem',
     'line-height': 1.35,
-    'top-crop': '-0.33em',
-    'bottom-crop': '-0.33em',
+    'top-crop': '-0.36em',
+    'bottom-crop': '-0.4em',
   },
 }
 
