@@ -32,12 +32,28 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  template: `<div style="display: flex;">
+  template: `<ma-layout gap="large" columns="6 6">
       <ma-text v-bind="$props">I'M a text</ma-text>
-      <ma-text v-bind="$props" style="margin-left:4rem; background-color:var(--color-blue-light)">
+      <ma-text v-bind="$props" style="background-color:var(--color-blue-light)">
         I'M a text
       </ma-text>
-  </div>`,
+  </ma-layout>`,
 })
 
 export const Text = Template.bind({})
+
+const StackedTextTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-layout gap="medium" columns="6 6">
+    <ma-stack :size="stackSize">
+      <ma-text v-bind="$props">I'M a text</ma-text>
+      <ma-text v-bind="$props">I'M a text</ma-text>
+    </ma-stack>
+    <div>
+      <ma-text v-bind="$props">I'M a text</ma-text>
+      <ma-text v-bind="$props">I'M a text</ma-text>
+    </div>
+  </ma-layout>`,
+})
+
+export const StackedText = StackedTextTemplate.bind({})
