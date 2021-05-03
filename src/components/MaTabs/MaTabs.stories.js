@@ -14,31 +14,56 @@ export default {
   },
 }
 
-const Template = (args, { argTypes }) => ({
+const ContentTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { MaTab },
   template: `
-    <div>
+    <ma-stack space="large">
       <ma-text>Selected tab: {{selectedTab}}</ma-text>
+
       <ma-tabs v-bind="$props" v-model="selectedTab" @input="input">
-        <ma-tab>
-          <template #header><ma-heading>Header Tab1</ma-heading></template>
-          Hola 1
+        <ma-tab icon="Gas" title="title 1" pill="15">
+          <ma-text>Hello from tab number 1!</ma-text>
         </ma-tab>
-        <ma-tab>
-          <template #header><ma-heading>Header Tab2</ma-heading></template>
-          Hola 2
-        </ma-tab>
-        <ma-tab>
-          <template #header><ma-heading>Header Tab3</ma-heading></template>
-          Hola 3
+        <ma-tab icon="BulbOn" title="title 2" pill="16">
+          <ma-text>Hello from tab number 2!</ma-text>
         </ma-tab>
       </ma-tabs>
-    </div>
+    </ma-stack>
   `,
   data() {
     return { selectedTab: 0 }
   },
 })
 
-export const Tabs = Template.bind({})
+export const ContentTabs = ContentTemplate.bind({})
+
+const GradientTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { MaTab },
+  template: `
+    <ma-stack space="large">
+      <ma-text>Selected tab: {{selectedTab}}</ma-text>
+
+      <ma-tabs v-bind="$props" v-model="selectedTab" @input="input" variant="gradient">
+        <ma-tab title="title 1">
+          <template #header>With a custom header</template>
+          <ma-text>Hello from tab number 1!</ma-text>
+        </ma-tab>
+        <ma-tab title="title 2">
+          <template #header>With a custom header</template>
+          <ma-text>Hello from tab number 2!</ma-text>
+        </ma-tab>
+        <ma-tab title="title 3">
+          <template #header>With a custom header</template>
+          <ma-text>Hello from tab number 3!</ma-text>
+        </ma-tab>
+      </ma-tabs>
+    </ma-stack>
+  `,
+  data() {
+    return { selectedTab: 0 }
+  },
+})
+
+export const GradientTabs = GradientTemplate.bind({})

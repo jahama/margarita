@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isActive">
+  <div class="tab">
     <slot />
   </div>
 </template>
@@ -8,17 +8,23 @@
 export default {
   name: 'MaTab',
 
+  // We need to declare these props so they are available through
+  // child.componentOptions.propsData in MaTabs.vue
   props: {
     title: {
       type: String,
-      default: 'Tab',
+      required: true,
     },
-  },
 
-  data() {
-    return {
-      isActive: false,
-    }
+    icon: {
+      type: String,
+      default: null,
+    },
+
+    pill: {
+      type: [String, Number],
+      default: null,
+    },
   },
 }
 </script>
