@@ -35,6 +35,8 @@ export default {
     tabs.forEach((child, index) => {
       const { title, icon, pill } = child.componentOptions.propsData
 
+      const isSelectedTab = this.selectedIndex === index
+
       const tabHeaderContent =
         this.variant === 'underline' ? (
           <ma-layout gap="small" columns="*" verticalAlign="center">
@@ -52,11 +54,11 @@ export default {
       tabList.push(
         <li
           class={`tabs-header-item ${
-            this.selectedIndex === index ? 'tabs-header-item--active' : ''
+            isSelectedTab ? 'tabs-header-item--active' : ''
           }`}
           role="tab"
           onClick={(e) => this.setSelectedIndex(e, index)}
-          aria-selected={this.selectedIndex === index ? 'true' : 'false'}
+          aria-selected={isSelectedTab ? 'true' : 'false'}
         >
           {tabHeaderContent}
         </li>
