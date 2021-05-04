@@ -21,10 +21,44 @@ describe('Tabs', () => {
     await waitFor(() => expect(getByText('Content Tab1')).toBeVisible())
     expect(queryByText('Content Tab2')).not.toBeInTheDocument()
   })
+
+  test('renders icon and pill for underline tabs', () => {
+    const { getByTitle, getByText } = renderComponent({
+      props: {
+        variant: 'underline',
+      },
+      slots: {
+        default: `
+          <ma-tab icon="Gas" pill="481516" title="Header Tab1">
+            Content Tab1
+          </ma-tab>`,
+      },
+    })
+
+    expect(getByText('481516')).toBeInTheDocument()
+    expect(getByTitle('Gas-icon')).toBeInTheDocument()
+  })
+
+  test('renders header slot for gradient tabs', () => {
+    const { getByText } = renderComponent({
+      props: {
+        variant: 'gradient',
+      },
+      slots: {
+        default: `
+          <ma-tab title="Header Tab1">
+            <template #header>Additional header</template>
+            Content Tab1
+          </ma-tab>`,
+      },
+    })
+
+    expect(getByText('Additional header')).toBeInTheDocument()
+  })
 })
 
 function renderComponent(options = {}) {
-  const utils = render(MaTabs, {
+  return render(MaTabs, {
     components: { MaTab },
     slots: {
       default: `
@@ -41,8 +75,4 @@ function renderComponent(options = {}) {
     },
     ...options,
   })
-
-  return {
-    ...utils,
-  }
 }
