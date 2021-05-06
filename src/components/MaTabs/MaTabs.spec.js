@@ -1,9 +1,14 @@
+/* eslint-disable no-console */
 import { render, waitFor } from '@margarita/margarita-test-utils'
 import userEvent from '@testing-library/user-event'
 import MaTabs from '.'
 import MaTab from '../MaTab'
 
 describe('Tabs', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementationOnce(() => {})
+  })
+
   test('toggles through tabs', async () => {
     const { queryByText, getByText } = renderComponent()
 
@@ -54,6 +59,24 @@ describe('Tabs', () => {
     })
 
     expect(getByText('Additional header')).toBeInTheDocument()
+  })
+
+  test('warns on bad combination of props and variant', () => {
+    renderComponent({
+      props: {
+        variant: 'gradient',
+      },
+      slots: {
+        default: `
+          <ma-tab icon="whatever" pill="yeah" title="Header Tab1">
+            Content Tab1
+          </ma-tab>`,
+      },
+    })
+
+    expect(console.error).toHaveBeenCalledWith(
+      expect.stringContaining('[Tabs Error]')
+    )
   })
 })
 

@@ -2,6 +2,12 @@
 export default {
   name: 'MaTabs',
 
+  provide() {
+    return {
+      variant: this.variant,
+    }
+  },
+
   props: {
     value: {
       type: Number,
