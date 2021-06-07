@@ -17,10 +17,10 @@ export default {
     text: {
       defaultValue: 'This is an alert sample text',
     },
-    type: {
+    tone: {
       control: {
         type: 'select',
-        options: ['success', 'info', 'warning', 'error'],
+        options: ['green', 'blue', 'yellow', 'red'],
       },
     },
   },
