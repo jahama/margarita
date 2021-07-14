@@ -39,13 +39,7 @@ Vue.use(Margarita)
 
 ### Installing in Nuxt
 
-First, install [`@nuxtjs/style-resources`](https://github.com/nuxt-community/style-resources-module):
-
-```bash
-npm install @nuxtjs/style-resources
-```
-
-Then, create a plugin for Margarita:
+First, create a plugin for Margarita:
 
 ```js
 // plugins/margarita.js
@@ -57,7 +51,7 @@ import '@holaluz/margarita/dist/margarita.css'
 Vue.use(Margarita)
 ```
 
-And finally, add the following config on the Nuxt Config file:
+Finally, register it on the Nuxt config file, as any other Nuxt plugin:
 
 ```js
 // nuxt.config.js
