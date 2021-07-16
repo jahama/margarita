@@ -10,4 +10,5 @@ module.exports = {
   'gray-darker': color.gray.darker,
   'gray-dark': color.gray.dark,
   gray: color.gray.base,
+  gradient: color.gradient,
 }

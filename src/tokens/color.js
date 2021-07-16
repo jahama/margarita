@@ -45,4 +45,5 @@ module.exports = {
   white: {
     base: '#ffffff',
   },
+  gradientHolaluz: {},
 }
