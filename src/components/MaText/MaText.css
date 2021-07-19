@@ -25,3 +25,10 @@
     font-weight: bold;
   }
 }
+
+.gradient {
+  background: linear-gradient(90deg, #e6007d, #f06c17 85%, #ffba03);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+}
