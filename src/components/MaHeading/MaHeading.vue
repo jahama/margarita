@@ -54,11 +54,18 @@ export default {
     const tag = props.level === 'none' ? 'div' : `h${props.level}`
     const size = parent.$layout.getResponsivePropValue(props.size)
     const sizeStyles = headingSize[parent.$layout.currentBreakpoint][size]
+    const gradient = props.tone === 'gradient'
+
     const componentData = {
       staticClass: 'ma-heading',
+      class: {
+        gradient: gradient,
+      },
       style: {
         fontSize: sizeStyles['font-size'],
-        lineHeight: sizeStyles['line-height'],
+        lineHeight: gradient
+          ? 1.5 * sizeStyles['line-height']
+          : sizeStyles['line-height'],
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
         color: tones[props.tone],
