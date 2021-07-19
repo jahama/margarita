@@ -85,7 +85,6 @@ export default {
         background: gradient
           ? `linear-gradient(90deg, #e6007d, #f06c17 85%, #ffba03)`
           : '',
-        direction: 'to right',
         '-webkit-background-clip': gradient ? 'text' : 'initial',
         '-webkit-text-fill-color': gradient ? 'transparent' : 'initial',
         padding: gradient ? '0' : '',
