@@ -83,12 +83,6 @@ export default {
         '--bottom-crop': sizeStyles['bottom-crop'],
         textAlign: props.align,
         color: tones[props.tone],
-        // background: gradient
-        //   ? `linear-gradient(90deg, #e6007d, #f06c17 85%, #ffba03)`
-        //   : '',
-        // '-webkit-background-clip': gradient ? 'text' : 'initial',
-        // '-webkit-text-fill-color': gradient ? 'transparent' : 'initial',
-        // padding: gradient ? '0' : '',
       },
     }
     return createElement(

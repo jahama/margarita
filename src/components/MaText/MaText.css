@@ -27,7 +27,7 @@
 }
 
 .gradient {
-  background: linear-gradient(90deg, #e6007d, #f06c17 85%, #ffba03);
+  background: linear-gradient(90deg, var(--gradient-holaluz));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 0;
