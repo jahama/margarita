@@ -39,9 +39,9 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-  <div style="display: flex; width: 10rem">
+  <div style="display: flex">
       <ma-text v-bind="$props" >I'M a text</ma-text>
-      <ma-text v-bind="$props" style="background-color:var(--color-blue-light); width: 10rem">
+      <ma-text v-bind="$props" style="background-color:var(--color-blue-light); width: 10rem; padding-left: 1rem">
         I'M a text
       </ma-text>
   </div>`,
