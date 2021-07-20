@@ -112,7 +112,8 @@
       "yellow",
       "gray-darker",
       "gray-dark",
-      "gray"
+      "gray",
+      "gradient"
     ]
   },
   "ma-heading/align": {
@@ -429,7 +430,8 @@
       "yellow",
       "gray-darker",
       "gray-dark",
-      "gray"
+      "gray",
+      "gradient"
     ]
   },
   "ma-text/align": {
