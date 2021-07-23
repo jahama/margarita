@@ -84,16 +84,13 @@ export default {
     const columns = getResponsiveColumns({ parent, columns: props.columns })
     const style = { '--column-gap': gap }
 
-    if (!hasAutoFlow({ columns })) {
-      style.gridTemplateColumns = getGridTemplateColumns({ gap, columns })
-      style.justifyContent = props.justify
-    }
+    style.gridAutoColumns = getGridAutoColumns({ columns })
+    style.justifyContent = props.justify
 
     /** @type {VNodeData} */
     const componentData = {
       staticClass: 'ma-columns',
       class: {
-        'has-auto-flow': hasAutoFlow({ columns }),
         [`vertical-align-${props.verticalAlign}`]: true,
       },
       style,
@@ -121,21 +118,10 @@ function hasAutoFlow({ columns }) {
   return columns.includes(autoFlowOperator)
 }
 
-// Gets the size of each column without overflowing due to the gap
-// https://stackoverflow.com/a/45092180
-function getGridTemplateColumns({ gap, columns }) {
-  const gapDistribution = (columns.length - 1) / columns.length
-
-  return columns
-    .map((c) => {
-      const widthPercentile = (c / columnCount) * 100
-      if (gap === spacing.none || gapDistribution === 0) {
-        return `${widthPercentile}%`
-      }
-
-      return `calc(${widthPercentile}% - ${gap} * ${gapDistribution})`
-    })
-    .join(' ')
+// Gets the size of each column in relative units (fr)
+function getGridAutoColumns({ columns }) {
+  if (hasAutoFlow({ columns })) return '1fr'
+  return columns.map((c) => `${c / columnCount}fr`).join(' ')
 }
 
 function validateColumnsProp(columns) {
@@ -172,10 +158,7 @@ function validateColumnsProp(columns) {
 .ma-columns {
   display: grid;
   gap: var(--column-gap);
-
-  &.has-auto-flow {
-    grid-auto-flow: column;
-  }
+  grid-auto-flow: column;
   &.vertical-align-center {
     align-items: center;
   }

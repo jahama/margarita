@@ -36,7 +36,7 @@ const LayoutTemplate = ({
           :key="i"
           :index="i"
           :is-vertically-aligned="!!verticalAlign"
-        >{{i}}</demo-block>
+        >{{ i }}</demo-block>
       </ma-layout>
     </div>
   </div>
@@ -67,10 +67,19 @@ export const Example4 = LayoutTemplate({
   childCount: 7,
 })
 
-export const Example5 = LayoutTemplate({
-  title: 'An indeterminate number of columns',
-  columns: '3 4 5 - *',
-  childCount: 8,
+export const Example5 = () => ({
+  components: { DemoBlock },
+  template: `
+  <div>
+    <h3>An indeterminate number of columns (columns='12 - *')</h3>
+    <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
+      <ma-layout gap="small" columns="12 - *">
+        <demo-block>1</demo-block>
+        <demo-block v-for="i in ['cols', 'have', 'the', 'same', 'width']" :key="i">{{ i }}</demo-block>
+      </ma-layout>
+    </div>
+  </div>
+  `,
 })
 
 export const Example6 = LayoutTemplate({
@@ -151,4 +160,10 @@ export const Example15 = () => ({
     </div>
   </div>
   `,
+})
+
+export const Example16 = LayoutTemplate({
+  title: 'Only the last row will be repeated',
+  columns: '12 - 4 4 4',
+  childCount: 10,
 })

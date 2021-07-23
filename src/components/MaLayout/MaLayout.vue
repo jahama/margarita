@@ -4,6 +4,8 @@ import { spacing } from '../../tokens'
 import MaStack from '../MaStack'
 import MaColumns from '../MaColumns'
 
+const autoflowOperator = '*'
+
 /**
  * Renders a complex layout made of rows and columns following the Design System guidelines
  *
@@ -117,30 +119,44 @@ function renderStack({ createElement, dom, gap, data }) {
   return createElement(MaStack, { props: { space: gap }, ...data }, dom)
 }
 
+/**
+ * Renders a Grid (a set of rows and columns) given an array of HtmlElements and the columns prop.
+ *
+ * For example, for this inputs:
+ * ```ts
+ * const dom = ['foo', 'bar', 'baz', 'hello', 'world']
+ * const grid = ['2 2', '12', '3 3']
+ *
+ * // Will return
+ * return [
+ *    maColumns(['foo', 'bar'], '2 2'),
+ *    maColumns(['baz'], '12')
+ *    maColumns(['hello', 'world], '3 3')
+ * ]
+ * ```
+ */
 function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
-  let lastIdx = 0
   const rows = []
-
-  grid.forEach((row, i) => {
-    const isLast = i === grid.length - 1
-    const children = dom.filter((c) => c.tag)
-    const rowChildren = children.slice(
-      lastIdx,
-      isLast ? children.length : lastIdx + row.length
+  const elements = dom.filter((c) => c.tag)
+  let i = 0
+  while (elements.length) {
+    const row = grid[Math.min(i, grid.length - 1)]
+    const children = elements.splice(
+      0,
+      row[0] === autoflowOperator ? elements.length : row.length
     )
-    lastIdx += row.length
-    if (!rowChildren.length) return
     rows.push(
       renderColumns({
         createElement,
         columns: row.join(' '),
-        children: rowChildren,
+        children,
         gap,
         justify,
         verticalAlign,
       })
     )
-  })
+    i++
+  }
   return rows
 }
 

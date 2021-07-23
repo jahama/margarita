@@ -61,17 +61,14 @@ describe('MaColumns', () => {
     expect(console.error).not.toHaveBeenCalled()
   })
 
-  test('adds auto flow if columns has autoFlow operator', () => {
+  test('adds constant column width if columns has autoFlow operator', () => {
     const { contentWrapper } = renderComponent({ columns: '*' })
-    expect(contentWrapper).toHaveClass('has-auto-flow')
+    expect(contentWrapper).toHaveStyle({ gridAutoColumns: '1fr' })
   })
 
   test('adds correct column size', () => {
     const { contentWrapper } = renderComponent({ columns: '6 6' })
-    expect(contentWrapper).toHaveAttribute(
-      'style',
-      expect.stringContaining('50%')
-    )
+    expect(contentWrapper).toHaveStyle({ gridAutoColumns: '0.5fr 0.5fr' })
   })
 })
 
