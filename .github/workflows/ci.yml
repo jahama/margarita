@@ -36,7 +36,7 @@ jobs:
       - name: Run UI regression tests
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.FE_USER_GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: storybook:build
           exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing

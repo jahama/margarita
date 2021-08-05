@@ -22,7 +22,7 @@ jobs:
       - name: Create UI baseline snapshots
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.FE_USER_GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: storybook:build
           exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
@@ -35,6 +35,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.FE_USER_GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: storybook-static
