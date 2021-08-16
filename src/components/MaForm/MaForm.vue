@@ -13,13 +13,6 @@ export default {
         (c) => c.$options._componentTag === maTextTag && c.hasError
       )
     },
-    submitElement() {
-      const maButtonTag = 'ma-button'
-      return this.$children.find(
-        (c) =>
-          c.$options._componentTag === maButtonTag && c.$attrs.type === 'submit'
-      )
-    },
   },
   methods: {
     onSubmit() {
