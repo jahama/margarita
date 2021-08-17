@@ -58,6 +58,16 @@ describe('List', () => {
       '--stack-gap': spacing.medium,
     })
   })
+
+  test('keeps additional data', () => {
+    const { getByRole } = render({
+      components: { MaList },
+      template: `
+      <ma-list class="test-class"><ma-text>Item 1</ma-text></ma-list>
+      `,
+    })
+    expect(getByRole('list')).toHaveClass('test-class')
+  })
 })
 
 function renderComponent(props = {}, params = {}) {

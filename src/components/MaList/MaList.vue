@@ -45,7 +45,7 @@ export default {
 
     return createElement(
       'ma-stack',
-      { props: { space, tag } },
+      { props: { space, tag }, ...data },
       slots()
         .default.filter((c) => c.tag)
         .map(createListElement)
