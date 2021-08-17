@@ -1,6 +1,7 @@
 <template>
   <ma-text-field
     v-model="model"
+    v-bind="$attrs"
     :placeholder="placeholder ? placeholder : label"
     :has-error="!!errorMessage"
     :error-message="errorMessage"
