@@ -208,6 +208,17 @@
     "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
     "options": ["start", "center", "fill", "end"]
   },
+  "ma-link/category": {
+    "type": "string",
+    "description": "Sets the component displaying style",
+    "options": ["primary", "secondary", "white", "gradient", "no-background"]
+  },
+  "ma-link/href": {
+    "type": "string"
+  },
+  "ma-link/rel": {
+    "type": "string"
+  },
   "ma-list/type": {
     "type": "string",
     "description": "Sets the type of list",
