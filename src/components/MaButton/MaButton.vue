@@ -63,9 +63,14 @@ export default {
       type: String,
       default: 'primary',
       validator: (v) =>
-        ['primary', 'secondary', 'white', 'gradient', 'no-background'].includes(
-          v
-        ),
+        [
+          'primary',
+          'secondary',
+          'white',
+          'gradient',
+          'no-background',
+          'no-background-white',
+        ].includes(v),
     },
   },
 

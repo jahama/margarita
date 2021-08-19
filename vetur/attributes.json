@@ -10,12 +10,20 @@
   "ma-alert/tone": {
     "type": "string",
     "description": "Sets the type of component",
-    "options": ["red", "blue", "green", "yellow"]
+    "options": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ]
   },
   "ma-button/tag": {
     "type": "string",
     "description": "Sets the HTML tag element of the component",
-    "options": ["button", "a"]
+    "options": [
+      "button",
+      "a"
+    ]
   },
   "ma-button/rounded": {
     "type": "boolean",
@@ -32,12 +40,22 @@
   "ma-button/category": {
     "type": "string",
     "description": "Sets the component displaying style",
-    "options": ["primary", "secondary", "white", "gradient", "no-background"]
+    "options": [
+      "primary",
+      "secondary",
+      "white",
+      "gradient",
+      "no-background",
+      "no-background-white"
+    ]
   },
   "ma-card/tone": {
     "type": "string",
     "description": "Sets card background color tone",
-    "options": ["white", "gray"]
+    "options": [
+      "white",
+      "gray"
+    ]
   },
   "ma-columns/columns": {
     "type": "array|string",
@@ -63,16 +81,31 @@
   "ma-columns/justify": {
     "type": "string",
     "description": "Defines how the space between and around content items is distributed. Defaults to start.",
-    "options": ["space-around", "space-between", "start", "end", "center"]
+    "options": [
+      "space-around",
+      "space-between",
+      "start",
+      "end",
+      "center"
+    ]
   },
   "ma-columns/verticalAlign": {
     "type": "string",
     "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
-    "options": ["start", "center", "fill", "end"]
+    "options": [
+      "start",
+      "center",
+      "fill",
+      "end"
+    ]
   },
   "ma-container/size": {
     "type": "string",
-    "options": ["small", "medium", "large"]
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ]
   },
   "ma-datagrid/rows": {
     "type": "array",
@@ -93,12 +126,26 @@
   "ma-heading/level": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful by specifying its level",
-    "options": ["none", "1", "2", "3", "4", "5", "6"]
+    "options": [
+      "none",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
   },
   "ma-heading/size": {
     "type": "string",
     "description": "Sets the text element size according to our Design System",
-    "options": ["xsmall", "small", "medium", "large", "xlarge"]
+    "options": [
+      "xsmall",
+      "small",
+      "medium",
+      "large",
+      "xlarge"
+    ]
   },
   "ma-heading/tone": {
     "type": "string",
@@ -118,7 +165,11 @@
   "ma-heading/align": {
     "type": "string",
     "description": "Set an horitzontal alignment to the heading",
-    "options": ["left", "center", "right"]
+    "options": [
+      "left",
+      "center",
+      "right"
+    ]
   },
   "ma-icon/icon": {
     "type": "string",
@@ -201,17 +252,35 @@
   "ma-layout/justify": {
     "type": "string",
     "description": "Defines how the space between and around content items is distributed. Defaults to start.",
-    "options": ["space-around", "space-between", "start", "end", "center"]
+    "options": [
+      "space-around",
+      "space-between",
+      "start",
+      "end",
+      "center"
+    ]
   },
   "ma-layout/verticalAlign": {
     "type": "string",
     "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
-    "options": ["start", "center", "fill", "end"]
+    "options": [
+      "start",
+      "center",
+      "fill",
+      "end"
+    ]
   },
   "ma-link/category": {
     "type": "string",
     "description": "Sets the component displaying style",
-    "options": ["primary", "secondary", "white", "gradient", "no-background"]
+    "options": [
+      "primary",
+      "secondary",
+      "white",
+      "gradient",
+      "no-background",
+      "no-background-white"
+    ]
   },
   "ma-link/href": {
     "type": "string"
@@ -222,11 +291,18 @@
   "ma-list/type": {
     "type": "string",
     "description": "Sets the type of list",
-    "options": ["bullet", "check", "ordered"]
+    "options": [
+      "bullet",
+      "check",
+      "ordered"
+    ]
   },
   "ma-list/space": {
     "type": "string",
-    "options": ["small", "medium"]
+    "options": [
+      "small",
+      "medium"
+    ]
   },
   "ma-list-marker/type": {
     "type": "string"
@@ -241,12 +317,19 @@
   "ma-modal/width": {
     "type": "string",
     "description": "Sets modal's width",
-    "options": ["small", "medium", "large"]
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ]
   },
   "ma-modal/headerType": {
     "type": "string",
     "description": "Sets modal's header background color",
-    "options": ["white", "gradient"]
+    "options": [
+      "white",
+      "gradient"
+    ]
   },
   "ma-option/v-model": {
     "type": "string|number|boolean|array",
@@ -271,7 +354,10 @@
   "ma-option/type": {
     "type": "string",
     "description": "Sets element's input type",
-    "options": ["radio", "checkbox"]
+    "options": [
+      "radio",
+      "checkbox"
+    ]
   },
   "ma-option/tone": {
     "type": "string",
@@ -291,7 +377,11 @@
   "ma-option/size": {
     "type": "string",
     "description": "Sets the size of the component",
-    "options": ["xsmall", "small", "medium"]
+    "options": [
+      "xsmall",
+      "small",
+      "medium"
+    ]
   },
   "ma-pagination/buttonsNumber": {
     "type": "number",
@@ -324,7 +414,15 @@
   "ma-pill/tone": {
     "type": "string",
     "description": "Sets component's styling color tone",
-    "options": ["green", "orange", "red", "gray", "dark", "blue", "pink"]
+    "options": [
+      "green",
+      "orange",
+      "red",
+      "gray",
+      "dark",
+      "blue",
+      "pink"
+    ]
   },
   "ma-pill/text": {
     "type": "number|string",
@@ -381,7 +479,12 @@
   "ma-select/weight": {
     "type": "string",
     "description": "Applies given styling class to component",
-    "options": ["bold", "semibold", "medium", "regular"]
+    "options": [
+      "bold",
+      "semibold",
+      "medium",
+      "regular"
+    ]
   },
   "ma-stack/space": {
     "type": "array|string",
@@ -403,22 +506,40 @@
   "ma-stack/align": {
     "type": "array|string",
     "description": "Sets the children alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
-    "options": ["left", "center", "right", "fill"]
+    "options": [
+      "left",
+      "center",
+      "right",
+      "fill"
+    ]
   },
   "ma-stack/tag": {
     "type": "string",
     "description": "Set the HTML element tag that wraps the content.",
-    "options": ["div", "section", "ul", "ol"]
+    "options": [
+      "div",
+      "section",
+      "ul",
+      "ol"
+    ]
   },
   "ma-text/tag": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful",
-    "options": ["p", "span", "label"]
+    "options": [
+      "p",
+      "span",
+      "label"
+    ]
   },
   "ma-text/size": {
     "type": "string",
     "description": "Sets the text element size according to our Design System",
-    "options": ["xsmall", "small", "medium"]
+    "options": [
+      "xsmall",
+      "small",
+      "medium"
+    ]
   },
   "ma-text/italic": {
     "type": "boolean",
@@ -446,7 +567,11 @@
   "ma-text/align": {
     "type": "string",
     "description": "Set an horitzontal alignment to the text",
-    "options": ["left", "center", "right"]
+    "options": [
+      "left",
+      "center",
+      "right"
+    ]
   },
   "ma-text-field/errorMessage": {
     "type": "string",

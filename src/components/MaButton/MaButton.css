@@ -18,7 +18,7 @@
       border-color: var(--color-gray-base);
       color: var(--color-gray-base);
 
-      &:not(.ma-button--secondary):not(.ma-button--no-background):not(.ma-button--white) {
+      &:not(.ma-button--secondary):not(.ma-button--no-background):not(.ma-button--white):not(.ma-button--no-background-white) {
         background: var(--color-gray-base);
         color: var(--color-white-base);
       }
@@ -51,6 +51,23 @@
   &:active:not(:disabled) {
     text-decoration: none;
     color: var(--color-pink-dark);
+  }
+}
+
+.ma-button--no-background-white {
+  font-weight: 400;
+  transition: color 0.3s;
+  border: 0;
+  width: auto;
+  color: var(--color-white-base);
+  text-decoration: underline;
+  display: inline;
+  padding: 0;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled) {
+    text-decoration: none;
+    color: var(--color-gray-light);
   }
 }
 
@@ -102,7 +119,8 @@
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
-    background-color: var(--color-orange-base);
+    background-color: var(--color-pink-base);
+    border-color: var(--color-pink-base);
     color: var(--color-white-base);
     text-decoration: none;
   }

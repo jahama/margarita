@@ -7,7 +7,14 @@ export default {
     category: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'white', 'gradient', 'no-background'],
+        options: [
+          'primary',
+          'secondary',
+          'white',
+          'gradient',
+          'no-background',
+          'no-background-white',
+        ],
       },
     },
     href: {
