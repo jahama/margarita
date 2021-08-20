@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaButton from './MaButton'
 
@@ -11,7 +12,10 @@ describe('Button', () => {
     expect(getByRole('button')).toBeInTheDocument()
   })
 
-  test('renders a link element on passing the right prop', () => {
+  test('renders a link element on using the prop tag and warns', () => {
+    const originalWarn = console.warn
+    console.warn = jest.fn()
+
     const href = 'http://link.com/'
 
     const { getByRole } = render(MaButton, {
@@ -19,6 +23,15 @@ describe('Button', () => {
     })
 
     expect(getByRole('link')).toHaveAttribute('href', href)
+
+    expect(console.warn).toHaveBeenCalledTimes(1)
+    expect(console.warn).toHaveBeenCalledWith(
+      expect.stringContaining(
+        `tag prop is deprecated and will be removed in a future version`
+      )
+    )
+
+    console.warn = originalWarn
   })
 
   test('emits on click', async () => {

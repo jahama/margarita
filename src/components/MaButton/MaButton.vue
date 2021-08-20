@@ -84,6 +84,14 @@ export default {
     },
   },
 
+  mounted() {
+    if (this.tag !== 'button') {
+      // eslint-disable-next-line no-console
+      console.warn(`[MaButton]: tag prop is deprecated and will be removed in a future version.
+If you're rendering a link with a button using tag="a", please consider switching to MaLink instead.`)
+    }
+  },
+
   methods: {
     handleClick(event) {
       /**
