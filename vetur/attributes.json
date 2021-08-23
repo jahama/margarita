@@ -307,6 +307,10 @@
     "description": "Sets the size of the component",
     "options": ["xsmall", "small", "medium"]
   },
+  "ma-option/hasError": {
+    "type": "boolean",
+    "description": "Marks the input field as errored"
+  },
   "ma-pagination/buttonsNumber": {
     "type": "number",
     "description": "Sets the amount of page buttons' to be displayed"

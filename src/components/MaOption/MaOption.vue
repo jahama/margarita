@@ -9,10 +9,16 @@
       :type="type"
       v-bind="$attrs"
     />
-    <span class="indicator" />
+    <span v-if="!card" class="indicator" />
     <ma-text class="description" :tone="tone" :size="size">
       <slot />
     </ma-text>
+    <img
+      v-if="!card && hasError"
+      class="error-icon"
+      src="../../assets/icons/alert-error.svg"
+      alt="Error"
+    />
   </label>
 </template>
 
@@ -100,6 +106,13 @@ export default {
       type: String,
       validator: (value) => ['xsmall', 'small', 'medium'].includes(value),
     },
+    /**
+     * Marks the input field as errored
+     */
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -122,10 +135,10 @@ export default {
 
     computedClass() {
       return {
-        [`ma-selector-${this.size}`]: this.size,
-        'ma-selector-card': this.card,
-        'ma-option': !this.card,
-        [`ma-option--${this.type}`]: !this.card,
+        'ma-option-card': this.card,
+        [`ma-${this.type}`]: !this.card,
+        [`size-${this.size}`]: true,
+        'has-error': this.hasError,
       }
     },
   },
@@ -133,5 +146,3 @@ export default {
 </script>
 
 <style src="./MaOption.css" scoped></style>
-<style src="./MaOptionCheckbox.css" scoped></style>
-<style src="./MaOptionRadio.css" scoped></style>

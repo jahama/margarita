@@ -1,108 +1,168 @@
-.ma-selector-card {
-  display: flex;
-  position: relative;
-  cursor: pointer;
-}
-
-.ma-selector-card .input {
-  &:not(:disabled) {
-    & ~ .description {
-      transition: border 0.2s ease;
+.ma-option-card {
+  & .input:not(:disabled) {
+    &:focus ~ .description {
+      border-color: var(--color-pink-light);
     }
-    &:focus {
-      & ~ .description {
-        border-color: var(--color-pink-light);
-      }
-    }
-    &:hover,
-    &:checked {
-      & ~ .description {
-        border-color: var(--color-pink-base);
-      }
+    &:hover ~ .description,
+    &:checked ~ .description {
+      border-color: var(--color-pink-base);
     }
 
-    &:checked ~ .indicator {
-      --indicator-svg-size: 0.75rem;
+    &:checked ~ .description::before {
+      display: block;
+    }
 
-      &::before {
-        display: block;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        z-index: 1;
-        background-image: url('../../assets/icons/tick.svg');
-        background-size: var(--indicator-svg-size) var(--indicator-svg-size);
-        width: var(--indicator-svg-size);
-        height: var(--indicator-svg-size);
-        content: ' ';
-      }
-
-      &::after {
-        border-color: transparent;
-        border-right-color: var(--color-pink-base);
-      }
+    &:checked ~ .description::after {
+      background-color: var(--color-pink-base);
     }
   }
-}
 
-.ma-selector-card .input:disabled {
-  & ~ .description,
-  & ~ .indicator {
+  & .input:disabled ~ .description {
     cursor: not-allowed;
-  }
-
-  & ~ .description {
     border-color: var(--color-gray-light);
     background-color: var(--color-brown-light);
     color: var(--color-gray-base);
   }
-}
 
-.ma-selector-card .indicator {
-  --indicator-size: 2.5rem;
-
-  position: absolute;
-  right: 0;
-  transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
-  border: 0 solid transparent;
-  border-radius: 0.5rem;
-  background-color: transparent;
-  width: var(--indicator-size);
-  height: var(--indicator-size);
-  overflow: hidden;
-  user-select: none;
-
-  &::before {
+  & .description::before {
     display: none;
-  }
-
-  &::after {
     position: absolute;
-    top: -1px;
-    right: -1px;
-    transition: border-color 0.33s;
-    border-width: 0 var(--indicator-size) var(--indicator-size) 0;
-    border-style: solid;
-    border-color: transparent;
-    width: 0;
-    height: 0;
-    content: ' ';
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    background-image: url('../../assets/icons/tick.svg');
+    background-size: 0.75rem 0.75rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    content: '';
+  }
+
+  & .description::after {
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    transition: background-color 0.33s;
+    width: 5rem;
+    height: 1.7rem;
+    content: '';
+    transform: rotateZ(45deg);
+  }
+
+  & .description {
+    cursor: pointer;
+    flex: 1;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.027);
+    background-color: var(--color-white-base);
+    padding: 1.2rem 1.5rem;
+    transition: border 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &.has-error .description {
+    border-color: var(--color-red-base);
   }
 }
 
-.ma-selector-card .description {
-  flex: 1;
-  border: 1px solid var(--color-gray-light);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.027451);
-  background-color: var(--color-white-base);
-  padding: 1.5rem;
-}
-
-.ma-option {
+.ma-radio,
+.ma-checkbox {
   display: flex;
   position: relative;
   align-items: flex-start;
   cursor: pointer;
   width: 100%;
+
+  & .indicator {
+    border: 1px solid var(--color-gray-light);
+    background-color: var(--color-white-base);
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    transition: border 0.4s, background-color 0.33s;
+  }
+
+  &.size-xsmall .description {
+    margin-top: 4px;
+  }
+  &.size-small .description {
+    margin-top: 3px;
+  }
+  &.size-medium .description {
+    margin-top: 2px;
+  }
+
+  & .description {
+    padding-left: 0.5rem;
+  }
+
+  & .input:hover ~ .indicator,
+  & .input:active ~ .indicator,
+  & .input:checked ~ .indicator {
+    border-color: var(--color-pink-base);
+  }
+  & .input:disabled ~ .indicator {
+    border-color: var(--color-gray-base);
+    cursor: not-allowed;
+  }
+  & .input:disabled ~ .description {
+    cursor: not-allowed;
+  }
+  &.has-error .indicator {
+    border-color: var(--color-red-base);
+  }
+}
+
+.ma-checkbox {
+  & .input:checked ~ .indicator,
+  & .input:disabled ~ .indicator {
+    border: 1px solid;
+    background-image: url('../../assets/icons/tick.svg');
+    background-position: 1px 1px;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+  }
+  & .input:disabled ~ .indicator {
+    background-color: var(--color-gray-base);
+  }
+  & .input:focus ~ .indicator {
+    border-color: var(--color-pink-light);
+    box-shadow: inset 0 0 0 1px var(--color-gray-light);
+  }
+  & .input:checked ~ .indicator {
+    box-shadow: none;
+    background-color: var(--color-pink-base);
+  }
+}
+
+.ma-radio {
+  & .indicator {
+    border-radius: 50%;
+    &::before {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color 0.33s;
+      content: '';
+    }
+  }
+  & .input:checked ~ .indicator::before {
+    background-color: var(--color-pink-base);
+  }
+  & .input:disabled ~ .indicator {
+    background-color: var(--color-gray-light);
+  }
+  & .input:focus ~ .indicator {
+    outline: 1px solid var(--color-gray-light);
+  }
+}
+
+.error-icon {
+  width: 0.8rem;
+  margin: 0.15rem 0.5rem;
 }

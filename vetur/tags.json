@@ -69,7 +69,8 @@
       "card",
       "type",
       "tone",
-      "size"
+      "size",
+      "hasError"
     ],
     "description": "Renders a radio or checkbox component following the Design System guidelines\n\n[Radio's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--radio)\n[Checkbox's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--checkbox)"
   },

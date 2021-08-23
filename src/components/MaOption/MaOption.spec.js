@@ -91,6 +91,14 @@ describe('Option', () => {
       expect(input).toBeChecked()
     })
 
+    test('renders an errored checkbox', () => {
+      const { getByAltText } = renderComponent({
+        type: 'checkbox',
+        hasError: true,
+      })
+      expect(getByAltText('Error')).toBeInTheDocument()
+    })
+
     test('renders a custom id', () => {
       const id = 'customId'
       const { input } = renderComponent({ id })
