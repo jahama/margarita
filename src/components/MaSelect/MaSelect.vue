@@ -14,6 +14,7 @@
       v-bind="$attrs"
       :class="computedClass"
       class="ma-select__field"
+      @blur="$emit('blur', $event)"
     >
       <option
         v-for="(option, index) in formattedOptions"

@@ -43,7 +43,7 @@
 
 .ma-text-field__input {
   flex: 0 1 100%;
-  transition: border 0.2s ease;
+  transition: border 0.3s ease;
   padding: 0 0.5rem;
   width: 100%;
   height: 100%;
@@ -82,8 +82,8 @@
   background-image: url('../../assets/icons/alert-error.svg');
   background-position: calc(100% - 8px) center;
   background-repeat: no-repeat;
-  background-size: 20px;
   padding-right: 2.5rem;
+  animation: zoomIn 0.3s forwards;
 }
 
 .ma-text-field__input--error:focus,
@@ -95,4 +95,26 @@
   margin-top: 0.25rem;
   color: var(--color-red-base);
   font-size: 0.875rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    background-size: 0;
+  }
+  to {
+    background-size: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

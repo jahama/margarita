@@ -1,21 +1,27 @@
 <template>
-  <ma-text-field
+  <component
+    :is="component"
     v-model="model"
-    v-bind="$attrs"
+    v-bind="{ ...$attrs, ...$props }"
     :placeholder="placeholder ? placeholder : label"
     :has-error="!!errorMessage"
     :error-message="errorMessage"
     :label="label"
-    @focus="onFocus"
     @blur="onBlur"
-  />
+    >{{ label }}</component
+  >
 </template>
 
 <script>
 export default {
   props: {
+    type: {
+      type: String,
+      validator: (v) => ['text', 'radio', 'checkbox', 'select'].includes(v),
+      default: 'text',
+    },
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: true,
     },
     label: {
@@ -33,11 +39,21 @@ export default {
   },
   data() {
     return {
-      isFocused: false,
       hasBeenBlurred: false,
     }
   },
   computed: {
+    component() {
+      switch (this.type) {
+        case 'radio':
+          return 'MaOption'
+        case 'checkbox':
+          return 'MaOption'
+        case 'select':
+          return 'MaSelect'
+      }
+      return 'MaTextField'
+    },
     errorMessages() {
       return this.validators
         .map((validator) => validator(this.model))
@@ -47,7 +63,7 @@ export default {
       return !!this.errorMessages.length
     },
     errorMessage() {
-      if (this.isFocused || !this.hasBeenBlurred || !this.hasError) return ''
+      if (!this.hasBeenBlurred || !this.hasError) return ''
       const [errorMessage] = this.errorMessages
       if (this.$t) return this.$t(errorMessage)
       return errorMessage
@@ -64,10 +80,6 @@ export default {
   methods: {
     onBlur() {
       this.hasBeenBlurred = true
-      this.isFocused = false
-    },
-    onFocus() {
-      this.isFocused = true
     },
   },
 }
