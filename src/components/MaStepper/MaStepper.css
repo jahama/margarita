@@ -1,0 +1,64 @@
+.ma-stepper {
+  counter-reset: section;
+  margin-left: 3rem;
+}
+
+.ma-stepper > * {
+  position: relative;
+}
+
+.ma-stepper > *:before {
+  position: absolute;
+  width: 1px;
+  content: '';
+  top: 2rem;
+  height: 75%;
+}
+
+.ma-stepper > *:after {
+  position: absolute;
+  font-weight: 600;
+  content: counter(section);
+  counter-increment: section;
+  left: -3.5rem;
+  text-align: right;
+  width: 2.5rem;
+}
+
+.ma-stepper-pink > *:before {
+  background-color: var(--color-gray-light);
+}
+
+.ma-stepper-pink > *:after {
+  color: var(--color-pink-base);
+}
+
+.ma-stepper-white > *:before {
+  background-color: var(--color-white-base);
+}
+
+.ma-stepper-white > *:after {
+  color: var(--color-white-base);
+}
+
+.ma-stepper-number-large > *:before {
+  left: -1.5rem;
+}
+
+.ma-stepper-number-large > *:after {
+  font-size: 2rem;
+  top: -0.9rem;
+}
+
+.ma-stepper-number-small > *:before {
+  left: -1.35rem;
+}
+
+.ma-stepper-number-small > *:after {
+  font-size: 1.5rem;
+  top: -0.6rem;
+}
+
+.ma-stepper > *:last-child:before {
+  display: none;
+}
