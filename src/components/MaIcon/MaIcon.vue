@@ -57,7 +57,7 @@ export default {
      */
     width: {
       type: [Number, String],
-      default: 18,
+      default: 20,
     },
 
     /**
@@ -65,7 +65,7 @@ export default {
      */
     height: {
       type: [Number, String],
-      default: 18,
+      default: 20,
     },
 
     /**
@@ -73,7 +73,7 @@ export default {
      */
     viewBoxWidth: {
       type: [Number, String],
-      default: 18,
+      default: 24,
     },
 
     /**
@@ -81,7 +81,7 @@ export default {
      */
     viewBoxHeight: {
       type: [Number, String],
-      default: 18,
+      default: 24,
     },
 
     /**
