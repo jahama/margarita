@@ -12,7 +12,7 @@
   width: 1px;
   content: '';
   top: 2rem;
-  height: 75%;
+  height: calc(100% - 1rem);
 }
 
 .ma-stepper > *:after {
