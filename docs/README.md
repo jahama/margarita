@@ -1,19 +1,19 @@
 # How to edit docs
 
-All files with extension `.mdx` are written following [markdown rules](https://guides.github.com/features/mastering-markdown/) 
+All files with extension `.mdx` are written following [markdown rules](https://guides.github.com/features/mastering-markdown/)
 
 ## How to edit a file
 
 ### **1. Create a new branch starting from `master` branch:**
 
 Branch name is up to you, it is recommended to use something related to the change about to be made
-(**ie**: `update-colors-text`) 
+(**ie**: `update-colors-text`)
 _See more about [creating branches with Github Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#creating-a-branch)_
 
 ### **2. Edit the file:**
 
-Go to [`/docs`](https://github.com/holaluz/margarita/tree/master/docs) folder, find the file to be modified and edit it. Get your hands dirty! 
-_All files are written in following [markdown rules](https://guides.github.com/features/mastering-markdown/)._
+Go to [`/docs`](https://github.com/holaluz/margarita/tree/master/docs) folder, find the file to be modified and edit it. Get your hands dirty!
+_All files are written following [markdown rules](https://guides.github.com/features/mastering-markdown/)._
 
 ### **3. Add and commit your changes to your branch:**
 
@@ -61,6 +61,6 @@ New folders inside [`/images`](https://github.com/holaluz/margarita/tree/master/
 ### Sorting/ordering files
 The documentation site sidebar is composed by the folders inside [`/docs`](https://github.com/holaluz/margarita/tree/master/docs) such as `introduction` or `tokens`.
 
-The sorting of files inside a section follows alphabetical ascending order (A->Z) based on the filename. 
+The sorting of files inside a section follows alphabetical ascending order (A->Z) based on the filename.
 
 If a different order is needed please specify it [here](https://github.com/holaluz/margarita/blob/master/.storybook/preview.js#L14)
