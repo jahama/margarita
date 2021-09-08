@@ -11,7 +11,6 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.disableLanguages": [],
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.validation.template": false
 }
