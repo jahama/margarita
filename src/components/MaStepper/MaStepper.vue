@@ -1,11 +1,12 @@
 <template>
-  <ma-stack space="large" class="ma-stepper" :class="[numberSize, numberTone]">
+  <ma-stack :space="space" class="ma-stepper" :class="[numberSize, numberTone]">
     <slot />
   </ma-stack>
 </template>
 
 <script>
-import { breakpointsEnum } from '../../tokens'
+import { breakpointsEnum, spacing } from '../../tokens'
+import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
 /**
  * Renders a stepper component following the Design System guidelines
  *
@@ -33,6 +34,26 @@ export default {
       type: String,
       default: 'pink',
       validator: (val) => ['pink', 'white'].includes(val),
+    },
+
+    /**
+     * Sets the space gap between steps.
+     *
+     * If an array is passed, values will target the design system breakpoints.
+     * ```ts
+     * // This would apply medium on all the different breakpoints
+     * space = 'small'
+     * // This would apply none on mobile, small on tablet and large on desktop
+     * :space="['none', 'small', 'large']"
+     * ```
+     *
+     * [Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)
+     * @values none, xsmall, small, medium, large, xlarge, 2x-large, 3x-large, 4x-large, 5x-large, 6x-large
+     */
+    space: {
+      type: [Array, String],
+      default: 'large',
+      validator: responsivePropValidator(Object.keys(spacing)),
     },
   },
 

@@ -1,39 +1,62 @@
 import { render } from '@margarita/margarita-test-utils'
+import { spacing } from '../../tokens'
 import MaStepper from './MaStepper'
 
 const slot = '<section>Content 1</section><section>Content 2</section>'
 
 describe('Stepper', () => {
   test('renders content from slot', () => {
-    const { getByText } = renderComponent({
+    const { content } = renderComponent({
       size: 'small',
     })
 
-    expect(getByText('Content 1')).toBeInTheDocument()
+    expect(content).toBeInTheDocument()
   })
 
   test('size prop renders proper class', () => {
-    const { getByText } = renderComponent({
+    const { parentNode } = renderComponent({
       size: 'small',
     })
 
-    expect(getByText('Content 1').parentNode).toHaveClass(
-      'ma-stepper-number-small'
-    )
+    expect(parentNode).toHaveClass('ma-stepper-number-small')
   })
 
   test('tone prop renders proper class', () => {
-    const { getByText } = renderComponent({
+    const { parentNode } = renderComponent({
       tone: 'white',
     })
 
-    expect(getByText('Content 1').parentNode).toHaveClass('ma-stepper-white')
+    expect(parentNode).toHaveClass('ma-stepper-white')
+  })
+
+  test('adds spacing classes', () => {
+    const { parentNode } = renderComponent({ space: 'large' })
+
+    expect(parentNode).toHaveStyle({
+      '--stack-gap': spacing.large,
+    })
+  })
+
+  test('adds spacing classes from array', () => {
+    const { parentNode } = renderComponent({ space: ['small', 'large'] })
+
+    expect(parentNode).toHaveStyle({
+      '--stack-gap': spacing.small,
+    })
   })
 })
 
 function renderComponent(props = {}) {
-  return render(MaStepper, {
+  const utils = render(MaStepper, {
     props,
     slots: { default: slot },
   })
+
+  const content = utils.getByText('Content 1')
+  const parentNode = utils.getByText('Content 1').parentNode
+
+  return {
+    content,
+    parentNode,
+  }
 }

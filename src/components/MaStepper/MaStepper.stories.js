@@ -1,4 +1,5 @@
 import MaStepper from './MaStepper'
+import { spacing } from '@margarita/tokens'
 import docs from '../../../docs/components/MaStepper.docs.mdx'
 
 export default {
@@ -16,6 +17,14 @@ export default {
         type: 'select',
         options: ['pink', 'white'],
       },
+    },
+    space: {
+      control: {
+        type: 'select',
+        options: Object.keys(spacing),
+      },
+      description:
+        'If an array is passed, values will target the design system breakpoints',
     },
   },
   parameters: {
