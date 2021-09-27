@@ -13,8 +13,7 @@
     "dist",
     "src",
     "types/*.d.ts",
-    "vetur",
-    "check-node.js"
+    "vetur"
   ],
   "engines": {
     "node": ">= 16"
