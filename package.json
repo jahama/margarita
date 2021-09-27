@@ -20,7 +20,9 @@
     "node": ">= 16"
   },
   "scripts": {
-    "preinstall": "node check-node.js",
+    "postinstall": "node check-node.js",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier '{src,vetur,types}/**/*.{js,vue,css,json}' --write && stylelint 'src/**/*.css' --fix",
     "lint": "npm run lint:js && npm run lint:css",
