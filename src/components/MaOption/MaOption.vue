@@ -13,12 +13,7 @@
     <ma-text class="description" :tone="tone" :size="size">
       <slot />
     </ma-text>
-    <img
-      v-if="!card && hasError"
-      class="error-icon"
-      :src="require('../../assets/icons/alert-error.svg')"
-      alt="Error"
-    />
+    <div v-if="!card && hasError" class="error-icon" data-testid="error-icon" />
   </label>
 </template>
 
