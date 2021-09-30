@@ -16,7 +16,7 @@
     <img
       v-if="!card && hasError"
       class="error-icon"
-      src="../../assets/icons/alert-error.svg"
+      :src="require('../../assets/icons/alert-error.svg')"
       alt="Error"
     />
   </label>
