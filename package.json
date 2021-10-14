@@ -13,14 +13,13 @@
     "dist",
     "src",
     "types/*.d.ts",
-    "vetur",
-    "check-node.js"
+    "vetur"
   ],
   "engines": {
     "node": ">= 16"
   },
   "scripts": {
-    "preinstall": "node check-node.js",
+    "prepare": "node check-node.js",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier '{src,vetur,types}/**/*.{js,vue,css,json}' --write && stylelint 'src/**/*.css' --fix",
     "lint": "npm run lint:js && npm run lint:css",
