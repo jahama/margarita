@@ -22,6 +22,8 @@ import uuid from '@margarita/utils/uuid'
 
 import availableIcons from './availableIcons'
 
+import { tones } from '../../tokens'
+
 /**
  * Renders an icon component following the Design System guidelines
  *
@@ -86,10 +88,12 @@ export default {
 
     /**
      * Sets icon's color tone
+     * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
      */
     tone: {
       type: String,
       default: 'currentColor',
+      validator: (val) => Object.keys(tones).includes(val),
     },
 
     /**

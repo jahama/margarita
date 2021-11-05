@@ -1,6 +1,7 @@
 import icons from './availableIcons'
 import docs from '../../../docs/components/MaIcon.docs.mdx'
 import MaIcon from './MaIcon'
+import { tones } from '@margarita/tokens'
 
 export default {
   title: 'Components/Icon',
@@ -14,6 +15,12 @@ export default {
       control: {
         type: 'select',
         options: icons,
+      },
+    },
+    tone: {
+      control: {
+        type: 'select',
+        options: Object.keys(tones),
       },
     },
   },
