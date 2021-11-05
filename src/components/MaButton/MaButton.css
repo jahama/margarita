@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s, background-position 0.3s, border-color 0.3s;
+  transition: background-color 0.2s, background-position 0.2s, border-color 0.2s;
   border: 1px solid transparent;
   cursor: pointer;
   padding: 0.5rem;
@@ -47,10 +47,18 @@
   color: var(--color-pink-base);
   text-decoration: underline;
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     text-decoration: none;
     color: var(--color-pink-dark);
+  }
+
+  &:active:not(:disabled) {
+    text-decoration: underline;
+    color: var(--color-pink-light);
+  }
+
+  &:focus:not(:disabled) {
+    border-radius: 0;
   }
 }
 
@@ -64,10 +72,18 @@
   display: inline;
   padding: 0;
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     text-decoration: none;
     color: var(--color-gray-light);
+  }
+
+  &:active:not(:disabled) {
+    text-decoration: underline;
+    color: var(--color-pink-light);
+  }
+
+  &:focus:not(:disabled) {
+    border-radius: 0;
   }
 }
 
@@ -75,14 +91,18 @@
   background-color: var(--color-pink-base);
   color: var(--color-white-base);
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     background-color: var(--color-pink-dark);
     color: var(--color-white-base);
   }
 
+  &:active:not(:disabled) {
+    background-color: var(--color-pink-light);
+    color: var(--color-white-base);
+  }
+
   &.ma-button--rounded {
-    box-shadow: 0 2px 3px 2px var(--shadow-medium);
+    box-shadow: var(--shadow-medium);
   }
 }
 
@@ -91,23 +111,14 @@
   background-color: transparent;
   color: var(--color-pink-base);
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     background-color: var(--color-pink-base);
     color: var(--color-white-base);
   }
 
-  &.ma-button--rounded {
-    border-color: transparent;
-    background-color: transparent;
-    color: var(--color-pink-base);
-
-    &:hover:not(:disabled),
-    &:active:not(:disabled),
-    &.ma-button--loading {
-      background-color: var(--color-pink-light);
-      color: var(--color-pink-base);
-    }
+  &:active:not(:disabled) {
+    background-color: var(--color-pink-light);
+    color: var(--color-white-base);
   }
 }
 
@@ -115,27 +126,17 @@
   border-color: var(--color-white-base);
   background-color: transparent;
   color: var(--color-white-base);
-  text-decoration: underline;
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     background-color: var(--color-pink-base);
     border-color: var(--color-pink-base);
     color: var(--color-white-base);
-    text-decoration: none;
   }
 
-  &.ma-button--rounded {
-    border-color: transparent;
-    background-color: transparent;
+  &:active:not(:disabled) {
+    background-color: var(--color-pink-light);
+    border-color: var(--color-pink-light);
     color: var(--color-white-base);
-
-    &:hover:not(:disabled),
-    &:active:not(:disabled),
-    &.ma-button--loading {
-      border-color: var(--color-gray-lighter);
-      color: var(--color-gray-lighter);
-    }
   }
 }
 
@@ -151,9 +152,12 @@
   background-size: 200% auto;
   color: var(--color-white-base);
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &:hover:not(:disabled) {
     background-position: right center;
+  }
+
+  &:active:not(:disabled) {
+    background-position: initial;
   }
 }
 
