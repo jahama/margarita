@@ -1,9 +1,9 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
-    :viewBox="`0 0 ${viewBoxWidth} ${viewBoxHeight}`"
+    :width="sizingProperties.width"
+    :height="sizingProperties.height"
+    :viewBox="sizingProperties.viewBox"
     class="ma-icon"
     :aria-labelledby="id"
     role="presentation"
@@ -35,7 +35,7 @@ export default {
   props: {
     /**
      * Sets which icon should be displayed
-     * @values AddContract, Arrow, ArrowToEnd, BulbOn, Checkmark, Close, DetailsContract, DownloadContract, EditContract, Exit, Gas, Invoices, Link, Logo, LongArrow, Mail, Phone, Plug, Reassign, ReassignCircle, UploadContract, User,
+     * @values 'ArrowRight', 'ChevronRight', 'ChevronLastPage', 'ChevronFirstPage', 'ArrowDropUp', 'ArrowDropOrder', 'Change', 'Sync', 'Refresh', 'Document', 'DocumentDownload', 'DocumentUpload', 'DocumentInvoice', 'DocumentCopy', 'Add', 'Checkmark', 'Close', 'Edit', 'Exit', 'Link', 'Search', 'List', 'Menu', 'Power', 'More', 'MapPin', 'Filter', 'Play', 'Home', 'View', 'Share', 'Calendar', 'Upload', 'Download', 'Settings', 'Delete', 'Lock', 'CreditCard', 'Deny', 'Person', 'PersonAdd', 'PersonDelete', 'Lightbulb', 'Gas', 'Plug', 'FeedbackSuccess', 'FeedbackError', 'FeedbackWarning', 'FeedbackInfo', 'FeedbackQuestion', 'HelpInfo', 'HelpQuestion', 'FaceSad', 'FaceNeutral', 'FaceHappy', 'ThumbsUp', 'ThumbsDown', 'Phone', 'ChatBubble', 'Email', 'EmailReply', 'Facebook', 'Instagram', 'Lin'ArrowRight', 'ChevronRight', 'ChevronLastPage', 'ChevronFirstPage', 'ArrowDropUp', 'ArrowDropOrder', 'Change', 'Sync', 'Refresh', 'Document', 'DocumentDownload', 'DocumentUpload', 'DocumentInvoice', 'DocumentCopy', 'Add', 'Checkmark', 'Close', 'Edit', 'Exit', 'Link', 'Search', 'List', 'Menu', 'Power', 'More', 'MapPin', 'Filter', 'Play', 'Home', 'View', 'Share', 'Calendar', 'Upload', 'Download', 'Settings', 'Delete', 'Lock', 'CreditCard', 'Deny', 'Person', 'PersonAdd', 'PersonDelete', 'Lightbulb', 'Gas', 'Plug', 'FeedbackSuccess', 'FeedbackError', 'FeedbackWarning', 'FeedbackInfo', 'FeedbackQuestion', 'HelpInfo', 'HelpQuestion', 'FaceSad', 'FaceNeutral', 'FaceHappy', 'ThumbsUp', 'ThumbsDown', 'Phone', 'ChatBubble', 'Email', 'EmailReply', 'Facebook', 'Instagram', 'Linkedin', 'Messenger', 'Twitter', 'Whatsapp', 'Youtube', 'Linkedin', 'Messenger', 'Twitter', 'Whatsapp', 'Youtube', 'Logo'
      */
     icon: {
       type: String,
@@ -55,35 +55,12 @@ export default {
     },
 
     /**
-     * Sets icon's width
+     * Sets icon's size
+     * @values small, medium, large
      */
-    width: {
-      type: [Number, String],
-      default: 20,
-    },
-
-    /**
-     * Sets icon's height
-     */
-    height: {
-      type: [Number, String],
-      default: 20,
-    },
-
-    /**
-     * Sets icon's view box width
-     */
-    viewBoxWidth: {
-      type: [Number, String],
-      default: 24,
-    },
-
-    /**
-     * Sets icon's view box height
-     */
-    viewBoxHeight: {
-      type: [Number, String],
-      default: 24,
+    size: {
+      type: String,
+      default: 'medium',
     },
 
     /**
@@ -113,7 +90,28 @@ export default {
     },
 
     iconName() {
-      return this.title ? this.title : `${this.icon}-icon`
+      return this.title ? this.title : `${this.icon}Icon`
+    },
+
+    sizingProperties() {
+      if (this.size === 'small') {
+        return {
+          width: '16',
+          height: '16',
+          viewBox: '0 0 24 24',
+        }
+      } else if (this.size === 'medium') {
+        return {
+          width: '24',
+          height: '24',
+          viewBox: '0 0 24 24',
+        }
+      }
+      return {
+        width: '32',
+        height: '32',
+        viewBox: '0 0 24 24',
+      }
     },
   },
 }

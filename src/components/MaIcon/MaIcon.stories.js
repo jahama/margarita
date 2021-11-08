@@ -23,6 +23,12 @@ export default {
         options: Object.keys(tones),
       },
     },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
   },
   parameters: {
     docs: { page: docs },
