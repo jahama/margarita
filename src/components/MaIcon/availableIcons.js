@@ -1,20 +1,25 @@
 export default [
   'ArrowRight',
+  'ArrowLeft',
+  'ArrowUp',
+  'ArrowDown',
   'ChevronRight',
+  'ChevronLeft',
+  'ChevronUp',
+  'ChevronDown',
   'ChevronLastPage',
   'ChevronFirstPage',
   'ArrowDropUp',
+  'ArrowDropDown',
   'ArrowDropOrder',
   'Change',
   'Sync',
   'Refresh',
-
   'Document',
   'DocumentDownload',
   'DocumentUpload',
   'DocumentInvoice',
   'DocumentCopy',
-
   'Add',
   'Checkmark',
   'Close',
@@ -40,36 +45,28 @@ export default [
   'Lock',
   'CreditCard',
   'Deny',
-
   'Person',
   'PersonAdd',
   'PersonDelete',
-
   'Lightbulb',
   'Gas',
   'Plug',
-
   'FeedbackSuccess',
   'FeedbackError',
   'FeedbackWarning',
   'FeedbackInfo',
   'FeedbackQuestion',
-
   'HelpInfo',
   'HelpQuestion',
-
   'FaceSad',
   'FaceNeutral',
   'FaceHappy',
-
   'ThumbsUp',
   'ThumbsDown',
-
   'Phone',
   'ChatBubble',
   'Email',
   'EmailReply',
-
   'Facebook',
   'Instagram',
   'Linkedin',
@@ -77,6 +74,5 @@ export default [
   'Twitter',
   'Whatsapp',
   'Youtube',
-
   'Logo',
 ]
