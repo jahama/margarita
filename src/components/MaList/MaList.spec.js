@@ -34,7 +34,7 @@ describe('List', () => {
       const { getByRole, getAllByTitle } = renderComponent({ type: 'check' })
 
       expect(getByRole('list').nodeName).toBe('UL')
-      expect(getAllByTitle('Check icon')).toHaveLength(2)
+      expect(getAllByTitle('Checkmark Icon')).toHaveLength(2)
     })
   })
 
