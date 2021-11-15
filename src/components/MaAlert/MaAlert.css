@@ -24,25 +24,25 @@
 .alert--red {
   --alert-border-color: var(--color-red-base);
   --alert-background-color: var(--color-red-light);
-  --alert-icon: url('../../assets/icons/alert-error.svg');
+  --alert-icon: url('../../assets/icons/FeedbackError.svg');
 }
 
 .alert--blue {
   --alert-border-color: var(--color-blue-base);
   --alert-background-color: var(--color-blue-light);
-  --alert-icon: url('../../assets/icons/info.svg');
+  --alert-icon: url('../../assets/icons/FeedbackInfo.svg');
 }
 
 .alert--green {
   --alert-border-color: var(--color-green-base);
   --alert-background-color: var(--color-green-light);
-  --alert-icon: url('../../assets/icons/rounded-tick.svg');
+  --alert-icon: url('../../assets/icons/FeedbackSuccess.svg');
 }
 
 .alert--yellow {
   --alert-border-color: var(--color-yellow-dark);
   --alert-background-color: var(--color-yellow-light);
-  --alert-icon: url('../../assets/icons/warning.svg');
+  --alert-icon: url('../../assets/icons/FeedbackWarning.svg');
 }
 
 .alert--red a,

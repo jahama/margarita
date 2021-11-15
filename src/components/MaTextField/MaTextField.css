@@ -79,7 +79,7 @@
 }
 
 .ma-text-field__input--error-icon {
-  background-image: url('../../assets/icons/alert-error.svg');
+  background-image: url('../../assets/icons/FeedbackError.svg');
   background-position: calc(100% - 8px) center;
   background-repeat: no-repeat;
   background-size: 20px;
