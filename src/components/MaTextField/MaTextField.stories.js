@@ -80,9 +80,8 @@ const TextFieldWithIconTemplate = (args, { argTypes }) => ({
     <ma-text-field v-bind="$props">
       <ma-button slot="inputSibling">
         <ma-icon
-          icon="Arrow"
-          width="16"
-          height="16"
+          icon="ArrowRight"
+          size="small"
         />
       </ma-button>
     </ma-text-field>
