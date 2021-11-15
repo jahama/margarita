@@ -28,16 +28,7 @@
     "description": "Renders heading following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-heading--heading)"
   },
   "ma-icon": {
-    "attributes": [
-      "icon",
-      "id",
-      "width",
-      "height",
-      "viewBoxWidth",
-      "viewBoxHeight",
-      "tone",
-      "title"
-    ],
+    "attributes": ["icon", "id", "size", "tone", "title"],
     "description": "Renders an icon component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-icon--icon)"
   },
   "ma-layout": {
