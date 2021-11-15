@@ -7,7 +7,7 @@
         class="ma-pagination__button ma-pagination__button--backwards"
         @click="onButtonClick(currentPage - 1)"
       >
-        <ma-icon icon="Arrow" width="16" height="16" />
+        <ma-icon icon="ChevronLeft" size="medium" title="Back" />
       </ma-button>
     </div>
 
@@ -37,7 +37,7 @@
         class="ma-pagination__button ma-pagination__button--forwards"
         @click="onButtonClick(currentPage + 1)"
       >
-        <ma-icon icon="Arrow" width="16" height="16" />
+        <ma-icon icon="ChevronRight" size="medium" title="Next" />
       </ma-button>
     </div>
   </div>
