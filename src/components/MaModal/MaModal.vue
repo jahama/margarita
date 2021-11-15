@@ -37,12 +37,15 @@
               </ma-heading>
               <ma-button
                 ref="closeButton"
-                category="no-background"
+                :category="
+                  headerType === 'gradient'
+                    ? 'no-background-white'
+                    : 'no-background'
+                "
                 data-testid="close-button"
-                class="icon-close"
                 @click="closeModal"
               >
-                <ma-icon icon="Close"> </ma-icon>
+                <ma-icon icon="Close"></ma-icon>
               </ma-button>
             </div>
             <div ref="modal-content" class="modal-content">

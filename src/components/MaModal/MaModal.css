@@ -36,50 +36,15 @@
 }
 
 .modal-header--white {
-  --modal-header-icon-color: var(--color-pink-base);
   padding-bottom: 0;
 }
 
 .modal-header--gradient {
-  --modal-header-icon-color: var(--color-white-base);
   background: linear-gradient(to right, var(--gradient-holaluz));
-
-  & .modal-title {
-    text-align: center;
-  }
 }
 
 .modal-title {
   flex: 1;
-}
-
-.icon-close {
-  border-style: solid;
-  border-width: 1px;
-  padding: 0.4rem;
-  margin-left: var(--spacing-medium);
-  color: var(--modal-header-icon-color);
-  align-self: flex-start;
-}
-
-.icon-close--pink {
-  color: var(--color-pink-base);
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: var(--color-pink-dark);
-  }
-}
-
-.icon-close--white {
-  color: var(--color-white-base);
-
-  &:hover,
-  &:active,
-  &:focus {
-    opacity: 0.75;
-  }
 }
 
 .modal-content {
