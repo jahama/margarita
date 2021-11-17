@@ -94,24 +94,25 @@ export default {
     },
 
     sizingProperties() {
-      if (this.size === 'small') {
-        return {
+      const sizingProperties = {
+        small: {
           width: '16',
           height: '16',
           viewBox: '0 0 24 24',
-        }
-      } else if (this.size === 'medium') {
-        return {
+        },
+        medium: {
           width: '24',
           height: '24',
           viewBox: '0 0 24 24',
-        }
+        },
+        large: {
+          width: '32',
+          height: '32',
+          viewBox: '0 0 24 24',
+        },
       }
-      return {
-        width: '32',
-        height: '32',
-        viewBox: '0 0 24 24',
-      }
+
+      return sizingProperties[this.size]
     },
   },
 }
