@@ -528,9 +528,9 @@
     "type": "boolean",
     "description": "Applies bold weigth to label"
   },
-  "ma-text-field/disabled": {
+  "ma-text-field/readonly": {
     "type": "boolean",
-    "description": "Disables the input element"
+    "description": "Disables the input element but leaves input focusable"
   },
   "ma-text-field/v-model": {
     "type": "string|number",

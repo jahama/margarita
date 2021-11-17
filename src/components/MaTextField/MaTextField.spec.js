@@ -41,9 +41,9 @@ describe('TextField', () => {
   })
 
   test('renders a disabled input', () => {
-    const { input } = renderComponent({ disabled: true })
+    const { input } = renderComponent({ readonly: true })
 
-    expect(input).toBeDisabled()
+    expect(input).toHaveAttribute('readonly', 'readonly')
   })
 
   test('renders custom id', () => {

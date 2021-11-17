@@ -128,7 +128,7 @@
       "label",
       "tone",
       "bold",
-      "disabled",
+      "readonly",
       "v-model",
       "suffix"
     ],
