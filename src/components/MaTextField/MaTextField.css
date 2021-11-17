@@ -35,10 +35,9 @@
   border: 1px solid var(--color-pink-base);
 }
 
-.ma-text-field__input-wrapper--disabled {
+.ma-text-field__input-wrapper--readonly {
   background-color: var(--color-brown-light);
   color: var(--color-gray-base);
-  pointer-events: none;
 }
 
 .ma-text-field__input {
